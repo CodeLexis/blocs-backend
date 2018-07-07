@@ -28,7 +28,7 @@ class FacebookBotHandler(MethodView):
         hub_challenge = request.args.get("hub.challenge")
 
         if not verify_fb_token(token_sent):
-            raise ValueError()
+            raise ValueError('Wrong FB token sent')
 
         return hub_challenge
 

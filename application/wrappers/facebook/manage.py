@@ -4,7 +4,7 @@ from application.core.constants import LANDING_MESSAGE
 
 
 # ACCESS_TOKEN = os.environ['ACCESS_TOKEN']
-ACCESS_TOKEN = 'EAAJUedSagbsBABK7pU94lpizszxiLqwy3Yvbq6TNful3SXx8qawhVCFbug8XGRZB5MLo1r0pIQMxaujfwDB51Ev7FyzDRJ2201FPjrvKSBFtAcZCbrWR9mvaY1U1cweVteqNr75VEF55eZAcpvZA9bm0j9ZCi3kZAhl3kbLtz1rAZDZD'
+ACCESS_TOKEN = 'EAAGTzHZCz6UQBAD34ace0tANWeArDA5Qg0PvZCvHJNsZAJN4fV7ntjX9tQMSfBhAm3AuFnisC53C4uoffITnVlUbpZCa2Eck1ga2dFTfHfBVuqx89J89vzaKB32i5ycpDgIRlBRNg4CNWvhwoubn2hvR3rVoLZBFex2CLfFk9DwZDZD'
 
 # VERIFY_TOKEN = os.environ['VERIFY_TOKEN']
 VERIFY_TOKEN = 'some_verify_token'
@@ -99,6 +99,6 @@ def add_greeting():
 
 
 if __name__ == '__main__':
-    print(add_side_menu())
-    # print(add_get_started())
+    print(add_get_started())
+    # print(add_side_menu())
     # print(add_greeting())
