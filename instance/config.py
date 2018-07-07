@@ -15,9 +15,9 @@ SQLALCHEMY_DATABASE_URI = (
     'mysql+pymysql://tomisin:tomisin10@localhost/blocs_development'
 )
 
-SQLALCHEMY_DATABASE_URI = (
-    'mysql+pymysql://tabiodun:6wEq6bmPiEA5@198.57.223.4/cbs'
-)
+# SQLALCHEMY_DATABASE_URI = (
+#     'mysql+pymysql://tabiodun:6wEq6bmPiEA5@198.57.223.4/cbs'
+# )
 
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 

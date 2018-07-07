@@ -1,8 +1,8 @@
 import logging
 
-from application.core.models import (Author, DisruptivPlatform,
-    DisruptivPlatformCategory, NewsSource, Reader, Section,
-    SocialMediaAccount)
+# from application.core.models import (Author, DisruptivPlatform,
+#     DisruptivPlatformCategory, NewsSource, Reader, Section,
+#     SocialMediaAccount)
 
 
 def orm_get_author_by_name(name):

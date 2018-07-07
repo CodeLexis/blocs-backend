@@ -2,12 +2,12 @@ import random
 
 from flask import g, request
 
-from application.articles.helpers import (get_existing_section_headlines,
-                                          get_existing_news_source_headlines)
-from application.readers.helpers import get_reader_brief_sources
-from application.core.constants import SECTIONS
-from application.core.models import NewsSource, Section
-from application.core.utils import get_app_icon_url, get_section_thumbnail
+# from application.articles.helpers import (get_existing_section_headlines,
+#                                           get_existing_news_source_headlines)
+# from application.readers.helpers import get_reader_brief_sources
+# from application.core.constants import SECTIONS
+# from application.core.models import NewsSource, Section
+# from application.core.utils import get_app_icon_url, get_section_thumbnail
 from .dialogue import Dialogue
 
 

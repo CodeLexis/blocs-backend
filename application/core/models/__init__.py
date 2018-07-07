@@ -215,7 +215,7 @@ class Skill(BaseModel, HasUID, LookUp):
     description = None
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
-    user = db.relationshihp(
+    user = db.relationship(
         'User', backref=db.backref('users', uselist=True),
         uselist=True)
 

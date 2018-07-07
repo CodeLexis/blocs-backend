@@ -1,9 +1,9 @@
 from flask import Blueprint
 
 
-web = Blueprint('web', __name__)
+web_blueprint = Blueprint('web_blueprint', __name__, url_prefix='')
 
 
-@web.route('')
+@web_blueprint.route('/')
 def render_hi():
-    return
+    return 'Welcome to Blocs!'

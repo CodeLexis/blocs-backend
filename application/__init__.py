@@ -19,9 +19,11 @@ def _bind_request_contexts_handlers(app, blueprint):
 def _setup_blueprints(app):
     from application.modules.api import api_blueprint
     from application.modules.bots import bots_blueprint
+    from application.modules.web import web_blueprint
 
     app.register_blueprint(api_blueprint)
     app.register_blueprint(bots_blueprint)
+    app.register_blueprint(web_blueprint)
 
     # _bind_request_contexts_handlers(app, api_blueprint)
 
