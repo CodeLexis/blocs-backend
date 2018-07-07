@@ -1,3 +1,6 @@
+import os
+
+
 BROKER_URL = 'redis://localhost:6379'
 CELERY_INCLUDE = ['tasks']
 CELERY_RESULT_BACKEND = 'redis://localhost:6379'
@@ -15,9 +18,12 @@ SQLALCHEMY_DATABASE_URI = (
     'mysql+pymysql://tomisin:tomisin10@localhost/blocs_development'
 )
 
-# SQLALCHEMY_DATABASE_URI = (
-#     'mysql+pymysql://tabiodun:6wEq6bmPiEA5@198.57.223.4/cbs'
-# )
+if os.environ['RUNNING_MODE'] == 'production':
+    SQLALCHEMY_DATABASE_URI = (
+        'postgres://eunvkeurmtiqms:'
+        '040f7c59537f4966783680490afd00e79eca1d76ec316825a1217fe8df71d7d3@'
+        'ec2-184-73-199-189.compute-1.amazonaws.com:5432/deg37l3nadk5ri'
+    )
 
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 
