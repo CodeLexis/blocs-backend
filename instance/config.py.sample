@@ -1,0 +1,4 @@
+SQLALCHEMY_DATABASE_URI = (
+    'mysql+pymysql://acetakwas:password@localhost/cbs'
+)
+SQLALCHEMY_TRACK_MODIFICATIONS = False

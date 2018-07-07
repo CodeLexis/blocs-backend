@@ -1,0 +1,10 @@
+flask
+flask-migrate
+flask-sqlalchemy
+gunicorn
+psycopg2
+pygithub
+pymessenger
+pymysql
+shortuuid
+udacity
