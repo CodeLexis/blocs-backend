@@ -206,7 +206,6 @@ class School(BaseModel, HasUID):
     __tablename__ = 'schools'
 
     name = db.Column(db.String(64))
-    category = db.Column(db.Enum(*PROGRAMMING_LANGUAGES))
 
 
 class Skill(BaseModel, HasUID, LookUp):
