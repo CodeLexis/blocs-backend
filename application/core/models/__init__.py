@@ -161,7 +161,7 @@ class Job(BaseModel, HasUID):
     salary_amount = db.Column(AMOUNT_FIELD)
     salary_interval = db.Column(db.String(128))
     duration = db.Column(
-        db.Enum('SHORT TERM', 'FULL-TIME', 'PART-TIME', name=''))
+        db.Enum('SHORT TERM', 'FULL-TIME', 'PART-TIME', name='job_durations'))
 
     bloc = db.relationship(
         'Bloc', backref=db.backref('jobs', uselist=True), uselist=False)
