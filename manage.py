@@ -19,6 +19,9 @@ def pump_status_table():
     )
 
     for status in status_modes_and_ids:
+        if Status.get(name=status) is not None:
+            continue
+
         status = Status(name=status)
         status.save()
 
@@ -31,7 +34,11 @@ def pump_blocs_platform_table():
     blocs_platforms = ['Facebook Bot']
 
     for platform in blocs_platforms:
+        if BlocsPlatform.get(name=platform) is not None:
+            continue
+
         BlocsPlatform(name=platform).save()
+        # BlocsPlatform(name=platform).save()
 
 
 @manager.command

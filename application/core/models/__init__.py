@@ -58,17 +58,16 @@ class LookUp(object):
 class BaseModel(db.Model):
     __abstract__ = True
 
-    created_at = db.Column(db.DateTime, default=datetime.now)
     id = db.Column(db.Integer, primary_key=True)
+
+    created_at = db.Column(db.DateTime, default=datetime.now)
     uid = db.Column(db.String(64))
 
-    @classmethod
     def save(self):
         self.uid = shortuuid.uuid()
         db.session.add(self)
         db.session.commit()
 
-    @classmethod
     def update(self, **kwargs):
         for k, v in kwargs.items():
             setattr(self, k, v)
@@ -76,8 +75,8 @@ class BaseModel(db.Model):
         db.session.commit()
 
     @classmethod
-    def get(self, **kwargs):
-        return self.query.filter_by(**kwargs).first()
+    def get(cls, **kwargs):
+        return cls.query.filter_by(**kwargs).first()
 
     @classmethod
     def query_for_active(cls, _desc=False, **kwargs):
@@ -121,7 +120,7 @@ class BlocMembership(BaseModel):
         uselist=False)
 
 
-class BlocsPlatform(BaseModel, LookUp):
+class BlocsPlatform(BaseModel, LookUp, HasStatus):
     __tablename__ = 'blocs_platforms'
 
     description = None
@@ -272,7 +271,8 @@ class User(BaseModel, HasUID):
     external_app_uid = db.Column(db.String(64))
     bio = db.Column(db.String(128))
     location = db.Column(db.String(64))
-    blocs_platform = db.Column(db.String(16))
+    blocs_platform_id = db.Column(
+        db.Integer, db.ForeignKey('blocs_platforms.id'))
 
     def as_json(self):
         return {

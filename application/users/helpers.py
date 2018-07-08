@@ -19,10 +19,10 @@ def add_user_software_branch(branch_id):
     ).save()
 
 
-def create_new_user(first_name, last_name, uid, blocs_platform):
+def create_new_user(first_name, last_name, uid, blocs_platform_id):
     User(
         first_name=first_name,
         last_name=last_name,
         external_app_uid=uid,
-        blocs_platform=blocs_platform
+        blocs_platform_id=blocs_platform_id
     ).save()
