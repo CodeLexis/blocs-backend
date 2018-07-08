@@ -3,6 +3,9 @@ from application.core.models import Bloc, Event
 from application.core.models import (prep_paginate_query, get_pagination_meta)
 
 
+EVENT_CREATION_STEPS = ['title', 'description', 'time', 'venue']
+
+
 def create_event(bloc_uid, title, description, venue, datetime):
     bloc = Bloc.get(uid=bloc_uid)
     if bloc is None:

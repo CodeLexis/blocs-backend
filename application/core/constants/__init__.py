@@ -15,3 +15,4 @@ STATUSES = ('active', 'deleted')
 SUPPORTED_HTTP_METHODS = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']
 LANDING_MESSAGE = (
     'Facebook, tailored to suit the Developer.')
+LANDING_MESSAGE = ('Alternate version of Facebook, for the Developer.')

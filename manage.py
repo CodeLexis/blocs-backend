@@ -2,7 +2,7 @@
 from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager
 
-from application.core.models import Status
+from application.core.models import BlocsPlatform, Status
 from app_setup import application, db
 
 
@@ -24,6 +24,14 @@ def pump_status_table():
 
     # change the last one, which is 'Deleted'
     status.update(id=99)
+
+
+@manager.command
+def pump_blocs_platform_table():
+    blocs_platforms = ['Facebook Bot']
+
+    for platform in blocs_platforms:
+        BlocsPlatform(name=platform).save()
 
 
 @manager.command

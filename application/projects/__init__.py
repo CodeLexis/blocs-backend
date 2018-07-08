@@ -3,6 +3,9 @@ from application.core.models import Bloc, Project, User
 from application.core.models import prep_paginate_query, get_pagination_meta
 
 
+PROJECT_CREATION_STEPS = ['title', 'description', 'link']
+
+
 def create_bloc_project(user_uid, bloc_uid, title, description, url):
     bloc = Bloc.get(uid=bloc_uid)
     if bloc is None:

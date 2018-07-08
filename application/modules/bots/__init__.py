@@ -10,7 +10,7 @@ import requests
 from application.conversations.helpers import (
     get_response, save_message, to_send_response)
 from application.core.models.helpers import (
-    orm_get_disruptiv_platform_by_name, orm_get_reader_by_platform_user_id)
+    orm_get_blocs_platform_by_name, orm_get_user_by_platform_uid)
 from application.wrappers.facebook.helpers import (verify_fb_token,
     send_message)
 
@@ -21,7 +21,7 @@ bots_blueprint = Blueprint('bots', __name__, url_prefix='/bots')
 class FacebookBotHandler(MethodView):
     @property
     def platform(self):
-        return orm_get_disruptiv_platform_by_name('Facebook Bot')
+        return orm_get_blocs_platform_by_name('Facebook Bot')
 
     def get(self):
         token_sent = request.args.get("hub.verify_token")
@@ -44,7 +44,7 @@ class FacebookBotHandler(MethodView):
                 recipient_id = message['sender']['id']
 
                 g.user = (
-                    orm_get_reader_by_platform_user_id(
+                    orm_get_user_by_platform_uid(
                         self.platform.id, recipient_id)
                 )
 
@@ -52,7 +52,6 @@ class FacebookBotHandler(MethodView):
                     response = [('text', "Hi! Welcome to Blocs B)")]
 
                 if message.get('message'):
-
                     text = message['message'].get('text')
                     attachments = message['message'].get('attachments')
                     sticker_id = message['message'].get('sticker_id')

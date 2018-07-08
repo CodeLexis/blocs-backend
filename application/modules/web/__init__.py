@@ -1,7 +1,13 @@
 from flask import Blueprint
+from flask import render_template, request
 
 
 web_blueprint = Blueprint('web_blueprint', __name__, url_prefix='')
+
+
+from .blocs import *
+from .events import *
+from .jobs import *
 
 
 @web_blueprint.route('/')

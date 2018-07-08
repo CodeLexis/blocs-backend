@@ -1,5 +1,6 @@
 import logging
 
+from application.core.models import BlocsPlatform, User
 # from application.core.models import (Author, DisruptivPlatform,
 #     DisruptivPlatformCategory, NewsSource, Reader, Section,
 #     SocialMediaAccount)
@@ -9,8 +10,8 @@ def orm_get_author_by_name(name):
     return Author.get(name=name)
 
 
-def orm_get_disruptiv_platform_by_name(name):
-    return DisruptivPlatform.get(name=name)
+def orm_get_blocs_platform_by_name(name):
+    return BlocsPlatform.get(name=name)
 
 
 def orm_get_new_sources_by_category(category):
@@ -25,11 +26,11 @@ def orm_get_social_media_account_by_username(social_media_name,
         username=social_media_username).first()
 
 
-def orm_get_reader_by_platform_user_id(disruptiv_platform_id, uid):
-    return Reader.query.order_by(
-        Reader.created_at.desc()
+def orm_get_user_by_platform_uid(blocs_platform_id, uid):
+    return User.query.order_by(
+        User.created_at.desc()
     ).filter_by(
-        disruptiv_platform_id=disruptiv_platform_id,
+        blocs_platform_id=blocs_platform_id,
         uid=uid
     ).first()
 

@@ -90,15 +90,22 @@ class BaseModel(db.Model):
         return query.all()
 
 
-class Article(BaseModel, HasUID):
-    __tablename__ = 'articles'
-    
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-
-
 class Bloc(BaseModel, HasUID, LookUp):
     __tablename__ = 'blocs'
 
+    created_by = db.Column(db.Integer, db.ForeignKey('users.id'))
+    is_private = db.Column(db.Boolean, default=False)
+    invite_code = db.Column(db.String(6))
+    theme_color = db.Column(db.String(16))
+
+    def generate_invite_code(self):
+        raise NotImplementedError
+
+    def set_invite_code(self, _code=None):
+        if _code is not None:
+            _code = self.generate_invite_code()
+
+        self.invite_code = _code
 
 class BlocMembership(BaseModel):
     __tablename__ = 'bloc_memberships'
@@ -112,6 +119,10 @@ class BlocMembership(BaseModel):
     bloc = db.relationship(
         'Bloc', backref=db.backref('bloc_memberships', uselist=True),
         uselist=False)
+
+
+class BlocsPlatform(BaseModel, LookUp):
+    __tablename__ = 'blocs_platforms'
 
 
 class BlocTag(BaseModel, LookUp):
@@ -128,6 +139,13 @@ class BlocTag(BaseModel, LookUp):
 class Course(BaseModel, HasUID):
     __tablename__ = 'courses'
 
+    title = db.Column(db.String(128), )
+    description = db.Column(db.TEXT)
+    created_by_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+
+    created_by = db.relationship(
+        'User', backref=db.backref('courses', uselist=True))
+
     source_category = db.Column(
         db.Enum(
             'SOCIAL MEDIA', 'ONLINE SCHOOL', name='course_source_categories')
@@ -135,6 +153,13 @@ class Course(BaseModel, HasUID):
     source = db.Column(
         db.Enum('FACEBOOK', 'UDACITY', name='course_sources')
     )
+
+    def as_json(self):
+        return {
+            'title': self.title,
+            'description': self.description,
+            'created_by': self.created_by.as_json()
+        }
 
 
 class Event(BaseModel, HasUID):
@@ -158,7 +183,8 @@ class Job(BaseModel, HasUID):
     title = db.Column(db.String(128))
     location = db.Column(db.String(128))
     description = db.Column(db.TEXT)
-    salary_amount = db.Column(AMOUNT_FIELD)
+    min_salary = db.Column(AMOUNT_FIELD)
+    max_salary = db.Column(AMOUNT_FIELD)
     salary_interval = db.Column(db.String(128))
     duration = db.Column(
         db.Enum('SHORT TERM', 'FULL-TIME', 'PART-TIME', name='job_durations'))

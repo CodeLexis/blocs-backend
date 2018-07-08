@@ -13,6 +13,10 @@ from .dialogue import Dialogue
 
 class Collections(object):
     @classmethod
+    def all_blocs(cls, branch):
+        raise NotImplementedError()
+
+    @classmethod
     def all_courses(cls, page=1, _tailored=False):
         return
 

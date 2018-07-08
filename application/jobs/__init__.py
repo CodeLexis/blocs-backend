@@ -3,8 +3,8 @@ from application.core.models import Bloc, Job
 from application.core.models import (prep_paginate_query, get_pagination_meta)
 
 
-def create_job(bloc_uid, title, description, salary_amount, salary_interval,
-        duration, location, weblink):
+def create_job(bloc_uid, title, description, min_salary, max_salary,
+               salary_interval, duration, location, weblink):
 
     bloc = Bloc.get(uid=bloc_uid)
     if bloc is None:
@@ -12,8 +12,9 @@ def create_job(bloc_uid, title, description, salary_amount, salary_interval,
 
     job = Job(
         bloc_id=bloc.id, title=title, description=description,
-        salary_amount=salary_amount, salary_interval=salary_interval,
-        duration=duration, location=location, weblink=weblink)
+        min_salary=min_salary, max_salary=max_salary,
+        salary_interval=salary_interval, duration=duration,
+        location=location, weblink=weblink)
 
     job.save()
 

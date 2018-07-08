@@ -1,0 +1,1 @@
+COURSE_CREATION_STEPS = ['title', 'description']

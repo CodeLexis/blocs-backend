@@ -4,7 +4,7 @@ from application.core.constants import LANDING_MESSAGE
 
 
 # ACCESS_TOKEN = os.environ['ACCESS_TOKEN']
-ACCESS_TOKEN = 'EAAGTzHZCz6UQBAD34ace0tANWeArDA5Qg0PvZCvHJNsZAJN4fV7ntjX9tQMSfBhAm3AuFnisC53C4uoffITnVlUbpZCa2Eck1ga2dFTfHfBVuqx89J89vzaKB32i5ycpDgIRlBRNg4CNWvhwoubn2hvR3rVoLZBFex2CLfFk9DwZDZD'
+ACCESS_TOKEN = 'EAAGTzHZCz6UQBABxWs72JZAVySh8ZC7y55wsGx5hZBmDH0cTGCZBDa4vGGweLjRJJjezBgk8J8OiLlyEfcWpdkck74EEK7xK6SKc9zJEilYXGH5cC6wR7ZCFbAhYir4OZCpWtH5RxT4Cn2ipZCLZC9louZCSEpUUqU2hjQI5WAFCMr2wZDZD'
 
 # VERIFY_TOKEN = os.environ['VERIFY_TOKEN']
 VERIFY_TOKEN = 'some_verify_token'
@@ -22,33 +22,38 @@ side_menu_payload = {
             "composer_input_disabled": False,
             "call_to_actions": [
                 {
-                    "title": "Events",
+                    "title": "Blocs",
                     "type": "postback",
-                    "payload": "DISPLAY_ALL_EVENTS"
+                    "payload": "DISPLAY_ALL_BLOCS"
                 },
                 {
-                    "title": "Jobs",
+                    "title": "Courses",
                     "type": "postback",
-                    "payload": "DISPLAY_ALL_JOBS"
+                    "payload": "DISPLAY_ALL_COURSES"
                 },
                 {
                     "title": "More",
                     "type": "nested",
                     "call_to_actions": [
                         {
-                            "title": "Courses",
+                            "title": "Events",
                             "type": "postback",
-                            "payload": "DISPLAY_ALL_COURSES"
+                            "payload": "DISPLAY_ALL_EVENTS"
                         },
                         {
-                            "title": "Projects",
+                            "title": "Jobs",
                             "type": "postback",
-                            "payload": "DISPLAY_ALL_PROJECTS"
+                            "payload": "DISPLAY_ALL_JOBS"
                         },
                         {
                             "title": "More",
                             "type": "nested",
                             "call_to_actions": [
+                                {
+                                    "title": "Projects",
+                                    "type": "postback",
+                                    "payload": "DISPLAY_ALL_PROJECTS"
+                                },
                                 {
                                     "title": "Feeds",
                                     "type": "postback",

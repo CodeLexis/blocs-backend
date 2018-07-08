@@ -8,11 +8,9 @@ class Monologue(object):
     def welcome(cls):
         welcome_statements = [
             "%s, welcome to Blocs! B)" % g.user.first_name,
-            "I would tailor all of Facebook, to make you the best developer "
-            "ever.",
-            "From taking classes with Facebook Live, to instantly getting help "
-            "from developers across the world, seamlessly finding the right "
-            "jobs & events.",
+            "Imagine taking classes with Facebook Live, instantly get help from"
+            " developers across the world, seamlessly finding the right jobs & "
+            "events.",
             "All from the comfort of Messenger. You're welcome! :O)"
         ]
 
@@ -44,6 +42,14 @@ class Monologue(object):
             ':">'
         ]
         return random.choice(blushes)
+
+    @classmethod
+    def ask_for_course_title(cls):
+        return "What are you planning to teach?"
+
+    @classmethod
+    def ask_for_event_title(cls):
+        return "What event are you hosting?"
 
     @classmethod
     def compliment(cls):
@@ -83,6 +89,13 @@ class Monologue(object):
             'Forever at your service'
         ]
         return random.choice(random_statements)
+
+    @classmethod
+    def request_location(cls, scope=None):
+        if scope:
+            return "Would you rather like to see {} around you?".format(scope)
+
+        return
 
     @classmethod
     def thank(cls):
