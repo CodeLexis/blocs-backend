@@ -7,7 +7,7 @@ from application.core import db
 from application.core.constants import SOFTWARE_BRANCHES
 from application.core.models import (BlocsPlatform, Conversation, Course,
     Message, SoftwareBranch)
-from application import courses, events, projects
+from application import courses, events, location, projects
 from application.users.helpers import (add_course_to_offered,
     add_user_software_branch, create_new_user)
 from application.wrappers.facebook.helpers import get_user_profile
@@ -20,16 +20,24 @@ def set_conversation_course(title, index, response_type):
 def handle_payload(sender_id, payload, platform='Facebook Bot'):
     response = list()
 
+    if isinstance(payload, dict):
+        if list(payload.keys())[0] == 'coordinates':
+            user_location_coordinates = payload['coordinates']
+
+            location.save_new_location(user_location_coordinates)
+
+            response.append(('text', Monologue.process_completion()))
+
     if payload == 'GET_STARTED_PAYLOAD':
         user_profile = get_user_profile(sender_id)
 
-        blocs_platform = BlocsPlatform.get(platform=platform)
+        blocs_platform = BlocsPlatform.get(name=platform)
 
         create_new_user(
             first_name=user_profile.pop('first_name'),
             last_name=user_profile.pop('last_name'),
             uid=user_profile.pop('id'),
-            blocs_platform_id=platform
+            blocs_platform_id=blocs_platform.id
         )
 
         welcome = Monologue.welcome()
@@ -60,8 +68,7 @@ def handle_payload(sender_id, payload, platform='Facebook Bot'):
         )
         response.append(('generic', Collections.all_blocs(branch)))
         response.append(('text', Monologue.request_location(scope='Blocs')))
-        response.append(
-            ('quick_reply', Dialogue.get_location()))
+        response.append(('quick_reply', Dialogue.get_location()))
 
     ### COURSES
     elif payload.startswith('CREATE_COURSE'):

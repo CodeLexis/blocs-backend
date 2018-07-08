@@ -204,6 +204,21 @@ class Job(BaseModel, HasUID):
         'Bloc', backref=db.backref('jobs', uselist=True), uselist=False)
 
 
+class Location(BaseModel):
+    __tablename__ = 'locations'
+
+    coordinates = db.Column(db.String(32))
+    address = db.Column(db.String(128))
+    country = db.Column(db.String(32))
+    state = db.Column(db.String(32))
+
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+
+    user = db.relationship(
+        'User', backref=db.backref('locations', uselist=True),
+        uselist=False)
+
+
 class Message(BaseModel):
     __tablename__ = 'messages'
 
@@ -251,6 +266,22 @@ class Project(BaseModel, HasUID):
         uselist=False)
 
 
+class ProjectAuthor(BaseModel, HasUID):
+    __tablename__  = 'project_authors'
+
+    bloc_id = db.Column(db.Integer, db.ForeignKey('blocs.id'))
+    project_id = db.Column(db.Integer, db.ForeignKey('projects.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+
+    bloc = db.relationship(
+        'Bloc', backref=db.backref('project_authors', uselist=True),
+        uselist=False)
+
+    user = db.relationship(
+        'User', backref=db.backref('project_authors', uselist=True),
+        uselist=False)
+
+
 class School(BaseModel, HasUID):
     __tablename__ = 'schools'
 
@@ -292,7 +323,6 @@ class User(BaseModel, HasUID):
     username = db.Column(db.String(64))
     external_app_uid = db.Column(db.String(64))
     bio = db.Column(db.String(128))
-    location = db.Column(db.String(64))
     blocs_platform_id = db.Column(
         db.Integer, db.ForeignKey('blocs_platforms.id'))
 
@@ -302,19 +332,3 @@ class User(BaseModel, HasUID):
             'bio': self.bio,
             'location': self.location
         }
-
-
-class ProjectAuthor(BaseModel, HasUID):
-    __tablename__  = 'project_authors'
-
-    bloc_id = db.Column(db.Integer, db.ForeignKey('blocs.id'))
-    project_id = db.Column(db.Integer, db.ForeignKey('projects.id'))
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-
-    bloc = db.relationship(
-        'Bloc', backref=db.backref('project_authors', uselist=True),
-        uselist=False)
-
-    user = db.relationship(
-        'User', backref=db.backref('project_authors', uselist=True),
-        uselist=False)

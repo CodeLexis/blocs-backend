@@ -56,4 +56,6 @@ class Dialogue(object):
 
     @classmethod
     def get_location(self):
-        raise NotImplementedError()
+        return {
+            "content_type": "location"
+        }
