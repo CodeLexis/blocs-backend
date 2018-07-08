@@ -5,7 +5,8 @@ from .monologue import Monologue
 from .collections import Collections
 from application.core import db
 from application.core.constants import SOFTWARE_BRANCHES
-from application.core.models import BlocsPlatform, Course, SoftwareBranch
+from application.core.models import (BlocsPlatform, Course, Message,
+    SoftwareBranch)
 from application import courses, events, projects
 from application.users.helpers import (add_course_to_offered,
     add_user_software_branch, create_new_user)

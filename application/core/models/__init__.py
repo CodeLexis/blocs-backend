@@ -194,6 +194,18 @@ class Job(BaseModel, HasUID):
         'Bloc', backref=db.backref('jobs', uselist=True), uselist=False)
 
 
+class Message(BaseModel):
+    __tablename__ = 'messages'
+
+    conversation_id = db.Column(db.Integer,
+                                db.ForeignKey('conversations.id'))
+    origin = db.Column(db.Enum('RECEIVED', 'SENT', name='origin'))
+    content = db.Column(db.TEXT)
+
+    conversation = db.relationship(
+        'Conversation', backref=db.backref('messages', uselist=True), lazy='joined')
+
+
 class Post(BaseModel, HasUID):
     __tablename__ = 'posts'
 
