@@ -210,6 +210,7 @@ def save_message(response):
         conversation = g.user.conversations[0]
     except:
         conversation = Conversation(user_id=g.user.id)
+        conversation.save()
 
     Message(
         content=str(response), conversation_id=conversation.id,
