@@ -38,6 +38,8 @@ def pump_blocs_platform_table():
 def run_all_commands():
     print('status')
     pump_status_table()
+    print('blocs platforms')
+    pump_blocs_platform_table()
 
 
 if __name__ == "__main__":

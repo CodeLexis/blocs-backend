@@ -124,6 +124,8 @@ class BlocMembership(BaseModel):
 class BlocsPlatform(BaseModel, LookUp):
     __tablename__ = 'blocs_platforms'
 
+    description = None
+
 
 class BlocTag(BaseModel, LookUp):
     __tablename__ = 'bloc_tags'
