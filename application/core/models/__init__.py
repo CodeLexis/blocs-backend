@@ -282,7 +282,8 @@ class User(BaseModel, HasUID):
 
 class ProjectAuthor(BaseModel, HasUID):
     __tablename__  = 'project_authors'
-    
+
+    bloc_id = db.Column(db.Integer, db.ForeignKey('blocs.id'))
     project_id = db.Column(db.Integer, db.ForeignKey('projects.id'))
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
