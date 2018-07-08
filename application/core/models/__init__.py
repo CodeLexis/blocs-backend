@@ -137,6 +137,16 @@ class BlocTag(BaseModel, LookUp):
         uselist=False)
 
 
+class Conversation(BaseModel):
+    __tablename__ = 'conversations'
+
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+
+    user = db.relationship(
+        'User', backref=db.backref('conversations', uselist=True),
+        lazy='joined')
+
+
 class Course(BaseModel, HasUID):
     __tablename__ = 'courses'
 
