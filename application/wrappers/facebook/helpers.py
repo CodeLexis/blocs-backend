@@ -85,7 +85,7 @@ def set_typing_on():
         "https://graph.facebook.com/v2.6/me/messages?access_token=%s".format(
             ACCESS_TOKEN),
         headers={'content-type': 'application/json'},
-        payload={
+        data={
             'recipient': {'id': FACEBOOK_PAGE_ID},
             'sender_action': 'typing_on'
         }
