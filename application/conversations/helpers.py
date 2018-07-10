@@ -17,15 +17,19 @@ def set_conversation_course(title, index, response_type):
     return
 
 
-def handle_payload(sender_id, payload, platform='Facebook Bot'):
+def handle_attachment(attachments):
     response = list()
 
-    print("RECEIVED: {}".format(payload))
-    if isinstance(payload, dict):
-        if list(payload.keys())[0] == 'coordinates':
+    for attachment in attachments:
+
+        if attachment['type'] == 'location':
+            payload = attachment['payload']
+
             user_location_coordinates = payload['coordinates']
 
-            location.save_new_location(user_location_coordinates)
+            location.save_new_location(
+                title=attachment['title'],
+                coordinates=user_location_coordinates)
 
             response.append(('text', Monologue.compliment_location()))
 
@@ -38,6 +42,12 @@ def handle_payload(sender_id, payload, platform='Facebook Bot'):
                         _location_id=location.get_user_state_locale(g.user).id)
                 )
             )
+
+    return response
+
+
+def handle_payload(sender_id, payload, platform='Facebook Bot'):
+    response = list()
 
     elif isinstance(payload, str):
         if payload == 'GET_STARTED_PAYLOAD':
@@ -202,6 +212,9 @@ def get_response(sender_id, platform, text=None, attachments=None, nlp=None,
 
     elif payload:
         response = handle_payload(sender_id, payload)
+
+    elif attachments:
+        response = handle_attachment(attachments)
 
     elif nlp and 'greetings' in list(nlp.keys()):
         response.append(('text', Monologue.greet()))

@@ -214,6 +214,7 @@ class Job(BaseModel, HasUID):
 class Location(BaseModel):
     __tablename__ = 'locations'
 
+    title = db.Column(db.String(128))
     coordinates = db.Column(db.String(32))
     address = db.Column(db.String(128))
     country = db.Column(db.String(32))

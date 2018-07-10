@@ -12,7 +12,7 @@ def get_user_state_locale(user):
     return Location.get(country=None, state=user.location.state, town=None)
 
 
-def save_new_location(coordinates):
+def save_new_location(title, coordinates):
     location_details = requests.get(
         API_URL,
         params={
@@ -29,6 +29,7 @@ def save_new_location(coordinates):
     town = details['address_components'][-4]['long_name']
 
     location = Location(
+        title=title,
         coordinates=coordinates,
         address=address,
         country=country,

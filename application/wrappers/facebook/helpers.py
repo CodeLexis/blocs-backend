@@ -69,25 +69,14 @@ def send_quick_reply(recipient_id, text_quick_reply_options):
     return bot.send_raw(payload)
 
 
-def set_typing_on():
-#     curl - X
-#     POST - H
-#     "Content-Type: application/json" - d
-#     '{
-#     "recipient": {
-#         "id": "<PSID>"
-#     },
-#     "sender_action": "typing_on"
-#
-# }'
-
+def set_typing_on(recipient_id):
     return requests.post(
         "https://graph.facebook.com/v2.6/me/messages?access_token=%s".format(
             ACCESS_TOKEN),
         headers={'content-type': 'application/json'},
         data={
-            'recipient': {'id': FACEBOOK_PAGE_ID},
-            'sender_action': 'typing_on'
+            "recipient": {"id": recipient_id},
+            "sender_action": "typing_on"
         }
     ).content
 
