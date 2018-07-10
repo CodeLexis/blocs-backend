@@ -69,8 +69,21 @@ def send_quick_reply(recipient_id, text_quick_reply_options):
     return bot.send_raw(payload)
 
 
+def send_read_receipt(recipient_id):
+    print(
+        'SEND READ RECEIPT: %s' % requests.post(
+        "https://graph.facebook.com/v2.6/me/messages?access_token=%s".format(
+            ACCESS_TOKEN),
+        headers={'content-type': 'application/json'},
+        data={
+            "recipient": {"id": recipient_id},
+            "sender_action": "mark_seen"
+        }
+    ).content)
+
+
 def set_typing_on(recipient_id):
-    return requests.post(
+    print('SET TYPING ON: %s' % requests.post(
         "https://graph.facebook.com/v2.6/me/messages?access_token=%s".format(
             ACCESS_TOKEN),
         headers={'content-type': 'application/json'},
@@ -78,7 +91,7 @@ def set_typing_on(recipient_id):
             "recipient": {"id": recipient_id},
             "sender_action": "typing_on"
         }
-    ).content
+    ).content)
 
 
 def get_user_profile(user_id):

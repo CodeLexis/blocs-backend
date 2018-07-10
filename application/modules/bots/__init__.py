@@ -14,7 +14,7 @@ from application.core.models.helpers import (
     orm_get_blocs_platform_by_name, orm_get_user_by_platform_uid)
 from application.core.utils.helpers import get_typing_duration
 from application.wrappers.facebook.helpers import (verify_fb_token,
-    send_message, set_typing_on)
+    send_message, send_read_receipt, set_typing_on)
 
 
 bots_blueprint = Blueprint('bots', __name__, url_prefix='/bots')
@@ -93,6 +93,7 @@ class FacebookBotHandler(MethodView):
                 if response is not None:
                     if to_send_response(response):
                         for reply in response:
+                            send_read_receipt(recipient_id)
                             set_typing_on(recipient_id)
                             time.sleep(get_typing_duration(*reply))
                             send_message(recipient_id, reply)

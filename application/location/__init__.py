@@ -1,3 +1,5 @@
+from json import loads
+
 from flask import g
 import requests
 
@@ -13,13 +15,16 @@ def get_user_state_locale(user):
 
 
 def save_new_location(title, coordinates):
-    location_details = requests.get(
-        API_URL,
-        params={
-            'latlng': '{},{}'.format(coordinates['lat'], coordinates['long']),
-            'sensor': 'true'
-        }
-    ).content
+    location_details = loads(
+        requests.get(
+            API_URL,
+            params={
+                'latlng': '{},{}'.format(
+                    coordinates['lat'], coordinates['long']),
+                'sensor': 'true'
+            }
+        ).content
+    )
 
     details = location_details['results']
 
