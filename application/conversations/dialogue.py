@@ -1,7 +1,12 @@
+from .monologue import Monologue
+
+
 class Dialogue(object):
+    LOCATION = '__LOCATION__'
+
     @classmethod
     def __wrap_quick_reply_option(cls, text=None, payload=None, image_url=None,
-                                  template=None):
+                                  template=None, is_location=False):
 
         if template:
             return {"content_type": template}
@@ -11,6 +16,9 @@ class Dialogue(object):
         if image_url is not None:
             wrap['image_url'] = image_url
 
+        if is_location:
+            wrap = {"content_type": "location"}
+
         return wrap
 
     @classmethod
@@ -18,7 +26,10 @@ class Dialogue(object):
         replies = []
 
         for text, payload in texts_and_payloads:
-            qr = cls.__wrap_quick_reply_option(text, payload)
+            is_location = ((text, payload) == cls.LOCATION)
+
+            qr = cls.__wrap_quick_reply_option(
+                text, payload, is_location=is_location)
             replies.append(qr)
 
         return (title, replies)
@@ -55,7 +66,5 @@ class Dialogue(object):
         return results
 
     @classmethod
-    def get_location(self):
-        return {
-            "content_type": "location"
-        }
+    def location_tuple(cls):
+        return (None, cls.LOCATION)

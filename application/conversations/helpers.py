@@ -59,8 +59,14 @@ def handle_payload(sender_id, payload, platform='Facebook Bot'):
             for statement in welcome:
                 response.append(('text', statement))
 
-            response.append(('text', Monologue.request_location(scope='Blocs')))
-            response.append(('quick_reply', Dialogue.get_location()))
+            get_location = Dialogue.quick_reply(
+                title=Monologue.request_location('Blocs'),
+                texts_and_payloads=[
+                    Dialogue.location_tuple()
+                ]
+            )
+
+            response.append(('quick_reply', get_location))
 
         ### COURSES
         elif payload.startswith('CREATE_COURSE'):
