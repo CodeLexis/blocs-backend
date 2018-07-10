@@ -17,7 +17,7 @@ def set_conversation_course(title, index, response_type):
     return
 
 
-def handle_attachment(attachments):
+def handle_attachments(attachments):
     response = list()
 
     for attachment in attachments:
@@ -49,152 +49,151 @@ def handle_attachment(attachments):
 def handle_payload(sender_id, payload, platform='Facebook Bot'):
     response = list()
 
-    elif isinstance(payload, str):
-        if payload == 'GET_STARTED_PAYLOAD':
-            user_profile = get_user_profile(sender_id)
+    if payload == 'GET_STARTED_PAYLOAD':
+        user_profile = get_user_profile(sender_id)
 
-            print('USER PROFILE: {}'.format(user_profile))
+        print('USER PROFILE: {}'.format(user_profile))
 
-            blocs_platform = BlocsPlatform.get(name=platform)
+        blocs_platform = BlocsPlatform.get(name=platform)
 
-            create_new_user(
-                first_name=user_profile.pop('first_name'),
-                last_name=user_profile.pop('last_name'),
-                uid=user_profile.pop('id'),
-                blocs_platform_id=blocs_platform.id,
-                avatar_url=user_profile.pop('profile_pic')
-            )
+        create_new_user(
+            first_name=user_profile.pop('first_name'),
+            last_name=user_profile.pop('last_name'),
+            uid=user_profile.pop('id'),
+            blocs_platform_id=blocs_platform.id,
+            avatar_url=user_profile.pop('profile_pic')
+        )
 
-            welcome = Monologue.welcome()
-            for statement in welcome:
-                response.append(('text', statement))
+        welcome = Monologue.welcome()
+        for statement in welcome:
+            response.append(('text', statement))
 
-            get_location = Dialogue.quick_reply(
-                title=Monologue.request_location('Blocs'),
-                texts_and_payloads=[
-                    Dialogue.location_tuple()
-                ]
-            )
+        get_location = Dialogue.quick_reply(
+            title=Monologue.request_location('Blocs'),
+            texts_and_payloads=[
+                Dialogue.location_tuple()
+            ]
+        )
 
-            response.append(('quick_reply', get_location))
+        response.append(('quick_reply', get_location))
 
-        ### COURSES
-        elif payload.startswith('CREATE_COURSE'):
-            set_conversation_course(
-                'COURSE', courses.COURSE_CREATION_STEPS[0], 'text')
-            response.append(('text', Monologue.ask_for_course_title()))
+    ### COURSES
+    elif payload.startswith('CREATE_COURSE'):
+        set_conversation_course(
+            'COURSE', courses.COURSE_CREATION_STEPS[0], 'text')
+        response.append(('text', Monologue.ask_for_course_title()))
 
-        elif payload == 'DISPLAY_ALL_COURSES':
-            response.append(('text', Monologue.take_to_all_courses()))
-            response.append(('generic', Collections.all_courses()))
+    elif payload == 'DISPLAY_ALL_COURSES':
+        response.append(('text', Monologue.take_to_all_courses()))
+        response.append(('generic', Collections.all_courses()))
 
-        elif payload == 'DISPLAY_ALL_COURSES_OFFERED':
-            response.append(('text', Monologue.take_to_all_courses()))
-            response.append(
-                ('generic', Collections.all_courses(_tailored=True)))
+    elif payload == 'DISPLAY_ALL_COURSES_OFFERED':
+        response.append(('text', Monologue.take_to_all_courses()))
+        response.append(
+            ('generic', Collections.all_courses(_tailored=True)))
 
-        elif payload.startswith('DISPLAY_COURSE'):
-            course_id = int(payload.split('__')[1])
+    elif payload.startswith('DISPLAY_COURSE'):
+        course_id = int(payload.split('__')[1])
 
-            course = Course.get(id=course_id)
+        course = Course.get(id=course_id)
 
-            order_now_quick_reply = Dialogue.quick_reply(
-                title=Monologue.enquire_add_to_courses_offered(course.title),
-                texts_and_payloads=[
-                    ('YES', 'ADD_COURSE_TO_OFFERED__%s' % course_id),
-                    ('No', 'NOTHING')
-                ]
-            )
+        order_now_quick_reply = Dialogue.quick_reply(
+            title=Monologue.enquire_add_to_courses_offered(course.title),
+            texts_and_payloads=[
+                ('YES', 'ADD_COURSE_TO_OFFERED__%s' % course_id),
+                ('No', 'NOTHING')
+            ]
+        )
 
-            response.append(('text', Monologue.take_to_course()))
-            response.append(('generic', Collections.course(course_id)))
-            response.append(('quick_reply', order_now_quick_reply))
+        response.append(('text', Monologue.take_to_course()))
+        response.append(('generic', Collections.course(course_id)))
+        response.append(('quick_reply', order_now_quick_reply))
 
-        elif payload.startswith('ADD_COURSE_TO_OFFERED'):
-            course_id = int(payload.split('__')[1])
+    elif payload.startswith('ADD_COURSE_TO_OFFERED'):
+        course_id = int(payload.split('__')[1])
 
-            add_course_to_offered(course_id)
-            response.append(('text', Monologue.process_completion()))
+        add_course_to_offered(course_id)
+        response.append(('text', Monologue.process_completion()))
 
-        ### EVENTS
-        elif payload.startswith('CREATE_EVENT'):
-            set_conversation_course(
-                'EVENT', events.EVENT_CREATION_STEPS[0], 'text')
-            response.append(('text', Monologue.ask_for_event_title()))
+    ### EVENTS
+    elif payload.startswith('CREATE_EVENT'):
+        set_conversation_course(
+            'EVENT', events.EVENT_CREATION_STEPS[0], 'text')
+        response.append(('text', Monologue.ask_for_event_title()))
 
-        elif payload == 'DISPLAY_ALL_EVENTS':
-            response.append(('quick_reply', Dialogue.get_location()))
-            response.append(('text', Monologue.take_to_all_events()))
-            response.append(('generic', Collections.all_events()))
+    elif payload == 'DISPLAY_ALL_EVENTS':
+        response.append(('quick_reply', Dialogue.get_location()))
+        response.append(('text', Monologue.take_to_all_events()))
+        response.append(('generic', Collections.all_events()))
 
-        elif payload == 'DISPLAY_ALL_EVENTS_INTERESTED_IN':
-            response.append(('text', Monologue.take_to_all_events()))
-            response.append(
-                ('generic', Collections.all_events(_tailored=True)))
+    elif payload == 'DISPLAY_ALL_EVENTS_INTERESTED_IN':
+        response.append(('text', Monologue.take_to_all_events()))
+        response.append(
+            ('generic', Collections.all_events(_tailored=True)))
 
-        elif payload.startswith('DISPLAY_EVENT'):
-            event_id = int(payload.split('__')[1])
+    elif payload.startswith('DISPLAY_EVENT'):
+        event_id = int(payload.split('__')[1])
 
-            response.append(('text', Monologue.take_to_event()))
-            response.append(('generic', Collections.event(event_id)))
+        response.append(('text', Monologue.take_to_event()))
+        response.append(('generic', Collections.event(event_id)))
 
-        ### JOBS
-        elif payload == 'DISPLAY_ALL_JOBS':
-            response.append(('text', Monologue.take_to_all_jobs()))
-            response.append(('generic', Collections.all_jobs()))
+    ### JOBS
+    elif payload == 'DISPLAY_ALL_JOBS':
+        response.append(('text', Monologue.take_to_all_jobs()))
+        response.append(('generic', Collections.all_jobs()))
 
-        elif payload == 'DISPLAY_ALL_JOBS_INTERESTED_IN':
-            response.append(('text', Monologue.take_to_all_jobs()))
-            response.append(('generic', Collections.all_jobs(_tailored=True)))
+    elif payload == 'DISPLAY_ALL_JOBS_INTERESTED_IN':
+        response.append(('text', Monologue.take_to_all_jobs()))
+        response.append(('generic', Collections.all_jobs(_tailored=True)))
 
-        elif payload.startswith('DISPLAY_JOB'):
-            job_id = int(payload.split('__')[1])
+    elif payload.startswith('DISPLAY_JOB'):
+        job_id = int(payload.split('__')[1])
 
-            response.append(('text', Monologue.take_to_job()))
-            response.append(('generic', Collections.job(job_id)))
+        response.append(('text', Monologue.take_to_job()))
+        response.append(('generic', Collections.job(job_id)))
 
-        elif payload.startswith('ADD_NEW_JOB'):
-            response.append(('text', Monologue.take_to_all_jobs()))
-            response.append(('generic', Collections.all_jobs(_tailored=True)))
+    elif payload.startswith('ADD_NEW_JOB'):
+        response.append(('text', Monologue.take_to_all_jobs()))
+        response.append(('generic', Collections.all_jobs(_tailored=True)))
 
-        ### PROJECTS
-        elif payload.startswith('CREATE_PROJECT'):
-            set_conversation_course(
-                'PROJECT', projects.PROJECT_CREATION_STEPS[0], 'text')
-            response.append(('text', Monologue.ask_for_event_title()))
+    ### PROJECTS
+    elif payload.startswith('CREATE_PROJECT'):
+        set_conversation_course(
+            'PROJECT', projects.PROJECT_CREATION_STEPS[0], 'text')
+        response.append(('text', Monologue.ask_for_event_title()))
 
-        elif payload == 'DISPLAY_ALL_PROJECTS':
-            response.append(('text', Monologue.take_to_all_projects()))
-            response.append(('generic', Collections.all_projects()))
+    elif payload == 'DISPLAY_ALL_PROJECTS':
+        response.append(('text', Monologue.take_to_all_projects()))
+        response.append(('generic', Collections.all_projects()))
 
-        elif payload == 'DISPLAY_ALL_PROJECTS_INTERESTED_IN':
-            response.append(('text', Monologue.take_to_all_projects()))
-            response.append(
-                ('generic', Collections.all_projects(_tailored=True)))
+    elif payload == 'DISPLAY_ALL_PROJECTS_INTERESTED_IN':
+        response.append(('text', Monologue.take_to_all_projects()))
+        response.append(
+            ('generic', Collections.all_projects(_tailored=True)))
 
-        elif payload.startswith('DISPLAY_PROJECT'):
-            project_id = int(payload.split('__')[1])
+    elif payload.startswith('DISPLAY_PROJECT'):
+        project_id = int(payload.split('__')[1])
 
-            response.append(('text', Monologue.take_to_project()))
-            response.append(('generic', Collections.project(project_id)))
+        response.append(('text', Monologue.take_to_project()))
+        response.append(('generic', Collections.project(project_id)))
 
-        elif payload.startswith('LIKE_PROJECT'):
-            project_id = int(payload.split('__')[1])
+    elif payload.startswith('LIKE_PROJECT'):
+        project_id = int(payload.split('__')[1])
 
-            # response.append(('text', Monologue.take_to_project()))
-            projects.like_bloc_project(project_id)
-            response.append(('generic', Monologue.support_decision()))
+        # response.append(('text', Monologue.take_to_project()))
+        projects.like_bloc_project(project_id)
+        response.append(('generic', Monologue.support_decision()))
 
-        ### FEEDS
-        elif payload == 'DISPLAY_ALL_FEEDS':
-            response.append(('text', Monologue.take_to_all_feeds()))
-            response.append(('generic', Collections.all_feeds()))
+    ### FEEDS
+    elif payload == 'DISPLAY_ALL_FEEDS':
+        response.append(('text', Monologue.take_to_all_feeds()))
+        response.append(('generic', Collections.all_feeds()))
 
-        elif payload.startswith('DISPLAY_JOB'):
-            job_id = int(payload.split('__')[1])
+    elif payload.startswith('DISPLAY_JOB'):
+        job_id = int(payload.split('__')[1])
 
-            response.append(('text', Monologue.take_to_job()))
-            response.append(('generic', Collections.job(job_id)))
+        response.append(('text', Monologue.take_to_job()))
+        response.append(('generic', Collections.job(job_id)))
 
     return response
 
@@ -214,7 +213,7 @@ def get_response(sender_id, platform, text=None, attachments=None, nlp=None,
         response = handle_payload(sender_id, payload)
 
     elif attachments:
-        response = handle_attachment(attachments)
+        response = handle_attachments(attachments)
 
     elif nlp and 'greetings' in list(nlp.keys()):
         response.append(('text', Monologue.greet()))
