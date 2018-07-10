@@ -48,16 +48,14 @@ def send_message(recipient_id, response):
 
 
 def send_quick_reply(recipient_id, text_quick_reply_options):
-    if isinstance(text_quick_reply_options, tuple):
-        text, quick_reply_options = text_quick_reply_options
+    text, quick_reply_options = text_quick_reply_options
 
-        message = {
-            "text": text,
-            "quick_replies": quick_reply_options
-        }
+    message = {
+        "text": text,
+        "quick_replies": quick_reply_options
+    }
 
-    else:
-        message = text_quick_reply_options
+    print('SEND_QUICK_REPLY', message)
 
     payload = {
         "recipient": {

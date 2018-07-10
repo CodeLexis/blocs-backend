@@ -93,7 +93,7 @@ class FacebookBotHandler(MethodView):
                     if to_send_response(response):
                         for reply in response:
                             send_message(recipient_id, reply)
-                            time.sleep(.2)
+                            time.sleep(1)
 
                     save_message(response)
 
