@@ -44,8 +44,11 @@ def pump_blocs_platform_table():
 
 @manager.command
 def pump_blocs_table():
+    for bloc in Bloc.query.all():
+        print(bloc.name)
+
     for bloc in DEFAULT_BLOCS:
-        if Bloc.get(name=bloc) is not None:
+        if Bloc.get(name='{} Bloc'.format(bloc)) is not None:
             continue
 
         Bloc(name='{} Bloc'.format(bloc), is_default=True).save()
