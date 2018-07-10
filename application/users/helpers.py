@@ -1,5 +1,7 @@
 from json import dumps, loads
 
+from flask import g
+
 from application.core.models import SoftwareBranch, User, UserSoftwareBranch
 
 
@@ -31,3 +33,5 @@ def create_new_user(first_name, last_name, uid, blocs_platform_id, avatar_url):
     user.save()
 
     g.user = user
+
+    return user
