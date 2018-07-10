@@ -51,7 +51,8 @@ def handle_payload(sender_id, payload, platform='Facebook Bot'):
                 first_name=user_profile.pop('first_name'),
                 last_name=user_profile.pop('last_name'),
                 uid=user_profile.pop('id'),
-                blocs_platform_id=blocs_platform.id
+                blocs_platform_id=blocs_platform.id,
+                avatar_url=user_profile.pop('profile_pic')
             )
 
             welcome = Monologue.welcome()
