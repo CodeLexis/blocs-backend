@@ -26,12 +26,12 @@ def orm_get_social_media_account_by_username(social_media_name,
         username=social_media_username).first()
 
 
-def orm_get_user_by_platform_uid(blocs_platform_id, uid):
+def orm_get_user_by_platform_uid(blocs_platform_id, external_app_uid):
     return User.query.order_by(
         User.created_at.desc()
     ).filter_by(
         blocs_platform_id=blocs_platform_id,
-        uid=uid
+        external_app_uid=external_app_uid
     ).first()
 
 

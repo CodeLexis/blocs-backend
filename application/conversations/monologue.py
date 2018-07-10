@@ -8,10 +8,11 @@ class Monologue(object):
     def welcome(cls):
         welcome_statements = [
             "%s, welcome to Blocs! B)" % g.user.first_name,
-            "Imagine taking classes with Facebook Live, instantly get help from"
-            " developers across the world, seamlessly finding the right jobs & "
-            "events.",
-            "All from the comfort of Messenger. You're welcome! :O)"
+            "Imagine taking classes with Facebook Live, instantly getting "
+            "answers from developers across the world, connecting & teaming up "
+            "with the best developers in the world, seamlessly finding the "
+            "right meetups...",
+            "All from the comfort of Messenger. You're welcome! O:)"
         ]
 
         return welcome_statements
@@ -128,7 +129,7 @@ class Monologue(object):
              "Here are what we currently cover:",
              "Where would you like to start? ",
              "Have a look around...",
-             "%s, what would you like to learn?" % g.user.first_name[0],]
+             "%s, what would you like to learn?" % g.user.first_name[0]]
         )
 
     @classmethod
