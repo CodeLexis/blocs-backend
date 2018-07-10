@@ -4,8 +4,9 @@ from flask import current_app
 import shortuuid
 from sqlalchemy.ext.declarative import declared_attr
 
-from application.core.constants import STATUSES, PROGRAMMING_LANGUAGES
 from application.core import db
+from application.core.constants import STATUSES, PROGRAMMING_LANGUAGES
+from application.core.utils.helpers import generate_random_bloc_color
 
 
 AMOUNT_FIELD = db.DECIMAL(12, 2)
@@ -93,9 +94,13 @@ class Bloc(BaseModel, HasUID, LookUp):
     __tablename__ = 'blocs'
 
     created_by = db.Column(db.Integer, db.ForeignKey('users.id'))
+    location_id = db.Column(db.Integer, db.ForeignKey('locations.id'))
+
     is_private = db.Column(db.Boolean, default=False)
     invite_code = db.Column(db.String(6))
-    theme_color = db.Column(db.String(16))
+    theme_color = db.Column(db.String(8), default=generate_random_bloc_color)
+
+    location = db.relationship('Location', backref=db.backref('blocs'))
 
     def generate_invite_code(self):
         raise NotImplementedError
@@ -105,6 +110,7 @@ class Bloc(BaseModel, HasUID, LookUp):
             _code = self.generate_invite_code()
 
         self.invite_code = _code
+
 
 class BlocMembership(BaseModel):
     __tablename__ = 'bloc_memberships'
@@ -211,6 +217,7 @@ class Location(BaseModel):
     address = db.Column(db.String(128))
     country = db.Column(db.String(32))
     state = db.Column(db.String(32))
+    town = db.Column(db.String(32))
 
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 

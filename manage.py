@@ -2,7 +2,8 @@
 from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager
 
-from application.core.models import BlocsPlatform, Status
+from application.core.constants import DEFAULT_BLOCS
+from application.core.models import Bloc, BlocsPlatform, Status
 from app_setup import application, db
 
 
@@ -39,6 +40,15 @@ def pump_blocs_platform_table():
 
         BlocsPlatform(name=platform).save()
         # BlocsPlatform(name=platform).save()
+
+
+@manager.command
+def pump_blocs_table():
+    for bloc in DEFAULT_BLOCS:
+        if Bloc.get(name=bloc) is not None:
+            continue
+
+        Bloc(name=bloc).save()
 
 
 @manager.command

@@ -1,10 +1,14 @@
+import random
 import re
 
 from flask import g
 
 from application.core import errors
+from application.core.constants import APP_COLORS, DEFAULT_BLOCS
 from application.core.models import Bloc, BlocMembership, BlocTag, User
 from application.core.models import prep_paginate_query, get_pagination_meta
+from application.core.utils.helpers import (
+    generate_random_bloc_color, convert_to_possessive_noun)
 
 
 def _normalize_name(name):
@@ -26,6 +30,10 @@ def get_blocs(name, tags):
     )
 
     return blocs
+
+
+def get_blocs_for_location(location):
+    Bloc.get(location=location)
 
 
 def get_bloc_members(bloc_uid, page, per_page):
@@ -58,7 +66,7 @@ def add_user_to_bloc(bloc_uid, user_uid):
     return bloc_membership
 
 
-def create_bloc(name, is_private, color):
+def create_bloc(name, is_private, color, location):
     existing_bloc = _check_for_existing_bloc_with_name(name)
 
     if existing_bloc:
@@ -68,7 +76,8 @@ def create_bloc(name, is_private, color):
         name=name,
         is_private=is_private,
         theme_color=color,
-        created_by=g.user.id
+        created_by=g.user.id,
+        locatio=location
     )
 
     if is_private:
@@ -77,3 +86,14 @@ def create_bloc(name, is_private, color):
     bloc.save()
 
     return bloc
+
+
+def create_default_blocs_for_location(location):
+    for bloc_name in DEFAULT_BLOCS:
+        create_bloc(
+            name='{} {} Bloc'.format(
+                convert_to_possessive_noun(location), bloc_name),
+            location=location,
+            is_private=False,
+            color=generate_random_bloc_color
+        )

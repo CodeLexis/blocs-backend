@@ -1,16 +1,11 @@
 import calendar
 import datetime
-import decimal
-import locale
 import os
+import random
 import uuid
-from decimal import Decimal
 
-from flask import current_app, g
-
-from application.core import errors, logger, rand_gen
-from application.core.constants import (ALLOWED_CONFIGURATION_MODES,
-                                        DEVELOPMENT_CONFIG_MODE)
+from application.core.constants import (
+    ALLOWED_CONFIGURATION_MODES, APP_COLORS, DEVELOPMENT_CONFIG_MODE)
 from application.core.errors import ConfigNotFound
 
 
@@ -84,83 +79,21 @@ def get_this_month_end():
     return datetime.date(year, month, last_month_day)
 
 
-# def get_request_imeis():
-#     request_imeis = g.request_data.get('imei')
-#     if request_imeis:
-#         request_imeis = [i.strip() for i in (request_imeis).split()]
-#         return request_imeis[0], request_imeis[-1]
-#     else:
-#         return None
-
-
-def ngn_str(amount, silent=False):
-    locale.setlocale(locale.LC_ALL, 'en_NG')
-
-    amount_invalid = (
-        amount is None or
-        (isinstance(amount, basestring) and len(amount.strip()) < 1)
-    )
-    if amount_invalid:
-        return ''
-
-    return locale.format('%.2f', float(amount), True)
-
-
-def kobo_to_ngn(kobo_amt, silent=False):
-    """Convert an amount in kobo to it's naira value
-
-    :param kobo_amt: kobo value of amount to be converted
-        as an integer type
-    :param silent: flag to specify if errors should be propagated
-    :return: converted amount as a `decimal.Decimal` type
-    """
-    try:
-        with decimal.localcontext() as ctx:
-            ctx.prec = 3  # Force Decimal values to 2 decimal places
-            return Decimal('%.2f' % (int(kobo_amt) / 100.0))
-    except Exception:
-        err_msg = (
-            'Could not convert Kobo ({0}) to naira!'.format(repr(kobo_amt))
-        )
-        if not silent:
-            logger.error(err_msg, exc_info=True)
-            raise errors.InvalidAmountError
-
-        logger.warn(err_msg)
-
-
-def generate_account_number(account_id):
-    return str(int(current_app.config['RECEIPT_BASE']) + account_id)
-
-
 def generate_unique_reference():
     return uuid.uuid4().hex
-    # return str(rand_gen.getrandbits(128))[-20:]
-    # return str(rand_gen.getrandbits(128))[-20:]
-    # return shortuuid.uuid()
 
 
-def generate_next_pay_ref():
-    return g.api_ref
+def generate_random_bloc_color():
+    return random.choice(list(APP_COLORS.values()))
 
 
-def clean_account_number(account_number):
-    try:
-        return account_number.strip('-+/ ').replace('-', '').replace(
-            '+', '').replace('/', '').replace(' ', '')
-    except AttributeError:
-        logger.error(
-            'Error cleaning up account number {0}'.format(account_number),
-            exc_info=True)
-        raise TypeError
+def convert_to_possessive_noun(word):
+    word = (
+        "{}'".format(word) if word.endswith('s') else "{}'s".format(
+            word)
+    )
 
-
-def kobo_to_ngn_str(amount, silent=False):
-    return ngn_str(kobo_to_ngn(amount, silent=silent))
-
-
-def ngn_to_kobo(ngn_value):
-    return int(ngn_value * 100)
+    return word
 
 
 # def current_request_time():

@@ -69,6 +69,11 @@ class Monologue(object):
         return random.choice(random_statements)
 
     @classmethod
+    def compliment_location(cls):
+        return "Always wanted to visit {}!".format(
+            g.user.locations[-1].town)
+
+    @classmethod
     def compliment_software_branch(cls, branch):
         return "{}? That's so cool!".format(branch)
 
@@ -92,8 +97,13 @@ class Monologue(object):
 
     @classmethod
     def request_location(cls, scope=None):
+        responses_with_scope = [
+            "Would you rather like to see {} around you?"
+            "First off, I have to know where you are, so I could find the "
+            "closest developers around you..."
+        ]
         if scope:
-            return "Would you rather like to see {} around you?".format(scope)
+            return random.choice(responses_with_scope).format(scope)
 
         return
 
@@ -105,6 +115,10 @@ class Monologue(object):
     def thank_for_patronage(cls):
         return random.choice(
             ['Thanks for your patronage.', "We're grateful to know you :)"])
+
+    @classmethod
+    def take_to_all_blocs(cls):
+        return "Have a look around..."
 
     @classmethod
     def take_to_all_courses(cls):

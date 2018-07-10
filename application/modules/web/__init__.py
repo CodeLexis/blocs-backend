@@ -1,4 +1,4 @@
-from flask import Blueprint
+from flask import Blueprint, Response
 from flask import render_template, request
 
 
@@ -18,3 +18,11 @@ def render_hi():
 @web_blueprint.route('/privacy')
 def render_privacy_policy():
     return 'Your data is private. I tell you...'
+
+
+@web_blueprint.route('/avatars/default/<color>')
+def render_default_avatar(color):
+    default_avatar = open(
+        'static/assets/default_avatars/{}.png'.format(color), 'rb').read()
+
+    return Response(default_avatar, mimetype='image')
