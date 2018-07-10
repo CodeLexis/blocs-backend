@@ -43,6 +43,8 @@ def handle_payload(sender_id, payload, platform='Facebook Bot'):
         if payload == 'GET_STARTED_PAYLOAD':
             user_profile = get_user_profile(sender_id)
 
+            print('USER PROFILE: {}'.format(user_profile))
+
             blocs_platform = BlocsPlatform.get(name=platform)
 
             create_new_user(
