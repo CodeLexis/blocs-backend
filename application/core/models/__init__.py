@@ -215,7 +215,7 @@ class Location(BaseModel):
     __tablename__ = 'locations'
 
     title = db.Column(db.String(128))
-    coordinates = db.Column(db.String(32))
+    coordinates = db.Column(db.String(50))
     address = db.Column(db.String(128))
     country = db.Column(db.String(32))
     state = db.Column(db.String(32))
