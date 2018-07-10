@@ -338,6 +338,10 @@ class User(BaseModel, HasUID):
     blocs_platform_id = db.Column(
         db.Integer, db.ForeignKey('blocs_platforms.id'))
 
+    @property
+    def location(self):
+        return self.locations[-1]
+
     def as_json(self):
         return {
             'username': self.username,
