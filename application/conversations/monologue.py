@@ -101,14 +101,21 @@ class Monologue(object):
     @classmethod
     def request_location(cls, scope=None):
         responses_with_scope = [
-            "Would you rather like to see {} around you?"
-            "First off, I have to know where you are, so I could find the "
-            "closest developers around you..."
+            "Would you like to see {} around you?",
+            "Finding the {} around you would be better",
+            "Several {} could be around you"
         ]
+
+        response = [
+            "First off, I have to know where you are",
+            "I need to know where you are, first, though",
+            "But first... I have to know your location",
+        ]
+
         if scope:
             return random.choice(responses_with_scope).format(scope)
 
-        return
+        return random.choice(response)
 
     @classmethod
     def thank(cls):
