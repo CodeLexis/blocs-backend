@@ -1,5 +1,6 @@
 import json
 import logging
+import time
 from urllib import parse as urlparse
 
 from flask import Blueprint
@@ -92,6 +93,7 @@ class FacebookBotHandler(MethodView):
                     if to_send_response(response):
                         for reply in response:
                             send_message(recipient_id, reply)
+                            time.sleep(.2)
 
                     save_message(response)
 
