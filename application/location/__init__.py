@@ -26,24 +26,31 @@ def save_new_location(title, coordinates):
         ).content
     )
 
-    details = location_details['results'][0]
-
-    address = details['formatted_address']
-    country = details['address_components'][-2]['long_name']
-    state = details['address_components'][-3]['long_name']
-    town = details['address_components'][-4]['long_name']
 
     location = Location(
         title=title,
         coordinates=dumps(coordinates),
-        address=address,
-        country=country,
-        state=state,
-        town=town,
         user_id=g.user.id
     )
 
     location.save()
+
+    try:
+        details = location_details['results'][0]
+        address = details['formatted_address']
+        country = details['address_components'][-2]['long_name']
+        state = details['address_components'][-3]['long_name']
+        town = details['address_components'][-4]['long_name']
+
+        location.update(
+            address=address,
+            country=country,
+            state=state,
+            town=town
+        )
+
+    except IndexError:
+        return
 
     for locale in [
         {'country': country, 'state': None, 'town': None},
