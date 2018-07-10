@@ -26,6 +26,8 @@ def save_new_location(title, coordinates):
         ).content
     )
 
+    print('LOCATION DETAILS: %s' % location_details)
+
     details = location_details['results']
 
     address = details['formatted_address']
