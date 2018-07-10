@@ -66,12 +66,14 @@ class FacebookBotHandler(MethodView):
                         response = get_response(
                             recipient_id, self.platform,
                             payload=quick_reply['payload'],
-                            text=text)
+                            text=text
+                        )
 
                     elif text:
                         response = get_response(
                             recipient_id, self.platform, text=text, nlp=nlp,
-                            sticker_id=sticker_id)
+                            sticker_id=sticker_id
+                        )
 
                     elif attachments:
                         response = get_response(

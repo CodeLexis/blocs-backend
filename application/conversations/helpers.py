@@ -62,32 +62,6 @@ def handle_payload(sender_id, payload, platform='Facebook Bot'):
             response.append(('text', Monologue.request_location(scope='Blocs')))
             response.append(('quick_reply', Dialogue.get_location()))
 
-            # branches = Dialogue.quick_reply(
-            #     title=Monologue.ask_for_software_branch(),
-            #     texts_and_payloads=[
-            #         (
-            #             branch, 'ADD_SOFTWARE_BRANCH__%s' % branch.upper()
-            #         )
-            #         for branch in SOFTWARE_BRANCHES
-            #     ]
-            # )
-            #
-            # response.append(('quick_reply', branches))
-
-        # elif payload.startswith('ADD_SOFTWARE_BRANCH'):
-        #     branch = payload.split('__')[1]
-        #
-        #     branch_orm = SoftwareBranch.get(name=branch.title())
-        #
-        #     add_user_software_branch(branch_orm.id)
-        #
-        #     response.append(
-        #         ('text', Monologue.compliment_software_branch(branch))
-        #     )
-        #     response.append(('generic', Collections.all_blocs(branch)))
-        #     response.append(('text', Monologue.request_location(scope='Blocs')))
-        #     response.append(('quick_reply', Dialogue.get_location()))
-
         ### COURSES
         elif payload.startswith('CREATE_COURSE'):
             set_conversation_course(

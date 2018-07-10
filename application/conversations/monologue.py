@@ -8,11 +8,13 @@ class Monologue(object):
     def welcome(cls):
         welcome_statements = [
             "%s, welcome to Blocs! B)" % g.user.first_name,
-            "Imagine taking classes with Facebook Live, instantly getting "
-            "answers from developers across the world, connecting & teaming up "
-            "with the best developers in the world, seamlessly finding the "
-            "right meetups...",
-            "All from the comfort of Messenger. You're welcome! O:)"
+            "Ever imagined taking classes with Facebook Live",
+            "Interacting, teaming up, pair-coding with the best developers in "
+            "the world",
+            "Seamlessly finding the right jobs & events...",
+            "Instantly getting answers from the best developers across the "
+            "world?",
+            "All from the comfort of Messenger?! You're welcome! O:)"
         ]
 
         return welcome_statements
