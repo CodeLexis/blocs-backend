@@ -3,6 +3,8 @@ import requests
 
 from pymessenger import Bot
 
+from application.core.constants import FACEBOOK_PAGE_ID
+
 
 ACCESS_TOKEN = os.environ['FACEBOOK_PAGE_ACCESS_TOKEN']
 # ACCESS_TOKEN = 'EAAOlZBoXtZAmABACxIo85QJxVgygCUTpI0YtUWbM8HOTmafLnlyNSMgDwe36B9u6PGzyvotY68iIzgQOkLrDs5YcuyI9sBCaU0wUvGajtCRiIaR4OrL0ZBug1KQPZBoiJVPccoMd29pDYruJ1Q7LFCCyVLSO8S28IBZCQUiWYGAZDZD'
@@ -65,6 +67,29 @@ def send_quick_reply(recipient_id, text_quick_reply_options):
     }
 
     return bot.send_raw(payload)
+
+
+def set_typing_on():
+#     curl - X
+#     POST - H
+#     "Content-Type: application/json" - d
+#     '{
+#     "recipient": {
+#         "id": "<PSID>"
+#     },
+#     "sender_action": "typing_on"
+#
+# }'
+
+    return requests.post(
+        "https://graph.facebook.com/v2.6/me/messages?access_token=%s".format(
+            ACCESS_TOKEN),
+        headers={'content-type': 'application/json'},
+        payload={
+            'recipient': {'id': FACEBOOK_PAGE_ID},
+            'sender_action': 'typing_on'
+        }
+    ).content
 
 
 def get_user_profile(user_id):

@@ -96,6 +96,11 @@ def convert_to_possessive_noun(word):
     return word
 
 
+def get_typing_duration(reply_type, reply_context):
+    if reply_type == 'text':
+        return .5 + (len(reply_context) * .05)
+
+    return .75
 # def current_request_time():
 #     try:
 #         return g.current_request_time
