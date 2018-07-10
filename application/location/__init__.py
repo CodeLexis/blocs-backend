@@ -1,4 +1,4 @@
-from json import loads
+from json import dumps, loads
 
 from flask import g
 import requests
@@ -35,7 +35,7 @@ def save_new_location(title, coordinates):
 
     location = Location(
         title=title,
-        coordinates=coordinates,
+        coordinates=dumps(coordinates),
         address=address,
         country=country,
         state=state,
