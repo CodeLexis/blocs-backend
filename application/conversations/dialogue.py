@@ -17,7 +17,7 @@ class Dialogue(object):
             wrap['image_url'] = image_url
 
         if is_location:
-            wrap = {"content_type": "location"}
+            wrap = {"content_type": "location", 'title': 'SOME TITLE'}
 
         return wrap
 
