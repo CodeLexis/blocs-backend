@@ -206,6 +206,8 @@ def handle_payload(sender_id, payload, platform='Facebook Bot'):
             response.append(('text', Monologue.take_to_job()))
             response.append(('generic', Collections.job(job_id)))
 
+    return response
+
 
 def get_response(sender_id, platform, text=None, attachments=None, nlp=None,
                  sticker_id=None, payload=None, title=None, is_postback=True):
