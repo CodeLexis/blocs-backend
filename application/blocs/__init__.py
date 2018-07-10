@@ -66,7 +66,7 @@ def add_user_to_bloc(bloc_uid, user_uid):
     return bloc_membership
 
 
-def create_bloc(name, is_private, color, location, is_default=False):
+def create_bloc(name, is_private, color, location=None, is_default=False):
     existing_bloc = _check_for_existing_bloc_with_name(name)
 
     if existing_bloc:
@@ -77,9 +77,11 @@ def create_bloc(name, is_private, color, location, is_default=False):
         is_private=is_private,
         theme_color=color,
         created_by=g.user.id,
-        location_id=location.id,
         is_default=is_default
     )
+
+    if location is not None:
+        bloc.location_id = location.id
 
     if is_private:
         bloc.set_invite_code()
