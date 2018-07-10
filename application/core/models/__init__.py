@@ -97,6 +97,7 @@ class Bloc(BaseModel, HasUID, LookUp):
     location_id = db.Column(db.Integer, db.ForeignKey('locations.id'))
 
     is_private = db.Column(db.Boolean, default=False)
+    is_default = db.Column(db.Boolean, default=True)
     invite_code = db.Column(db.String(6))
     theme_color = db.Column(db.String(8), default=generate_random_bloc_color)
 

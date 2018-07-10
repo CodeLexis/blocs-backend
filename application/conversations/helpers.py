@@ -30,7 +30,14 @@ def handle_payload(sender_id, payload, platform='Facebook Bot'):
 
             if blocs.get_blocs_for_location(g.user.location) is None:
                 response.append(('text', Monologue.take_to_all_blocs()))
-                response.append(('generic', Collections.all_blocs()))
+                response.append(
+                    (
+                        'generic',
+                        Collections.all_default_blocs(
+                            _location_id=location.get_user_state_locale(
+                                g.user).id)
+                    )
+                )
 
     elif isinstance(payload, str):
         if payload == 'GET_STARTED_PAYLOAD':

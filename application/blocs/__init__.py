@@ -66,18 +66,19 @@ def add_user_to_bloc(bloc_uid, user_uid):
     return bloc_membership
 
 
-def create_bloc(name, is_private, color, location):
+def create_bloc(name, is_private, color, location, is_default=False):
     existing_bloc = _check_for_existing_bloc_with_name(name)
 
     if existing_bloc:
-        raise errors.ResourceConflict('Choose another name')
+        return
 
     bloc = Bloc(
         name=name,
         is_private=is_private,
         theme_color=color,
         created_by=g.user.id,
-        locatio=location
+        location_id=location.id,
+        is_default=is_default
     )
 
     if is_private:
@@ -90,10 +91,13 @@ def create_bloc(name, is_private, color, location):
 
 def create_default_blocs_for_location(location):
     for bloc_name in DEFAULT_BLOCS:
+        proposed_bloc_name = '{} {} Bloc'.format(
+            convert_to_possessive_noun(location), bloc_name)
+
         create_bloc(
-            name='{} {} Bloc'.format(
-                convert_to_possessive_noun(location), bloc_name),
+            name=proposed_bloc_name,
             location=location,
             is_private=False,
-            color=generate_random_bloc_color
+            color=generate_random_bloc_color,
+            is_default=True
         )

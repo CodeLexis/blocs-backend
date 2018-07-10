@@ -1,11 +1,12 @@
 import random
 
-from flask import url_for
+from flask import g, url_for
 
 # from application.articles.helpers import (get_existing_section_headlines,
 #                                           get_existing_news_source_headlines)
 # from application.readers.helpers import get_reader_brief_sources
-from application.core.constants import PAGINATE_DEFAULT_PER_PAGE
+from application.core.constants import (
+    DEFAULT_BLOCS, PAGINATE_DEFAULT_PER_PAGE)
 from application.core.models import Bloc
 # from application.core.utils import get_app_icon_url, get_section_thumbnail
 from .dialogue import Dialogue
@@ -34,6 +35,43 @@ class Collections(object):
                 Dialogue.button(
                     type='web_url', title='READ',
                     url=bloc['url']
+                )
+            ]
+
+            section_data = Dialogue.generic(
+                title=title, subtitle=None, image_url=image_url,
+                buttons=buttons
+            )
+
+            all_bloc_elements.append(section_data)
+
+        return all_bloc_elements
+
+    @classmethod
+    def all_default_blocs(cls, _location_id=None):
+        blocs = Bloc.query.filter_by(
+            is_default=True
+        )
+
+        if _location_id:
+            blocs = blocs.filter_by(location_id=_location_id)
+
+        all_bloc_elements = []
+
+        for bloc in blocs:
+            if len(all_bloc_elements) == 10:
+                break
+
+            title = bloc.name
+            # subtitle = bloc['body']
+            image_url = url_for(
+                'web_blueprint.render_default_avatar',
+                color=bloc.theme_color, _external=True)
+
+            buttons = [
+                Dialogue.button(
+                    type='postback', title='JOIN',
+                    payload='JOIN_BLOC'
                 )
             ]
 

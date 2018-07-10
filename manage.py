@@ -48,7 +48,7 @@ def pump_blocs_table():
         if Bloc.get(name=bloc) is not None:
             continue
 
-        Bloc(name=bloc).save()
+        Bloc(name='{} Bloc'.format(bloc), is_default=True).save()
 
 
 @manager.command
@@ -57,6 +57,8 @@ def run_all_commands():
     pump_status_table()
     print('blocs platforms')
     pump_blocs_platform_table()
+    print('blocs')
+    pump_blocs_table()
 
 
 if __name__ == "__main__":

@@ -8,6 +8,10 @@ from application.blocs import create_default_blocs_for_location
 API_URL = 'http://maps.googleapis.com/maps/api/geocode/json'
 
 
+def get_user_state_locale(user):
+    return Location.get(country=None, state=user.location.state, town=None)
+
+
 def save_new_location(coordinates):
     location_details = requests.get(
         API_URL,
@@ -35,10 +39,20 @@ def save_new_location(coordinates):
 
     location.save()
 
-    for locale in [{'country': country}, {'state': state}, {'town': town}]:
+    for locale in [
+        {'country': country, 'state': None, 'town': None},
+        {'country': None, 'state': state, 'town': None},
+        {'country': None, 'state': None, 'town': town}
+    ]:
+
+        existing_locale_orm = Location.get(**locale)
+        if existing_locale_orm is not None:
+            return
+
         locale_orm = Location()
 
         locale_orm.save()
+
         locale_orm.update(**locale)
 
     create_default_blocs_for_location(Location.get(state=state))
