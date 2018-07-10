@@ -59,7 +59,7 @@ class Collections(object):
         all_bloc_elements = []
 
         for bloc in blocs:
-            if len(all_bloc_elements) == 10:
+            if len(all_bloc_elements) == PAGINATE_DEFAULT_PER_PAGE:
                 break
 
             title = bloc.name
@@ -81,6 +81,11 @@ class Collections(object):
             )
 
             all_bloc_elements.append(section_data)
+
+        if len(all_bloc_elements) < PAGINATE_DEFAULT_PER_PAGE:
+            all_bloc_elements.extend(cls.all_default_blocs())
+
+        all_bloc_elements = all_bloc_elements[:PAGINATE_DEFAULT_PER_PAGE]
 
         return all_bloc_elements
 

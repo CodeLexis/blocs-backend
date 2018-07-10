@@ -33,7 +33,7 @@ def get_blocs(name, tags):
 
 
 def get_blocs_for_location(location):
-    Bloc.get(location=location)
+    return Bloc.get(location=location)
 
 
 def get_bloc_members(bloc_uid, page, per_page):

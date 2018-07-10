@@ -20,6 +20,7 @@ def set_conversation_course(title, index, response_type):
 def handle_payload(sender_id, payload, platform='Facebook Bot'):
     response = list()
 
+    print("RECEIVED: {}".format(payload))
     if isinstance(payload, dict):
         if list(payload.keys())[0] == 'coordinates':
             user_location_coordinates = payload['coordinates']
@@ -28,16 +29,15 @@ def handle_payload(sender_id, payload, platform='Facebook Bot'):
 
             response.append(('text', Monologue.compliment_location()))
 
-            if blocs.get_blocs_for_location(g.user.location) is None:
-                response.append(('text', Monologue.take_to_all_blocs()))
-                response.append(
-                    (
-                        'generic',
-                        Collections.all_default_blocs(
-                            _location_id=location.get_user_state_locale(
-                                g.user).id)
-                    )
+            response.append(('text', Monologue.take_to_all_blocs()))
+
+            response.append(
+                (
+                    'generic',
+                    Collections.all_default_blocs(
+                        _location_id=location.get_user_state_locale(g.user).id)
                 )
+            )
 
     elif isinstance(payload, str):
         if payload == 'GET_STARTED_PAYLOAD':
