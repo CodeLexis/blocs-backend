@@ -26,7 +26,7 @@ class Dialogue(object):
         replies = []
 
         for text, payload in texts_and_payloads:
-            is_location = ((text, payload) == cls.LOCATION)
+            is_location = ((text, payload) == cls.location_tuple())
 
             qr = cls.__wrap_quick_reply_option(
                 text, payload, is_location=is_location)
