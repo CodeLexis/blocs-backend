@@ -6,7 +6,7 @@ from .collections import Collections
 from application.core import db
 from application.core.constants import SOFTWARE_BRANCHES
 from application.core.models import (BlocsPlatform, Conversation, Course,
-    Message, SoftwareBranch)
+    Message, SoftwareBranch, User)
 from application import blocs, courses, events, location, projects
 from application.users.helpers import (add_course_to_offered,
     add_user_software_branch, create_new_user)
@@ -56,6 +56,10 @@ def handle_payload(sender_id, payload, platform='Facebook Bot'):
     response = list()
 
     if payload == 'GET_STARTED_PAYLOAD':
+        # If user already exists...
+        if User.get(external_app_uid=sender_id) is not None:
+            return
+
         user_profile = get_user_profile(sender_id)
 
         print('USER PROFILE: {}'.format(user_profile))
@@ -247,13 +251,14 @@ def save_response(response):
 
     Message(
         content=str(response), conversation_id=conversation.id,
-        origin='SENT').save()
+        origin='SENT'
+    ).save()
 
 
 def get_last_message():
     try:
         return Message.query.filter(
-            Message.conversation_id == g.user.conversations[0].id
+            Message.conversation_id == g.user.conversations[-1].id
         ).order_by(
             Message.id.desc()
         ).first()
@@ -266,7 +271,7 @@ def to_send_response(response):
     last_message = get_last_message()
 
     print("LAST_MESSAGE IS:::::", last_message)
-    print("RESPONSE:::::", last_message)
+    print("RESPONSE:::::", response)
 
     if last_message is not None:
         return response != eval(last_message.content)
