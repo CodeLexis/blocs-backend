@@ -31,6 +31,12 @@ def handle_attachments(attachments):
                 title=attachment['title'],
                 coordinates=user_location_coordinates)
 
+            user_state_locale = location.get_user_state_locale(g.user)
+            user_state_locale_id = None
+
+            if user_state_locale is not None:
+                user_state_locale_id = location.get_user_state_locale(g.user).id
+
             response.append(('text', Monologue.compliment_location()))
 
             response.append(('text', Monologue.take_to_all_blocs()))
@@ -39,7 +45,7 @@ def handle_attachments(attachments):
                 (
                     'generic',
                     Collections.all_default_blocs(
-                        _location_id=location.get_user_state_locale(g.user).id)
+                        _location_id=user_state_locale_id)
                 )
             )
 
