@@ -53,7 +53,7 @@ class Collections(object):
             is_default=True
         )
 
-        print('BEFORE LOCATION FILTER')
+        print(':::::::::::::location_id: %s' % _location_id)
 
         # if _location_id is not None:
         #     blocs = blocs.filter_by(location_id=_location_id)
@@ -66,7 +66,7 @@ class Collections(object):
             if len(all_bloc_elements) == PAGINATE_DEFAULT_PER_PAGE:
                 break
 
-            title = bloc.name
+            title = bloc.name.upper()
             image_url = url_for(
                 'web_blueprint.render_default_avatar',
                 color=bloc.theme_color, _external=True)
