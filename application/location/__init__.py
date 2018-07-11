@@ -26,6 +26,8 @@ def save_new_location(title, coordinates):
         ).content
     )
 
+    print('LOCATION DETAILS: %s'%location_details)
+
     location = Location(
         title=title,
         coordinates=dumps(coordinates),
