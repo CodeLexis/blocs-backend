@@ -13,8 +13,8 @@ ACCESS_TOKEN = os.environ['FACEBOOK_PAGE_ACCESS_TOKEN']
 VERIFY_TOKEN = 'some_verify_token'
 
 MESSENGER_PROFILE_URL = (
-    'https://graph.facebook.com/v2.6/me/messenger_profile?access_token=%s' %
-    ACCESS_TOKEN)
+    'https://graph.facebook.com/v2.6/me/messenger_profile?'
+    'access_token={}'.format(ACCESS_TOKEN))
 USER_PROFILE_URL = (
     "https://graph.facebook.com/v2.6/{user_id}?fields=first_name,last_name,"
     "profile_pic&access_token=%s" % ACCESS_TOKEN)
@@ -72,7 +72,7 @@ def send_quick_reply(recipient_id, text_quick_reply_options):
 def send_read_receipt(recipient_id):
     print(
         'SEND READ RECEIPT: %s' % requests.post(
-        "https://graph.facebook.com/v2.6/me/messages?access_token=%s".format(
+        "https://graph.facebook.com/v2.6/me/messages?access_token={}".format(
             ACCESS_TOKEN),
         headers={'content-type': 'application/json'},
         data={
@@ -84,7 +84,7 @@ def send_read_receipt(recipient_id):
 
 def set_typing_on(recipient_id):
     print('SET TYPING ON: %s' % requests.post(
-        "https://graph.facebook.com/v2.6/me/messages?access_token=%s".format(
+        "https://graph.facebook.com/v2.6/me/messages?access_token={}".format(
             ACCESS_TOKEN),
         headers={'content-type': 'application/json'},
         data={

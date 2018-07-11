@@ -63,7 +63,6 @@ class Collections(object):
                 break
 
             title = bloc.name
-            # subtitle = bloc['body']
             image_url = url_for(
                 'web_blueprint.render_default_avatar',
                 color=bloc.theme_color, _external=True)
@@ -75,13 +74,14 @@ class Collections(object):
                 )
             ]
 
-            section_data = Dialogue.generic(
+            bloc_data = Dialogue.generic(
                 title=title, subtitle=None, image_url=image_url,
                 buttons=buttons
             )
 
-            all_bloc_elements.append(section_data)
+            all_bloc_elements.append(bloc_data)
 
+        # APPEND BLOCS NOT TIED TO LOCATIONS
         # if len(all_bloc_elements) < PAGINATE_DEFAULT_PER_PAGE:
         #     all_bloc_elements.extend(cls.all_default_blocs())
 
