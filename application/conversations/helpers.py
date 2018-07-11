@@ -240,7 +240,7 @@ def get_response(sender_id, platform, text=None, attachments=None, nlp=None,
 def save_response(response):
     try:
         # TODO make this get_user_active_conversation
-        conversation = g.user.conversations[0]
+        conversation = g.user.conversations[-1]
     except:
         conversation = Conversation(user_id=g.user.id)
         conversation.save()
@@ -265,7 +265,10 @@ def get_last_message():
 def to_send_response(response):
     last_message = get_last_message()
 
+    print("LAST_MESSAGE IS:::::", last_message)
+    print("RESPONSE:::::", last_message)
+
     if last_message is not None:
-        return response[1] != eval(last_message.content)[1]
+        return response != eval(last_message.content)
 
     return True
