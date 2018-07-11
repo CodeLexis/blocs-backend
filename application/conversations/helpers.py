@@ -229,7 +229,7 @@ def get_response(sender_id, platform, text=None, attachments=None, nlp=None,
     return response
 
 
-def save_message(response):
+def save_response(response):
     try:
         # TODO make this get_user_active_conversation
         conversation = g.user.conversations[0]

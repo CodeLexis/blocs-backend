@@ -9,7 +9,7 @@ from flask.views import MethodView
 import requests
 
 from application.conversations.helpers import (
-    get_response, save_message, to_send_response)
+    get_response, save_response, to_send_response)
 from application.core.models.helpers import (
     orm_get_blocs_platform_by_name, orm_get_user_by_platform_uid)
 from application.core.utils.helpers import get_typing_duration
@@ -99,7 +99,7 @@ class FacebookBotHandler(MethodView):
                             time.sleep(get_typing_duration(*reply))
                             send_message(recipient_id, reply)
 
-                    save_message(response)
+                    save_response(response)
 
         return "Message Processed"
 

@@ -53,8 +53,6 @@ class Collections(object):
             is_default=True
         )
 
-        print(':::::::::::::location_id: %s' % _location_id)
-
         # if _location_id is not None:
         #     blocs = blocs.filter_by(location_id=_location_id)
         #

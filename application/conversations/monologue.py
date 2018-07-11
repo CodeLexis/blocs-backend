@@ -128,7 +128,7 @@ class Monologue(object):
 
     @classmethod
     def take_to_all_blocs(cls):
-        return "Have a look around..."
+        return "Now %s, dive-in and join developers :+1" % g.user.first_name
 
     @classmethod
     def take_to_all_courses(cls):
@@ -260,6 +260,7 @@ class Monologue(object):
         return random.choice([
             "Cool!", 'Fab!', 'You do have a good eye!'
         ])
+
 
 if __name__ == '__main__':
     print(Monologue.direct_to_checkout())
