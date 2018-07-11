@@ -87,6 +87,8 @@ class Collections(object):
 
         all_bloc_elements = all_bloc_elements[:PAGINATE_DEFAULT_PER_PAGE]
 
+        print('ALL DEFAULT BLOC ELEMENTS: {}'.format(all_bloc_elements))
+
         return all_bloc_elements
 
     @classmethod
