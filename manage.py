@@ -48,8 +48,9 @@ def pump_blocs_table():
         print(bloc.name)
 
     for bloc in DEFAULT_BLOCS:
-        if Bloc.get(name='{} Bloc'.format(bloc)) is not None:
-            continue
+        existing_bloc = Bloc.get(name='{} Bloc'.format(bloc))
+        if existing_bloc is not None:
+            existing_bloc.update(is_default=True)
 
         Bloc(name='{} Bloc'.format(bloc), is_default=True).save()
 

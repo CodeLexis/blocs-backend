@@ -92,8 +92,9 @@ class FacebookBotHandler(MethodView):
 
                 if response is not None:
                     if to_send_response(response):
+                        send_read_receipt(recipient_id)
+
                         for reply in response:
-                            send_read_receipt(recipient_id)
                             set_typing_on(recipient_id)
                             time.sleep(get_typing_duration(*reply))
                             send_message(recipient_id, reply)

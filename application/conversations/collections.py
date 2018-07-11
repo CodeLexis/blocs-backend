@@ -53,8 +53,12 @@ class Collections(object):
             is_default=True
         )
 
+        print('BEFORE LOCATION FILTER')
+
         if _location_id is not None:
             blocs = blocs.filter_by(location_id=_location_id)
+
+        print('AFTER LOCATION FILTER')
 
         all_bloc_elements = []
 
@@ -82,8 +86,8 @@ class Collections(object):
             all_bloc_elements.append(bloc_data)
 
         # APPEND BLOCS NOT TIED TO LOCATIONS
-        if len(all_bloc_elements) < PAGINATE_DEFAULT_PER_PAGE:
-            all_bloc_elements.extend(cls.all_default_blocs())
+        # if len(all_bloc_elements) < PAGINATE_DEFAULT_PER_PAGE:
+        #     all_bloc_elements.extend(cls.all_default_blocs())
 
         all_bloc_elements = all_bloc_elements[:PAGINATE_DEFAULT_PER_PAGE]
 
