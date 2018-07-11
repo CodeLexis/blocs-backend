@@ -75,8 +75,10 @@ def send_read_receipt(recipient_id):
         "https://graph.facebook.com/v2.6/me/messages?access_token={}".format(
             ACCESS_TOKEN),
         headers={'content-type': 'application/json'},
-        data={
-            "recipient": {"id": recipient_id},
+        json={
+            "recipient": {
+                "id": recipient_id
+            },
             "sender_action": "mark_seen"
         }
     ).content)
@@ -87,8 +89,10 @@ def set_typing_on(recipient_id):
         "https://graph.facebook.com/v2.6/me/messages?access_token={}".format(
             ACCESS_TOKEN),
         headers={'content-type': 'application/json'},
-        data={
-            "recipient": {"id": recipient_id},
+        json={
+            "recipient": {
+                "id": recipient_id
+            },
             "sender_action": "typing_on"
         }
     ).content)
