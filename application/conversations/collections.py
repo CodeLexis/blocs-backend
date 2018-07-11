@@ -55,10 +55,10 @@ class Collections(object):
 
         print('BEFORE LOCATION FILTER')
 
-        if _location_id is not None:
-            blocs = blocs.filter_by(location_id=_location_id)
-
-        print('AFTER LOCATION FILTER')
+        # if _location_id is not None:
+        #     blocs = blocs.filter_by(location_id=_location_id)
+        #
+        # print('AFTER LOCATION FILTER')
 
         all_bloc_elements = []
 

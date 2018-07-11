@@ -13,7 +13,7 @@ class Monologue(object):
             "Interacting, teaming-up, pair-coding with the best developers in "
             "the world",
             "Always getting notifications about the right jobs & events...",
-            "And from the comfort of Messenger?!",
+            "All from the comfort of Messenger?!",
             "%s... Welcome to Blocs! B)" % g.user.first_name,
         ]
 
