@@ -103,3 +103,7 @@ def create_default_blocs_for_location(location):
             color=generate_random_bloc_color,
             is_default=True
         )
+
+
+def join_bloc(user, bloc_id):
+    BlocMembership(user_id=user.id, bloc_id=bloc_id).save()

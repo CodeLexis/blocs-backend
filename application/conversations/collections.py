@@ -72,7 +72,7 @@ class Collections(object):
             buttons = [
                 Dialogue.button(
                     type='postback', title='JOIN',
-                    payload='JOIN_BLOC'
+                    payload='JOIN_BLOC__%s' % bloc.id
                 )
             ]
 

@@ -90,6 +90,10 @@ class FacebookBotHandler(MethodView):
                         recipient_id, self.platform, payload=payload, text=text,
                         is_postback=True)
 
+                print(
+                    'ABOUT TO REPLY {}::::::::::::{}'.format(message, response)
+                )
+
                 if response is not None:
                     if to_send_response(response):
                         send_read_receipt(recipient_id)

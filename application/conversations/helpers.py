@@ -83,6 +83,14 @@ def handle_payload(sender_id, payload, platform='Facebook Bot'):
 
         response.append(('quick_reply', get_location))
 
+    ### BLOCS
+    elif payload.startswith('JOIN_BLOC'):
+        bloc_id = payload.split('JOIN_BLOC')
+        blocs.join_bloc(g.user, bloc_id)
+
+        response.append(('text', Monologue.support_decision()))
+        response.append(('text', Monologue.support_decision()))
+
     ### COURSES
     elif payload.startswith('CREATE_COURSE'):
         set_conversation_course(

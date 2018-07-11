@@ -128,7 +128,8 @@ class Monologue(object):
 
     @classmethod
     def take_to_all_blocs(cls):
-        return "Now %s, dive-in and join developers :+1" % g.user.first_name
+        return "Now %s, dive-in and join other developers :+1" % \
+               g.user.first_name
 
     @classmethod
     def take_to_all_courses(cls):
@@ -258,7 +259,8 @@ class Monologue(object):
     @classmethod
     def support_decision(cls):
         return random.choice([
-            "Cool!", 'Fab!', 'You do have a good eye!'
+            "Whoop!",
+            "Dang!"
         ])
 
 
