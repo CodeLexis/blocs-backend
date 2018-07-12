@@ -249,6 +249,8 @@ def save_response(response):
         conversation = Conversation(user_id=g.user.id)
         conversation.save()
 
+    print('User Conversation ID: %s' % conversation.id)
+
     Message(
         content=str(response), conversation_id=conversation.id,
         origin='SENT'
@@ -270,7 +272,7 @@ def get_last_message():
 def to_send_response(response):
     last_message = get_last_message()
 
-    print("LAST_MESSAGE IS:::::", last_message)
+    print("LAST_MESSAGE IS:::::", last_message.content)
     print("RESPONSE:::::", response)
 
     if last_message is not None:
