@@ -41,6 +41,8 @@ class FacebookBotHandler(MethodView):
             messaging = event['messaging']
 
             for message in messaging:
+                print("ABOUT PROCESSING REPLY FOR: %s".format(message))
+
                 response = None
 
                 recipient_id = message['sender']['id']
@@ -104,6 +106,8 @@ class FacebookBotHandler(MethodView):
                             send_message(recipient_id, reply)
 
                     save_response(response)
+
+                break
 
         return "Message Processed"
 
