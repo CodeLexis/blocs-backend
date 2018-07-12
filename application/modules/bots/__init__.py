@@ -41,7 +41,7 @@ class FacebookBotHandler(MethodView):
             messaging = event['messaging']
 
             for message in messaging:
-                print("ABOUT PROCESSING REPLY FOR: %s".format(message))
+                print("ABOUT PROCESSING REPLY FOR: {}".format(message))
 
                 response = None
 
