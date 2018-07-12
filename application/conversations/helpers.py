@@ -235,8 +235,8 @@ def get_response(sender_id, platform, text=None, attachments=None, nlp=None,
 
     elif nlp and 'greetings' in list(nlp.keys()):
         response.append(('text', Monologue.greet()))
-        response.append(('text', Monologue.take_to_all_schools()))
-        response.append(('generic', Collections.all_sections()))
+        # response.append(('text', Monologue.take_to_all_schools()))
+        # response.append(('generic', Collections.all_sections()))
 
     return response
 
