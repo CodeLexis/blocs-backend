@@ -132,17 +132,6 @@ class Monologue(object):
                g.user.first_name
 
     @classmethod
-    def take_to_all_courses(cls):
-        return random.choice(
-            ['Here are courses you could take...',
-             "What's the skill you want to gain, %s?" % g.user.first_name,
-             "Here are what we currently cover:",
-             "Where would you like to start? ",
-             "Have a look around...",
-             "%s, what would you like to learn?" % g.user.first_name[0]]
-        )
-
-    @classmethod
     def take_to_course(cls):
         return
 
@@ -263,6 +252,18 @@ class Monologue(object):
             "Dang!"
         ])
 
+    @classmethod
+    def take_to_all_courses(cls):
+        return random.choice([
+            'Looking to improve your craft, %s?' % g.user.first_name[0],
+            "You're eager to broaden your horizon... Awesome!",
+            "Classes taught by people within your Blocs:",
+            "Here are classes you could catch on Facebook:"])
 
-if __name__ == '__main__':
-    print(Monologue.direct_to_checkout())
+    @classmethod
+    def take_to_all_feeds(cls):
+        return "Here's what is new on your Blocs"
+
+
+# if __name__ == '__main__':
+#     print(Monologue.direct_to_checkout())

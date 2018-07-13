@@ -5,7 +5,8 @@ import shortuuid
 from sqlalchemy.ext.declarative import declared_attr
 
 from application.core import db
-from application.core.constants import STATUSES, PROGRAMMING_LANGUAGES
+from application.core.constants import (PAGINATE_DEFAULT_PER_PAGE,
+    PROGRAMMING_LANGUAGES, STATUSES, TIMEZONES)
 from application.core.utils.helpers import generate_random_bloc_color
 
 
@@ -103,6 +104,16 @@ class Bloc(BaseModel, HasUID, LookUp):
 
     location = db.relationship('Location', backref=db.backref('blocs'))
 
+    @property
+    def latest_feeds(self):
+        bloc_feeds = BlocFeed.query.filter_by(
+            bloc_id=self.id
+        ).order_by(
+            BlocFeed.id.desc()
+        ).limit(PAGINATE_DEFAULT_PER_PAGE)
+
+        return [bloc_feed.feed for bloc_feed in bloc_feeds]
+
     def generate_invite_code(self):
         raise NotImplementedError
 
@@ -111,6 +122,20 @@ class Bloc(BaseModel, HasUID, LookUp):
             _code = self.generate_invite_code()
 
         self.invite_code = _code
+
+
+class BlocFeed(BaseModel):
+    __tablename__ = 'bloc_feeds'
+
+    feed_id = db.Column(db.Integer, db.ForeignKey('feeds.id'))
+    bloc_id = db.Column(db.Integer, db.ForeignKey('blocs.id'))
+
+    feed = db.relationship(
+        'User', backref=db.backref('bloc_memberships', uselist=True),
+        uselist=False)
+    bloc = db.relationship(
+        'Bloc', backref=db.backref('bloc_memberships', uselist=True),
+        uselist=False)
 
 
 class BlocMembership(BaseModel):
@@ -154,15 +179,36 @@ class Conversation(BaseModel):
         lazy='joined')
 
 
+class CourseSchedule(BaseModel):
+    __tablename__ = 'course_schedules'
+
+    time = db.Column(db.String(12))
+    days_of_week = db.Column(db.TEXT)
+    timezone = db.Column(db.Enum(*TIMEZONES))
+
+    course_id = db.Column(db.Integer, db.ForeignKey('course_schedules.id'))
+
+    course = db.relationship(
+        'Course', backref=db.backref('course_schedules', uselist=True),
+        lazy='joined'
+    )
+
+
 class Course(BaseModel, HasUID):
     __tablename__ = 'courses'
 
-    title = db.Column(db.String(128), )
+    title = db.Column(db.String(128))
     description = db.Column(db.TEXT)
+    bloc_id = db.Column(db.Integer, db.ForeignKey('blocs.id'))
     created_by_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-
-    created_by = db.relationship(
-        'User', backref=db.backref('courses', uselist=True))
+    course_schedule_id = db.Column(
+        db.Integer, db.ForeignKey('course_schedules.id'))
+    start_date = db.Column(db.Date)
+    end_date = db.Column(db.Date)
+    time = db.Column(db.String(6))
+    days_of_week = db.Column(db.TEXT)
+    timezone = db.String(6)
+    thumbnail = db.Column(db.TEXT)
 
     source_category = db.Column(
         db.Enum(
@@ -171,6 +217,13 @@ class Course(BaseModel, HasUID):
     source = db.Column(
         db.Enum('FACEBOOK', 'UDACITY', name='course_sources')
     )
+
+    created_by = db.relationship(
+        'User', backref=db.backref('courses', uselist=True))
+
+    bloc = db.relationship(
+        'Bloc', backref=db.backref('courses'))
+
 
     def as_json(self):
         return {
@@ -192,6 +245,17 @@ class Event(BaseModel, HasUID):
     bloc = db.relationship(
         'Bloc', backref=db.backref('events', uselist=True),
         uselist=False)
+
+
+class Feed(BaseModel, HasUID):
+    __tablename__ = 'feeds'
+
+    created_by_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    external_app_uid = db.Column(db.String(64))
+    created_at = db.Column(db.DateTime, default=datetime.now)
+    message = db.Column(db.TEXT)
+
+    created_by = db.relationship('User', )
 
 
 class Job(BaseModel, HasUID):
@@ -341,6 +405,15 @@ class User(BaseModel, HasUID):
     @property
     def location(self):
         return self.locations[-1]
+
+    @property
+    def blocs(self):
+        all_users_blocs = []
+
+        for membership in self.bloc_memberships:
+            all_users_blocs.append(membership.bloc)
+
+        return all_users_blocs
 
     def as_json(self):
         return {

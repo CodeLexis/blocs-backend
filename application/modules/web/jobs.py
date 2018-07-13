@@ -6,7 +6,7 @@ from . import render_template, request, web_blueprint
 @web_blueprint.route('/create-job', methods=['GET', 'POST'])
 def render_job_creation_page():
     if request.method == 'GET':
-        return render_template('jobs/create_job.html')
+        return render_template('jobs/create.html')
 
     elif request.method == 'POST':
         title = request.form['title']

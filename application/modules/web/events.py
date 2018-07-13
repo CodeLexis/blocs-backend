@@ -6,7 +6,7 @@ from . import render_template, request, web_blueprint
 @web_blueprint.route('/create-event', methods=['GET', 'POST'])
 def render_event_creation_page():
     if request.method == 'GET':
-        return render_template('events/new_event.html')
+        return render_template('events/create.html')
 
     elif request.method == 'POST':
         title = request.form['title']

@@ -17,6 +17,7 @@ DEFAULT_BLOCS = SOFTWARE_BRANCHES = [
     'Embedded Systems', 'Security Software Development']
 STATUSES = ('active', 'deleted')
 SUPPORTED_HTTP_METHODS = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']
+TIMEZONES = ['GMT', 'PST', 'CAT']
 LANDING_MESSAGE = (
     'Facebook, tailored to suit the Developer.')
 LANDING_MESSAGE = ('Alternate version of Facebook, for the Developer.')

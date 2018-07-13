@@ -95,12 +95,6 @@ def handle_payload(sender_id, payload, platform='Facebook Bot'):
         response.append(('text', Monologue.support_decision()))
         response.append(('text', Monologue.support_decision()))
 
-    ### COURSES
-    elif payload.startswith('CREATE_COURSE'):
-        set_conversation_course(
-            'COURSE', courses.COURSE_CREATION_STEPS[0], 'text')
-        response.append(('text', Monologue.ask_for_course_title()))
-
     elif payload == 'DISPLAY_ALL_COURSES':
         response.append(('text', Monologue.take_to_all_courses()))
         response.append(('generic', Collections.all_courses()))
@@ -235,7 +229,9 @@ def get_response(sender_id, platform, text=None, attachments=None, nlp=None,
 
     elif nlp and 'greetings' in list(nlp.keys()):
         response.append(('text', Monologue.greet()))
-        # response.append(('text', Monologue.take_to_all_schools()))
+        response.append(('text', Monologue.take_to_all_feeds()))
+        response.append(('generic', Collections.all_feeds()))
+        # response.append(('text', Monologue.take_to_all_courses()))
         # response.append(('generic', Collections.all_sections()))
 
     return response

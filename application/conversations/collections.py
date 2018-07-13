@@ -2,13 +2,9 @@ import random
 
 from flask import g, url_for
 
-# from application.articles.helpers import (get_existing_section_headlines,
-#                                           get_existing_news_source_headlines)
-# from application.readers.helpers import get_reader_brief_sources
 from application.core.constants import (
     DEFAULT_BLOCS, PAGINATE_DEFAULT_PER_PAGE)
 from application.core.models import Bloc
-# from application.core.utils import get_app_icon_url, get_section_thumbnail
 from .dialogue import Dialogue
 
 
@@ -96,7 +92,38 @@ class Collections(object):
 
     @classmethod
     def all_courses(cls, page=1, _tailored=False):
-        return
+        courses = []
+
+        for bloc in g.user.blocs:
+            for course in bloc.courses:
+                title = course.title
+                description = course.description
+                image_url = url_for(
+                    'web_blueprint.render_course_thumbnail', id=course.id,
+                    _external=True)
+
+                buttons = [
+                    Dialogue.button(
+                        type='postback', title='ADD',
+                        payload='ADD_COURSE_TO_OFFERED__%s' % course.id
+                    ),
+                    Dialogue.button(
+                        type='url', title='DETAILS',
+                        url=url_for('web_blueprint.render_course_details')
+                    ),
+                ]
+
+                course_data = Dialogue.generic(
+                    title=title, subtitle=description,
+                    image_url=image_url,
+                    buttons=buttons
+                )
+
+                courses.append(course_data)
+
+        random.shuffle(courses)
+
+        return courses[:10]
 
     @classmethod
     def course(cls, course_id):
@@ -195,6 +222,40 @@ class Collections(object):
             all_headline_elements.append(section_data)
 
         return all_headline_elements
+
+    @classmethod
+    def all_feeds(cls):
+        feeds = []
+
+        for bloc in g.user.blocs:
+            for feed in bloc.latest_feeds:
+
+                message = feed.message
+                subtitle = feed.body
+                image_url = feed.get('image_url')
+
+                buttons = [
+                    Dialogue.button(
+                        type='postback', title='LIKE',
+                        payload='LIKE_FEED__%s' % feed.id
+                    ),
+                    Dialogue.button(
+                        type='postback', title='REPLIES (4)',
+                        payload='REPLY_FEED__%s' % feed.id
+                    ),
+                ]
+
+                section_data = Dialogue.generic(
+                    title=message, subtitle=subtitle,
+                    image_url=image_url,
+                    buttons=buttons
+                )
+
+                feeds.append(section_data)
+
+        random.shuffle(feeds)
+
+        return feeds[:10]
 
     @classmethod
     def all_jobs(cls, page=1, _tailored=False):

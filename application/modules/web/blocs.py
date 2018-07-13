@@ -14,7 +14,7 @@ def render_bloc_invitation_page(bloc_id):
 @web_blueprint.route('/create-bloc', methods=['GET', 'POST'])
 def render_bloc_creation_page():
     if request.method == 'GET':
-        return render_template('blocs/new_bloc.html')
+        return render_template('blocs/create.html')
 
     elif request.method == 'POST':
         name = request.form['name']
