@@ -292,10 +292,10 @@ def get_last_message():
 def to_send_response(response):
     last_message = get_last_message()
 
-    print("LAST_MESSAGE IS:::::", last_message.content)
-    print("RESPONSE:::::", response)
-
     if last_message is not None:
+        print("LAST_MESSAGE IS:::::", last_message.content)
+        print("RESPONSE:::::", response)
+
         return response != eval(last_message.content)
 
     return True
