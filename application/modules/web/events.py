@@ -1,4 +1,4 @@
-from application.core.models import Bloc
+from application.core.models import Bloc, Event
 from application.events import create_event
 from . import render_template, request, web_blueprint
 
@@ -24,3 +24,20 @@ def render_event_creation_page():
 
         context = {'scope': 'event for {}'.format(bloc_name)}
         return render_template('success.html', **context)
+
+
+@web_blueprint.route('/events/<int:id>')
+def render_event_details(id):
+    event = Event.get(id=id)
+
+    context = event.as_json()
+
+    return render_template('events/details.html', **context)
+
+
+@web_blueprint.route('/events/<int:id>/thumbnail')
+def render_event_thumbnail(id):
+    # TODO implement event thumbnail get
+    event = Event.get(id=id)
+
+    return

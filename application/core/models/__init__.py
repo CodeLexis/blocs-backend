@@ -110,9 +110,23 @@ class Bloc(BaseModel, HasUID, LookUp):
             bloc_id=self.id
         ).order_by(
             BlocFeed.id.desc()
-        ).limit(PAGINATE_DEFAULT_PER_PAGE)
+        ).limit(
+            PAGINATE_DEFAULT_PER_PAGE
+        ).all()
 
         return [bloc_feed.feed for bloc_feed in bloc_feeds]
+
+    @property
+    def events(self):
+        bloc_events = Event.query.filter_by(
+            bloc_id=self.id
+        ).order_by(
+            Event.id.desc()
+        ).limit(
+            PAGINATE_DEFAULT_PER_PAGE
+        ).all()
+
+        return bloc_events
 
     def generate_invite_code(self):
         raise NotImplementedError

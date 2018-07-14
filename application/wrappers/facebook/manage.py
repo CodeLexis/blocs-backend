@@ -64,7 +64,9 @@ side_menu_payload = {
                                 {
                                     "title": "Blocs",
                                     "type": "web_url",
-                                    "url": url_for('web_blueprint.manage_blocs')
+                                    "url": url_for(
+                                        'web_blueprint.manage_blocs',
+                                        _external=True)
                                 }
                             ]
                         }

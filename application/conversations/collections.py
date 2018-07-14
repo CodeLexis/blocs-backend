@@ -164,29 +164,34 @@ class Collections(object):
 
     @classmethod
     def all_events(cls, page=1, _tailored=False):
-        all_section_elements = []
+        all_event_elements = []
 
-        for section in Section.query.paginate(per_page=10, page=page).items:
+        for bloc in g.user.blocs:
+            for event in bloc.events:
 
-            title = section.name
-            subtitle = ''  # section.description
+                title = event.title
+                subtitle = '{} {}'.format(bloc.name, event.description)
 
-            buttons = [
-                Dialogue.button(
-                    type='postback', title='VIEW',
-                    payload='DISPLAY_SECTION__%s' % (section.id)
+                buttons = [
+                    Dialogue.button(
+                        type='web_url', title='VIEW',
+                        payload=url_for(
+                            'web_blueprint.render_event_details',
+                            id=event.id, _external=True)
+                    )
+                ]
+
+                event_data = Dialogue.generic(
+                    title=title.upper(), subtitle=subtitle,
+                    image_url=url_for(
+                        'web_blueprint.render_event_thumbnail',
+                        id=event.id, _external=True),
+                    buttons=buttons
                 )
-            ]
 
-            section_data = Dialogue.generic(
-                title=title.upper(), subtitle=subtitle,
-                image_url=get_section_thumbnail(title.lower()),
-                buttons=buttons
-            )
+                all_event_elements.append(event_data)
 
-            all_section_elements.append(section_data)
-
-        return all_section_elements
+        return all_event_elements
 
     @classmethod
     def event(cls, section_id):
@@ -401,7 +406,8 @@ class Collections(object):
         buttons = [
             Dialogue.button(
                 type='web_url', title='YES',
-                url=url_for('web_blueprint.render_event_creation_page')
+                url=url_for('web_blueprint.render_event_creation_page',
+                            _external=True)
             )
         ]
 
