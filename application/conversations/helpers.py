@@ -57,8 +57,9 @@ def handle_payload(sender_id, payload, platform='Facebook Bot'):
 
     if payload == 'GET_STARTED_PAYLOAD':
         # If user already exists...
-        if User.get(external_app_uid=sender_id) is not None:
-            return
+        # TODO uncomment this block for production code
+        # if User.get(external_app_uid=sender_id) is not None:
+        #     return
 
         user_profile = get_user_profile(sender_id)
 

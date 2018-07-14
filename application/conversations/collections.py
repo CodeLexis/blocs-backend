@@ -407,8 +407,7 @@ class Collections(object):
             Dialogue.button(
                 type='web_url', title='YES',
                 url=url_for('web_blueprint.render_event_creation_page',
-                            _external=True),
-                webview_height_ratio='compact'
+                            _external=True)
             )
         ]
 

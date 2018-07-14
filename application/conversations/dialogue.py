@@ -37,7 +37,7 @@ class Dialogue(object):
     @classmethod
     def button(
             cls, type, title, payload=None, url=None,
-            webview_height_ratio='compact'):
+            webview_height_ratio='tall'):
         result = {'type': type, 'title': title}
 
         if payload is not None:
