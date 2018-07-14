@@ -418,7 +418,7 @@ class Collections(object):
             buttons=buttons
         )
 
-        return section_data
+        return [section_data]
 
     @classmethod
     def create_project(cls):
