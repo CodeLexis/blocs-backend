@@ -1,3 +1,5 @@
+from functools import wraps
+
 from flask import g
 
 from .dialogue import Dialogue
@@ -52,6 +54,159 @@ def handle_attachments(attachments):
     return response
 
 
+def blocs_required(f):
+
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if g.user.has_bloc:
+            return f(*args, **kwargs)
+
+        else:
+            response = list()
+
+            response.append(('text', Monologue.ask_to_join_bloc()))
+            response.append(('text', Collections.all_default_blocs()))
+
+            return response
+
+    return decorated_function
+
+
+@blocs_required
+def handle_bloc_required_payload(payload):
+    response = list()
+
+    ### COURSES
+    if payload == 'DISPLAY_ALL_COURSES':
+        response.append(('text', Monologue.take_to_all_courses()))
+
+        all_user_blocs_courses = Collections.all_courses()
+        if all_user_blocs_courses:
+            response.append(('generic', all_user_blocs_courses))
+        else:
+            response.append(
+                ('text', Monologue.empty_resource(scope='course'))
+            )
+            response.append(
+                ('text', Collections.create_course())
+            )
+
+    elif payload == 'DISPLAY_ALL_COURSES_OFFERED':
+        response.append(('text', Monologue.take_to_all_courses()))
+        response.append(
+            ('generic', Collections.all_courses(_tailored=True)))
+
+    elif payload.startswith('DISPLAY_COURSE'):
+        course_id = int(payload.split('__')[1])
+
+        course = Course.get(id=course_id)
+
+        order_now_quick_reply = Dialogue.quick_reply(
+            title=Monologue.enquire_add_to_courses_offered(course.title),
+            texts_and_payloads=[
+                ('YES', 'ADD_COURSE_TO_OFFERED__%s' % course_id),
+                ('No', 'NOTHING')
+            ]
+        )
+
+        response.append(('text', Monologue.take_to_course()))
+        response.append(('generic', Collections.course(course_id)))
+        response.append(('quick_reply', order_now_quick_reply))
+
+    elif payload.startswith('ADD_COURSE_TO_OFFERED'):
+        course_id = int(payload.split('__')[1])
+
+        add_course_to_offered(course_id)
+        response.append(('text', Monologue.process_completion()))
+
+    ### EVENTS
+    elif payload == 'DISPLAY_ALL_EVENTS':
+        # response.append(('quick_reply', Dialogue.get_location()))
+        all_events = Collections.all_events()
+        if all_events:
+            response.append(('text', Monologue.take_to_all_events()))
+            response.append(('generic', all_events))
+        else:
+            response.append(('text', Monologue.empty_resource('event')))
+            response.append(('generic', Collections.create_event()))
+
+    elif payload == 'DISPLAY_ALL_EVENTS_INTERESTED_IN':
+        response.append(('text', Monologue.take_to_all_events()))
+        response.append(
+            ('generic', Collections.all_events(_tailored=True)))
+
+    elif payload.startswith('DISPLAY_EVENT'):
+        event_id = int(payload.split('__')[1])
+
+        response.append(('text', Monologue.take_to_event()))
+        response.append(('generic', Collections.event(event_id)))
+
+    ### JOBS
+    elif payload == 'DISPLAY_ALL_JOBS':
+        all_user_blocs_jobs = Collections.all_jobs()
+
+        if all_user_blocs_jobs:
+            response.append(('text', Monologue.take_to_all_jobs()))
+            response.append(('generic', all_user_blocs_jobs))
+        else:
+            response.append(('text', Monologue.empty_resource('job')))
+            response.append(('generic', Collections.create_job()))
+
+    elif payload == 'DISPLAY_ALL_JOBS_INTERESTED_IN':
+        response.append(('text', Monologue.take_to_all_jobs()))
+        response.append(('generic', Collections.all_jobs(_tailored=True)))
+
+    elif payload.startswith('DISPLAY_JOB'):
+        job_id = int(payload.split('__')[1])
+
+        response.append(('text', Monologue.take_to_job()))
+        response.append(('generic', Collections.job(job_id)))
+
+    elif payload.startswith('ADD_NEW_JOB'):
+        response.append(('text', Monologue.take_to_all_jobs()))
+        response.append(('generic', Collections.all_jobs(_tailored=True)))
+
+    ### PROJECTS
+    elif payload == 'DISPLAY_ALL_PROJECTS':
+        all_user_blocs_projects = Collections.all_projects()
+        if all_user_blocs_projects:
+            response.append(('text', Monologue.take_to_all_projects()))
+            response.append(('generic', all_user_blocs_projects))
+        else:
+            response.append(('text', Monologue.empty_resource('project')))
+            response.append(('generic', Collections.create_project()))
+
+    elif payload == 'DISPLAY_ALL_PROJECTS_INTERESTED_IN':
+        response.append(('text', Monologue.take_to_all_projects()))
+        response.append(
+            ('generic', Collections.all_projects(_tailored=True)))
+
+    elif payload.startswith('DISPLAY_PROJECT'):
+        project_id = int(payload.split('__')[1])
+
+        response.append(('text', Monologue.take_to_project()))
+        response.append(('generic', Collections.project(project_id)))
+
+    elif payload.startswith('LIKE_PROJECT'):
+        project_id = int(payload.split('__')[1])
+
+        # response.append(('text', Monologue.take_to_project()))
+        projects.like_bloc_project(project_id)
+        response.append(('generic', Monologue.support_decision()))
+
+    ### FEEDS
+    elif payload == 'DISPLAY_ALL_FEEDS':
+        response.append(('text', Monologue.take_to_all_feeds()))
+        response.append(('generic', Collections.all_feeds()))
+
+    elif payload.startswith('DISPLAY_JOB'):
+        job_id = int(payload.split('__')[1])
+
+        response.append(('text', Monologue.take_to_job()))
+
+    return response
+
+
 def handle_payload(sender_id, payload, platform='Facebook Bot'):
     response = list()
 
@@ -94,137 +249,11 @@ def handle_payload(sender_id, payload, platform='Facebook Bot'):
         blocs.join_bloc(g.user, bloc_id)
 
         response.append(('text', Monologue.support_decision()))
+        response.append(('text', Monologue.take_to_menu()))
+        response.append(('generic', Collections.menu()))
 
-    ### COURSES
-    elif payload == 'DISPLAY_ALL_COURSES':
-        if g.user.has_bloc:
-            response.append(('text', Monologue.take_to_all_courses()))
-
-            all_user_blocs_courses = Collections.all_courses()
-            if all_user_blocs_courses:
-                response.append(('generic', all_user_blocs_courses))
-            else:
-                response.append(
-                    ('text', Monologue.empty_resource(scope='course'))
-                )
-
-        else:
-            response.append(('text', Monologue.ask_to_join_bloc()))
-            response.append(('text', Collections.all_default_blocs()))
-
-    elif payload == 'DISPLAY_ALL_COURSES_OFFERED':
-        response.append(('text', Monologue.take_to_all_courses()))
-        response.append(
-            ('generic', Collections.all_courses(_tailored=True)))
-
-    elif payload.startswith('DISPLAY_COURSE'):
-        course_id = int(payload.split('__')[1])
-
-        course = Course.get(id=course_id)
-
-        order_now_quick_reply = Dialogue.quick_reply(
-            title=Monologue.enquire_add_to_courses_offered(course.title),
-            texts_and_payloads=[
-                ('YES', 'ADD_COURSE_TO_OFFERED__%s' % course_id),
-                ('No', 'NOTHING')
-            ]
-        )
-
-        response.append(('text', Monologue.take_to_course()))
-        response.append(('generic', Collections.course(course_id)))
-        response.append(('quick_reply', order_now_quick_reply))
-
-    elif payload.startswith('ADD_COURSE_TO_OFFERED'):
-        course_id = int(payload.split('__')[1])
-
-        add_course_to_offered(course_id)
-        response.append(('text', Monologue.process_completion()))
-
-    ### EVENTS
-    elif payload.startswith('CREATE_EVENT'):
-        set_conversation_course(
-            'EVENT', events.EVENT_CREATION_STEPS[0], 'text')
-        response.append(('text', Monologue.ask_for_event_title()))
-
-    elif payload == 'DISPLAY_ALL_EVENTS':
-        # response.append(('quick_reply', Dialogue.get_location()))
-        all_events = Collections.all_events()
-        if all_events:
-            response.append(('text', Monologue.take_to_all_events()))
-            response.append(('generic', Collections.all_events()))
-
-        else:
-            response.append(('text', Monologue.empty_resource('event')))
-            response.append(('generic', Collections.create_event()))
-
-    elif payload == 'DISPLAY_ALL_EVENTS_INTERESTED_IN':
-        response.append(('text', Monologue.take_to_all_events()))
-        response.append(
-            ('generic', Collections.all_events(_tailored=True)))
-
-    elif payload.startswith('DISPLAY_EVENT'):
-        event_id = int(payload.split('__')[1])
-
-        response.append(('text', Monologue.take_to_event()))
-        response.append(('generic', Collections.event(event_id)))
-
-    ### JOBS
-    elif payload == 'DISPLAY_ALL_JOBS':
-        response.append(('text', Monologue.take_to_all_jobs()))
-        response.append(('generic', Collections.all_jobs()))
-
-    elif payload == 'DISPLAY_ALL_JOBS_INTERESTED_IN':
-        response.append(('text', Monologue.take_to_all_jobs()))
-        response.append(('generic', Collections.all_jobs(_tailored=True)))
-
-    elif payload.startswith('DISPLAY_JOB'):
-        job_id = int(payload.split('__')[1])
-
-        response.append(('text', Monologue.take_to_job()))
-        response.append(('generic', Collections.job(job_id)))
-
-    elif payload.startswith('ADD_NEW_JOB'):
-        response.append(('text', Monologue.take_to_all_jobs()))
-        response.append(('generic', Collections.all_jobs(_tailored=True)))
-
-    ### PROJECTS
-    elif payload.startswith('CREATE_PROJECT'):
-        set_conversation_course(
-            'PROJECT', projects.PROJECT_CREATION_STEPS[0], 'text')
-        response.append(('text', Monologue.ask_for_event_title()))
-
-    elif payload == 'DISPLAY_ALL_PROJECTS':
-        response.append(('text', Monologue.take_to_all_projects()))
-        response.append(('generic', Collections.all_projects()))
-
-    elif payload == 'DISPLAY_ALL_PROJECTS_INTERESTED_IN':
-        response.append(('text', Monologue.take_to_all_projects()))
-        response.append(
-            ('generic', Collections.all_projects(_tailored=True)))
-
-    elif payload.startswith('DISPLAY_PROJECT'):
-        project_id = int(payload.split('__')[1])
-
-        response.append(('text', Monologue.take_to_project()))
-        response.append(('generic', Collections.project(project_id)))
-
-    elif payload.startswith('LIKE_PROJECT'):
-        project_id = int(payload.split('__')[1])
-
-        # response.append(('text', Monologue.take_to_project()))
-        projects.like_bloc_project(project_id)
-        response.append(('generic', Monologue.support_decision()))
-
-    ### FEEDS
-    elif payload == 'DISPLAY_ALL_FEEDS':
-        response.append(('text', Monologue.take_to_all_feeds()))
-        response.append(('generic', Collections.all_feeds()))
-
-    elif payload.startswith('DISPLAY_JOB'):
-        job_id = int(payload.split('__')[1])
-
-        response.append(('text', Monologue.take_to_job()))
-        response.append(('generic', Collections.job(job_id)))
+    else:
+        response = handle_bloc_required_payload(payload)
 
     return response
 

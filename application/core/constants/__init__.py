@@ -21,3 +21,11 @@ TIMEZONES = ['GMT', 'PST', 'CAT']
 LANDING_MESSAGE = (
     'Facebook, tailored to suit the Developer.')
 LANDING_MESSAGE = ('Alternate version of Facebook, for the Developer.')
+MENU_ITEMS = {
+    'Courses': 'Courses',
+    'Projects': 'Projects',
+    'Events': 'Events',
+    'Jobs': 'Job offers, from people within your bloc',
+    'Feeds': "Any Facebook Status with hash-tag #Blocs in it",
+    'News': 'News'
+}

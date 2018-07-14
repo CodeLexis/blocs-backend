@@ -3,7 +3,7 @@ import random
 from flask import g, url_for
 
 from application.core.constants import (
-    DEFAULT_BLOCS, PAGINATE_DEFAULT_PER_PAGE)
+    DEFAULT_BLOCS, MENU_ITEMS, PAGINATE_DEFAULT_PER_PAGE)
 from application.core.models import Bloc
 from .dialogue import Dialogue
 
@@ -265,34 +265,35 @@ class Collections(object):
 
     @classmethod
     def all_jobs(cls, page=1, _tailored=False):
-        news_sources = NewsSource.query.order_by(
-            NewsSource.id.desc()
-        ).paginate(
-            per_page=10, page=page
-        ).items
+        all_job_elements = []
 
-        all_section_elements = []
+        for bloc in g.user.blocs:
+            for job in bloc.jobs:
 
-        for source in news_sources:
-            title = source.title
-            subtitle = ''  # section.description
+                title = job.title
+                subtitle = job.description
 
-            buttons = [
-                Dialogue.button(
-                    type='postback', title='VIEW',
-                    payload='DISPLAY_NEWS_SOURCE__%s' % (source.id)
+                buttons = [
+                    Dialogue.button(
+                        type='web_url', title='VIEW',
+                        payload=url_for(
+                            'web_blueprint.render_job_details_page',
+                            id=job.id, _external=True)
+                    )
+                ]
+
+                job_element = Dialogue.generic(
+                    title=title.upper(), subtitle=subtitle,
+                    image_url=url_for(
+                        'web_blueprint.render_job_thumbnail', id=job.id,
+                        _external=True
+                    ),
+                    buttons=buttons
                 )
-            ]
 
-            section_data = Dialogue.generic(
-                title=title.upper(), subtitle=subtitle,
-                image_url=get_section_thumbnail(title.lower()),  # get_app_icon_url(),
-                buttons=buttons
-            )
+                all_job_elements.append(job_element)
 
-            all_section_elements.append(section_data)
-
-        return all_section_elements
+        return all_job_elements
 
     @classmethod
     def job(cls, section_id):
@@ -422,7 +423,26 @@ class Collections(object):
 
     @classmethod
     def create_project(cls):
-        return
+        title = 'CREATE PROJECT'
+        subtitle = "Team up with developers in your bloc"
+
+        buttons = [
+            Dialogue.button(
+                type='web_url', title='YES',
+                url=url_for('web_blueprint.render_project_creation_page',
+                            _external=True)
+            )
+        ]
+
+        section_data = Dialogue.generic(
+            title=title, subtitle=subtitle,
+            image_url=url_for(
+                'web_blueprint.render_default_avatar', color='e4c847', _external=True),
+            buttons=buttons
+        )
+
+        return [section_data]
+
 
     @classmethod
     def create_job(cls):
@@ -431,3 +451,31 @@ class Collections(object):
     @classmethod
     def create_course(cls):
         return
+
+    @classmethod
+    def menu(cls):
+        menu = []
+
+        for name, description in MENU_ITEMS.iteritems():
+            title = name.upper()
+            subtitle = description
+
+            buttons = [
+                Dialogue.button(
+                    type='web_url', title='YES',
+                    url=url_for('web_blueprint.render_event_creation_page',
+                                _external=True)
+                )
+            ]
+
+            section_data = Dialogue.generic(
+                title=title, subtitle=subtitle,
+                image_url=url_for(
+                    'web_blueprint.render_random_default_avatar',
+                    _external=True),
+                buttons=buttons
+            )
+
+            menu.append(section_data)
+
+        return menu

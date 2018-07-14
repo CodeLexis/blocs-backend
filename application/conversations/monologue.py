@@ -273,6 +273,10 @@ class Monologue(object):
         return "Here's what is new on your Blocs"
 
     @classmethod
+    def take_to_menu(cls):
+        return "View everything across all your Blocs"
+
+    @classmethod
     def ask_to_join_bloc(cls):
         return "You have to join a Bloc first, %s!" % g.user.first_name[0]
 

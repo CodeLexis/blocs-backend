@@ -98,7 +98,7 @@ def convert_to_possessive_noun(word):
 
 def get_typing_duration(reply_type, reply_context):
     if reply_type == 'text':
-        return .5 + (len(reply_context) * .05)
+        return .3 + (len(reply_context) * .0375)
 
     return .75
 

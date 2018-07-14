@@ -1,4 +1,6 @@
-from application.core.models import Bloc
+from flask import Response
+
+from application.core.models import Bloc, Job
 from application.jobs import create_job
 from . import render_template, request, web_blueprint
 
@@ -34,3 +36,18 @@ def render_job_creation_page():
         context = {'scope': 'job'}
 
         return render_template('success.html', **context)
+
+
+@web_blueprint.route('/jobs/<int:id>')
+def render_job_details_page(id):
+    return
+
+
+@web_blueprint.route('/jobs/<int:id>/thumbnail')
+def render_job_thumbnail(id):
+    job = Job.get(id=id)
+
+    response = Response(job.thumbnail)
+    response.mimetype = 'image'
+
+    return response
