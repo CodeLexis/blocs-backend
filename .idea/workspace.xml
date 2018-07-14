@@ -288,12 +288,12 @@
               <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/application/core/models/__init__.py">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="131">
-                      <caret line="429" column="42" lean-forward="false" selection-start-line="429" selection-start-column="42" selection-end-line="429" selection-end-column="42" />
+                    <state relative-caret-position="91">
+                      <caret line="198" column="15" lean-forward="false" selection-start-line="198" selection-start-column="8" selection-end-line="198" selection-end-column="15" />
                       <folding>
                         <element signature="e#0#29#0" expanded="true" />
                         <element signature="e#432#931#0" expanded="false" />
-                        <element signature="e#10127#10599#0" expanded="false" />
+                        <element signature="e#9732#10204#0" expanded="false" />
                       </folding>
                     </state>
                   </provider>
@@ -469,8 +469,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>g.reader</find>
-      <find>categ</find>
       <find>quick_</find>
       <find>regis</find>
       <find>some_veri</find>
@@ -499,6 +497,8 @@
       <find>def take_to</find>
       <find>class</find>
       <find>class Course(</find>
+      <find>CourseSchedule</find>
+      <find>db.Enum</find>
     </findStrings>
     <replaceStrings>
       <replace>uselist</replace>
@@ -902,6 +902,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15489875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24600638" sideWeight="0.5019157" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21299255" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -914,7 +915,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -1396,24 +1396,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/core/models/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="429" column="42" lean-forward="false" selection-start-line="429" selection-start-column="42" selection-end-line="429" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-            <element signature="e#432#931#0" expanded="false" />
-            <element signature="e#10127#10599#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/conversations/helpers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="104" column="58" lean-forward="false" selection-start-line="104" selection-start-column="58" selection-end-line="104" selection-end-column="58" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/core/models/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="198" column="15" lean-forward="false" selection-start-line="198" selection-start-column="8" selection-end-line="198" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+            <element signature="e#432#931#0" expanded="false" />
+            <element signature="e#9732#10204#0" expanded="false" />
           </folding>
         </state>
       </provider>

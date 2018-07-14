@@ -292,7 +292,7 @@ class Message(BaseModel):
 
     conversation_id = db.Column(db.Integer,
                                 db.ForeignKey('conversations.id'))
-    origin = db.Column(db.Enum('RECEIVED', 'SENT', name='message_origin'))
+    origin = db.Column(db.Enum('RECEIVED', 'SENT', name='origin'))
     content = db.Column(db.TEXT)
 
     conversation = db.relationship(
