@@ -146,9 +146,15 @@ def handle_payload(sender_id, payload, platform='Facebook Bot'):
         response.append(('text', Monologue.ask_for_event_title()))
 
     elif payload == 'DISPLAY_ALL_EVENTS':
-        response.append(('quick_reply', Dialogue.get_location()))
-        response.append(('text', Monologue.take_to_all_events()))
-        response.append(('generic', Collections.all_events()))
+        # response.append(('quick_reply', Dialogue.get_location()))
+        all_events = Collections.all_events()
+        if all_events:
+            response.append(('text', Monologue.take_to_all_events()))
+            response.append(('generic', Collections.all_events()))
+
+        else:
+            response.append(('text', Monologue.empty_resource('event')))
+            response.append(('generic', Collections.create_event()))
 
     elif payload == 'DISPLAY_ALL_EVENTS_INTERESTED_IN':
         response.append(('text', Monologue.take_to_all_events()))

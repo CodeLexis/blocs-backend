@@ -392,3 +392,36 @@ class Collections(object):
     @classmethod
     def prompt_to_pin(cls, news_source):
         return
+
+    @classmethod
+    def create_event(cls):
+        title = 'CREATE EVENT'
+        subtitle = "Bring all the developers around your Blocs, under one roof"
+
+        buttons = [
+            Dialogue.button(
+                type='web_url', title='YES',
+                url=url_for('web_blueprint.render_event_creation_page')
+            )
+        ]
+
+        section_data = Dialogue.generic(
+            title=title, subtitle=subtitle,
+            image_url=url_for(
+                'web_blueprint.render_default_avatar', color='e4c847', _external=True),
+            buttons=buttons
+        )
+
+        return section_data
+
+    @classmethod
+    def create_project(cls):
+        return
+
+    @classmethod
+    def create_job(cls):
+        return
+
+    @classmethod
+    def create_course(cls):
+        return
