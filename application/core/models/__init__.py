@@ -131,10 +131,10 @@ class BlocFeed(BaseModel):
     bloc_id = db.Column(db.Integer, db.ForeignKey('blocs.id'))
 
     feed = db.relationship(
-        'User', backref=db.backref('bloc_memberships', uselist=True),
+        'Feed', backref=db.backref('bloc_feeds', uselist=True),
         uselist=False)
     bloc = db.relationship(
-        'Bloc', backref=db.backref('bloc_memberships', uselist=True),
+        'Bloc', backref=db.backref('bloc_feeds', uselist=True),
         uselist=False)
 
 
