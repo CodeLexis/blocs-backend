@@ -35,7 +35,9 @@ class Dialogue(object):
         return (title, replies)
 
     @classmethod
-    def button(cls, type, title, payload=None, url=None):
+    def button(
+            cls, type, title, payload=None, url=None,
+            webview_height_ratio='compact'):
         result = {'type': type, 'title': title}
 
         if payload is not None:
@@ -44,22 +46,25 @@ class Dialogue(object):
         elif url is not None:
             result['url'] = url
 
+        result['webview_height_ratio'] = webview_height_ratio
+
         return result
 
     @classmethod
-    def generic(cls, title, subtitle, image_url, buttons, url=None):
+    def generic(cls, title, subtitle, image_url, buttons, url=None,
+            webview_height_ratio=None):
         results = {
             "title": title,
             "image_url": image_url,
             "subtitle": subtitle,
-            "buttons": buttons
+            "buttons": buttons,
         }
 
         if url is not None:
             results["default_action"] = {
                 "type": "web_url",
                 "messenger_extensions": False,
-                "webview_height_ratio": "tall",
+                "webview_height_ratio": webview_height_ratio or "tall",
                 "url": url
             }
 
