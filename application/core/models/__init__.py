@@ -179,21 +179,6 @@ class Conversation(BaseModel):
         lazy='joined')
 
 
-class CourseSchedule(BaseModel):
-    __tablename__ = 'course_schedules'
-
-    time = db.Column(db.String(12))
-    days_of_week = db.Column(db.TEXT)
-    timezone = db.Column(db.Enum(*TIMEZONES))
-
-    course_id = db.Column(db.Integer, db.ForeignKey('course_schedules.id'))
-
-    course = db.relationship(
-        'Course', backref=db.backref('course_schedules', uselist=True),
-        lazy='joined'
-    )
-
-
 class Course(BaseModel, HasUID):
     __tablename__ = 'courses'
 
@@ -307,7 +292,7 @@ class Message(BaseModel):
 
     conversation_id = db.Column(db.Integer,
                                 db.ForeignKey('conversations.id'))
-    origin = db.Column(db.Enum('RECEIVED', 'SENT', name='origin'))
+    origin = db.Column(db.Enum('RECEIVED', 'SENT', name='message_origin'))
     content = db.Column(db.TEXT)
 
     conversation = db.relationship(
