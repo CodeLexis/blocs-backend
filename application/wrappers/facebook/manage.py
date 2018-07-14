@@ -1,5 +1,7 @@
 import requests
 
+from flask import url_for
+
 from application.core.constants import LANDING_MESSAGE
 
 
@@ -22,14 +24,14 @@ side_menu_payload = {
             "composer_input_disabled": False,
             "call_to_actions": [
                 {
-                    "title": "Blocs",
-                    "type": "postback",
-                    "payload": "DISPLAY_ALL_BLOCS"
-                },
-                {
                     "title": "Courses",
                     "type": "postback",
                     "payload": "DISPLAY_ALL_COURSES"
+                },
+                {
+                    "title": "Projects",
+                    "type": "postback",
+                    "payload": "DISPLAY_ALL_PROJECTS"
                 },
                 {
                     "title": "More",
@@ -50,11 +52,6 @@ side_menu_payload = {
                             "type": "nested",
                             "call_to_actions": [
                                 {
-                                    "title": "Projects",
-                                    "type": "postback",
-                                    "payload": "DISPLAY_ALL_PROJECTS"
-                                },
-                                {
                                     "title": "Feeds",
                                     "type": "postback",
                                     "payload": "DISPLAY_ALL_FEEDS"
@@ -63,6 +60,11 @@ side_menu_payload = {
                                     "title": "News",
                                     "type": "postback",
                                     "payload": "DISPLAY_ALL_NEWS"
+                                },
+                                {
+                                    "title": "Blocs",
+                                    "type": "web_url",
+                                    "url": url_for('web_blueprint.manage_blocs')
                                 }
                             ]
                         }

@@ -233,6 +233,16 @@ class Course(BaseModel, HasUID):
         }
 
 
+class CourseContent(BaseModel):
+    __tablename__ = 'course_contents'
+
+    course_id = db.Column(db.Integer, db.ForeignKey('courses.id'))
+
+    image = db.Column(db.TEXT)
+    video = db.Column(db.TEXT)
+    body = db.Column(db.TEXT)
+
+
 class Event(BaseModel, HasUID):
     __tablename__ = 'events'
 
@@ -414,6 +424,10 @@ class User(BaseModel, HasUID):
             all_users_blocs.append(membership.bloc)
 
         return all_users_blocs
+
+    @property
+    def has_bloc(self):
+        return bool(self.bloc_memberships)
 
     def as_json(self):
         return {

@@ -81,6 +81,14 @@ class Monologue(object):
         return "{}? That's so cool!".format(branch)
 
     @classmethod
+    def empty_resource(cls, scope):
+        return random.choice([
+            'There is no {} in any of your Blocs yet.'.format(scope),
+            'There is currently no {} in any of your Blocs.'.format(scope),
+            'Awwn! No {} in any your Blocs.'.format(scope)
+        ])
+
+    @classmethod
     def greet(cls):
         random_statements = [
             "I'm glad you came back, %s!" % g.user.first_name,
@@ -263,6 +271,10 @@ class Monologue(object):
     @classmethod
     def take_to_all_feeds(cls):
         return "Here's what is new on your Blocs"
+
+    @classmethod
+    def ask_to_join_bloc(cls):
+        return "You have to join a Bloc first, %s!" % g.user.first_name[0]
 
 
 # if __name__ == '__main__':

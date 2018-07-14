@@ -50,4 +50,5 @@ def render_course_thumbnail(id):
 def render_course_details(id):
     course = Course.get(id=id)
 
-    return
+    return render_template(
+        'courses/details.html', )

@@ -95,9 +95,22 @@ def handle_payload(sender_id, payload, platform='Facebook Bot'):
         response.append(('text', Monologue.support_decision()))
         response.append(('text', Monologue.support_decision()))
 
+    ### COURSES
     elif payload == 'DISPLAY_ALL_COURSES':
-        response.append(('text', Monologue.take_to_all_courses()))
-        response.append(('generic', Collections.all_courses()))
+        if g.user.has_bloc:
+            response.append(('text', Monologue.take_to_all_courses()))
+
+            all_user_blocs_courses = Collections.all_courses()
+            if all_user_blocs_courses:
+                response.append(('generic', all_user_blocs_courses))
+            else:
+                response.append(
+                    ('text', Monologue.empty_resource(scope='course'))
+                )
+
+        else:
+            response.append(('text', Monologue.ask_to_join_bloc()))
+            response.append(('text', Collections.all_blocs()))
 
     elif payload == 'DISPLAY_ALL_COURSES_OFFERED':
         response.append(('text', Monologue.take_to_all_courses()))

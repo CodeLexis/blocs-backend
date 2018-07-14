@@ -109,7 +109,8 @@ class Collections(object):
                     ),
                     Dialogue.button(
                         type='url', title='DETAILS',
-                        url=url_for('web_blueprint.render_course_details')
+                        url=url_for('web_blueprint.render_course_details',
+                                    id=course.id, _external=True)
                     ),
                 ]
 
