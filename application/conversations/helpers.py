@@ -89,10 +89,9 @@ def handle_payload(sender_id, payload, platform='Facebook Bot'):
 
     ### BLOCS
     elif payload.startswith('JOIN_BLOC'):
-        bloc_id = payload.split('JOIN_BLOC')
+        bloc_id = int(payload.split('__')[1])
         blocs.join_bloc(g.user, bloc_id)
 
-        response.append(('text', Monologue.support_decision()))
         response.append(('text', Monologue.support_decision()))
 
     ### COURSES
