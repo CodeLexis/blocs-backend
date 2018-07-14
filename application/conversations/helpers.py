@@ -110,7 +110,7 @@ def handle_payload(sender_id, payload, platform='Facebook Bot'):
 
         else:
             response.append(('text', Monologue.ask_to_join_bloc()))
-            response.append(('text', Collections.all_blocs()))
+            response.append(('text', Collections.all_default_blocs()))
 
     elif payload == 'DISPLAY_ALL_COURSES_OFFERED':
         response.append(('text', Monologue.take_to_all_courses()))
@@ -248,7 +248,7 @@ def get_response(sender_id, platform, text=None, attachments=None, nlp=None,
             response.append(('generic', Collections.all_feeds()))
         else:
             response.append(('text', Monologue.take_to_all_blocs()))
-            response.append(('generic', Collections.all_blocs()))
+            response.append(('generic', Collections.all_default_blocs()))
         # response.append(('text', Monologue.take_to_all_courses()))
         # response.append(('generic', Collections.all_sections()))
 

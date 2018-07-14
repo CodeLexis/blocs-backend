@@ -11,7 +11,7 @@ from .dialogue import Dialogue
 class Collections(object):
     @classmethod
     def all_blocs(cls, page=1):
-        blocs = Bloc.paginate(
+        blocs = Bloc.query.paginate(
             page=page, per_page=PAGINATE_DEFAULT_PER_PAGE
         ).items
 
