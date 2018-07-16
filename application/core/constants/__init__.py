@@ -14,7 +14,7 @@ SCHOOL_COURSE_CATEGORIES = [
     'Networking', 'Electronics']
 DEFAULT_BLOCS = SOFTWARE_BRANCHES = [
     'Mobile Application', 'Web Application', 'UI/UX Design', 'Data Science',
-    'Embedded Systems', 'Security Software Development']
+    'Embedded Systems', 'Security Software']
 STATUSES = ('active', 'deleted')
 SUPPORTED_HTTP_METHODS = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']
 TIMEZONES = ['GMT', 'PST', 'CAT']
@@ -26,6 +26,6 @@ MENU_ITEMS = {
     'Projects': 'Projects',
     'Events': 'Events',
     'Jobs': 'Job offers, from people within your bloc',
-    'Feeds': "Any Facebook Status with hash-tag #Blocs in it",
+    'Feeds': "Any Facebook Status with the hash-tag #Blocs in it",
     'News': 'News'
 }

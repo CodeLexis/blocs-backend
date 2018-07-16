@@ -1,6 +1,6 @@
 from flask import Response
 
-from application.core.models import Bloc, Job
+from application.core.models import Bloc, Job, User
 from application.jobs import create_job
 from . import render_template, request, web_blueprint
 
@@ -8,7 +8,15 @@ from . import render_template, request, web_blueprint
 @web_blueprint.route('/create-job', methods=['GET', 'POST'])
 def render_job_creation_page():
     if request.method == 'GET':
-        return render_template('jobs/create.html')
+        user_id = request.args.get('user_id')
+
+        user = User.get(id=user_id)
+
+        context = {
+            'user_id': user_id,
+            'blocs': [bloc.as_json() for bloc in user]
+        }
+        return render_template('jobs/create.html', **context)
 
     elif request.method == 'POST':
         title = request.form['title']

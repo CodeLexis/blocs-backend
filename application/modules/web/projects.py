@@ -1,12 +1,20 @@
-from application.core.models import Project
+from application.core.models import Project, User
 from application.blocs import create_bloc
 from . import render_template, request, web_blueprint
 
 
-@web_blueprint.route('/create-project')
+@web_blueprint.route('/create-project', methods=['GET', 'POST'])
 def render_project_creation_page():
     if request.method == 'GET':
-        return render_template('projects/create.html')
+        user_id = request.args.get('user_id')
+
+        user = User.get(id=user_id)
+
+        context = {
+            'user_id': user_id,
+            'blocs': [bloc.as_json() for bloc in user]
+        }
+        return render_template('projects/create.html', **context)
 
     elif request.method == 'POST':
         name = request.form['name']

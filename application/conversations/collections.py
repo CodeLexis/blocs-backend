@@ -408,7 +408,7 @@ class Collections(object):
             Dialogue.button(
                 type='web_url', title='YES',
                 url=url_for('web_blueprint.render_event_creation_page',
-                            _external=True)
+                            user_id=g.user.id, _external=True)
             )
         ]
 
@@ -437,20 +437,62 @@ class Collections(object):
         section_data = Dialogue.generic(
             title=title, subtitle=subtitle,
             image_url=url_for(
-                'web_blueprint.render_default_avatar', color='e4c847', _external=True),
+                'web_blueprint.render_default_avatar',
+                color='e4c847', user_id=g.user.id, _external=True),
             buttons=buttons
         )
 
         return [section_data]
 
-
     @classmethod
     def create_job(cls):
-        return
+        title = 'CREATE JOB'
+        subtitle = "Looking for someone to join your team?"
+
+        buttons = [
+            Dialogue.button(
+                type='web_url', title='YES',
+                url=url_for('web_blueprint.render_job_creation_page',
+                            _external=True)
+            )
+        ]
+
+        section_data = Dialogue.generic(
+            title=title, subtitle=subtitle,
+            image_url=url_for(
+                'web_blueprint.render_default_avatar',
+                color='e4c847', user_id=g.user.id, _external=True),
+            buttons=buttons
+        )
+
+        return [section_data]
 
     @classmethod
     def create_course(cls):
-        return
+
+        title = 'CREATE COURSE'
+        subtitle = (
+            "Gain respect & influence by passing on your awesome skills on "
+            "Facebook"
+        )
+
+        buttons = [
+            Dialogue.button(
+                type='web_url', title='YES',
+                url=url_for('web_blueprint.render_course_creation_page',
+                            _external=True)
+            )
+        ]
+
+        section_data = Dialogue.generic(
+            title=title, subtitle=subtitle,
+            image_url=url_for(
+                'web_blueprint.render_default_avatar',
+                color='e4c847', user_id=g.user.id, _external=True),
+            buttons=buttons
+        )
+
+        return [section_data]
 
     @classmethod
     def menu(cls):

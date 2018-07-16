@@ -1,4 +1,4 @@
-from application.core.models import Bloc
+from application.core.models import Bloc, User
 from application.blocs import create_bloc
 from . import render_template, request, web_blueprint
 
@@ -14,7 +14,15 @@ def render_bloc_invitation_page(bloc_id):
 @web_blueprint.route('/create-bloc', methods=['GET', 'POST'])
 def render_bloc_creation_page():
     if request.method == 'GET':
-        return render_template('blocs/create.html')
+        user_id = request.args.get('user_id')
+
+        user = User.get(id=user_id)
+
+        context = {
+            'user_id': g.user.id,
+            'blocs': [bloc.as_json() for bloc in user]
+        }
+        return render_template('blocs/create.html', **context)
 
     elif request.method == 'POST':
         name = request.form['name']

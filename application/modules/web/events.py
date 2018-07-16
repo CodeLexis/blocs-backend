@@ -1,4 +1,6 @@
-from application.core.models import Bloc, Event
+from flask import g, redirect, url_for
+
+from application.core.models import Bloc, Event, User
 from application.events import create_event
 from . import render_template, request, web_blueprint
 
@@ -6,7 +8,15 @@ from . import render_template, request, web_blueprint
 @web_blueprint.route('/create-event', methods=['GET', 'POST'])
 def render_event_creation_page():
     if request.method == 'GET':
-        return render_template('events/create.html')
+        user_id = request.args.get('user_id')
+
+        user = User.get(id=user_id)
+
+        context = {
+            'user_id': user_id,
+            'blocs': [bloc.as_json() for bloc in user]
+        }
+        return render_template('events/create.html', **context)
 
     elif request.method == 'POST':
         title = request.form['title']

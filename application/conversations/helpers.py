@@ -96,23 +96,6 @@ def handle_bloc_required_payload(payload):
         response.append(
             ('generic', Collections.all_courses(_tailored=True)))
 
-    elif payload.startswith('DISPLAY_COURSE'):
-        course_id = int(payload.split('__')[1])
-
-        course = Course.get(id=course_id)
-
-        order_now_quick_reply = Dialogue.quick_reply(
-            title=Monologue.enquire_add_to_courses_offered(course.title),
-            texts_and_payloads=[
-                ('YES', 'ADD_COURSE_TO_OFFERED__%s' % course_id),
-                ('No', 'NOTHING')
-            ]
-        )
-
-        response.append(('text', Monologue.take_to_course()))
-        response.append(('generic', Collections.course(course_id)))
-        response.append(('quick_reply', order_now_quick_reply))
-
     elif payload.startswith('ADD_COURSE_TO_OFFERED'):
         course_id = int(payload.split('__')[1])
 
@@ -135,12 +118,6 @@ def handle_bloc_required_payload(payload):
         response.append(
             ('generic', Collections.all_events(_tailored=True)))
 
-    elif payload.startswith('DISPLAY_EVENT'):
-        event_id = int(payload.split('__')[1])
-
-        response.append(('text', Monologue.take_to_event()))
-        response.append(('generic', Collections.event(event_id)))
-
     ### JOBS
     elif payload == 'DISPLAY_ALL_JOBS':
         all_user_blocs_jobs = Collections.all_jobs()
@@ -155,12 +132,6 @@ def handle_bloc_required_payload(payload):
     elif payload == 'DISPLAY_ALL_JOBS_INTERESTED_IN':
         response.append(('text', Monologue.take_to_all_jobs()))
         response.append(('generic', Collections.all_jobs(_tailored=True)))
-
-    elif payload.startswith('DISPLAY_JOB'):
-        job_id = int(payload.split('__')[1])
-
-        response.append(('text', Monologue.take_to_job()))
-        response.append(('generic', Collections.job(job_id)))
 
     elif payload.startswith('ADD_NEW_JOB'):
         response.append(('text', Monologue.take_to_all_jobs()))
@@ -180,12 +151,6 @@ def handle_bloc_required_payload(payload):
         response.append(('text', Monologue.take_to_all_projects()))
         response.append(
             ('generic', Collections.all_projects(_tailored=True)))
-
-    elif payload.startswith('DISPLAY_PROJECT'):
-        project_id = int(payload.split('__')[1])
-
-        response.append(('text', Monologue.take_to_project()))
-        response.append(('generic', Collections.project(project_id)))
 
     elif payload.startswith('LIKE_PROJECT'):
         project_id = int(payload.split('__')[1])
@@ -249,6 +214,7 @@ def handle_payload(sender_id, payload, platform='Facebook Bot'):
         blocs.join_bloc(g.user, bloc_id)
 
         response.append(('text', Monologue.support_decision()))
+        response.append(('text', Monologue.instruct_on_posting_feeds()))
         response.append(('text', Monologue.take_to_menu()))
         response.append(('generic', Collections.menu()))
 

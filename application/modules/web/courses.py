@@ -1,5 +1,5 @@
 from application.core.utils.contexts import current_request_data
-from application.core.models import Course
+from application.core.models import Course, User
 from application.courses import create_course
 from . import Response
 from . import render_template, request, web_blueprint
@@ -7,9 +7,17 @@ from . import render_template, request, web_blueprint
 
 @web_blueprint.route('/create-course', methods=['GET', 'POST'])
 def render_course_creation_page():
-
     if request.method == 'GET':
-        return render_template('courses/create.html')
+        user_id = request.args.get('user_id')
+
+        user = User.get(id=user_id)
+
+        context = {
+            'user_id': user_id,
+            'blocs': [bloc.as_json() for bloc in user]
+        }
+
+        return render_template('courses/create.html', **context)
 
     elif request.method == 'POST':
         request_data = current_request_data()

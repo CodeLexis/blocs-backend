@@ -35,7 +35,8 @@ def create_app(config_mode):
     # Get the configuration settings
     # for instance and update it
     app = Flask(__name__, instance_relative_config=True,
-                template_folder='static/templates')
+                template_folder='../static/templates',
+                static_folder='../static')
 
     app.wsgi_app = ProxyFix(app.wsgi_app)
 

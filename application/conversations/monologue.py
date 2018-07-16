@@ -10,10 +10,10 @@ class Monologue(object):
             "Ever wished Facebook's experience for developers was a lot "
             "more tailored? I mean...",
             "Taking classes with Facebook Live",
-            "Interacting, teaming-up, pair-coding with the best developers in "
-            "the world",
+            "Interacting, teaming-up, pair-coding with the developers in "
+            "on your Facebook friends list or beyond",
             "Always getting notifications about the right jobs & events...",
-            "All from the comfort of Messenger?!",
+            "All at no extra installs or sign-ups?!",
             "%s... Welcome to Blocs! B)" % g.user.first_name,
         ]
 
@@ -98,6 +98,14 @@ class Monologue(object):
         return random.choice(random_statements)
 
     @classmethod
+    def instruct_on_posting_feeds(cls):
+        return (
+            "You can share anything to the devs in your Blocs, Facebook and "
+            "Instagram, just by including the hash-tag #Blocs in any message you send "
+            "me! B)"
+        )
+
+    @classmethod
     def random(cls):
         random_statements = [
             'You are the best.',
@@ -136,7 +144,7 @@ class Monologue(object):
 
     @classmethod
     def take_to_all_blocs(cls):
-        return "Now %s, dive-in and join other developers :+1" % \
+        return "Now %s, dive-in and join other developers :+1:" % \
                g.user.first_name
 
     @classmethod
