@@ -144,8 +144,7 @@ class Bloc(BaseModel, HasUID, LookUp):
             'invite_code': self.invite_code,
             'is_private': self.is_private,
             'is_default': self.is_default,
-            'creator': self.created_by,
-            'location': self.location.as_json()
+            'creator': self.created_by
         }
 
 
