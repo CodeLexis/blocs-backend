@@ -6,12 +6,54 @@
   </head>
   <body>
 
-    <h2>Add React in One Minute</h2>
-    <p>This page demonstrates using React with no build tooling.</p>
-    <p>React is loaded as a script tag.</p>
-
-    <!-- We will put our React component inside this div. -->
-    <div id="project_creation_form"></div>
+      <div class="container">
+          <form method="POST" action="/create-projects">
+              <div class="row">
+                  <div class="col-25">
+                      <label for="title">Title</label>
+                  </div>
+                  <div class="col-75">
+                      <input type="text" id="title" name="title"
+                             placeholder="Title">
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-25">
+                      <label for="description">Description</label>
+                  </div>
+                  <div class="col-75">
+                      <textarea id="description" name="description"
+                                placeholder="What's special your project?"
+                                style="height:200px"></textarea>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-25">
+                      <label for="weblink">Weblink</label>
+                  </div>
+                  <div class="col-75">
+                      <input type="url" id="weblink" name="weblink"
+                             placeholder="Weblink">
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-25">
+                      <label for="bloc">Bloc</label>
+                  </div>
+                  <div class="col-75">
+                      <select id="bloc" name="bloc">
+                          {% for bloc in blocs %}
+                              <option value="{{ bloc.name }}">
+                                  {{ bloc.name }}</option>
+                          {% endfor %}
+                      </select>
+                  </div>
+              </div>
+              <div class="row" id="submit_button">
+                  <!--<input type="submit" value="Submit" id="submit_button">-->
+              </div>
+          </form>
+      </div>
 
     <!-- Load React. -->
     <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
@@ -19,7 +61,7 @@
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
 
     <!-- Load our React component. -->
-    <script src="/static/scripts/project_creation_form.js"></script>
+    <script src="/static/scripts/submit_button.js"></script>
 
   </body>
 </html>
