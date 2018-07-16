@@ -137,6 +137,17 @@ class Bloc(BaseModel, HasUID, LookUp):
 
         self.invite_code = _code
 
+    def as_json(self):
+        return {
+            'name': self.name,
+            'theme_color': self.theme_color,
+            'invite_code': self.invite_code,
+            'is_private': self.is_private,
+            'is_default': self.is_default,
+            'creator': self.created_by,
+            'location': self.location.as_json()
+        }
+
 
 class BlocFeed(BaseModel):
     __tablename__ = 'bloc_feeds'
@@ -299,6 +310,16 @@ class Location(BaseModel):
     user = db.relationship(
         'User', backref=db.backref('locations', uselist=True),
         uselist=False)
+
+    def as_json(self):
+        return {
+            'title': self.title,
+            'address': self.address,
+            'country': self.country,
+            'state': self.state,
+            'town': self.town,
+            'coordinates': self.coordinates
+        }
 
 
 class Message(BaseModel):
