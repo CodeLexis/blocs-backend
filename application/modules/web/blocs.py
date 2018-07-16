@@ -20,7 +20,7 @@ def render_bloc_creation_page():
 
         context = {
             'user_id': g.user.id,
-            'blocs': [bloc.as_json() for bloc in user]
+            'blocs': [bloc.as_json() for bloc in user.blocs]
         }
         return render_template('blocs/create.html', **context)
 

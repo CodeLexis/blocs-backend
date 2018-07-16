@@ -14,7 +14,7 @@ def render_event_creation_page():
 
         context = {
             'user_id': user_id,
-            'blocs': [bloc.as_json() for bloc in user]
+            'blocs': [bloc.as_json() for bloc in user.blocs]
         }
         return render_template('events/create.html', **context)
 

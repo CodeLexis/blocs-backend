@@ -14,7 +14,7 @@ def render_course_creation_page():
 
         context = {
             'user_id': user_id,
-            'blocs': [bloc.as_json() for bloc in user]
+            'blocs': [bloc.as_json() for bloc in user.blocs]
         }
 
         return render_template('courses/create.html', **context)
