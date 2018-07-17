@@ -1,67 +1,78 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Add React in One Minute</title>
-  </head>
-  <body>
+{% extends "layouts/forms.html" %}
 
-      <div class="container">
-          <form method="POST" action="/create-projects">
-              <div class="row">
-                  <div class="col-25">
-                      <label for="title">Title</label>
-                  </div>
-                  <div class="col-75">
-                      <input type="text" id="title" name="title"
-                             placeholder="Title">
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-25">
-                      <label for="description">Description</label>
-                  </div>
-                  <div class="col-75">
-                      <textarea id="description" name="description"
-                                placeholder="What's special your project?"
-                                style="height:200px"></textarea>
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-25">
-                      <label for="weblink">Weblink</label>
-                  </div>
-                  <div class="col-75">
-                      <input type="url" id="weblink" name="weblink"
-                             placeholder="Weblink">
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-25">
-                      <label for="bloc">Bloc</label>
-                  </div>
-                  <div class="col-75">
-                      <select id="bloc" name="bloc">
-                          {% for bloc in blocs %}
-                              <option value="{{ bloc.name }}">
-                                  {{ bloc.name }}</option>
-                          {% endfor %}
-                      </select>
-                  </div>
-              </div>
-              <div class="row" id="submit_button">
-                  <!--<input type="submit" value="Submit" id="submit_button">-->
-              </div>
-          </form>
-      </div>
+{% block title %}Create Bloc Project{% endblock %}
 
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+
+{% block content %}
     <!-- Load React. -->
     <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
-    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
 
     <!-- Load our React component. -->
-    <script src="/static/scripts/submit_button.js"></script>
+    <!--<script type="module" src="/static/scripts/project_creation_form.js"></script>-->
+    <!--<script type="module" src="/static/scripts/submit_button.js"></script>-->
+    <script type="text/jsx" src="/static/scripts/project_creation_form.js">
 
-  </body>
-</html>
+    </script>
+
+    <div id="content"></div>
+
+    <div class="container">
+        <form method="POST" action="/create-projects" id="form">
+            <div class="row">
+                <div class="col-25">
+                    <label for="title">Title</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="title" name="title"
+                           placeholder="Title">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="description">Description</label>
+                </div>
+                <div class="col-75">
+                    <textarea id="description" name="description"
+                              placeholder="What's special your project?"
+                              style="height:200px"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="weblink">Weblink</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="weblink" name="weblink"
+                           placeholder="Weblink">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="bloc">Bloc</label>
+                </div>
+                <div class="col-75">
+                    <select id="bloc" name="bloc">
+                        {% for bloc in blocs %}
+                            <option value="{{ bloc.name }}">
+                                {{ bloc.name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <input type="submit" value="Submit" id="submit_button">
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

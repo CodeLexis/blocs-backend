@@ -1,21 +1,21 @@
-'use strict';
-
-const e = React.createElement;
-
-class ProjectCreationForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { liked: false };
-  }
-
-  render() {
-    if (this.state.liked) {
-      return 'You liked this.';
-    }
-
-    return (<b>Hi</b> Tomisin!)
-  }
-}
-
-const domContainer = document.getElementById('project_creation_form');
-ReactDOM.render('<ProjectCreationForm/>', domContainer);
+//class MyForm extends React.Component {
+//  render() {
+//    return (
+//      <form className="form">
+//        <input className="input"/>
+//      </form>
+//    );
+//  }
+//}
+//
+////var realPython = React.createClass({
+////  render: function() {
+////    return (<input>Greetings, from Real Python!</input>);
+////  }
+////});
+//
+//ReactDOM.render(
+////  React.createElement(realPython, null),
+//  <MyForm />,
+//  document.getElementById('content')
+//);

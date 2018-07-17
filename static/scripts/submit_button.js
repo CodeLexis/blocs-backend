@@ -2,24 +2,26 @@
 
 const e = React.createElement;
 
-class LikeButton extends React.Component {
+class SubmitButton extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = { liked: false };
   }
 
   render() {
     if (this.state.liked) {
-      return 'You liked this.';
+      form.submit()
+      return 'Done!';
     }
 
     return e(
       'button',
       { onClick: () => this.setState({ liked: true }) },
-      'Like'
+      'SUBMIT'
     );
   }
 }
 
 const domContainer = document.querySelector('#submit_button');
-ReactDOM.render(e(LikeButton), domContainer);
+ReactDOM.render(e(SubmitButton), domContainer);

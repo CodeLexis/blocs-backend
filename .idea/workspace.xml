@@ -1,7 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0ad8270f-f719-45e1-81e5-506149528fc2" name="Default" comment="" />
+    <list default="true" id="0ad8270f-f719-45e1-81e5-506149528fc2" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/r_migrations/README" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/r_migrations/alembic.ini" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/r_migrations/env.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/r_migrations/script.py.mako" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/r_migrations/versions/03dc0f974cde_.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/r_migrations/versions/0950db6e5ccc_.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/r_migrations/versions/2208de96f000_.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/r_migrations/versions/2c5379165609_.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/r_migrations/versions/4bc569f62e23_.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/r_migrations/versions/4e446c5e100f_.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/r_migrations/versions/736f39b16032_.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/r_migrations/versions/7ad9278325aa_.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/r_migrations/versions/7b4fcd2cf265_.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/r_migrations/versions/8b60829685a2_.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/r_migrations/versions/da3af31c2944_.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/static/templates/layouts/forms.html" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/application/core/models/__init__.py" afterPath="$PROJECT_DIR$/application/core/models/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/static/assets/style.css" afterPath="$PROJECT_DIR$/static/assets/style.css" />
+      <change beforePath="$PROJECT_DIR$/static/scripts/project_creation_form.js" afterPath="$PROJECT_DIR$/static/scripts/project_creation_form.js" />
+      <change beforePath="$PROJECT_DIR$/static/scripts/submit_button.js" afterPath="$PROJECT_DIR$/static/scripts/submit_button.js" />
+      <change beforePath="$PROJECT_DIR$/static/templates/courses/create.html" afterPath="$PROJECT_DIR$/static/templates/courses/create.html" />
+      <change beforePath="$PROJECT_DIR$/static/templates/events/create.html" afterPath="$PROJECT_DIR$/static/templates/events/create.html" />
+      <change beforePath="$PROJECT_DIR$/static/templates/projects/create.html" afterPath="$PROJECT_DIR$/static/templates/projects/create.html" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,12 +42,12 @@
             <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/application/core/models/__init__.py">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="287">
-                    <caret line="146" column="38" lean-forward="true" selection-start-line="146" selection-start-column="38" selection-end-line="146" selection-end-column="38" />
+                  <state relative-caret-position="443">
+                    <caret line="223" column="23" lean-forward="true" selection-start-line="223" selection-start-column="23" selection-end-line="223" selection-end-column="23" />
                     <folding>
                       <element signature="e#0#29#0" expanded="true" />
                       <element signature="e#432#931#0" expanded="false" />
-                      <element signature="e#10560#11032#0" expanded="false" />
+                      <element signature="e#10466#10938#0" expanded="false" />
                     </folding>
                   </state>
                 </provider>
@@ -37,70 +62,98 @@
         <state>
           <splitter split-orientation="horizontal" split-proportion="0.5">
             <split-first>
-              <leaf>
-                <file leaf-file-name="create.html" pinned="false" current-in-tab="false">
-                  <entry file="file://$PROJECT_DIR$/static/templates/courses/create.html">
-                    <provider selected="true" editor-type-id="text-editor">
-                      <state relative-caret-position="104">
-                        <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-                        <folding />
-                      </state>
-                    </provider>
-                  </entry>
-                </file>
-                <file leaf-file-name="create.html" pinned="false" current-in-tab="false">
-                  <entry file="file://$PROJECT_DIR$/static/templates/events/create.html">
-                    <provider selected="true" editor-type-id="text-editor">
-                      <state relative-caret-position="842">
-                        <caret line="85" column="14" lean-forward="true" selection-start-line="23" selection-start-column="10" selection-end-line="85" selection-end-column="14" />
-                        <folding>
-                          <element signature="n#style#0;n#textarea#0;n#div#1;n#div#1;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                        </folding>
-                      </state>
-                    </provider>
-                  </entry>
-                </file>
-                <file leaf-file-name="create.html" pinned="false" current-in-tab="true">
-                  <entry file="file://$PROJECT_DIR$/static/templates/projects/create.html">
-                    <provider selected="true" editor-type-id="text-editor">
-                      <state relative-caret-position="652">
-                        <caret line="51" column="48" lean-forward="false" selection-start-line="51" selection-start-column="48" selection-end-line="51" selection-end-column="48" />
-                        <folding>
-                          <element signature="n#style#0;n#textarea#0;n#div#1;n#div#1;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                        </folding>
-                      </state>
-                    </provider>
-                  </entry>
-                </file>
-              </leaf>
+              <splitter split-orientation="vertical" split-proportion="0.5">
+                <split-first>
+                  <leaf>
+                    <file leaf-file-name="create.html" pinned="false" current-in-tab="false">
+                      <entry file="file://$PROJECT_DIR$/static/templates/courses/create.html">
+                        <provider selected="true" editor-type-id="text-editor">
+                          <state relative-caret-position="65">
+                            <caret line="5" column="4" lean-forward="false" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="75" />
+                            <folding />
+                          </state>
+                        </provider>
+                      </entry>
+                    </file>
+                    <file leaf-file-name="create.html" pinned="false" current-in-tab="true">
+                      <entry file="file://$PROJECT_DIR$/static/templates/events/create.html">
+                        <provider selected="true" editor-type-id="text-editor">
+                          <state relative-caret-position="208">
+                            <caret line="22" column="18" lean-forward="true" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
+                            <folding>
+                              <element signature="n#style#0;n#textarea#0;n#div#1;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
+                            </folding>
+                          </state>
+                        </provider>
+                      </entry>
+                    </file>
+                    <file leaf-file-name="forms.html" pinned="false" current-in-tab="false">
+                      <entry file="file://$PROJECT_DIR$/static/templates/layouts/forms.html">
+                        <provider selected="true" editor-type-id="text-editor">
+                          <state relative-caret-position="104">
+                            <caret line="8" column="11" lean-forward="false" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+                            <folding />
+                          </state>
+                        </provider>
+                      </entry>
+                    </file>
+                    <file leaf-file-name="create.html" pinned="false" current-in-tab="false">
+                      <entry file="file://$PROJECT_DIR$/static/templates/projects/create.html">
+                        <provider selected="true" editor-type-id="text-editor">
+                          <state relative-caret-position="364">
+                            <caret line="28" column="60" lean-forward="false" selection-start-line="28" selection-start-column="60" selection-end-line="28" selection-end-column="60" />
+                            <folding>
+                              <element signature="n#style#0;n#textarea#0;n#div#1;n#div#1;n#form#0;n#div#1;n#!!top" expanded="true" />
+                            </folding>
+                          </state>
+                        </provider>
+                      </entry>
+                    </file>
+                  </leaf>
+                </split-first>
+                <split-second>
+                  <leaf>
+                    <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
+                      <entry file="file://$PROJECT_DIR$/static/assets/style.css">
+                        <provider selected="true" editor-type-id="text-editor">
+                          <state relative-caret-position="67">
+                            <caret line="44" column="18" lean-forward="true" selection-start-line="44" selection-start-column="18" selection-end-line="44" selection-end-column="18" />
+                            <folding />
+                          </state>
+                        </provider>
+                      </entry>
+                    </file>
+                  </leaf>
+                </split-second>
+              </splitter>
             </split-first>
             <split-second>
               <leaf>
                 <file leaf-file-name="like.js" pinned="false" current-in-tab="false">
                   <entry file="file://$PROJECT_DIR$/static/scripts/like.js">
                     <provider selected="true" editor-type-id="text-editor">
-                      <state relative-caret-position="312">
-                        <caret line="24" column="22" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="24" selection-end-column="45" />
+                      <state relative-caret-position="52">
+                        <caret line="4" column="13" lean-forward="true" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
                         <folding />
                       </state>
                     </provider>
                   </entry>
                 </file>
-                <file leaf-file-name="project_creation_form.js" pinned="false" current-in-tab="false">
+                <file leaf-file-name="project_creation_form.js" pinned="false" current-in-tab="true">
                   <entry file="file://$PROJECT_DIR$/static/scripts/project_creation_form.js">
                     <provider selected="true" editor-type-id="text-editor">
                       <state relative-caret-position="260">
-                        <caret line="20" column="33" lean-forward="false" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
+                        <caret line="20" column="4" lean-forward="true" selection-start-line="0" selection-start-column="2" selection-end-line="20" selection-end-column="4" />
                         <folding />
                       </state>
                     </provider>
                   </entry>
                 </file>
-                <file leaf-file-name="submit_button.js" pinned="false" current-in-tab="true">
+                <file leaf-file-name="submit_button.js" pinned="false" current-in-tab="false">
                   <entry file="file://$PROJECT_DIR$/static/scripts/submit_button.js">
                     <provider selected="true" editor-type-id="text-editor">
-                      <state relative-caret-position="312">
-                        <caret line="24" column="45" lean-forward="false" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="45" />
+                      <state relative-caret-position="39">
+                        <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
                         <folding />
                       </state>
                     </provider>
@@ -109,8 +162,8 @@
                 <file leaf-file-name="calendar.js" pinned="false" current-in-tab="false">
                   <entry file="file://$PROJECT_DIR$/static/scripts/calendar.js">
                     <provider selected="true" editor-type-id="text-editor">
-                      <state relative-caret-position="521">
-                        <caret line="78" column="34" lean-forward="true" selection-start-line="78" selection-start-column="34" selection-end-line="78" selection-end-column="34" />
+                      <state relative-caret-position="1014">
+                        <caret line="78" column="34" lean-forward="false" selection-start-line="78" selection-start-column="34" selection-end-line="78" selection-end-column="34" />
                         <folding />
                       </state>
                     </provider>
@@ -218,8 +271,8 @@
                   <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
                     <entry file="file://$PROJECT_DIR$/application/blocs/__init__.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="148">
-                          <caret line="98" column="20" lean-forward="true" selection-start-line="98" selection-start-column="20" selection-end-line="98" selection-end-column="20" />
+                        <state relative-caret-position="109">
+                          <caret line="95" column="46" lean-forward="false" selection-start-line="95" selection-start-column="46" selection-end-line="95" selection-end-column="46" />
                           <folding>
                             <element signature="e#0#13#0" expanded="true" />
                           </folding>
@@ -235,7 +288,7 @@
                     <entry file="file://$PROJECT_DIR$/application/conversations/monologue.py">
                       <provider selected="true" editor-type-id="text-editor">
                         <state relative-caret-position="-3072">
-                          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+                          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
                           <folding>
                             <element signature="e#1686#2219#0" expanded="false" />
                             <element signature="e#2829#3076#0" expanded="false" />
@@ -258,8 +311,8 @@
                   <file leaf-file-name="collections.py" pinned="false" current-in-tab="true">
                     <entry file="file://$PROJECT_DIR$/application/conversations/collections.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="146">
-                          <caret line="422" column="0" lean-forward="true" selection-start-line="422" selection-start-column="0" selection-end-line="422" selection-end-column="0" />
+                        <state relative-caret-position="42">
+                          <caret line="414" column="40" lean-forward="false" selection-start-line="414" selection-start-column="40" selection-end-line="414" selection-end-column="40" />
                           <folding>
                             <element signature="e#0#13#0" expanded="true" />
                             <element signature="e#5807#6696#0" expanded="false" />
@@ -316,8 +369,8 @@
                   <file leaf-file-name="helpers.py" pinned="false" current-in-tab="true">
                     <entry file="file://$PROJECT_DIR$/application/conversations/helpers.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="96">
-                          <caret line="162" column="40" lean-forward="true" selection-start-line="162" selection-start-column="40" selection-end-line="162" selection-end-column="40" />
+                        <state relative-caret-position="31">
+                          <caret line="157" column="48" lean-forward="true" selection-start-line="157" selection-start-column="48" selection-end-line="157" selection-end-column="48" />
                           <folding>
                             <element signature="e#0#27#0" expanded="true" />
                           </folding>
@@ -333,7 +386,7 @@
                     <entry file="file://$PROJECT_DIR$/application/modules/web/blocs.py">
                       <provider selected="true" editor-type-id="text-editor">
                         <state relative-caret-position="199">
-                          <caret line="22" column="11" lean-forward="true" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
+                          <caret line="22" column="11" lean-forward="false" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
                           <folding>
                             <element signature="e#0#46#0" expanded="true" />
                           </folding>
@@ -353,7 +406,7 @@
                       </provider>
                     </entry>
                   </file>
-                  <file leaf-file-name="events.py" pinned="false" current-in-tab="false">
+                  <file leaf-file-name="events.py" pinned="false" current-in-tab="true">
                     <entry file="file://$PROJECT_DIR$/application/modules/web/events.py">
                       <provider selected="true" editor-type-id="text-editor">
                         <state relative-caret-position="78">
@@ -369,7 +422,7 @@
                     <entry file="file://$PROJECT_DIR$/notes.txt">
                       <provider selected="true" editor-type-id="text-editor">
                         <state relative-caret-position="13">
-                          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+                          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
                           <folding />
                         </state>
                       </provider>
@@ -387,10 +440,10 @@
                       </provider>
                     </entry>
                   </file>
-                  <file leaf-file-name="projects.py" pinned="false" current-in-tab="true">
+                  <file leaf-file-name="projects.py" pinned="false" current-in-tab="false">
                     <entry file="file://$PROJECT_DIR$/application/modules/web/projects.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="143">
+                        <state relative-caret-position="92">
                           <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
                           <folding>
                             <element signature="e#0#49#0" expanded="true" />
@@ -479,7 +532,7 @@
                 <entry file="file://$PROJECT_DIR$/application/wrappers/facebook/manage.py">
                   <provider selected="true" editor-type-id="text-editor">
                     <state relative-caret-position="104">
-                      <caret line="48" column="26" lean-forward="true" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
+                      <caret line="48" column="26" lean-forward="false" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
                       <folding>
                         <element signature="e#0#15#0" expanded="true" />
                       </folding>
@@ -525,7 +578,7 @@
                 <entry file="file://$PROJECT_DIR$/manage.py">
                   <provider selected="true" editor-type-id="text-editor">
                     <state relative-caret-position="92">
-                      <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+                      <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
                       <folding>
                         <element signature="e#22#71#0" expanded="true" />
                       </folding>
@@ -586,9 +639,9 @@
       <find>Flask(</find>
       <find>class</find>
       <find>text</find>
-      <find>GET_SART</find>
       <find>url_for</find>
       <find>def all_feeds</find>
+      <find>GET_SART</find>
     </findStrings>
     <replaceStrings>
       <replace>uselist</replace>
@@ -601,7 +654,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/authentication/__init__.py" />
         <option value="$PROJECT_DIR$/application/gateways/github_client.py" />
         <option value="$PROJECT_DIR$/application/posts/__init__.py" />
         <option value="$PROJECT_DIR$/application/modules/api/users.py" />
@@ -632,26 +684,27 @@
         <option value="$PROJECT_DIR$/application/core/utils/helpers.py" />
         <option value="$PROJECT_DIR$/application/modules/web/__init__.py" />
         <option value="$PROJECT_DIR$/static/assets/calendar.js" />
-        <option value="$PROJECT_DIR$/static/assets/style.css" />
         <option value="$PROJECT_DIR$/application/core/constants/__init__.py" />
         <option value="$PROJECT_DIR$/application/conversations/monologue.py" />
-        <option value="$PROJECT_DIR$/static/templates/courses/create.html" />
         <option value="$PROJECT_DIR$/static/templates/projects/something_script.js" />
         <option value="$PROJECT_DIR$/static/scripts/something_script.js" />
-        <option value="$PROJECT_DIR$/static/scripts/project_creation_form.js" />
         <option value="$PROJECT_DIR$/static/scripts/calendar.js" />
-        <option value="$PROJECT_DIR$/static/templates/events/create.html" />
         <option value="$PROJECT_DIR$/notes.txt" />
         <option value="$PROJECT_DIR$/application/conversations/collections.py" />
         <option value="$PROJECT_DIR$/application/conversations/helpers.py" />
         <option value="$PROJECT_DIR$/application/modules/web/events.py" />
-        <option value="$PROJECT_DIR$/application/modules/web/projects.py" />
         <option value="$PROJECT_DIR$/application/modules/web/jobs.py" />
         <option value="$PROJECT_DIR$/application/modules/web/courses.py" />
         <option value="$PROJECT_DIR$/application/modules/web/blocs.py" />
+        <option value="$PROJECT_DIR$/static/templates/courses/create.html" />
         <option value="$PROJECT_DIR$/application/core/models/__init__.py" />
         <option value="$PROJECT_DIR$/static/scripts/submit_button.js" />
+        <option value="$PROJECT_DIR$/static/templates/events/create.html" />
+        <option value="$PROJECT_DIR$/static/scripts/project_creation_form.js" />
         <option value="$PROJECT_DIR$/static/templates/projects/create.html" />
+        <option value="$PROJECT_DIR$/static/assets/style.css" />
+        <option value="$PROJECT_DIR$/static/templates/layouts/forms.html" />
+        <option value="$PROJECT_DIR$/application/modules/web/projects.py" />
       </list>
     </option>
   </component>
@@ -689,18 +742,6 @@
               <item name="blocs-backend" type="b2602c69:ProjectViewProjectNode" />
               <item name="back-end" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="blocs-backend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="back-end" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="scripts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="blocs-backend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="back-end" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -1025,14 +1066,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="2" column="11" lean-forward="false" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/events/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="39">
@@ -1296,14 +1329,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/templates/courses/create.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/templates/events/calendar.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1312,26 +1337,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/assets/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="26" column="10" lean-forward="false" selection-start-line="26" selection-start-column="10" selection-end-line="26" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/scripts/calendar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="521">
-          <caret line="78" column="34" lean-forward="true" selection-start-line="78" selection-start-column="34" selection-end-line="78" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/manage.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
-          <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+          <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
           <folding>
             <element signature="e#22#71#0" expanded="true" />
           </folding>
@@ -1341,7 +1350,7 @@
     <entry file="file://$PROJECT_DIR$/application/conversations/monologue.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3072">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding>
             <element signature="e#1686#2219#0" expanded="false" />
             <element signature="e#2829#3076#0" expanded="false" />
@@ -1353,32 +1362,8 @@
     <entry file="file://$PROJECT_DIR$/notes.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="13">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/web/events.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="16" column="59" lean-forward="false" selection-start-line="16" selection-start-column="59" selection-end-line="16" selection-end-column="59" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/conversations/collections.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="422" column="0" lean-forward="true" selection-start-line="422" selection-start-column="0" selection-end-line="422" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-            <element signature="e#5807#6696#0" expanded="false" />
-            <element signature="e#8713#9602#0" expanded="false" />
-            <element signature="e#9681#10628#0" expanded="false" />
-            <element signature="e#10690#11439#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1405,31 +1390,9 @@
     <entry file="file://$PROJECT_DIR$/application/modules/web/blocs.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="199">
-          <caret line="22" column="11" lean-forward="true" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
+          <caret line="22" column="11" lean-forward="false" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
           <folding>
             <element signature="e#0#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/core/models/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="146" column="38" lean-forward="true" selection-start-line="146" selection-start-column="38" selection-end-line="146" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-            <element signature="e#432#931#0" expanded="false" />
-            <element signature="e#10560#11032#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/templates/events/create.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="842">
-          <caret line="85" column="14" lean-forward="true" selection-start-line="23" selection-start-column="10" selection-end-line="85" selection-end-column="14" />
-          <folding>
-            <element signature="n#style#0;n#textarea#0;n#div#1;n#div#1;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1437,73 +1400,151 @@
     <entry file="file://$PROJECT_DIR$/application/wrappers/facebook/manage.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="104">
-          <caret line="48" column="26" lean-forward="true" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
+          <caret line="48" column="26" lean-forward="false" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/scripts/project_creation_form.js">
+    <entry file="file://$PROJECT_DIR$/application/core/models/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="20" column="33" lean-forward="false" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/scripts/like.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="24" column="22" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="24" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/scripts/submit_button.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="24" column="45" lean-forward="false" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/conversations/helpers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="162" column="40" lean-forward="true" selection-start-line="162" selection-start-column="40" selection-end-line="162" selection-end-column="40" />
+        <state relative-caret-position="443">
+          <caret line="223" column="23" lean-forward="true" selection-start-line="223" selection-start-column="23" selection-end-line="223" selection-end-column="23" />
           <folding>
-            <element signature="e#0#27#0" expanded="true" />
+            <element signature="e#0#29#0" expanded="true" />
+            <element signature="e#432#931#0" expanded="false" />
+            <element signature="e#10466#10938#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/blocs/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="98" column="20" lean-forward="true" selection-start-line="98" selection-start-column="20" selection-end-line="98" selection-end-column="20" />
+        <state relative-caret-position="109">
+          <caret line="95" column="46" lean-forward="false" selection-start-line="95" selection-start-column="46" selection-end-line="95" selection-end-column="46" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/static/scripts/submit_button.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="39">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/scripts/calendar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1014">
+          <caret line="78" column="34" lean-forward="false" selection-start-line="78" selection-start-column="34" selection-end-line="78" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/scripts/like.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="52">
+          <caret line="4" column="13" lean-forward="true" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/scripts/project_creation_form.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="20" column="4" lean-forward="true" selection-start-line="0" selection-start-column="2" selection-end-line="20" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/static/templates/projects/create.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="652">
-          <caret line="51" column="48" lean-forward="false" selection-start-line="51" selection-start-column="48" selection-end-line="51" selection-end-column="48" />
+        <state relative-caret-position="364">
+          <caret line="28" column="60" lean-forward="false" selection-start-line="28" selection-start-column="60" selection-end-line="28" selection-end-column="60" />
           <folding>
-            <element signature="n#style#0;n#textarea#0;n#div#1;n#div#1;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#0;n#div#1;n#div#1;n#form#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/assets/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="67">
+          <caret line="44" column="18" lean-forward="true" selection-start-line="44" selection-start-column="18" selection-end-line="44" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/templates/courses/create.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="65">
+          <caret line="5" column="4" lean-forward="false" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/conversations/helpers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31">
+          <caret line="157" column="48" lean-forward="true" selection-start-line="157" selection-start-column="48" selection-end-line="157" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/conversations/collections.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="414" column="40" lean-forward="false" selection-start-line="414" selection-start-column="40" selection-end-line="414" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#5807#6696#0" expanded="false" />
+            <element signature="e#8713#9602#0" expanded="false" />
+            <element signature="e#9681#10628#0" expanded="false" />
+            <element signature="e#10690#11439#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/web/projects.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
+        <state relative-caret-position="92">
           <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding>
             <element signature="e#0#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/web/events.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="16" column="59" lean-forward="false" selection-start-line="16" selection-start-column="59" selection-end-line="16" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/templates/layouts/forms.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="8" column="11" lean-forward="false" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/templates/events/create.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="22" column="18" lean-forward="true" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
+          <folding>
+            <element signature="n#style#0;n#textarea#0;n#div#1;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

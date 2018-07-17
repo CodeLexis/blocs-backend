@@ -1,346 +1,330 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--<meta charset="UTF-8">-->
-<!--<title>Title</title>-->
-<!--</head>-->
-<body>
-<!--<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>-->
-<!--<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>-->
+{% extends "layouts/forms.html" %}
 
-<!-- Load our React component. -->
-<script src="create_button.js"></script>
+{% block title %}Create Bloc Project{% endblock %}
 
-</body>
-<!--</html>-->
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" type="text/css"
-              href="/static/assets/style.css">
-    </head>
-
-    <body>
-
-        <div class="container">
-            <form method="POST" action="/create-events">
-                <div class="row">
-                    <div class="col-25">
-                        <label for="title">Title</label>
-                    </div>
-                    <div class="col-75">
-                        <input type="text" id="title" name="title"
-                               placeholder="Title">
-                    </div>
+{% block content %}
+    <div class="container">
+        <form method="POST" action="/create-events">
+            <div class="row">
+                <div class="col-25">
+                    <label for="title">Title</label>
                 </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="description">Description</label>
-                    </div>
-                    <div class="col-75">
-                        <textarea id="description" name="description"
-                                  placeholder="What's special about the occassion?"
-                                  style="height:200px"></textarea>
-                    </div>
+                <div class="col-75">
+                    <input type="text" id="title" name="title"
+                           placeholder="Title">
                 </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="venue">Venue</label>
-                    </div>
-                    <div class="col-75">
-                        <input type="text" id="venue" name="venue"
-                               placeholder="Venue">
-                    </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="description">Description</label>
                 </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="bloc">Bloc</label>
-                    </div>
-                    <div class="col-75">
-                        <select id="bloc" name="bloc">
-                            {% for bloc in blocs %}
-                                <option value="{{ bloc.name }}">
-                                    {{ bloc.name }}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
+                <div class="col-75">
+                    <textarea id="description" name="description"
+                              placeholder="What's special about the occassion?"
+                              style="height:200px"></textarea>
                 </div>
-                <div class="row">
-                    <div class="col-25">
-                        <label for="venue">Date</label>
-                    </div>
-                    <div class="col-75">
-                        <select id="calendar1" class="bear-dates"
-                                name="day"></select>
-                        <select id="calendar2" class="bear-months"
-                                name="month"></select>
-                        <select id="calendar3" class="bear-years"
-                                name="year"></select>
-                    </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="venue">Venue</label>
                 </div>
-                <div class="row">
-                    <input type="submit" value="Submit">
+                <div class="col-75">
+                    <input type="text" id="venue" name="venue"
+                           placeholder="Venue">
                 </div>
-            </form>
-        </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="bloc">Bloc</label>
+                </div>
+                <div class="col-75">
+                    <select id="bloc" name="bloc">
+                        {% for bloc in blocs %}
+                            <option value="{{ bloc.name }}">
+                                {{ bloc.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="venue">Date</label>
+                </div>
+                <div class="col-75">
+                    <select id="calendar1" class="bear-dates"
+                            name="day"></select>
+                    <select id="calendar2" class="bear-months"
+                            name="month"></select>
+                    <select id="calendar3" class="bear-years"
+                            name="year"></select>
+                </div>
+            </div>
+            <div class="row" id="submit_button">
+                  <!--<input type="submit" value="Submit" id="submit_button">-->
+            </div>
+        </form>
+    </div>
 
-        <!--<script src="/static/scripts/calender.js"-->
-                <!--type="text/javascript"></script>-->
+    <!--<script src="/static/scripts/calender.js"-->
+            <!--type="text/javascript"></script>-->
 
-        <script type="text/javascript">
-            //Date method
-            function dates(tags)
-            {
+    <script type="text/javascript">
+        //Date method
+        function dates(tags)
+        {
 
-                    if(tags == '')
-                    //If the dates('') paramenter is empty, add no tags
-                    {
-                        var dates = "";
-                        var i;
-                        for (i = 1; i < 32;  i++ )
-                        {
-                            dates += i;
-                        }
-                    }
-                    else
-                    //If the dates('option') has paramenter, add the tags to it
-                    {
-                        var dates = "";
-                        var i;
-                        for (i = 1; i < 32;  i++ )
-                        {
-                            dates += "<" + tags +">" + i +"</" + tags +">";
-                        }
-                    }
-
-                //You can call the class multiple times
-                var multiple_list = document.getElementsByClassName("bear-dates");
-                for (i = 0; i < multiple_list.length; i++)
+                if(tags == '')
+                //If the dates('') paramenter is empty, add no tags
                 {
-                    multiple_list[i].innerHTML = dates;
+                    var dates = "";
+                    var i;
+                    for (i = 1; i < 32;  i++ )
+                    {
+                        dates += i;
+                    }
                 }
-            }
-
-            //Days method
-            function days(tags)
-            {
-                //List all the Days with array
-                var list_days = [
-                                    'Monday',
-                                    'Tuesday',
-                                    'Wednesday',
-                                    'Thursday',
-                                    'Friday',
-                                    'Saturday',
-                                    'Sunday'
-                                ];
-
-                    if(tags == '')
-                    //If the days('') paramenter is empty, add no tags
-                    {
-                        var i;
-                        for (i = 0, l = list_days.length, days = ""; i < l; i++)
-                        {
-                            days += list_days[i];
-                        }
-                    }
-                    else
-                    //If the days('option') has paramenter, add the tags to it
-                    {
-                        for (i = 0, l = list_days.length, days = ""; i < l; i++)
-                        {
-                            days += "<" + tags +">" + list_days[i] + "</" + tags +">";
-                        }
-                    }
-
-                //You can call the class multiple times
-                var multiple_list = document.getElementsByClassName("bear-days");
-                for (i = 0; i < multiple_list.length; i++)
+                else
+                //If the dates('option') has paramenter, add the tags to it
                 {
-                    multiple_list[i].innerHTML = days;
+                    var dates = "";
+                    var i;
+                    for (i = 1; i < 32;  i++ )
+                    {
+                        dates += "<" + tags +">" + i +"</" + tags +">";
+                    }
                 }
-            }
 
-
-
-            //Short Days method
-            function short_days(tags)
+            //You can call the class multiple times
+            var multiple_list = document.getElementsByClassName("bear-dates");
+            for (i = 0; i < multiple_list.length; i++)
             {
-                //List all the Days with array
-                var list_days = [
-                                    'Mon',
-                                    'Tue',
-                                    'Wed',
-                                    'Thu',
-                                    'Fri',
-                                    'Sat',
-                                    'Sun'
-                                ];
-
-                    if(tags == '')
-                    //If the short_days('') paramenter is empty, add no tags
-                    {
-                        var i;
-                        for (i = 0, l = list_days.length, days = ""; i < l; i++)
-                        {
-                            days += list_days[i];
-                        }
-                    }
-                    else
-                    //If the days('option') has paramenter, add the tags to it
-                    {
-                        for (i = 0, l = list_days.length, days = ""; i < l; i++)
-                        {
-                            days += "<" + tags +">" + list_days[i] + "</" + tags +">";
-                        }
-                    }
-
-                //You can call the class multiple times
-                var multiple_list = document.getElementsByClassName("bear-short-days");
-                for (i = 0; i < multiple_list.length; i++)
-                {
-                    multiple_list[i].innerHTML = days;
-                }
+                multiple_list[i].innerHTML = dates;
             }
+        }
 
-            //Months method
-            function months(tags)
+        //Days method
+        function days(tags)
+        {
+            //List all the Days with array
+            var list_days = [
+                                'Monday',
+                                'Tuesday',
+                                'Wednesday',
+                                'Thursday',
+                                'Friday',
+                                'Saturday',
+                                'Sunday'
+                            ];
+
+                if(tags == '')
+                //If the days('') paramenter is empty, add no tags
+                {
+                    var i;
+                    for (i = 0, l = list_days.length, days = ""; i < l; i++)
+                    {
+                        days += list_days[i];
+                    }
+                }
+                else
+                //If the days('option') has paramenter, add the tags to it
+                {
+                    for (i = 0, l = list_days.length, days = ""; i < l; i++)
+                    {
+                        days += "<" + tags +">" + list_days[i] + "</" + tags +">";
+                    }
+                }
+
+            //You can call the class multiple times
+            var multiple_list = document.getElementsByClassName("bear-days");
+            for (i = 0; i < multiple_list.length; i++)
             {
-                //List all the Days with array
-                var list_months = [
-                                    'January',
-                                    'Febuary',
-                                    'March',
-                                    'April',
-                                    'May',
-                                    'June',
-                                    'July',
-                                    'August',
-                                    'September',
-                                    'October',
-                                    'November',
-                                    'December'
-                                ];
-
-                    if(tags == '')
-                    //If the months('') paramenter is empty, add no tags
-                    {
-                        var i;
-                        for (i = 0, l = list_months.length, months = ""; i < l; i++)
-                        {
-                            months += list_months[i];
-                        }
-                    }
-                    else
-                    //If the months('option') has paramenter, add the tags to it
-                    {
-                        for (i = 0, l = list_months.length, months = ""; i < l; i++)
-                        {
-                            months += "<" + tags +">" + list_months[i] + "</" + tags +">";
-                        }
-                    }
-
-                //You can call the class multiple times
-                var multiple_list = document.getElementsByClassName("bear-months");
-                for (i = 0; i < multiple_list.length; i++)
-                {
-                    multiple_list[i].innerHTML = months;
-                }
+                multiple_list[i].innerHTML = days;
             }
+        }
 
 
 
-            //Short Months method
-            function short_months(tags)
+        //Short Days method
+        function short_days(tags)
+        {
+            //List all the Days with array
+            var list_days = [
+                                'Mon',
+                                'Tue',
+                                'Wed',
+                                'Thu',
+                                'Fri',
+                                'Sat',
+                                'Sun'
+                            ];
+
+                if(tags == '')
+                //If the short_days('') paramenter is empty, add no tags
+                {
+                    var i;
+                    for (i = 0, l = list_days.length, days = ""; i < l; i++)
+                    {
+                        days += list_days[i];
+                    }
+                }
+                else
+                //If the days('option') has paramenter, add the tags to it
+                {
+                    for (i = 0, l = list_days.length, days = ""; i < l; i++)
+                    {
+                        days += "<" + tags +">" + list_days[i] + "</" + tags +">";
+                    }
+                }
+
+            //You can call the class multiple times
+            var multiple_list = document.getElementsByClassName("bear-short-days");
+            for (i = 0; i < multiple_list.length; i++)
             {
-                //List all the Months with array
-                var list_months = [
-                                    'Jan',
-                                    'Feb',
-                                    'Mar',
-                                    'Apr',
-                                    'May',
-                                    'Jun',
-                                    'Jul',
-                                    'Aug',
-                                    'Sep',
-                                    'Oct',
-                                    'Nov',
-                                    'Dec'
-                                ];
-
-                    if(tags == '')
-                    //If the short_months('') paramenter is empty, add no tags
-                    {
-                        var i;
-                        for (i = 0, l = list_months.length, months = ""; i < l; i++)
-                        {
-                            months += list_months[i];
-                        }
-                    }
-                    else
-                    //If the months('option') has paramenter, add the tags to it
-                    {
-                        for (i = 0, l = list_months.length, months = ""; i < l; i++)
-                        {
-                            months += "<" + tags +">" + list_months[i] + "</" + tags +">";
-                        }
-                    }
-
-                //You can call the class multiple times
-                var multiple_list = document.getElementsByClassName("bear-short-months");
-                for (i = 0; i < multiple_list.length; i++)
-                {
-                    multiple_list[i].innerHTML = months;
-                }
+                multiple_list[i].innerHTML = days;
             }
+        }
 
-            //Year method
-            function years(tags, startY, endY)
+        //Months method
+        function months(tags)
+        {
+            //List all the Days with array
+            var list_months = [
+                                'January',
+                                'Febuary',
+                                'March',
+                                'April',
+                                'May',
+                                'June',
+                                'July',
+                                'August',
+                                'September',
+                                'October',
+                                'November',
+                                'December'
+                            ];
+
+                if(tags == '')
+                //If the months('') paramenter is empty, add no tags
+                {
+                    var i;
+                    for (i = 0, l = list_months.length, months = ""; i < l; i++)
+                    {
+                        months += list_months[i];
+                    }
+                }
+                else
+                //If the months('option') has paramenter, add the tags to it
+                {
+                    for (i = 0, l = list_months.length, months = ""; i < l; i++)
+                    {
+                        months += "<" + tags +">" + list_months[i] + "</" + tags +">";
+                    }
+                }
+
+            //You can call the class multiple times
+            var multiple_list = document.getElementsByClassName("bear-months");
+            for (i = 0; i < multiple_list.length; i++)
             {
-
-                    if(tags == '')
-                    //If the years('') paramenter is empty, add no tags
-                    {
-                        var years = "";
-                        for (i = startY; i < endY + 1;  i++ )
-                        {
-                            years += i;
-                        }
-                    }
-                    else
-                    //If the years('option') has paramenter, add the tags to it
-                    {
-                        var years = "";
-                        for (i = startY; i < endY + 1;  i++ )
-                        {
-                            years += "<" + tags +">" + i +"</" + tags +">";
-                        }
-                    }
-
-                //You can call the class multiple times
-                var multiple_list = document.getElementsByClassName("bear-years");
-                for (i = 0; i < multiple_list.length; i++)
-                {
-                    multiple_list[i].innerHTML = years;
-                }
+                multiple_list[i].innerHTML = months;
             }
-            //Calender end
+        }
 
 
-            dates('option');
-            months('option');
-            years('option', 2018, 2020);
-        </script>
+
+        //Short Months method
+        function short_months(tags)
+        {
+            //List all the Months with array
+            var list_months = [
+                                'Jan',
+                                'Feb',
+                                'Mar',
+                                'Apr',
+                                'May',
+                                'Jun',
+                                'Jul',
+                                'Aug',
+                                'Sep',
+                                'Oct',
+                                'Nov',
+                                'Dec'
+                            ];
+
+                if(tags == '')
+                //If the short_months('') paramenter is empty, add no tags
+                {
+                    var i;
+                    for (i = 0, l = list_months.length, months = ""; i < l; i++)
+                    {
+                        months += list_months[i];
+                    }
+                }
+                else
+                //If the months('option') has paramenter, add the tags to it
+                {
+                    for (i = 0, l = list_months.length, months = ""; i < l; i++)
+                    {
+                        months += "<" + tags +">" + list_months[i] + "</" + tags +">";
+                    }
+                }
+
+            //You can call the class multiple times
+            var multiple_list = document.getElementsByClassName("bear-short-months");
+            for (i = 0; i < multiple_list.length; i++)
+            {
+                multiple_list[i].innerHTML = months;
+            }
+        }
+
+        //Year method
+        function years(tags, startY, endY)
+        {
+
+                if(tags == '')
+                //If the years('') paramenter is empty, add no tags
+                {
+                    var years = "";
+                    for (i = startY; i < endY + 1;  i++ )
+                    {
+                        years += i;
+                    }
+                }
+                else
+                //If the years('option') has paramenter, add the tags to it
+                {
+                    var years = "";
+                    for (i = startY; i < endY + 1;  i++ )
+                    {
+                        years += "<" + tags +">" + i +"</" + tags +">";
+                    }
+                }
+
+            //You can call the class multiple times
+            var multiple_list = document.getElementsByClassName("bear-years");
+            for (i = 0; i < multiple_list.length; i++)
+            {
+                multiple_list[i].innerHTML = years;
+            }
+        }
+        //Calender end
 
 
-        <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
-        <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+        dates('option');
+        months('option');
+        years('option', 2018, 2020);
+    </script>
 
-        <!-- Load our React component. -->
-        <script src="/static/scripts/create_button.js"></script>
 
-    </body>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
 
-</html>
+    <!-- Load our React component. -->
+    <script src="/static/scripts/create_button.js"></script>
+{% endblock %}

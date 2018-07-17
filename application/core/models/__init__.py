@@ -210,8 +210,6 @@ class Course(BaseModel, HasUID):
     description = db.Column(db.TEXT)
     bloc_id = db.Column(db.Integer, db.ForeignKey('blocs.id'))
     created_by_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-    course_schedule_id = db.Column(
-        db.Integer, db.ForeignKey('course_schedules.id'))
     start_date = db.Column(db.Date)
     end_date = db.Column(db.Date)
     time = db.Column(db.String(6))
