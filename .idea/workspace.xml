@@ -1,53 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0ad8270f-f719-45e1-81e5-506149528fc2" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/local_migrations/README" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/local_migrations/alembic.ini" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/local_migrations/env.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/local_migrations/script.py.mako" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/local_migrations/versions/161602b37c91_.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/local_migrations/versions/27965359fa8a_.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/local_migrations/versions/33847007b2a9_.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/local_migrations/versions/38a277160223_.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/local_migrations/versions/96a57c0fd7de_.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/local_migrations/versions/9c00634516f6_.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/assets/world_currencies.txt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/static/templates/jobs/create.html" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/application/conversations/collections.py" afterPath="$PROJECT_DIR$/application/conversations/collections.py" />
-      <change beforePath="$PROJECT_DIR$/application/core/constants/__init__.py" afterPath="$PROJECT_DIR$/application/core/constants/__init__.py" />
-      <change beforePath="$PROJECT_DIR$/application/core/models/__init__.py" afterPath="$PROJECT_DIR$/application/core/models/__init__.py" />
-      <change beforePath="$PROJECT_DIR$/application/courses/__init__.py" afterPath="$PROJECT_DIR$/application/courses/__init__.py" />
-      <change beforePath="$PROJECT_DIR$/application/events/__init__.py" afterPath="$PROJECT_DIR$/application/events/__init__.py" />
-      <change beforePath="$PROJECT_DIR$/application/jobs/__init__.py" afterPath="$PROJECT_DIR$/application/jobs/__init__.py" />
-      <change beforePath="$PROJECT_DIR$/application/modules/web/courses.py" afterPath="$PROJECT_DIR$/application/modules/web/courses.py" />
-      <change beforePath="$PROJECT_DIR$/application/modules/web/events.py" afterPath="$PROJECT_DIR$/application/modules/web/events.py" />
-      <change beforePath="$PROJECT_DIR$/application/modules/web/jobs.py" afterPath="$PROJECT_DIR$/application/modules/web/jobs.py" />
-      <change beforePath="$PROJECT_DIR$/application/modules/web/projects.py" afterPath="$PROJECT_DIR$/application/modules/web/projects.py" />
-      <change beforePath="$PROJECT_DIR$/application/projects/__init__.py" afterPath="$PROJECT_DIR$/application/projects/__init__.py" />
-      <change beforePath="$PROJECT_DIR$/manage.py" afterPath="$PROJECT_DIR$/manage.py" />
-      <change beforePath="$PROJECT_DIR$/r_migrations/README" afterPath="$PROJECT_DIR$/remote_migrations/README" />
-      <change beforePath="$PROJECT_DIR$/r_migrations/alembic.ini" afterPath="$PROJECT_DIR$/remote_migrations/alembic.ini" />
-      <change beforePath="$PROJECT_DIR$/r_migrations/env.py" afterPath="$PROJECT_DIR$/remote_migrations/env.py" />
-      <change beforePath="$PROJECT_DIR$/r_migrations/script.py.mako" afterPath="$PROJECT_DIR$/remote_migrations/script.py.mako" />
-      <change beforePath="$PROJECT_DIR$/r_migrations/versions/03dc0f974cde_.py" afterPath="$PROJECT_DIR$/remote_migrations/versions/03dc0f974cde_.py" />
-      <change beforePath="$PROJECT_DIR$/r_migrations/versions/0950db6e5ccc_.py" afterPath="$PROJECT_DIR$/remote_migrations/versions/0950db6e5ccc_.py" />
-      <change beforePath="$PROJECT_DIR$/r_migrations/versions/2208de96f000_.py" afterPath="$PROJECT_DIR$/remote_migrations/versions/2208de96f000_.py" />
-      <change beforePath="$PROJECT_DIR$/r_migrations/versions/2c5379165609_.py" afterPath="$PROJECT_DIR$/remote_migrations/versions/2c5379165609_.py" />
-      <change beforePath="$PROJECT_DIR$/r_migrations/versions/4bc569f62e23_.py" afterPath="$PROJECT_DIR$/remote_migrations/versions/4bc569f62e23_.py" />
-      <change beforePath="$PROJECT_DIR$/r_migrations/versions/4e446c5e100f_.py" afterPath="$PROJECT_DIR$/remote_migrations/versions/4e446c5e100f_.py" />
-      <change beforePath="$PROJECT_DIR$/r_migrations/versions/736f39b16032_.py" afterPath="$PROJECT_DIR$/remote_migrations/versions/736f39b16032_.py" />
-      <change beforePath="$PROJECT_DIR$/r_migrations/versions/7ad9278325aa_.py" afterPath="$PROJECT_DIR$/remote_migrations/versions/7ad9278325aa_.py" />
-      <change beforePath="$PROJECT_DIR$/r_migrations/versions/7b4fcd2cf265_.py" afterPath="$PROJECT_DIR$/remote_migrations/versions/7b4fcd2cf265_.py" />
-      <change beforePath="$PROJECT_DIR$/r_migrations/versions/8b60829685a2_.py" afterPath="$PROJECT_DIR$/remote_migrations/versions/8b60829685a2_.py" />
-      <change beforePath="$PROJECT_DIR$/r_migrations/versions/da3af31c2944_.py" afterPath="$PROJECT_DIR$/remote_migrations/versions/da3af31c2944_.py" />
-      <change beforePath="$PROJECT_DIR$/static/assets/style.css" afterPath="$PROJECT_DIR$/static/assets/style.css" />
-      <change beforePath="$PROJECT_DIR$/static/templates/blocs/create.html" afterPath="$PROJECT_DIR$/static/templates/blocs/create.html" />
-      <change beforePath="$PROJECT_DIR$/static/templates/courses/create.html" afterPath="$PROJECT_DIR$/static/templates/courses/create.html" />
-      <change beforePath="$PROJECT_DIR$/static/templates/events/create.html" afterPath="$PROJECT_DIR$/static/templates/events/create.html" />
-      <change beforePath="$PROJECT_DIR$/static/templates/projects/create.html" afterPath="$PROJECT_DIR$/static/templates/projects/create.html" />
-    </list>
+    <list default="true" id="0ad8270f-f719-45e1-81e5-506149528fc2" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -646,8 +600,8 @@
               <file leaf-file-name="manage.py" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/manage.py">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="78">
-                      <caret line="6" column="1" lean-forward="false" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+                    <state relative-caret-position="39">
+                      <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
                       <folding />
                     </state>
                   </provider>
@@ -777,7 +731,7 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="65" />
-    <option name="y" value="1076" />
+    <option name="y" value="-4" />
     <option name="width" value="1855" />
     <option name="height" value="1084" />
   </component>
@@ -1077,7 +1031,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="1076" width="1855" height="1084" extended-state="6" />
+    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15489875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1572,8 +1526,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/manage.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="6" column="1" lean-forward="false" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+        <state relative-caret-position="39">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>

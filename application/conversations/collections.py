@@ -433,7 +433,7 @@ class Collections(object):
             Dialogue.button(
                 type='web_url', title='YES',
                 url=url_for('web_blueprint.render_project_creation_page',
-                            _external=True)
+                            user_id=g.user.id, _external=True)
             )
         ]
 
@@ -487,7 +487,7 @@ class Collections(object):
             Dialogue.button(
                 type='web_url', title='YES',
                 url=url_for('web_blueprint.render_course_creation_page',
-                            _external=True)
+                            user_id=g.user.id, _external=True)
             )
         ]
 
@@ -513,7 +513,7 @@ class Collections(object):
                 Dialogue.button(
                     type='web_url', title='YES',
                     url=url_for('web_blueprint.render_event_creation_page',
-                                _external=True)
+                                user_id=g.user.id, _external=True)
                 )
             ]
 
@@ -521,7 +521,7 @@ class Collections(object):
                 title=title, subtitle=subtitle,
                 image_url=url_for(
                     'web_blueprint.render_random_default_avatar',
-                    _external=True),
+                    user_id=g.user.id, _external=True),
                 buttons=buttons
             )
 
