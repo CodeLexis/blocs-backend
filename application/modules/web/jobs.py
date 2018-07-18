@@ -1,5 +1,6 @@
 from flask import Response
 
+from application.core.constants import SALARY_INTERVALS
 from application.core.models import Bloc, Job, User
 from application.jobs import create_job
 from . import render_template, request, web_blueprint
@@ -14,31 +15,32 @@ def render_job_creation_page():
 
         context = {
             'user_id': user_id,
-            'blocs': [bloc.as_json() for bloc in user.blocs]
+            'blocs': [bloc.as_json() for bloc in user.blocs],
+            'currencies': eval(
+                open('static/assets/world_currencies.txt', 'rb').read()
+            ),
+            'salary_intervals': SALARY_INTERVALS,
+            'job_durations': ['SHORT TERM', 'FULL-TIME', 'PART-TIME']
         }
+
         return render_template('jobs/create.html', **context)
 
     elif request.method == 'POST':
         title = request.form['title']
         bloc_name = request.form['bloc_name']
         description = request.form['description']
-        duration = request.form['duration']
         location = request.form['location']
+        duration = request.form['duration']
         min_salary = request.form['min_salary']
         max_salary = request.form['max_salary']
         salary_interval = request.form['salary_interval']
-        salary_interval_units = request.form['salary_interval_units']
-        weblink = request.form['weblink']
 
-        bloc_uid = Bloc.get(name=bloc_name)
-
-        salary_interval = '{} {}'.format(salary_interval, salary_interval_units)
+        bloc = Bloc.get(name=bloc_name)
 
         create_job(
-            bloc_uid=bloc_uid, title=title, description=description,
+            bloc=bloc, title=title, description=description,
             duration=duration, location=location, min_salary=min_salary,
             max_salary=max_salary, salary_interval=salary_interval,
-            weblink=weblink
         )
 
         context = {'scope': 'job'}

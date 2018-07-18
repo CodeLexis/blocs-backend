@@ -1,6 +1,6 @@
 {% extends "layouts/forms.html" %}
 
-{% block title %}Create Bloc Project{% endblock %}
+{% block title %}Create Bloc Job{% endblock %}
 
 {% block head %}
     {{ super() }}
@@ -26,7 +26,7 @@
     <div id="content"></div>
 
     <div class="container">
-        <form method="POST" action="/create-project" id="form">
+        <form method="POST" action="/create-job" id="form">
             <input type="hidden" value="{{ user_id }}" name="user_id"/>
 
             <div class="row">
@@ -44,17 +44,58 @@
                 </div>
                 <div class="col-75">
                     <textarea id="description" name="description"
-                              placeholder="What's special your project?"
+                              placeholder="What does the job entail?"
                               style="height:200px"></textarea>
                 </div>
             </div>
             <div class="row">
                 <div class="col-25">
-                    <label for="weblink">Weblink</label>
+                    <label for="duration">Duration</label>
+                </div>
+                <div class="col-25">
+                    <select name="duration">
+                        {% for duration in job_durations %}
+                            <option value="{{ duration }}">{{ duration }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="location">Location</label>
                 </div>
                 <div class="col-75">
-                    <input type="text" id="weblink" name="weblink"
-                           placeholder="Weblink">
+                    <input type="text" id="location" name="location"
+                           placeholder="Location (ex. 'Los Angeles, California', 'REMOTE')">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="salary">Salary</label>
+                </div>
+                <div class="col-25">
+                    <select id="currency" name="currency">
+                        {% for currency in currencies %}
+                            <option>{{ currency }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-25">
+                    <input type="number" id="min_salary" name="min_salary"
+                           placeholder="10000">
+                </div>
+                <div class="col-25">
+                    <input type="number" id="max_salary" name="max_salary"
+                           placeholder="20000">
+                </div>
+                <div class="col-25">
+                    <select id="salary_interval" name="salary_interval">
+                        {% for interval in salary_intervals %}
+                            <option value="{{ interval }}">
+                                Per {{ interval }}
+                            </option>
+                        {% endfor %}
+                    </select>
                 </div>
             </div>
             <div class="row">

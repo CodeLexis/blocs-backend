@@ -424,7 +424,10 @@ class Collections(object):
     @classmethod
     def create_project(cls):
         title = 'CREATE PROJECT'
-        subtitle = "Team up with developers in your bloc"
+        subtitle = (
+            "Take-on big projects with developers all over the world!\nYour "
+            "project will be shared on your Blocs, as well as your "
+            "Facebook & Instagram pages, to let more developers know about it!")
 
         buttons = [
             Dialogue.button(
@@ -447,7 +450,10 @@ class Collections(object):
     @classmethod
     def create_job(cls):
         title = 'CREATE JOB'
-        subtitle = "Looking for someone to join your team?"
+        subtitle = (
+            "Looking to hire someone?\nYour job offer will be shared on your "
+            "Blocs, as well as your Facebook & Instagram pages, to help find "
+            "more people!")
 
         buttons = [
             Dialogue.button(
@@ -473,8 +479,9 @@ class Collections(object):
         title = 'CREATE COURSE'
         subtitle = (
             "Gain respect & influence by passing on your awesome skills on "
-            "Facebook"
-        )
+            "Facebook!\nYour course will be shared on your Blocs, as well as "
+            "your Facebook & Instagram pages, to let more developers know "
+            "about it!")
 
         buttons = [
             Dialogue.button(

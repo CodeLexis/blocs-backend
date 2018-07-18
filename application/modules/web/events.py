@@ -1,3 +1,5 @@
+from dateutil import parser as date_parser
+
 from flask import g, redirect, url_for
 
 from application.core.models import Bloc, Event, User
@@ -16,20 +18,29 @@ def render_event_creation_page():
             'user_id': user_id,
             'blocs': [bloc.as_json() for bloc in user.blocs]
         }
+
         return render_template('events/create.html', **context)
 
     elif request.method == 'POST':
         title = request.form['title']
         description = request.form['description']
         venue = request.form['venue']
-        date_and_time = request.form['date_and_time']
+        day_ = request.form['day']
+        month_ = request.form['month']
+        year_ = request.form['year']
+        time_ = request.form['time']
         bloc_name = request.form['bloc_name']
+        user_id = request.form['user_id']
 
         bloc = Bloc.get(name=bloc_name)
 
+        datetime_ = date_parser.parse(
+            '{} {} {} {}'.format(day_, month_, year_, time_)
+        )
+
         create_event(
-            bloc_uid=bloc.uid, title=title, description=description,
-            venue=venue, datetime=date_and_time
+            bloc=bloc, title=title, description=description,
+            venue=venue, datetime=datetime_, created_by_id=user_id
         )
 
         context = {'scope': 'event for {}'.format(bloc_name)}

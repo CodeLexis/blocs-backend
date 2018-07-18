@@ -38,11 +38,31 @@ def prep_paginate_query(query, per_page=None, page=None):
     return query.paginate(int(page), int(per_page), error_out=False)
 
 
+class HasBloc(object):
+    @declared_attr
+    def bloc_id(cls):
+        return db.Column(db.Integer, db.ForeignKey('blocs.id'))
+
+    @declared_attr
+    def bloc(cls):
+        return db.relationship('Bloc', backref=cls.__tablename__)
+
+
+class HasCreator(object):
+    @declared_attr
+    def created_by_id(cls):
+        return db.Column(db.Integer, db.ForeignKey('users.id'))
+
+    @declared_attr
+    def created_by(cls):
+        return db.relationship('User', backref=cls.__tablename__)
+
+
 class HasStatus(object):
     @declared_attr
     def status_id(cls):
         return db.Column(
-            db.Integer, db.ForeignKey('statuses.id'), 
+            db.Integer, db.ForeignKey('statuses.id'),
             default=STATUSES.index('active')+1)
 
 
@@ -82,7 +102,7 @@ class BaseModel(db.Model):
 
     @classmethod
     def query_for_active(cls, _desc=False, **kwargs):
-        query = cls.query.filter_by(status_id=STATUSES.index('active'),
+        query = cls.query.filter_by(status_id=STATUSES.index('active') + 1,
                                     **kwargs)
 
         if _desc:
@@ -91,7 +111,7 @@ class BaseModel(db.Model):
         return query.all()
 
 
-class Bloc(BaseModel, HasUID, LookUp):
+class Bloc(BaseModel, HasUID, LookUp, HasStatus):
     __tablename__ = 'blocs'
 
     created_by = db.Column(db.Integer, db.ForeignKey('users.id'))
@@ -203,7 +223,7 @@ class Conversation(BaseModel):
         lazy='joined')
 
 
-class Course(BaseModel, HasUID):
+class Course(BaseModel, HasUID, HasBloc, HasCreator):
     __tablename__ = 'courses'
 
     title = db.Column(db.String(128))
@@ -250,7 +270,7 @@ class CourseContent(BaseModel):
     body = db.Column(db.TEXT)
 
 
-class Event(BaseModel, HasUID):
+class Event(BaseModel, HasUID, HasBloc, HasCreator):
     __tablename__ = 'events'
 
     bloc_id = db.Column(db.Integer, db.ForeignKey('blocs.id'))
@@ -275,10 +295,9 @@ class Feed(BaseModel, HasUID):
     created_by = db.relationship('User', )
 
 
-class Job(BaseModel, HasUID):
+class Job(BaseModel, HasUID, HasCreator, HasBloc):
     __tablename__ = 'jobs'
 
-    bloc_id = db.Column(db.Integer, db.ForeignKey('blocs.id'))
     title = db.Column(db.String(128))
     location = db.Column(db.String(128))
     description = db.Column(db.TEXT)
@@ -331,39 +350,19 @@ class Message(BaseModel):
         'Conversation', backref=db.backref('messages', uselist=True), lazy='joined')
 
 
-class Post(BaseModel, HasUID):
+class Post(BaseModel, HasUID, HasBloc, HasCreator):
     __tablename__ = 'posts'
 
     title = db.Column(db.String(64))
     body = db.Column(db.TEXT)
-    bloc_id = db.Column(db.Integer, db.ForeignKey('blocs.id'))
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-
-    bloc = db.relationship(
-        'Bloc', backref=db.backref('posts', uselist=True),
-        uselist=False)
-
-    user = db.relationship(
-        'User', backref=db.backref('posts', uselist=True),
-        uselist=False)
 
 
-class Project(BaseModel, HasUID):
+class Project(BaseModel, HasUID, HasBloc, HasCreator):
     __tablename__  = 'projects'
 
     title = db.Column(db.String(64))
     description = db.Column(db.TEXT)
-    url = db.Column(db.String(256))
-    bloc_id = db.Column(db.Integer, db.ForeignKey('blocs.id'))
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-
-    bloc = db.relationship(
-        'Bloc', backref=db.backref('projects', uselist=True),
-        uselist=False)
-
-    user = db.relationship(
-        'User', backref=db.backref('projects', uselist=True),
-        uselist=False)
+    weblink = db.Column(db.String(256))
 
 
 class ProjectAuthor(BaseModel, HasUID):
@@ -417,7 +416,7 @@ class Status(BaseModel, LookUp):
     __tablename__ = 'statuses'
 
 
-class User(BaseModel, HasUID):
+class User(BaseModel, HasUID, HasStatus):
     __tablename__  = 'users'
 
     username = db.Column(db.String(64))

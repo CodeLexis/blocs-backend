@@ -3,18 +3,14 @@ from application.core.models import Bloc, Job
 from application.core.models import (prep_paginate_query, get_pagination_meta)
 
 
-def create_job(bloc_uid, title, description, min_salary, max_salary,
-               salary_interval, duration, location, weblink):
-
-    bloc = Bloc.get(uid=bloc_uid)
-    if bloc is None:
-        raise errors.ResourceNotFound('Bloc not found')
+def create_job(bloc, title, description, min_salary, max_salary,
+               salary_interval, duration, location):
 
     job = Job(
         bloc_id=bloc.id, title=title, description=description,
         min_salary=min_salary, max_salary=max_salary,
         salary_interval=salary_interval, duration=duration,
-        location=location, weblink=weblink)
+        location=location)
 
     job.save()
 

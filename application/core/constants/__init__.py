@@ -9,6 +9,7 @@ PAGINATE_DEFAULT_PER_PAGE = 8
 PAYLOADABLE_HTTP_METHODS = ['put', 'delete', 'patch', 'post']
 PROGRAMMING_LANGUAGES = [
     'C++', 'C#', 'Java', 'Perl', 'Python', 'JavaScript', 'PHP', 'CSS', 'HTML']
+SALARY_INTERVALS = ['Hour', 'Day', 'Week', 'Month', 'Year']
 SCHOOL_COURSE_CATEGORIES = [
     'Web', 'Functional Programming', 'Object Oriented Programming',
     'Networking', 'Electronics']

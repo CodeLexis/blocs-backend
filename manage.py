@@ -3,12 +3,13 @@ from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager
 
 from application.core.constants import DEFAULT_BLOCS
-from application.core.models import Bloc, BlocsPlatform, Status
+from application.core.models import (
+    Bloc, BlocMembership, BlocsPlatform, Status, User)
 from app_setup import application, db
 
 
 manager = Manager(application)
-migrate = Migrate(application, db)
+migrate = Migrate(application, db, directory='remote_migrations')
 
 manager.add_command('db', MigrateCommand)
 
@@ -53,6 +54,26 @@ def pump_blocs_table():
             existing_bloc.update(is_default=True)
 
         Bloc(name='{} Bloc'.format(bloc), is_default=True).save()
+
+
+@manager.command
+def create_dummy_user():
+    user = User(
+        first_name='First',
+        last_name='Last',
+        external_app_uid='12345',
+        blocs_platform_id=1,
+    )
+
+    user.save()
+
+
+@manager.command
+def add_dummy_user_to_bloc():
+    user = User.query_for_active()[0]
+    bloc = Bloc.query_for_active()[0]
+
+    BlocMembership(user_id=user.id, bloc_id=bloc.id).save()
 
 
 @manager.command

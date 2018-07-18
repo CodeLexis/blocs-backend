@@ -1,5 +1,5 @@
-from application.core.models import Project, User
-from application.blocs import create_bloc
+from application.core.models import Bloc, Project, User
+from application.projects import create_bloc_project
 from . import render_template, request, web_blueprint
 
 
@@ -14,18 +14,22 @@ def render_project_creation_page():
             'user_id': user_id,
             'blocs': [bloc.as_json() for bloc in user.blocs]
         }
+
         return render_template('projects/create.html', **context)
 
     elif request.method == 'POST':
-        name = request.form['name']
-        is_private = bool(request.form['is_private'])
-        color = request.form['color']
+        user_id = request.form['user_id']
+        title = request.form['title']
+        description = request.form['description']
+        weblink = request.form['weblink']
+        bloc_name = request.form['bloc_name']
 
-        bloc = create_bloc(name=name, is_private=is_private, color=color)
+        bloc = Bloc.get(name=bloc_name)
 
-        context = {'scope': 'Bloc'}
-        if is_private:
-            context['subtext'] = 'Invite code: <b>{}</b>'.format(
-                bloc.invite_code)
+        create_bloc_project(
+            bloc=bloc, user_id=user_id, title=title, description=description,
+            weblink=weblink)
+
+        context = {'scope': 'Project'}
 
         return render_template('success.html', **context)

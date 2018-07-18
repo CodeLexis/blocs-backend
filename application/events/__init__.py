@@ -6,13 +6,10 @@ from application.core.models import (prep_paginate_query, get_pagination_meta)
 EVENT_CREATION_STEPS = ['title', 'description', 'time', 'venue']
 
 
-def create_event(bloc_uid, title, description, venue, datetime):
-    bloc = Bloc.get(uid=bloc_uid)
-    if bloc is None:
-        raise errors.ResourceNotFound('Bloc not found')
-
+def create_event(bloc, title, description, venue, datetime, created_by_id):
     event = Event(
-        title=title, description=description, venue=venue, datetime=datetime)
+        title=title, description=description, venue=venue, datetime=datetime,
+        created_by_id=created_by_id, bloc_id=bloc.id)
 
     event.save()
 

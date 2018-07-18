@@ -6,17 +6,9 @@ from application.core.models import prep_paginate_query, get_pagination_meta
 PROJECT_CREATION_STEPS = ['title', 'description', 'link']
 
 
-def create_bloc_project(user_uid, bloc_uid, title, description, url):
-    bloc = Bloc.get(uid=bloc_uid)
-    if bloc is None:
-        raise errors.ResourceNotFound
-
-    user = User.get(uid=user_uid)
-    if user is None:
-        raise errors.ResourceNotFound
-
-    project = Project(title=title, description=description, url=url,
-                      user_id=user.id, bloc_id=bloc.id)
+def create_bloc_project(bloc, user_id, title, description, weblink):
+    project = Project(title=title, description=description, weblink=weblink,
+        created_by_id=user_id, bloc_id=bloc.id)
 
     project.save()
 

@@ -1,6 +1,6 @@
 {% extends "layouts/forms.html" %}
 
-{% block title %}Create Bloc Project{% endblock %}
+{% block title %}Create Bloc Event{% endblock %}
 
 {% block head %}
     {{ super() }}
@@ -11,7 +11,9 @@
 
 {% block content %}
     <div class="container">
-        <form method="POST" action="/create-events">
+        <form method="POST" action="/create-event">
+            <input type="hidden" value="{{ user_id }}" name="user_id"/>
+
             <div class="row">
                 <div class="col-25">
                     <label for="title">Title</label>
@@ -45,7 +47,7 @@
                     <label for="bloc">Bloc</label>
                 </div>
                 <div class="col-75">
-                    <select id="bloc" name="bloc">
+                    <select id="bloc" name="bloc_name">
                         {% for bloc in blocs %}
                             <option value="{{ bloc.name }}">
                                 {{ bloc.name }}</option>
@@ -66,8 +68,16 @@
                             name="year"></select>
                 </div>
             </div>
-            <div class="row" id="submit_button">
-                  <!--<input type="submit" value="Submit" id="submit_button">-->
+            <div class="row">
+                <div class="col-25">
+                    <label for="time">Time</label>
+                </div>
+                <div class="col-75">
+                    <input id="time" type="time" name="time"/>
+                </div>
+            </div>
+            <div class="row">
+                  <input type="submit" value="Submit" id="submit_button">
             </div>
         </form>
     </div>

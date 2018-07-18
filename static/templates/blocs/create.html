@@ -1,10 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>New Bloc</title>
-</head>
-<body>
+{% extends "layouts/forms.html" %}
 
-</body>
-</html>
+{% block title %}Create Bloc Course{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <form method="POST" action="/create-bloc" id="form">
+        <input type="hidden" value="{{ user_id }}" name="user_id"/>
+
+        <div class="row">
+            <div class="col-25">
+                <label for="title">Title</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="title" name="title"
+                       placeholder="Title">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="description">Description</label>
+            </div>
+            <div class="col-75">
+                <textarea id="description" name="description"
+                          placeholder="What's special your project?"
+                          style="height:200px"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="weblink">Weblink</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="weblink" name="weblink"
+                       placeholder="Weblink">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="bloc">Bloc</label>
+            </div>
+            <div class="col-75">
+                <select id="bloc" name="bloc_name">
+                    {% for bloc in blocs %}
+                        <option value="{{ bloc.name }}">
+                            {{ bloc.name }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <input type="submit" value="Submit" id="submit_button">
+        </div>
+    </form>
+{% endblock %}
