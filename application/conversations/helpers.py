@@ -104,10 +104,10 @@ def handle_bloc_required_payload(payload):
 
     ### EVENTS
     elif payload == 'DISPLAY_ALL_EVENTS':
+        response.append(('text', Monologue.take_to_all_events()))
         # response.append(('quick_reply', Dialogue.get_location()))
         all_events = Collections.all_events()
         if all_events:
-            response.append(('text', Monologue.take_to_all_events()))
             response.append(('generic', all_events))
         else:
             response.append(('text', Monologue.empty_resource('event')))
@@ -120,10 +120,11 @@ def handle_bloc_required_payload(payload):
 
     ### JOBS
     elif payload == 'DISPLAY_ALL_JOBS':
+        response.append(('text', Monologue.take_to_all_jobs()))
+
         all_user_blocs_jobs = Collections.all_jobs()
 
         if all_user_blocs_jobs:
-            response.append(('text', Monologue.take_to_all_jobs()))
             response.append(('generic', all_user_blocs_jobs))
         else:
             response.append(('text', Monologue.empty_resource('job')))
@@ -139,9 +140,10 @@ def handle_bloc_required_payload(payload):
 
     ### PROJECTS
     elif payload == 'DISPLAY_ALL_PROJECTS':
+        response.append(('text', Monologue.take_to_all_projects()))
         all_user_blocs_projects = Collections.all_projects()
+
         if all_user_blocs_projects:
-            response.append(('text', Monologue.take_to_all_projects()))
             response.append(('generic', all_user_blocs_projects))
         else:
             response.append(('text', Monologue.empty_resource('project')))
