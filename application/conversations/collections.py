@@ -62,12 +62,12 @@ class Collections(object):
             image_url = url_for(
                 'web_blueprint.render_default_avatar', _external=True)
 
-            buttons = [
-                Dialogue.button(
-                    type='web_url', title='READ',
-                    url=bloc['url']
-                )
-            ]
+            # buttons = [
+            #     Dialogue.button(
+            #         type='web_url', title='READ',
+            #         url=bloc['url']
+            #     )
+            # ]
 
             section_data = Dialogue.generic(
                 title=title, subtitle=None, image_url=None,

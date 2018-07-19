@@ -199,8 +199,8 @@ def handle_payload(sender_id, payload, platform='Facebook Bot'):
 
         welcome = Monologue.welcome()
         response.append(('text', welcome[0]))
-
-        response.append(('generic', Collections.))
+        response.append(('generic', Collections.key_onboarding_features()))
+        response.append(('text', welcome[1]))
         # for statement in welcome:
         #     response.append(('text', statement))
 
