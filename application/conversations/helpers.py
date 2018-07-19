@@ -65,7 +65,7 @@ def blocs_required(f):
             response = list()
 
             response.append(('text', Monologue.ask_to_join_bloc()))
-            response.append(('text', Collections.all_default_blocs()))
+            response.append(('generic', Collections.all_default_blocs()))
 
             return response
 
@@ -198,8 +198,11 @@ def handle_payload(sender_id, payload, platform='Facebook Bot'):
         )
 
         welcome = Monologue.welcome()
-        for statement in welcome:
-            response.append(('text', statement))
+        response.append(('text', welcome[0]))
+
+        response.append(('generic', Collections.))
+        # for statement in welcome:
+        #     response.append(('text', statement))
 
         get_location = Dialogue.quick_reply(
             title=Monologue.request_location('Blocs'),

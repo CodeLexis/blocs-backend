@@ -44,6 +44,42 @@ class Collections(object):
         return all_bloc_elements
 
     @classmethod
+    def key_onboarding_features(cls):
+        all_feature_elements = []
+
+        features = [
+            ("Courses", "Letting us take classes on Facebook/Instagram "
+                        "Live"),
+            ("Projects", "Interacting, teaming-up, pair-coding with the "
+             "awesome developers on Facebook"),
+            ("Jobs", "Getting to find and hire the right people. Or even find "
+                     "the best jobs, so effortlessly"),
+            ("Events", "Always getting notifications about the close meetups "
+                       "and events.")
+        ]
+
+        for title, subtitle in features:
+            image_url = url_for(
+                'web_blueprint.render_default_avatar', _external=True)
+
+            buttons = [
+                Dialogue.button(
+                    type='web_url', title='READ',
+                    url=bloc['url']
+                )
+            ]
+
+            section_data = Dialogue.generic(
+                title=title, subtitle=None, image_url=None,
+                buttons=[]
+                # buttons=buttons
+            )
+
+            all_feature_elements.append(section_data)
+
+        return all_feature_elements
+
+    @classmethod
     def all_default_blocs(cls, _location_id=None):
         blocs = Bloc.query.filter_by(
             is_default=True
