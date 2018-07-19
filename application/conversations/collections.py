@@ -550,7 +550,7 @@ class Collections(object):
             buttons = [
                 Dialogue.button(
                     type='postback', title='VIEW',
-                    payload='DISPLAY_ALL_%s'.format(title)
+                    payload='DISPLAY_ALL_{}'.format(title)
                 )
             ]
 
