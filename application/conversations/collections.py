@@ -71,7 +71,7 @@ class Collections(object):
 
             section_data = Dialogue.generic(
                 title=title, subtitle=None, image_url=None,
-                buttons=[]
+                buttons=None
                 # buttons=buttons
             )
 
