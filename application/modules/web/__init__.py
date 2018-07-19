@@ -36,7 +36,7 @@ def render_default_avatar(color):
 
 @web_blueprint.route('/avatars/default/random')
 def render_random_default_avatar():
-    color = random.choice(APP_COLORS.values())
+    color = random.choice(list(APP_COLORS.values()))
 
     default_avatar = open(
         'static/assets/default_avatars/{}.png'.format(color), 'rb').read()
@@ -46,7 +46,7 @@ def render_random_default_avatar():
 
 @web_blueprint.route('/walkthrough-thumbnails/<title>')
 def render_walkthrough_thumbnail(title):
-    color = random.choice(APP_COLORS.values())
+    color = random.choice(list(APP_COLORS.values()))
 
     default_avatar = open(
         'static/assets/default_avatars/{}.png'.format(color), 'rb').read()
