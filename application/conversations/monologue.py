@@ -288,7 +288,13 @@ class Monologue(object):
 
     @classmethod
     def ask_to_join_bloc(cls):
-        return "You have to join a Bloc first, %s!" % g.user.first_name[0]
+        return random.choice([
+            "You have to join a Bloc first, %s!" % g.user.first_name[0],
+            "Come on, %s. You haven't even joined a Bloc yet!" % (
+                g.user.first_name),
+            "%s, you have to pick a Bloc to join before you can view "
+            "those..." % (g.user.first_name),
+        ])
 
 
 # if __name__ == '__main__':

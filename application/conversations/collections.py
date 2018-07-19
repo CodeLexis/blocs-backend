@@ -549,9 +549,8 @@ class Collections(object):
 
             buttons = [
                 Dialogue.button(
-                    type='web_url', title='YES',
-                    url=url_for('web_blueprint.render_event_creation_page',
-                                user_id=g.user.id, _external=True)
+                    type='postback', title='VIEW',
+                    payload='DISPLAY_ALL_%s'.format(title)
                 )
             ]
 
