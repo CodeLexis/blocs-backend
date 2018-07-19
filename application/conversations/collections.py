@@ -59,8 +59,8 @@ class Collections(object):
         ]
 
         for title, subtitle in features:
-            image_url = url_for(
-                'web_blueprint.render_default_avatar', _external=True)
+            # image_url = url_for(
+            #     'web_blueprint.render_default_avatar', _external=True)
 
             # buttons = [
             #     Dialogue.button(
