@@ -543,7 +543,7 @@ class Collections(object):
     def menu(cls):
         menu = []
 
-        for name, description in MENU_ITEMS.iteritems():
+        for name, description in MENU_ITEMS.items():
             title = name.upper()
             subtitle = description
 
