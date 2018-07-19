@@ -7,9 +7,12 @@ class Monologue(object):
     @classmethod
     def welcome(cls):
         welcome_statements = [
-            "There's a lot Facebook's Developer Circles hasn't clearly "
-            "tackled? I mean...",
-            "Welcome to Blocs, %s! B)" % g.user.first_name[0]
+            "There's a lot that Facebook's Developer Circles hasn't clearly "
+            "tackled! I mean...",
+
+            "Welcome to Blocs, %s! B)" % g.user.first_name[0],
+            "Those features will be added to your Facebook page, at no extra "
+            "install or signup. But first off..."
         ]
 
         return welcome_statements
@@ -110,10 +113,14 @@ class Monologue(object):
         return random.choice(random_statements)
 
     @classmethod
+    def request_location_for_bloc(cls):
+        return "Join the Bloc closest to you"
+
+    @classmethod
     def request_location(cls, scope=None):
         responses_with_scope = [
             "Would you like to see {} around you?",
-            "Finding the {} around you would be better",
+            "Find the {} around you would be better",
             "Several {} could be around you"
         ]
 
@@ -139,7 +146,7 @@ class Monologue(object):
 
     @classmethod
     def take_to_all_blocs(cls):
-        return "Now %s, dive-in and join other developers :+1:" % \
+        return "Now %s, dive-in and join other developers (Y)" % \
                g.user.first_name
 
     @classmethod

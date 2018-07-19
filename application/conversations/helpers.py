@@ -200,12 +200,12 @@ def handle_payload(sender_id, payload, platform='Facebook Bot'):
         welcome = Monologue.welcome()
         response.append(('text', welcome[0]))
         response.append(('generic', Collections.key_onboarding_features()))
-        response.append(('text', welcome[1]))
-        # for statement in welcome:
-        #     response.append(('text', statement))
+
+        for statement in welcome[1:]:
+            response.append(('text', statement))
 
         get_location = Dialogue.quick_reply(
-            title=Monologue.request_location('Blocs'),
+            title=Monologue.request_location_for_bloc(),
             texts_and_payloads=[
                 Dialogue.location_tuple()
             ]
