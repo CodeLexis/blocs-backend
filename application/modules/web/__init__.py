@@ -42,3 +42,13 @@ def render_random_default_avatar():
         'static/assets/default_avatars/{}.png'.format(color), 'rb').read()
 
     return Response(default_avatar, mimetype='image')
+
+
+@web_blueprint.route('/walkthrough-thumbnails')
+def render_walkthrough_thumbnail(title):
+    color = random.choice(APP_COLORS.values())
+
+    default_avatar = open(
+        'static/assets/default_avatars/{}.png'.format(color), 'rb').read()
+
+    return Response(default_avatar, mimetype='image')

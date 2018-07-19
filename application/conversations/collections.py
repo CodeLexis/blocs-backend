@@ -59,8 +59,10 @@ class Collections(object):
         ]
 
         for title, subtitle in features:
-            # image_url = url_for(
-            #     'web_blueprint.render_default_avatar', _external=True)
+            image_url = url_for(
+                'web_blueprint.render_walkthrough_thumbnail',
+                title=title,
+                _external=True)
 
             # buttons = [
             #     Dialogue.button(
@@ -70,7 +72,7 @@ class Collections(object):
             # ]
 
             section_data = Dialogue.generic(
-                title=title, subtitle=subtitle, image_url=None,
+                title=title.upper(), subtitle=subtitle, image_url=image_url,
                 buttons=None
                 # buttons=buttons
             )
