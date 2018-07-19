@@ -415,7 +415,7 @@ class Collections(object):
         section_data = Dialogue.generic(
             title=title, subtitle=subtitle,
             image_url=url_for(
-                'web_blueprint.render_default_avatar', color='e4c847', _external=True),
+                'web_blueprint.render_random_default_avatar', _external=True),
             buttons=buttons
         )
 
@@ -440,8 +440,8 @@ class Collections(object):
         section_data = Dialogue.generic(
             title=title, subtitle=subtitle,
             image_url=url_for(
-                'web_blueprint.render_default_avatar',
-                color='e4c847', user_id=g.user.id, _external=True),
+                'web_blueprint.render_random_default_avatar', user_id=g.user.id,
+                _external=True),
             buttons=buttons
         )
 
@@ -466,8 +466,8 @@ class Collections(object):
         section_data = Dialogue.generic(
             title=title, subtitle=subtitle,
             image_url=url_for(
-                'web_blueprint.render_default_avatar',
-                color='e4c847', user_id=g.user.id, _external=True),
+                'web_blueprint.render_random_default_avatar',
+                user_id=g.user.id, _external=True),
             buttons=buttons
         )
 
@@ -494,8 +494,8 @@ class Collections(object):
         section_data = Dialogue.generic(
             title=title, subtitle=subtitle,
             image_url=url_for(
-                'web_blueprint.render_default_avatar',
-                color='e4c847', user_id=g.user.id, _external=True),
+                'web_blueprint.render_random_default_avatar',
+                user_id=g.user.id, _external=True),
             buttons=buttons
         )
 
@@ -521,7 +521,7 @@ class Collections(object):
                 title=title, subtitle=subtitle,
                 image_url=url_for(
                     'web_blueprint.render_random_default_avatar',
-                    user_id=g.user.id, _external=True),
+                    _external=True),
                 buttons=buttons
             )
 
