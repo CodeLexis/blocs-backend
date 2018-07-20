@@ -316,7 +316,7 @@ class Collections(object):
                         type='web_url', title='VIEW',
                         payload=url_for(
                             'web_blueprint.render_job_details_page',
-                            id=job.id, _external=True)
+                            id=job.id, user_id=g.user.id, _external=True)
                     )
                 ]
 
@@ -496,6 +496,7 @@ class Collections(object):
             Dialogue.button(
                 type='web_url', title='YES',
                 url=url_for('web_blueprint.render_job_creation_page',
+                            user_id=g.user.id,
                             _external=True)
             )
         ]
