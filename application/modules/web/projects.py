@@ -1,6 +1,6 @@
-from application.core.models import Bloc, Project, User
+from application.core.models import Bloc, Project, ProjectView, User
 from application.projects import create_bloc_project
-from . import render_template, request, web_blueprint
+from . import redirect, render_template, request, web_blueprint
 
 
 @web_blueprint.route('/create-project', methods=['GET', 'POST'])
@@ -37,4 +37,11 @@ def render_project_creation_page():
 
 @web_blueprint.route('/projects/<project_id>', methods=['GET'])
 def render_project_details_page(project_id):
-    return
+    user_id = request.args.get('user_id')
+
+    project = Project.get(id=project_id)
+
+    project_view = ProjectView(project_id=project_id, user_id=user_id)
+    project_view.save()
+
+    return redirect(project.weblink)

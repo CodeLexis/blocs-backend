@@ -384,7 +384,7 @@ class Collections(object):
                         type='web_url', title='VIEW',
                         payload=url_for(
                             'web_blueprint.render_project_details_page',
-                            id=project.id, _external=True)
+                            id=project.id, user_id=g.user.id, _external=True)
                     )
                 ]
 
@@ -438,7 +438,7 @@ class Collections(object):
 
     @classmethod
     def create_event(cls):
-        title = 'CREATE EVENT'
+        title = 'CREATE AN EVENT'
         subtitle = "Bring all the developers around your Blocs, under one roof"
 
         buttons = [
@@ -460,7 +460,7 @@ class Collections(object):
 
     @classmethod
     def create_project(cls):
-        title = 'CREATE PROJECT'
+        title = 'CREATE A PROJECT'
         subtitle = (
             "Take-on big projects with developers all over the world!\nYour "
             "project will be shared on your Blocs, as well as your "
@@ -486,7 +486,7 @@ class Collections(object):
 
     @classmethod
     def create_job(cls):
-        title = 'CREATE JOB'
+        title = 'CREATE A JOB'
         subtitle = (
             "Looking to hire someone?\nYour job offer will be shared on your "
             "Blocs, as well as your Facebook & Instagram pages, to help find "
@@ -513,7 +513,7 @@ class Collections(object):
     @classmethod
     def create_course(cls):
 
-        title = 'CREATE COURSE'
+        title = 'CREATE A COURSE'
         subtitle = (
             "Gain respect & influence by passing on your awesome skills on "
             "Facebook!\nYour course will be shared on your Blocs, as well as "

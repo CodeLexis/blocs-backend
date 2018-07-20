@@ -307,8 +307,15 @@ class Job(BaseModel, HasUID, HasCreator, HasBloc):
     duration = db.Column(
         db.Enum('SHORT TERM', 'FULL-TIME', 'PART-TIME', name='job_durations'))
 
-    bloc = db.relationship(
-        'Bloc', backref=db.backref('jobs', uselist=True), uselist=False)
+
+class JobApplication(BaseModel, HasUID, HasCreator, HasBloc):
+    __tablename__ = 'job_applications'
+
+    job_id = db.Column(db.Integer, db.ForeignKey('jobs.id'))
+
+    job = db.relationship(
+        'User', backref=db.backref('locations', uselist=True),
+        uselist=False)
 
 
 class Location(BaseModel):
@@ -379,6 +386,17 @@ class ProjectAuthor(BaseModel, HasUID):
     user = db.relationship(
         'User', backref=db.backref('project_authors', uselist=True),
         uselist=False)
+
+
+class ProjectView(BaseModel, HasCreator):
+    __tablename__ = 'project_views'
+
+    project_id = db.Column(db.Integer, db.ForeignKey('projects.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+
+    project = db.relationship(
+        'Project', backref=db.backref('project_views'))
+    user = db.relationship('User', backref=db.backref('project_views'))
 
 
 class School(BaseModel, HasUID):
