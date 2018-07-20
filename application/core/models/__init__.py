@@ -382,7 +382,7 @@ class ProjectLike(BaseModel, HasCreator):
     project_id = db.Column(db.Integer, db.ForeignKey('projects.id'))
 
     project = db.relationship(
-        'Project', backref=db.backref('project_views'))
+        'Project', backref=db.backref('project_likes'))
 
 
 class ProjectAuthor(BaseModel, HasUID):
