@@ -314,7 +314,7 @@ class JobApplication(BaseModel, HasUID, HasCreator, HasBloc):
     job_id = db.Column(db.Integer, db.ForeignKey('jobs.id'))
 
     job = db.relationship(
-        'User', backref=db.backref('locations', uselist=True),
+        'Job', backref=db.backref('job_applications', uselist=True),
         uselist=False)
 
 
@@ -392,11 +392,9 @@ class ProjectView(BaseModel, HasCreator):
     __tablename__ = 'project_views'
 
     project_id = db.Column(db.Integer, db.ForeignKey('projects.id'))
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
     project = db.relationship(
         'Project', backref=db.backref('project_views'))
-    user = db.relationship('User', backref=db.backref('project_views'))
 
 
 class School(BaseModel, HasUID):
