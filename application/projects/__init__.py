@@ -31,4 +31,4 @@ def get_bloc_projects(bloc_uid, page, per_page):
 
 
 def like_bloc_project(project_id):
-    ProjectLike(project_id=project_id, user_id=g.user.id).save()
+    ProjectLike(project_id=project_id, created_by_id=g.user.id).save()
