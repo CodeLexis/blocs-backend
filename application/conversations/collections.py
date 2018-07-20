@@ -220,7 +220,7 @@ class Collections(object):
                 ]
 
                 event_data = Dialogue.generic(
-                    title=title.upper(), subtitle=subtitle,
+                    title=title, subtitle=subtitle,
                     image_url=url_for(
                         'web_blueprint.render_event_thumbnail',
                         id=event.id, _external=True),
@@ -286,7 +286,7 @@ class Collections(object):
                     Dialogue.button(
                         type='postback', title='REPLY',
                         payload='REPLY_FEED__%s' % feed.id
-                    ),
+                    )
                 ]
 
                 section_data = Dialogue.generic(

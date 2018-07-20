@@ -276,6 +276,7 @@ class Event(BaseModel, HasUID, HasBloc, HasCreator):
     bloc_id = db.Column(db.Integer, db.ForeignKey('blocs.id'))
     title = db.Column(db.String(128))
     description = db.Column(db.TEXT)
+    thumbnail = db.Column(db.TEXT)
     venue = db.Column(db.String(64))
     datetime = db.Column(db.DateTime)
 

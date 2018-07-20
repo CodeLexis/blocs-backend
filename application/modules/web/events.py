@@ -1,6 +1,7 @@
 from dateutil import parser as date_parser
 
 from flask import g, redirect, url_for
+from flask import Response
 
 from application.core.models import Bloc, Event, User
 from application.events import create_event
@@ -61,4 +62,6 @@ def render_event_thumbnail(id):
     # TODO implement event thumbnail get
     event = Event.get(id=id)
 
-    return
+    response = Response(event.thumbnail, mimetype='image')
+
+    return response
