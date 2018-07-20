@@ -8,7 +8,7 @@ from .collections import Collections
 from application.core import db
 from application.core.constants import SOFTWARE_BRANCHES
 from application.core.models import (BlocsPlatform, Conversation, Course,
-    Message, SoftwareBranch, User)
+    Message, Project, SoftwareBranch, User)
 from application import blocs, courses, events, location, projects
 from application.users.helpers import (add_course_to_offered,
     add_user_software_branch, create_new_user)
@@ -157,9 +157,14 @@ def handle_bloc_required_payload(payload):
     elif payload.startswith('LIKE_PROJECT'):
         project_id = int(payload.split('__')[1])
 
-        # response.append(('text', Monologue.take_to_project()))
         projects.like_bloc_project(project_id)
+
+        project = Project.get(id=project_id)
+
         response.append(('generic', Monologue.support_decision()))
+        response.append(
+            ('button', Collections.ask_to_view_project_likes(project))
+        )
 
     ### FEEDS
     elif payload == 'DISPLAY_ALL_FEEDS':

@@ -1,5 +1,7 @@
+from flask import g
+
 from application.core import errors
-from application.core.models import Bloc, Project, User
+from application.core.models import Bloc, Project, ProjectLike, User
 from application.core.models import prep_paginate_query, get_pagination_meta
 
 
@@ -29,4 +31,4 @@ def get_bloc_projects(bloc_uid, page, per_page):
 
 
 def like_bloc_project(project_id):
-    return
+    ProjectLike(project_id=project_id, user_id=g.user.id).save()

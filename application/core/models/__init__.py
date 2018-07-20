@@ -371,6 +371,19 @@ class Project(BaseModel, HasUID, HasBloc, HasCreator):
     description = db.Column(db.TEXT)
     weblink = db.Column(db.String(256))
 
+    @property
+    def likes_count(self):
+        return ProjectLike.query.filter(project_id=self.id).count()
+
+
+class ProjectLike(BaseModel, HasCreator):
+    __tablename__  = 'project_likes'
+
+    project_id = db.Column(db.Integer, db.ForeignKey('projects.id'))
+
+    project = db.relationship(
+        'Project', backref=db.backref('project_views'))
+
 
 class ProjectAuthor(BaseModel, HasUID):
     __tablename__  = 'project_authors'

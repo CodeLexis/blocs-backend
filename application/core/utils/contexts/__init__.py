@@ -105,6 +105,13 @@ def current_request_headers():
         g.request_headers = dict(request.headers)
         return g.request_headers
 
+
+def get_request_pagination_params():
+    return {
+        'per_page': request.args.get('per_page'),
+        'page': request.args.get('page')
+    }
+
 # def current_request_imei():
 #     # return request.headers.get('Imei') or ''
 #     return request.headers.get('Imei')

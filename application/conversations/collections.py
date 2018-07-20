@@ -381,6 +381,10 @@ class Collections(object):
 
                 buttons = [
                     Dialogue.button(
+                        type='postback', title='LIKE',
+                        payload='LIKE_PROJECT__%s' % project.id
+                    ),
+                    Dialogue.button(
                         type='web_url', title='VIEW',
                         url=url_for(
                             'web_blueprint.render_project_details_page',
@@ -390,7 +394,7 @@ class Collections(object):
                 ]
 
                 project_element = Dialogue.generic(
-                    title=title.upper(), subtitle=subtitle,
+                    title=title, subtitle=subtitle,
                     image_url=url_for(
                         'web_blueprint.render_job_thumbnail', id=project.id,
                         _external=True
@@ -566,3 +570,15 @@ class Collections(object):
             menu.append(section_data)
 
         return menu
+
+    @classmethod
+    def ask_to_view_project_likes(cls, project):
+        text = 'See %s others that also like this' % project.likes_count
+        all_view_project_options = [
+            Dialogue.button(type='web_url', title='YES', url=url_for(
+                'web_blueprint.render_all_project_likes', project_id=project.id))
+        ]
+
+        # return dict that will be splatted because of double params
+        # requirement for `buttons` message
+        return {'text': text, 'buttons': all_view_project_options}

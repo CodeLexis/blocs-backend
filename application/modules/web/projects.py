@@ -1,4 +1,7 @@
-from application.core.models import Bloc, Project, ProjectView, User
+from application.core.models import (
+    Bloc, Project, ProjectLike, ProjectView, User)
+from application.core.utils.contexts import get_request_pagination_params
+from application.core.models import prep_paginate_query
 from application.projects import create_bloc_project
 from . import redirect, render_template, request, web_blueprint
 
@@ -45,3 +48,17 @@ def render_project_details_page(project_id):
     project_view.save()
 
     return redirect(project.weblink)
+
+
+@web_blueprint.route('/projects/<project_id>/likes', methods=['GET'])
+def render_all_project_likes(project_id):
+
+    project_likes = ProjectLike.query.filter_by(project_id=project_id)
+
+    project_likes = prep_paginate_query(
+        project_likes, **get_request_pagination_params())
+
+    return render_template(
+        'projects/likes.html',
+        project_likes=[like.as_json() for like in project_likes]
+    )

@@ -35,7 +35,10 @@ def send_message(recipient_id, response):
 
     print("FUNC: %s" % func)
 
-    print(func(recipient_id, response_content))
+    if response_type == 'button':
+        print(func(recipient_id, **response_content))
+    else:
+        print(func(recipient_id, response_content))
 
     print("DONE: %s" % func)
 
