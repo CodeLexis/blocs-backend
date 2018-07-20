@@ -163,7 +163,7 @@ def handle_bloc_required_payload(payload):
 
         response.append(('generic', Monologue.support_decision()))
         response.append(
-            ('button', Collections.ask_to_view_project_likes(project))
+            ('buttons', Collections.ask_to_view_project_likes(project))
         )
 
     ### FEEDS
