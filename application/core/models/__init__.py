@@ -373,7 +373,11 @@ class Project(BaseModel, HasUID, HasBloc, HasCreator):
 
     @property
     def likes_count(self):
-        return ProjectLike.query.filter(project_id=self.id).count()
+        return ProjectLike.query.filter_by(project_id=self.id).count()
+
+    @property
+    def views_count(self):
+        return ProjectView.query.filter_by(project_id=self.id).count()
 
 
 class ProjectLike(BaseModel, HasCreator):
