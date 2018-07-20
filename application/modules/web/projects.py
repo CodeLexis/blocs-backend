@@ -33,3 +33,8 @@ def render_project_creation_page():
         context = {'scope': 'Project'}
 
         return render_template('success.html', **context)
+
+
+@web_blueprint.route('/projects/<project_id>', methods=['GET'])
+def render_project_details_page(project_id):
+    return

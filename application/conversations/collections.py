@@ -371,36 +371,35 @@ class Collections(object):
 
     @classmethod
     def all_projects(cls, page=1, _tailored=False):
-        briefs = get_reader_brief_sources()
+        all_project_elements = []
 
-        all_briefs_sources_elements = []
+        for bloc in g.user.blocs:
+            for project in bloc.projects:
 
-        for brief in briefs:
-            if brief.brief_source_category == 'SECTION':
-                title = brief.section.name
-                image_url = get_section_thumbnail(title.lower())
-            else:
-                title = brief.news_source.title
-                image_url = get_section_thumbnail(title.lower())
+                title = project.title
+                subtitle = project.description
 
-            description = None
+                buttons = [
+                    Dialogue.button(
+                        type='web_url', title='VIEW',
+                        payload=url_for(
+                            'web_blueprint.render_project_details_page',
+                            id=project.id, _external=True)
+                    )
+                ]
 
-            buttons = [
-                Dialogue.button(
-                    type='postback', title='DROP',
-                    payload='DROP_BRIEF_SOURCE__%s' % brief.id
+                project_element = Dialogue.generic(
+                    title=title.upper(), subtitle=subtitle,
+                    image_url=url_for(
+                        'web_blueprint.render_job_thumbnail', id=project.id,
+                        _external=True
+                    ),
+                    buttons=buttons
                 )
-            ]
 
-            brief_source_data = Dialogue.generic(
-                title=title.upper(), subtitle=description,
-                image_url=image_url,
-                buttons=buttons
-            )
+                all_project_elements.append(project_element)
 
-            all_briefs_sources_elements.append(brief_source_data)
-
-        return all_briefs_sources_elements[:9]
+        return all_project_elements
 
     @classmethod
     def project(cls, news_source):

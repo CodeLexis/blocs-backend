@@ -26,7 +26,7 @@ MENU_ITEMS = {
     'Courses': 'Courses',
     'Projects': 'Projects',
     'Events': 'Events',
-    'Jobs': 'Job offers, from people within your bloc',
-    'Feeds': "Any Facebook Status with the hash-tag #Blocs in it",
+    'Jobs': 'Job offers from people within your bloc',
+    'Feeds': "Fun stuff",
     'News': 'News'
 }

@@ -88,7 +88,7 @@ def handle_bloc_required_payload(payload):
                 ('text', Monologue.empty_resource(scope='course'))
             )
             response.append(
-                ('text', Collections.create_course())
+                ('generic', Collections.create_course())
             )
 
     elif payload == 'DISPLAY_ALL_COURSES_OFFERED':
