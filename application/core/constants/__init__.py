@@ -21,12 +21,15 @@ SUPPORTED_HTTP_METHODS = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']
 TIMEZONES = ['GMT', 'PST', 'CAT']
 LANDING_MESSAGE = (
     'Facebook, tailored to suit the Developer.')
-LANDING_MESSAGE = ('Alternate version of Facebook, for the Developer.')
+LANDING_MESSAGE = ('Alternate version of Facebook, for the devs.')
 MENU_ITEMS = {
-    'Courses': 'Courses',
-    'Projects': 'Projects',
-    'Events': 'Events',
-    'Jobs': 'Job offers from people within your bloc',
-    'Feeds': "Fun stuff",
-    'News': 'News'
+    'Courses': (
+        'Widen your tech-stack by taking courses taken by developers on '
+        'Facebook.'),
+    'Projects': (
+        'Team-up and build projects with the best developers on Facebook.'),
+    'Events': 'Find upcoming events within your Blocs',
+    'Jobs': 'Job offers from people within your Blocs',
+    'Feeds': "Fun stuff shared by other developers.",
+    'News': 'Just news on technology pulled from the internet.'
 }

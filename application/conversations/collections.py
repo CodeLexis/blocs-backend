@@ -384,7 +384,8 @@ class Collections(object):
                         type='web_url', title='VIEW',
                         payload=url_for(
                             'web_blueprint.render_project_details_page',
-                            id=project.id, user_id=g.user.id, _external=True)
+                            id=project.id, user_id=g.user.id,
+                            project_id=project.id, _external=True)
                     )
                 ]
 
@@ -443,7 +444,7 @@ class Collections(object):
 
         buttons = [
             Dialogue.button(
-                type='web_url', title='YES',
+                type='web_url', title='PROJECT',
                 url=url_for('web_blueprint.render_event_creation_page',
                             user_id=g.user.id, _external=True)
             )
@@ -468,7 +469,7 @@ class Collections(object):
 
         buttons = [
             Dialogue.button(
-                type='web_url', title='YES',
+                type='web_url', title='PROCEED',
                 url=url_for('web_blueprint.render_project_creation_page',
                             user_id=g.user.id, _external=True)
             )
@@ -494,7 +495,7 @@ class Collections(object):
 
         buttons = [
             Dialogue.button(
-                type='web_url', title='YES',
+                type='web_url', title='PROCEED',
                 url=url_for('web_blueprint.render_job_creation_page',
                             user_id=g.user.id,
                             _external=True)
@@ -523,7 +524,7 @@ class Collections(object):
 
         buttons = [
             Dialogue.button(
-                type='web_url', title='YES',
+                type='web_url', title='PROCEED',
                 url=url_for('web_blueprint.render_course_creation_page',
                             user_id=g.user.id, _external=True)
             )
