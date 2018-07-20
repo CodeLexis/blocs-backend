@@ -161,7 +161,7 @@ def handle_bloc_required_payload(payload):
 
         project = Project.get(id=project_id)
 
-        response.append(('generic', Monologue.support_decision()))
+        response.append(('text', Monologue.support_decision()))
         response.append(
             ('buttons', Collections.ask_to_view_project_likes(project))
         )

@@ -575,8 +575,10 @@ class Collections(object):
     def ask_to_view_project_likes(cls, project):
         text = 'See %s others that also like this' % project.likes_count
         all_view_project_options = [
-            Dialogue.button(type='web_url', title='YES', url=url_for(
-                'web_blueprint.render_all_project_likes', project_id=project.id))
+            Dialogue.button(
+                type='web_url', title='YES', url=url_for(
+                'web_blueprint.render_all_project_likes',
+                project_id=project.id, _external=True))
         ]
 
         # return dict that will be splatted because of double params
