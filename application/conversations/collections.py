@@ -146,7 +146,7 @@ class Collections(object):
                         payload='ADD_COURSE_TO_OFFERED__%s' % course.id
                     ),
                     Dialogue.button(
-                        type='url', title='DETAILS',
+                        type='web_url', title='DETAILS',
                         url=url_for('web_blueprint.render_course_details',
                                     id=course.id, _external=True)
                     ),
