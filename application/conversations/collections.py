@@ -284,7 +284,7 @@ class Collections(object):
                         payload='LIKE_FEED__%s' % feed.id
                     ),
                     Dialogue.button(
-                        type='postback', title='REPLIES (4)',
+                        type='postback', title='REPLY',
                         payload='REPLY_FEED__%s' % feed.id
                     ),
                 ]
@@ -314,7 +314,7 @@ class Collections(object):
                 buttons = [
                     Dialogue.button(
                         type='web_url', title='VIEW',
-                        payload=url_for(
+                        url=url_for(
                             'web_blueprint.render_job_details_page',
                             id=job.id, user_id=g.user.id, _external=True)
                     )
@@ -448,7 +448,7 @@ class Collections(object):
 
         buttons = [
             Dialogue.button(
-                type='web_url', title='PROJECT',
+                type='web_url', title='PROCEED',
                 url=url_for('web_blueprint.render_event_creation_page',
                             user_id=g.user.id, _external=True)
             )
@@ -573,10 +573,10 @@ class Collections(object):
 
     @classmethod
     def ask_to_view_project_likes(cls, project):
-        text = 'See %s others that also like this' % project.likes_count
+        text = '%s others also like %s' % (project.likes_count, project.title)
         all_view_project_options = [
             Dialogue.button(
-                type='web_url', title='YES', url=url_for(
+                type='web_url', title='VIEW', url=url_for(
                 'web_blueprint.render_all_project_likes',
                 project_id=project.id, _external=True))
         ]
