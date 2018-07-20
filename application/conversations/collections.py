@@ -382,7 +382,7 @@ class Collections(object):
                 buttons = [
                     Dialogue.button(
                         type='web_url', title='VIEW',
-                        payload=url_for(
+                        url=url_for(
                             'web_blueprint.render_project_details_page',
                             id=project.id, user_id=g.user.id,
                             project_id=project.id, _external=True)
