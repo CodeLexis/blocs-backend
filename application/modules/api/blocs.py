@@ -107,6 +107,7 @@ class BlocJobs(MethodView):
         data = current_request_data()
 
         title = data['title']
+        user_id = data['user_id']
         description = data['description']
         salary_amount = data['salary_amount']
         salary_interval = data['salary_interval']
@@ -115,8 +116,8 @@ class BlocJobs(MethodView):
         weblink = data['weblink']
 
         create_job(
-            bloc_uid, title, description, salary_amount, salary_interval,
-            duration, location, weblink)
+            bloc_uid, user_id, title, description, salary_amount,
+            salary_interval, duration, location, weblink)
 
         return api_success_response(response_data=None, code=201)
 

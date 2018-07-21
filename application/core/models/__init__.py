@@ -466,7 +466,7 @@ class User(BaseModel, HasUID, HasStatus):
 
     @property
     def clean_avatar_url(self):
-        return self.avatar_url.replace('/', '')
+        return self.avatar_url.replace('\\', '')
 
     @property
     def location(self):
