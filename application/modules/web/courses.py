@@ -1,4 +1,5 @@
 from dateutil import parser as date_parser
+import requests
 
 from application.core.utils.contexts import current_request_data
 from application.core.models import Bloc, Course, User
@@ -62,11 +63,15 @@ def render_course_creation_page():
         return render_template('success.html', **context)
 
 
-@web_blueprint.route('/courses/<int:id>/thumbnail')
-def render_course_thumbnail(id):
-    course = Course.get(id=id)
+@web_blueprint.route('/courses/<int:course_id>/thubmnail')
+def render_course_thumbnail(course_id):
+    course = Course.get(id=course_id)
 
-    response = Response(course.thumbnail)
+    user_avatar = requests.get(course.created_by.avatar_url).content
+
+    thumbnail_bytes = getattr(course, 'thumbnail', None)
+
+    response = Response(thumbnail_bytes or user_avatar)
     response.mimetype = 'image'
 
     return response

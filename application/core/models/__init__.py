@@ -302,6 +302,7 @@ class Job(BaseModel, HasUID, HasCreator, HasBloc):
     title = db.Column(db.String(128))
     location = db.Column(db.String(128))
     description = db.Column(db.TEXT)
+    thumbnail = db.Column(db.TEXT)
     min_salary = db.Column(AMOUNT_FIELD)
     max_salary = db.Column(AMOUNT_FIELD)
     salary_interval = db.Column(db.String(128))
@@ -370,6 +371,7 @@ class Project(BaseModel, HasUID, HasBloc, HasCreator):
 
     title = db.Column(db.String(64))
     description = db.Column(db.TEXT)
+    thumbnail = db.Column(db.TEXT)
     weblink = db.Column(db.String(256))
 
     @property

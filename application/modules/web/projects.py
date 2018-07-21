@@ -1,3 +1,6 @@
+from flask import Response
+import requests
+
 from application.core.models import (
     Bloc, Project, ProjectLike, ProjectView, User)
 from application.core.utils.contexts import get_request_pagination_params
@@ -62,3 +65,17 @@ def render_all_project_likes(project_id):
         'projects/likes.html',
         project_likes=[like.as_json() for like in project_likes]
     )
+
+
+@web_blueprint.route('/projects/<int:project_id>/thubmnail')
+def render_project_thumbnail(project_id):
+    project = Project.get(id=project_id)
+
+    user_avatar = requests.get(project.created_by.avatar_url).content
+
+    thumbnail_bytes = getattr(project, 'thumbnail', None)
+
+    response = Response(thumbnail_bytes or user_avatar)
+    response.mimetype = 'image'
+
+    return response

@@ -165,42 +165,6 @@ class Collections(object):
         return courses[:10]
 
     @classmethod
-    def course(cls, course_id):
-        section_orm = Section.get(id=section_id)
-
-        articles = get_existing_section_headlines(section_orm)[:70]
-        # articles.reverse()
-
-        random.shuffle(articles)
-
-        all_headline_elements = []
-
-        for article in articles:
-            if len(all_headline_elements) == 10:
-                break
-
-            title = article['title']
-            subtitle = article['body']
-            image_url = article.get('image_url')
-
-            buttons = [
-                Dialogue.button(
-                    type='web_url', title='READ',
-                    url=article['url']
-                )
-            ]
-
-            section_data = Dialogue.generic(
-                title=title, subtitle=subtitle,
-                image_url=image_url,
-                buttons=buttons
-            )
-
-            all_headline_elements.append(section_data)
-
-        return all_headline_elements
-
-    @classmethod
     def all_events(cls, page=1, _tailored=False):
         all_event_elements = []
 
@@ -230,42 +194,6 @@ class Collections(object):
                 all_event_elements.append(event_data)
 
         return all_event_elements
-
-    @classmethod
-    def event(cls, section_id):
-        section_orm = Section.get(id=section_id)
-
-        articles = get_existing_section_headlines(section_orm)[:70]
-        # articles.reverse()
-
-        random.shuffle(articles)
-
-        all_headline_elements = []
-
-        for article in articles:
-            if len(all_headline_elements) == 10:
-                break
-
-            title = article['title']
-            subtitle = article['body']
-            image_url = article.get('image_url')
-
-            buttons = [
-                Dialogue.button(
-                    type='web_url', title='READ',
-                    url=article['url']
-                )
-            ]
-
-            section_data = Dialogue.generic(
-                title=title, subtitle=subtitle,
-                image_url=image_url,
-                buttons=buttons
-            )
-
-            all_headline_elements.append(section_data)
-
-        return all_headline_elements
 
     @classmethod
     def all_feeds(cls):
@@ -321,7 +249,7 @@ class Collections(object):
                 ]
 
                 job_element = Dialogue.generic(
-                    title=title.upper(), subtitle=subtitle,
+                    title=title, subtitle='%s | %s' % (job.bloc.name, subtitle),
                     image_url=url_for(
                         'web_blueprint.render_job_thumbnail', id=job.id,
                         _external=True
@@ -332,42 +260,6 @@ class Collections(object):
                 all_job_elements.append(job_element)
 
         return all_job_elements
-
-    @classmethod
-    def job(cls, section_id):
-        section_orm = Section.get(id=section_id)
-
-        articles = get_existing_section_headlines(section_orm)[:70]
-        # articles.reverse()
-
-        random.shuffle(articles)
-
-        all_headline_elements = []
-
-        for article in articles:
-            if len(all_headline_elements) == 10:
-                break
-
-            title = article['title']
-            subtitle = article['body']
-            image_url = article.get('image_url')
-
-            buttons = [
-                Dialogue.button(
-                    type='web_url', title='READ',
-                    url=article['url']
-                )
-            ]
-
-            section_data = Dialogue.generic(
-                title=title, subtitle=subtitle,
-                image_url=image_url,
-                buttons=buttons
-            )
-
-            all_headline_elements.append(section_data)
-
-        return all_headline_elements
 
     @classmethod
     def all_projects(cls, page=1, _tailored=False):
@@ -396,7 +288,7 @@ class Collections(object):
                 project_element = Dialogue.generic(
                     title=title, subtitle=subtitle,
                     image_url=url_for(
-                        'web_blueprint.render_job_thumbnail', id=project.id,
+                        'web_blueprint.render_project_thumbnail', id=project.id,
                         _external=True
                     ),
                     buttons=buttons

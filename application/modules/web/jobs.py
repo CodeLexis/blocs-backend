@@ -1,6 +1,7 @@
 from flask import Response
+import requests
 
-from application.core.constants import SALARY_INTERVALS
+from application.core.constants import APP_COLORS, SALARY_INTERVALS
 from application.core.models import Bloc, Job, User
 from application.jobs import create_job
 from . import render_template, request, web_blueprint
@@ -53,11 +54,15 @@ def render_job_details_page(id):
     return
 
 
-@web_blueprint.route('/jobs/<int:id>/thumbnail')
-def render_job_thumbnail(id):
-    job = Job.get(id=id)
+@web_blueprint.route('/jobs/<int:job_id>/thumbnail')
+def render_job_thumbnail(job_id):
+    job = Job.get(id=job_id)
 
-    response = Response(job.thumbnail)
+    user_avatar = requests.get(job.created_by.avatar_url).content
+
+    thumbnail_bytes = getattr(job, 'thumbnail', None)
+
+    response = Response(thumbnail_bytes or user_avatar)
     response.mimetype = 'image'
 
     return response

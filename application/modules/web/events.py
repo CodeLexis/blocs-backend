@@ -1,7 +1,7 @@
-from dateutil import parser as date_parser
-
 from flask import g, redirect, url_for
+from dateutil import parser as date_parser
 from flask import Response
+import requests
 
 from application.core.models import Bloc, Event, User
 from application.events import create_event
@@ -57,11 +57,15 @@ def render_event_details(id):
     return render_template('events/details.html', **context)
 
 
-@web_blueprint.route('/events/<int:id>/thumbnail')
-def render_event_thumbnail(id):
-    # TODO implement event thumbnail get
-    event = Event.get(id=id)
+@web_blueprint.route('/events/<int:event_id>/thubmnail')
+def render_event_thumbnail(event_id):
+    event = Event.get(id=event_id)
 
-    response = Response(event.thumbnail, mimetype='image')
+    user_avatar = requests.get(event.created_by.avatar_url).content
+
+    thumbnail_bytes = getattr(event, 'thumbnail', None)
+
+    response = Response(thumbnail_bytes or user_avatar)
+    response.mimetype = 'image'
 
     return response
