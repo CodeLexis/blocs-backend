@@ -137,7 +137,8 @@ class Collections(object):
                 title = course.title
                 description = course.description
                 image_url = url_for(
-                    'web_blueprint.render_course_thumbnail', id=course.id,
+                    'web_blueprint.render_course_thumbnail',
+                    course_id=course.id,
                     _external=True)
 
                 buttons = [
@@ -187,7 +188,7 @@ class Collections(object):
                     title=title, subtitle=subtitle,
                     image_url=url_for(
                         'web_blueprint.render_event_thumbnail',
-                        id=event.id, _external=True),
+                        event_id=event.id, _external=True),
                     buttons=buttons
                 )
 
@@ -251,7 +252,7 @@ class Collections(object):
                 job_element = Dialogue.generic(
                     title=title, subtitle='%s | %s' % (job.bloc.name, subtitle),
                     image_url=url_for(
-                        'web_blueprint.render_job_thumbnail', id=job.id,
+                        'web_blueprint.render_job_thumbnail', job_id=job.id,
                         _external=True
                     ),
                     buttons=buttons
@@ -280,7 +281,7 @@ class Collections(object):
                         type='web_url', title='VIEW',
                         url=url_for(
                             'web_blueprint.render_project_details_page',
-                            id=project.id, user_id=g.user.id,
+                            user_id=g.user.id,
                             project_id=project.id, _external=True)
                     )
                 ]
@@ -288,7 +289,8 @@ class Collections(object):
                 project_element = Dialogue.generic(
                     title=title, subtitle=subtitle,
                     image_url=url_for(
-                        'web_blueprint.render_project_thumbnail', id=project.id,
+                        'web_blueprint.render_project_thumbnail',
+                        project_id=project.id,
                         _external=True
                     ),
                     buttons=buttons
