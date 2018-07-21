@@ -61,6 +61,7 @@ def render_event_details(id):
 def render_event_thumbnail(event_id):
     event = Event.get(id=event_id)
 
+    print('URL: "%s"' % event.created_by.avatar_url)
     user_avatar = requests.get(event.created_by.avatar_url).content
 
     thumbnail_bytes = getattr(event, 'thumbnail', None)

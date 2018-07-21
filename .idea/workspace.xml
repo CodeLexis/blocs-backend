@@ -332,21 +332,21 @@
                   <file leaf-file-name="collections.py" pinned="false" current-in-tab="true">
                     <entry file="file://$PROJECT_DIR$/application/conversations/collections.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="238">
-                          <caret line="290" column="53" lean-forward="false" selection-start-line="290" selection-start-column="53" selection-end-line="290" selection-end-column="53" />
+                        <state relative-caret-position="99">
+                          <caret line="140" column="27" lean-forward="false" selection-start-line="140" selection-start-column="27" selection-end-line="140" selection-end-column="27" />
                           <folding>
                             <element signature="e#0#13#0" expanded="true" />
-                            <element signature="e#5147#6073#0" expanded="false" />
-                            <element signature="e#6124#7034#0" expanded="false" />
-                            <element signature="e#7109#8062#0" expanded="false" />
-                            <element signature="e#9409#10158#0" expanded="false" />
-                            <element signature="e#10226#10232#0" expanded="false" />
-                            <element signature="e#10286#10914#0" expanded="false" />
-                            <element signature="e#10970#11805#0" expanded="false" />
-                            <element signature="e#11857#12670#0" expanded="false" />
-                            <element signature="e#12726#13588#0" expanded="false" />
-                            <element signature="e#13634#14303#0" expanded="false" />
-                            <element signature="e#14379#14879#0" expanded="false" />
+                            <element signature="e#5174#6106#0" expanded="false" />
+                            <element signature="e#6157#7067#0" expanded="false" />
+                            <element signature="e#7142#8099#0" expanded="false" />
+                            <element signature="e#9463#10212#0" expanded="false" />
+                            <element signature="e#10280#10286#0" expanded="false" />
+                            <element signature="e#10340#10968#0" expanded="false" />
+                            <element signature="e#11024#11859#0" expanded="false" />
+                            <element signature="e#11911#12724#0" expanded="false" />
+                            <element signature="e#12780#13642#0" expanded="false" />
+                            <element signature="e#13688#14357#0" expanded="false" />
+                            <element signature="e#14433#14933#0" expanded="false" />
                           </folding>
                         </state>
                       </provider>
@@ -747,11 +747,11 @@
         <option value="$PROJECT_DIR$/instance/config.py" />
         <option value="$PROJECT_DIR$/static/templates/events/details.html" />
         <option value="$PROJECT_DIR$/application/core/models/__init__.py" />
-        <option value="$PROJECT_DIR$/application/conversations/collections.py" />
         <option value="$PROJECT_DIR$/application/modules/web/projects.py" />
         <option value="$PROJECT_DIR$/application/modules/web/courses.py" />
         <option value="$PROJECT_DIR$/application/modules/web/jobs.py" />
         <option value="$PROJECT_DIR$/application/modules/web/events.py" />
+        <option value="$PROJECT_DIR$/application/conversations/collections.py" />
       </list>
     </option>
   </component>
@@ -1524,27 +1524,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/conversations/collections.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="290" column="53" lean-forward="false" selection-start-line="290" selection-start-column="53" selection-end-line="290" selection-end-column="53" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-            <element signature="e#5147#6073#0" expanded="false" />
-            <element signature="e#6124#7034#0" expanded="false" />
-            <element signature="e#7109#8062#0" expanded="false" />
-            <element signature="e#9409#10158#0" expanded="false" />
-            <element signature="e#10226#10232#0" expanded="false" />
-            <element signature="e#10286#10914#0" expanded="false" />
-            <element signature="e#10970#11805#0" expanded="false" />
-            <element signature="e#11857#12670#0" expanded="false" />
-            <element signature="e#12726#13588#0" expanded="false" />
-            <element signature="e#13634#14303#0" expanded="false" />
-            <element signature="e#14379#14879#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/web/courses.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="13">
@@ -1579,6 +1558,27 @@
           <caret line="71" column="0" lean-forward="true" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/conversations/collections.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="140" column="27" lean-forward="false" selection-start-line="140" selection-start-column="27" selection-end-line="140" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#5174#6106#0" expanded="false" />
+            <element signature="e#6157#7067#0" expanded="false" />
+            <element signature="e#7142#8099#0" expanded="false" />
+            <element signature="e#9463#10212#0" expanded="false" />
+            <element signature="e#10280#10286#0" expanded="false" />
+            <element signature="e#10340#10968#0" expanded="false" />
+            <element signature="e#11024#11859#0" expanded="false" />
+            <element signature="e#11911#12724#0" expanded="false" />
+            <element signature="e#12780#13642#0" expanded="false" />
+            <element signature="e#13688#14357#0" expanded="false" />
+            <element signature="e#14433#14933#0" expanded="false" />
           </folding>
         </state>
       </provider>
