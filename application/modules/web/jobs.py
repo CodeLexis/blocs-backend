@@ -58,7 +58,7 @@ def render_job_details_page(id):
 def render_job_thumbnail(job_id):
     job = Job.get(id=job_id)
 
-    user_avatar = requests.get(job.created_by.avatar_url).content
+    user_avatar = requests.get(job.created_by.clean_avatar_url).content
 
     thumbnail_bytes = getattr(job, 'thumbnail', None)
 

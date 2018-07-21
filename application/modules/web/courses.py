@@ -67,7 +67,7 @@ def render_course_creation_page():
 def render_course_thumbnail(course_id):
     course = Course.get(id=course_id)
 
-    user_avatar = requests.get(course.created_by.avatar_url).content
+    user_avatar = requests.get(course.created_by.clean_avatar_url).content
 
     thumbnail_bytes = getattr(course, 'thumbnail', None)
 

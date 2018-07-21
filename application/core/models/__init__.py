@@ -465,6 +465,10 @@ class User(BaseModel, HasUID, HasStatus):
         db.Integer, db.ForeignKey('blocs_platforms.id'))
 
     @property
+    def clean_avatar_url(self):
+        return self.avatar_url.replace('/', '')
+
+    @property
     def location(self):
         return self.locations[-1]
 

@@ -71,7 +71,7 @@ def render_all_project_likes(project_id):
 def render_project_thumbnail(project_id):
     project = Project.get(id=project_id)
 
-    user_avatar = requests.get(project.created_by.avatar_url).content
+    user_avatar = requests.get(project.created_by.clean_avatar_url).content
 
     thumbnail_bytes = getattr(project, 'thumbnail', None)
 
