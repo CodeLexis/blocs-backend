@@ -131,6 +131,7 @@ class Collections(object):
     @classmethod
     def all_courses(cls, page=1, _tailored=False):
         courses = []
+        courses.extend(cls.create_course())
 
         for bloc in g.user.blocs:
             for course in bloc.courses:
@@ -168,6 +169,7 @@ class Collections(object):
     @classmethod
     def all_events(cls, page=1, _tailored=False):
         all_event_elements = []
+        all_event_elements.extend(cls.create_event())
 
         for bloc in g.user.blocs:
             for event in bloc.events:
@@ -233,6 +235,7 @@ class Collections(object):
     @classmethod
     def all_jobs(cls, page=1, _tailored=False):
         all_job_elements = []
+        all_job_elements.extend(cls.create_job())
 
         for bloc in g.user.blocs:
             for job in bloc.jobs:
@@ -265,6 +268,7 @@ class Collections(object):
     @classmethod
     def all_projects(cls, page=1, _tailored=False):
         all_project_elements = []
+        all_project_elements.extend(cls.create_project())
 
         for bloc in g.user.blocs:
             for project in bloc.projects:
