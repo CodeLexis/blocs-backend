@@ -1,5 +1,5 @@
 from application.users.helpers import get_user_access_token
-from application.gateways import facebook
+from . import facebook
 
 
 def create_client(external_app_uid):
