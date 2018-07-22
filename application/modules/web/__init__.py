@@ -14,6 +14,7 @@ from .courses import *
 from .events import *
 from .jobs import *
 from .projects import *
+from .gateways import *
 
 
 @web_blueprint.route('/')

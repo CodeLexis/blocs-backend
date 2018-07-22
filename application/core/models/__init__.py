@@ -461,6 +461,10 @@ class User(BaseModel, HasUID, HasStatus):
     external_app_uid = db.Column(db.String(64))
     avatar_url = db.Column(db.TEXT)
     bio = db.Column(db.String(128))
+
+    access_token = db.Column(db.TEXT)
+    access_token_secret = db.Column(db.TEXT)
+
     blocs_platform_id = db.Column(
         db.Integer, db.ForeignKey('blocs_platforms.id'))
 

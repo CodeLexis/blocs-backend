@@ -35,3 +35,9 @@ def create_new_user(first_name, last_name, uid, blocs_platform_id, avatar_url):
     g.user = user
 
     return user
+
+
+def get_user_access_token(app, external_app_uid):
+    user = User.get(user_id=external_app_uid)
+
+    return user.access_token, user.access_token_secret

@@ -3,10 +3,10 @@ import requests
 
 from pymessenger import Bot
 
-from application.core.constants import FACEBOOK_PAGE_ID
+from application.core.constants import FACEBOOK_APP_ID, FACEBOOK_PAGE_ID
 
 
-ACCESS_TOKEN = os.environ['FACEBOOK_PAGE_ACCESS_TOKEN']
+PAGE_ACCESS_TOKEN = os.environ['FACEBOOK_PAGE_ACCESS_TOKEN']
 # ACCESS_TOKEN = 'EAAOlZBoXtZAmABACxIo85QJxVgygCUTpI0YtUWbM8HOTmafLnlyNSMgDwe36B9u6PGzyvotY68iIzgQOkLrDs5YcuyI9sBCaU0wUvGajtCRiIaR4OrL0ZBug1KQPZBoiJVPccoMd29pDYruJ1Q7LFCCyVLSO8S28IBZCQUiWYGAZDZD'
 
 # VERIFY_TOKEN = os.environ['VERIFY_TOKEN']
@@ -14,13 +14,15 @@ VERIFY_TOKEN = 'some_verify_token'
 
 MESSENGER_PROFILE_URL = (
     'https://graph.facebook.com/v2.6/me/messenger_profile?'
-    'access_token={}'.format(ACCESS_TOKEN))
+    'access_token={}'.format(PAGE_ACCESS_TOKEN))
 USER_PROFILE_URL = (
     "https://graph.facebook.com/v2.6/{user_id}?fields=first_name,last_name,"
-    "profile_pic&access_token=%s" % ACCESS_TOKEN)
+    "profile_pic&access_token=%s" % PAGE_ACCESS_TOKEN)
+
+REQUIRED_PERMISSIONS = ['live_videos', 'feed']
 
 
-bot = Bot(ACCESS_TOKEN)
+bot = Bot(PAGE_ACCESS_TOKEN)
 
 
 def verify_fb_token(token_sent):
@@ -76,7 +78,7 @@ def send_read_receipt(recipient_id):
     print(
         'SEND READ RECEIPT: %s' % requests.post(
         "https://graph.facebook.com/v2.6/me/messages?access_token={}".format(
-            ACCESS_TOKEN),
+            PAGE_ACCESS_TOKEN),
         headers={'content-type': 'application/json'},
         json={
             "recipient": {
@@ -90,7 +92,7 @@ def send_read_receipt(recipient_id):
 def set_typing_on(recipient_id):
     print('SET TYPING ON: %s' % requests.post(
         "https://graph.facebook.com/v2.6/me/messages?access_token={}".format(
-            ACCESS_TOKEN),
+            PAGE_ACCESS_TOKEN),
         headers={'content-type': 'application/json'},
         json={
             "recipient": {

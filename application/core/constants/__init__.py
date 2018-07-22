@@ -4,6 +4,7 @@ APP_COLORS = {
 APP_OS = ['linux', 'windows', 'android']
 ALLOWED_CONFIGURATION_MODES = ['development', 'production', 'test']
 DEVELOPMENT_CONFIG_MODE = 'development'
+FACEBOOK_APP_ID = '443981506013508'
 FACEBOOK_PAGE_ID = '2112206745661442'
 PAGINATE_DEFAULT_PER_PAGE = 8
 PAYLOADABLE_HTTP_METHODS = ['put', 'delete', 'patch', 'post']
