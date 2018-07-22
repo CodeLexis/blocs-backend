@@ -3,7 +3,10 @@ from dateutil import parser as date_parser
 from flask import Response
 import requests
 
-from application.core.models import Bloc, Event, User
+from application.core.models import Bloc, Event, EventInterest, User
+from application.core.models import prep_paginate_query, get_pagination_meta
+from application.core.utils.request_response_helpers import (
+    get_request_pagination_params)
 from application.events import create_event
 from . import render_template, request, web_blueprint
 
@@ -69,3 +72,33 @@ def render_event_thumbnail(event_id):
     response.mimetype = 'image'
 
     return response
+
+
+@web_blueprint.route('/events/<int:event_id>/interests')
+def render_all_event_interests(event_id):
+    event_interests = EventInterest.query.filter_by(event_id=event_id)
+
+    page = (
+        prep_paginate_query(event_interests, **get_request_pagination_params())
+    )
+
+    meta = get_pagination_meta(page)
+
+    users = [event_interest.user.as_json() for event_interest in page.items]
+
+    return render_template('users_list.html', users=users, meta=meta)
+
+
+@web_blueprint.route('/users/<int:user_id>/events-interests')
+def render_all_user_interested_events(user_id):
+    event_interests = EventInterest.query.filter_by(user_id=user_id)
+
+    page = (
+        prep_paginate_query(event_interests, **get_request_pagination_params())
+    )
+
+    meta = get_pagination_meta(page)
+
+    users = [event_interest.user.as_json() for event_interest in page.items]
+
+    return render_template('users_list.html', users=users, meta=meta)

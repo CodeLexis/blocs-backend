@@ -1,5 +1,7 @@
+from flask import g
+
 from application.core import errors
-from application.core.models import Bloc, Event
+from application.core.models import Bloc, Event, EventInterest
 from application.core.models import (prep_paginate_query, get_pagination_meta)
 
 
@@ -27,3 +29,12 @@ def get_events_for_bloc(bloc_uid, page, per_page):
     meta = get_pagination_meta(page)
 
     return page.items, meta
+
+
+def declare_event_interest(event_id):
+    event_interest = EventInterest(user_id=g.user.id, event_id=event_id)
+    event_interest.save()
+
+    # TODO post event interest to Facebook/Instagram
+
+    return event_interest

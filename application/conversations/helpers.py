@@ -99,11 +99,22 @@ def handle_bloc_required_payload(payload):
     elif payload.startswith('ADD_COURSE_TO_OFFERED'):
         course_id = int(payload.split('__')[1])
 
+        course = Course.get(id=course_id)
+
         add_course_to_offered(course_id)
+
         response.append(('text', Monologue.process_completion()))
+        response.append(
+            ('generic', Collections.ask_to_view_people_offering_course(
+                course))
+        )
 
     ### EVENTS
     elif payload == 'DISPLAY_ALL_EVENTS':
+        response.append(
+            ('buttons', Collections.ask_to_view_events_interested_in())
+        )
+
         response.append(('text', Monologue.take_to_all_events()))
         # response.append(('quick_reply', Dialogue.get_location()))
         all_events = Collections.all_events()
@@ -117,6 +128,18 @@ def handle_bloc_required_payload(payload):
         response.append(('text', Monologue.take_to_all_events()))
         response.append(
             ('generic', Collections.all_events(_tailored=True)))
+
+    elif payload.startswith('ADD_EVENT'):
+        event_id = payload.split('__')[1]
+
+        event_interest = events.declare_event_interest(event_id)
+
+        response.append(('text', Monologue.process_completion()))
+
+        response.append(
+            ('buttons', Collections.ask_to_view_people_interested_in_event(
+                event_interest.event))
+        )
 
     ### JOBS
     elif payload == 'DISPLAY_ALL_JOBS':

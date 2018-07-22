@@ -1,8 +1,10 @@
 from dateutil import parser as date_parser
 import requests
 
-from application.core.utils.contexts import current_request_data
+from application.core.utils.request_response_helpers import (
+    get_request_pagination_params)
 from application.core.models import Bloc, Course, User
+from application.core.models import prep_paginate_query, get_pagination_meta
 from application.courses import create_course
 from . import Response
 from . import render_template, request, web_blueprint
@@ -83,3 +85,18 @@ def render_course_details(id):
 
     return render_template(
         'courses/details.html', )
+
+
+@web_blueprint.route('/courses/<int:course_id>/students')
+def render_all_course_students(course_id):
+    course_students = Course.query.filter_by(course_id=course_id)
+
+    page = (
+        prep_paginate_query(course_students, **get_request_pagination_params())
+    )
+
+    meta = get_pagination_meta(page)
+
+    users = [course_student.user.as_json() for course_student in page.items]
+
+    return render_template('users_list.html', users=users, meta=meta)

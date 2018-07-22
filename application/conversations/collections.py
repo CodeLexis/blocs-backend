@@ -148,7 +148,7 @@ class Collections(object):
                         payload='ADD_COURSE_TO_OFFERED__%s' % course.id
                     ),
                     Dialogue.button(
-                        type='web_url', title='DETAILS',
+                        type='web_url', title='VIEW',
                         url=url_for('web_blueprint.render_course_details',
                                     id=course.id, _external=True)
                     ),
@@ -178,6 +178,10 @@ class Collections(object):
                 subtitle = '{} {}'.format(bloc.name, event.description)
 
                 buttons = [
+                    Dialogue.button(
+                        type='postback', title='INTERESTED',
+                        payload='ADD_EVENT__%s' % event.id
+                    ),
                     Dialogue.button(
                         type='web_url', title='VIEW',
                         url=url_for(
@@ -482,3 +486,54 @@ class Collections(object):
         # return dict that will be splatted because of double params
         # requirement for `buttons` message
         return {'text': text, 'buttons': all_view_project_options}
+
+    @classmethod
+    def ask_to_view_events_interested_in(cls):
+        text = '%s, you have %s events coming up soon.' % (
+            g.user.first_name, g.user.event_interests_count
+        )
+
+        all_view_project_options = [
+            Dialogue.button(
+                type='postback', title='VIEW',
+                payload='DISPLAY_ALL_EVENTS_INTERESTED_IN'
+            )
+        ]
+
+        # return dict that will be splatted because of double params
+        # requirement for `buttons` message
+        return {'text': text, 'buttons': all_view_project_options}
+
+    @classmethod
+    def ask_to_view_people_interested_in_event(cls, event):
+        text = '%s others are also interested.' % (
+            event.interest_count)
+
+        all_view_project_options = [
+            Dialogue.button(
+                type='web_url', title='VIEW', url=url_for(
+                'web_blueprint.render_all_event_interests',
+                event_id=event.id, _external=True)
+            )
+        ]
+
+        # return dict that will be splatted because of double params
+        # requirement for `buttons` message
+        return {'text': text, 'buttons': all_view_project_options}
+
+    @classmethod
+    def ask_to_view_people_offering_course(cls, course):
+        text = '%s others also offer %s.' % (
+            course.student_count, course.title)
+
+        all_view_people_options = [
+            Dialogue.button(
+                type='web_url', title='VIEW', url=url_for(
+                'web_blueprint.render_all_course_students',
+                course_id=course.id, _external=True)
+            )
+        ]
+
+        # return dict that will be splatted because of double params
+        # requirement for `buttons` message
+        return {'text': text, 'buttons': all_view_people_options}

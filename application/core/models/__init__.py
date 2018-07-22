@@ -284,6 +284,28 @@ class Event(BaseModel, HasUID, HasBloc, HasCreator):
         'Bloc', backref=db.backref('events', uselist=True),
         uselist=False)
 
+    @property
+    def interest_count(self):
+        return EventInterest.query.filter(
+            event_id=self.id,
+            status_id=STATUSES.index('active')
+        ).count()
+
+
+class EventInterest(BaseModel, HasUID):
+    __tablename__ = 'event_interests'
+
+    event_id = db.Column(db.Integer, db.ForeignKey('events.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+    event = db.relationship(
+        'Event', backref=db.backref('event_interests', uselist=True),
+        uselist=False)
+
+    user = db.relationship(
+        'User', backref=db.backref('event_interests', uselist=True),
+        uselist=False)
+
 
 class Feed(BaseModel, HasUID):
     __tablename__ = 'feeds'
@@ -493,5 +515,6 @@ class User(BaseModel, HasUID, HasStatus):
         return {
             'username': self.username,
             'bio': self.bio,
-            'location': self.location
+            'location': self.location,
+            'avatar_url': self.clean_avatar_url
         }
