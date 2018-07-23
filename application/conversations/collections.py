@@ -48,8 +48,7 @@ class Collections(object):
         all_feature_elements = []
 
         features = [
-            ("Courses", "Letting us take classes on Facebook/Instagram "
-                        "Live"),
+            ("Courses", "Letting us take classes on Facebook/Instagram Live"),
             ("Projects", "Interacting, teaming-up, pair-coding with the "
              "awesome developers on Facebook"),
             ("Jobs", "Getting to find and hire the right people. Or even find "
