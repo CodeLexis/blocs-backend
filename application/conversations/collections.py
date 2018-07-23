@@ -136,7 +136,8 @@ class Collections(object):
         for bloc in g.user.blocs:
             for course in bloc.courses:
                 title = course.title
-                description = course.description
+                description = '%s | %s' % (bloc.name, course.description)
+
                 image_url = url_for(
                     'web_blueprint.render_course_thumbnail',
                     course_id=course.id,
@@ -175,7 +176,7 @@ class Collections(object):
             for event in bloc.events:
 
                 title = event.title
-                subtitle = '{} {}'.format(bloc.name, event.description)
+                subtitle = '%s | %s' % (bloc.name, event.description)
 
                 buttons = [
                     Dialogue.button(
@@ -257,7 +258,7 @@ class Collections(object):
                 ]
 
                 job_element = Dialogue.generic(
-                    title=title, subtitle='%s | %s' % (job.bloc.name, subtitle),
+                    title=title, subtitle='%s | %s' % (bloc.name, subtitle),
                     image_url=url_for(
                         'web_blueprint.render_job_thumbnail', job_id=job.id,
                         _external=True
@@ -278,7 +279,7 @@ class Collections(object):
             for project in bloc.projects:
 
                 title = project.title
-                subtitle = project.description
+                subtitle = '%s | %s' % (bloc.name, project.description)
 
                 buttons = [
                     Dialogue.button(
