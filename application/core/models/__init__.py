@@ -477,6 +477,8 @@ class Status(BaseModel, LookUp):
 class User(BaseModel, HasUID, HasStatus):
     __tablename__  = 'users'
 
+    access_token = db.Column(db.String(64))
+
     username = db.Column(db.String(64))
     first_name = db.Column(db.String(64))
     last_name = db.Column(db.String(64))
