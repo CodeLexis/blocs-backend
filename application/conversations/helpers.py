@@ -175,7 +175,8 @@ def handle_bloc_required_payload(payload):
     elif payload == 'DISPLAY_ALL_PROJECTS_INTERESTED_IN':
         response.append(('text', Monologue.take_to_all_projects()))
         response.append(
-            ('generic', Collections.all_projects(_tailored=True)))
+            ('generic', Collections.all_projects(_tailored=True))
+        )
 
     elif payload.startswith('LIKE_PROJECT'):
         project_id = int(payload.split('__')[1])
