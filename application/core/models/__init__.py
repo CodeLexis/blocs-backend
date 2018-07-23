@@ -296,7 +296,7 @@ class EventInterest(BaseModel, HasUID):
     __tablename__ = 'event_interests'
 
     event_id = db.Column(db.Integer, db.ForeignKey('events.id'))
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
     event = db.relationship(
         'Event', backref=db.backref('event_interests', uselist=True),
