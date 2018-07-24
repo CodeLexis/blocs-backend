@@ -463,8 +463,8 @@
                   <file leaf-file-name="gateways.py" pinned="false" current-in-tab="true">
                     <entry file="file://$PROJECT_DIR$/application/modules/web/gateways.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="169">
-                          <caret line="52" column="47" lean-forward="false" selection-start-line="52" selection-start-column="47" selection-end-line="52" selection-end-column="47" />
+                        <state relative-caret-position="185">
+                          <caret line="49" column="32" lean-forward="false" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
                           <folding>
                             <element signature="e#0#44#0" expanded="true" />
                           </folding>
@@ -1619,8 +1619,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/web/gateways.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="52" column="47" lean-forward="false" selection-start-line="52" selection-start-column="47" selection-end-line="52" selection-end-column="47" />
+        <state relative-caret-position="185">
+          <caret line="49" column="32" lean-forward="false" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
           <folding>
             <element signature="e#0#44#0" expanded="true" />
           </folding>

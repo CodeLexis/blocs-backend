@@ -5,7 +5,7 @@ from . import facebook
 
 
 def create_client(external_app_uid=None, access_token=None):
-    if (external_app_uid and access_token) is None:
+    if not (external_app_uid or access_token):
         raise ValueError
 
     user_access_token = None
