@@ -302,7 +302,7 @@ class Event(BaseModel, HasUID, HasBloc, HasCreator):
         ).count()
 
 
-class EventInterest(BaseModel, HasUID):
+class EventInterest(BaseModel, HasUID, HasStatus):
     __tablename__ = 'event_interests'
 
     event_id = db.Column(db.Integer, db.ForeignKey('events.id'))
@@ -532,6 +532,6 @@ class User(BaseModel, HasUID, HasStatus):
             'access_token': self.access_token,
             'username': self.username,
             'bio': self.bio,
-            'location': self.location,
+            # 'location': self.location,
             'avatar_url': self.clean_avatar_url
         }
