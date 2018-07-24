@@ -51,9 +51,9 @@ def render_event_creation_page():
         return render_template('success.html', **context)
 
 
-@web_blueprint.route('/events/<int:id>')
-def render_event_details(id):
-    event = Event.get(id=id)
+@web_blueprint.route('/events/<int:event_id>')
+def render_event_details(event_id):
+    event = Event.get(id=event_id)
 
     context = event.as_json()
 

@@ -171,7 +171,7 @@ class Collections(object):
         all_event_elements = []
         all_event_elements.extend(cls.create_event())
 
-        for bloc in g.user.blocs:
+        for bloc in g.user.eblocs:
             for event in bloc.events:
 
                 title = event.title
@@ -423,10 +423,8 @@ class Collections(object):
 
         title = 'CREATE A COURSE'
         subtitle = (
-            "Gain respect & influence by passing on your awesome skills on "
-            "Facebook!\nYour course will be shared on your Blocs, as well as "
-            "your Facebook & Instagram pages, to let more developers know "
-            "about it!")
+            "Gain respect & influence by passing on your awesome skills to "
+            "other developers, through Facebook!")
 
         buttons = [
             Dialogue.button(

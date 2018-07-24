@@ -91,6 +91,26 @@ class Monologue(object):
         ])
 
     @classmethod
+    def request_facebook_login(cls, scope=None, required=False):
+        if required:
+            statement = random.choice([
+                "You need to connect your Facebook account, first.",
+                "You haven't connected your Facebook account yet.",
+                "Oops.. You would first have to connect your Facebook "
+                "account, {}".format(g.user.first_name[0])
+            ])
+
+        else:
+            statement = random.choice([
+                "Blocs depends on Facebook for the best parts of {}".format(
+                    scope),
+                "You need to connect your Facebook account for Blocs' {}".format(
+                    scope)
+            ])
+
+        return statement
+
+    @classmethod
     def greet(cls):
         random_statements = [
             "I'm glad you came back, %s!" % g.user.first_name,

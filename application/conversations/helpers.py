@@ -81,7 +81,7 @@ def handle_bloc_required_payload(payload):
         response.append(('text', Monologue.take_to_all_courses()))
 
         all_user_blocs_courses = Collections.all_courses()
-        if all_user_blocs_courses:
+        if len(all_user_blocs_courses) > 1:
             response.append(('generic', all_user_blocs_courses))
         else:
             response.append(
@@ -118,7 +118,7 @@ def handle_bloc_required_payload(payload):
         response.append(('text', Monologue.take_to_all_events()))
         # response.append(('quick_reply', Dialogue.get_location()))
         all_events = Collections.all_events()
-        if all_events:
+        if len(all_events) > 1:
             response.append(('generic', all_events))
         else:
             response.append(('text', Monologue.empty_resource('event')))
@@ -147,7 +147,7 @@ def handle_bloc_required_payload(payload):
 
         all_user_blocs_jobs = Collections.all_jobs()
 
-        if all_user_blocs_jobs:
+        if len(all_user_blocs_jobs) > 1:
             response.append(('generic', all_user_blocs_jobs))
         else:
             response.append(('text', Monologue.empty_resource('job')))
@@ -166,7 +166,7 @@ def handle_bloc_required_payload(payload):
         response.append(('text', Monologue.take_to_all_projects()))
         all_user_blocs_projects = Collections.all_projects()
 
-        if all_user_blocs_projects:
+        if len(all_user_blocs_projects) > 1:
             response.append(('generic', all_user_blocs_projects))
         else:
             response.append(('text', Monologue.empty_resource('project')))

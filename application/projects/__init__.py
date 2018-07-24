@@ -1,8 +1,9 @@
-from flask import g
+from flask import g, url_for
 
 from application.core import errors
 from application.core.models import Bloc, Project, ProjectLike, User
 from application.core.models import prep_paginate_query, get_pagination_meta
+from application.gateways.facebook_client import publish_post
 
 
 PROJECT_CREATION_STEPS = ['title', 'description', 'link']
@@ -13,6 +14,19 @@ def create_bloc_project(bloc, user_id, title, description, weblink):
         created_by_id=user_id, bloc_id=bloc.id)
 
     project.save()
+
+    event_creation_text = (
+        "Hey everyone! Y'all should checkout {title}!\n\n#Blocs #{bloc}".format(
+            title=project.title,
+            bloc=project.bloc.name
+        )
+    )
+
+    url = url_for('web_blueprint.render_project_details',
+                  project_id=project.id,
+                  _external=True)
+
+    publish_post(g.user.external_app_uid, event_creation_text, url)
 
     return project
 

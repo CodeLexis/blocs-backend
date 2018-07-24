@@ -308,9 +308,9 @@ class EventInterest(BaseModel, HasUID, HasStatus):
     event_id = db.Column(db.Integer, db.ForeignKey('events.id'))
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
-    # event = db.relationship(
-    #     'Event', backref=db.backref('event_interests', uselist=True),
-    #     uselist=False)
+    event = db.relationship(
+        'Event', backref=db.backref('event_interests_', uselist=True),
+        uselist=False)
 
     user = db.relationship(
         'User', backref=db.backref('event_interests', uselist=True),

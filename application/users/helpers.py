@@ -2,6 +2,7 @@ from json import dumps, loads
 
 from flask import g
 
+from application.wrappers.facebook.helpers import PAGE_ACCESS_TOKEN
 from application.core.models import SoftwareBranch, User, UserSoftwareBranch
 
 
@@ -40,4 +41,4 @@ def create_new_user(first_name, last_name, uid, blocs_platform_id, avatar_url):
 def get_user_access_token(app, external_app_uid):
     user = User.get(external_app_uid=external_app_uid)
 
-    return user.access_token, user.access_token_secret
+    return user.access_token or PAGE_ACCESS_TOKEN
