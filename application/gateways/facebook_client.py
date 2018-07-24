@@ -28,6 +28,8 @@ def create_client(external_app_uid=None, access_token=None):
 def publish_post(external_app_uid, text, photo=None, url=None):
     graph = create_client(external_app_uid=external_app_uid)
 
+    print('GRAPH CLIENT IS %s' % graph)
+
     if graph is None:
         return
 
