@@ -296,9 +296,9 @@ class Event(BaseModel, HasUID, HasBloc, HasCreator):
 
     @property
     def interest_count(self):
-        return EventInterest.query.filter(
+        return EventInterest.query.filter_by(
             event_id=self.id,
-            status_id=STATUSES.index('active')
+            # status_id=None, STATUSES.index('active'))
         ).count()
 
     @property
