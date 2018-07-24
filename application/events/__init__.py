@@ -35,7 +35,7 @@ def create_event(bloc, title, description, venue, datetime, created_by_id):
                   _external=True)
 
     user = User.get(id=created_by_id)
-    publish_post(user.external_app_uid, event_creation_text, url)
+    publish_post(user.external_app_uid, event_creation_text, url=url)
 
     return event
 
@@ -71,6 +71,6 @@ def declare_event_interest(event_id):
     url = url_for('web_blueprint.event_details', event_id=event_id,
                   _external=True)
 
-    publish_post(g.user.external_app_uid, event_interest_text, url)
+    publish_post(g.user.external_app_uid, event_interest_text, url=url)
 
     return event_interest
