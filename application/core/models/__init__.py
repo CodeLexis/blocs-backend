@@ -110,6 +110,16 @@ class BaseModel(db.Model):
 
         return query.all()
 
+    @classmethod
+    def prep_query_for_active(cls, _desc=False, **kwargs):
+        query = cls.query.filter_by(status_id=STATUSES.index('active') + 1,
+                                    **kwargs)
+
+        if _desc:
+            query.order_by(cls.id.desc())
+
+        return query
+
 
 class Bloc(BaseModel, HasUID, LookUp, HasStatus):
     __tablename__ = 'blocs'
@@ -510,6 +520,10 @@ class User(BaseModel, HasUID, HasStatus):
     @property
     def has_bloc(self):
         return bool(self.bloc_memberships)
+
+    @property
+    def event_interests_count(self):
+        return EventInterest.prep_query_for_active(user_id=self.id).count()
 
     def as_json(self):
         return {
