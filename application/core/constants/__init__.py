@@ -1,11 +1,20 @@
 APP_COLORS = {
-    'red': 'f45757', 'yellow': 'e4c847', 'blue': '57d5f4',
-    'purple': '88a2f6', 'pink': 'f378ac'}
+    'red': 'f45757',
+    'yellow': 'e4c847',
+    'blue': '57d5f4',
+    'purple': '88a2f6',
+    'pink': 'f378ac'
+}
+
 APP_OS = ['linux', 'windows', 'android']
+
 ALLOWED_CONFIGURATION_MODES = ['development', 'production', 'test']
 DEVELOPMENT_CONFIG_MODE = 'development'
+
 FACEBOOK_APP_ID = '443981506013508'
 FACEBOOK_PAGE_ID = '2112206745661442'
+FACEBOOK_MESSENGER_URL = 'https://www.messenger.com/t'
+
 PAGINATE_DEFAULT_PER_PAGE = 8
 PAYLOADABLE_HTTP_METHODS = ['put', 'delete', 'patch', 'post']
 PROGRAMMING_LANGUAGES = [
@@ -20,9 +29,11 @@ DEFAULT_BLOCS = SOFTWARE_BRANCHES = [
 STATUSES = ('active', 'deleted')
 SUPPORTED_HTTP_METHODS = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']
 TIMEZONES = ['GMT', 'PST', 'CAT']
+
 LANDING_MESSAGE = (
     'Facebook, tailored to suit the Developer.')
-LANDING_MESSAGE = ('Alternate version of Facebook, for the devs.')
+LANDING_MESSAGE_2 = ('Alternate version of Facebook, for the devs.')
+
 MENU_ITEMS = {
     'Courses': (
         'Widen your tech-stack by taking courses taken by developers on '
@@ -33,4 +44,8 @@ MENU_ITEMS = {
     'Jobs': 'Job offers from people within your Blocs',
     'Feeds': "Fun stuff shared by other developers.",
     'News': 'Just news on technology pulled from the internet.'
+}
+
+PLATFORMS_URL = {
+    'facebook-bot': '{}/{}'.format(FACEBOOK_MESSENGER_URL, FACEBOOK_PAGE_ID)
 }

@@ -3,7 +3,7 @@ import random
 from flask import Blueprint, Response
 from flask import render_template, request
 
-from application.core.constants import APP_COLORS
+from application.core.constants import (APP_COLORS, PLATFORMS_URL)
 
 
 web_blueprint = Blueprint('web_blueprint', __name__, url_prefix='')
@@ -53,3 +53,8 @@ def render_walkthrough_thumbnail(title):
         'static/assets/default_avatars/{}.png'.format(color), 'rb').read()
 
     return Response(default_avatar, mimetype='image')
+
+
+@web_blueprint.route('/builds/<platform>')
+def render_builds(platform):
+    return redirect(PLATFORMS_URL[platform])
