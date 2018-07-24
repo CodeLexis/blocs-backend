@@ -4,12 +4,18 @@ from application.users.helpers import get_user_access_token
 from . import facebook
 
 
-def create_client(external_app_uid):
-    user_access_token = (
-        get_user_access_token(app='Facebook', external_app_uid=external_app_uid)
-    )
+def create_client(external_app_uid=None, access_token=None):
+    if (external_app_uid and access_token) is None:
+        raise ValueError
 
-    graph = facebook.GraphAPI(access_token=user_access_token)
+    user_access_token = None
+
+    if external_app_uid:
+        user_access_token = (
+            get_user_access_token(app='Facebook', external_app_uid=external_app_uid)
+        )
+
+    graph = facebook.GraphAPI(access_token=user_access_token or access_token)
 
     return graph
 
