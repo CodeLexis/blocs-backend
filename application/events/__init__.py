@@ -1,7 +1,7 @@
 from flask import g, url_for
 
 from application.core import errors
-from application.core.models import Bloc, Event, EventInterest
+from application.core.models import Bloc, Event, EventInterest, User
 from application.core.models import (prep_paginate_query, get_pagination_meta)
 from application.gateways.facebook_client import publish_post
 
@@ -34,7 +34,8 @@ def create_event(bloc, title, description, venue, datetime, created_by_id):
     url = url_for('web_blueprint.render_event_details', event_id=event.id,
                   _external=True)
 
-    publish_post(g.user.external_app_uid, event_creation_text, url)
+    user = User.get(id=created_by_id)
+    publish_post(user.external_app_uid, event_creation_text, url)
 
     return event
 
