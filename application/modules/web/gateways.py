@@ -47,6 +47,8 @@ class FacebookOauthLogin(MethodView):
 
             response_data = loads(response)
 
+            print(response_data)
+
             access_token = response_data['access_token']
 
             graph = create_client(access_token=access_token)
