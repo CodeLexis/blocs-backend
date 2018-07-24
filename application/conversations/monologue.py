@@ -18,6 +18,10 @@ class Monologue(object):
         return welcome_statements
 
     @classmethod
+    def echo_user_details(cls):
+        return str(g.user.as_json())
+
+    @classmethod
     def ask_for_software_branch(cls):
         return random.choice([
             "What's the branch you're into?",

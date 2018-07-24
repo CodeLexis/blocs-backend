@@ -513,6 +513,9 @@ class User(BaseModel, HasUID, HasStatus):
 
     def as_json(self):
         return {
+            'id': self.id,
+            'external_app_uid': self.external_app_uid,
+            'access_token': self.access_token,
             'username': self.username,
             'bio': self.bio,
             'location': self.location,

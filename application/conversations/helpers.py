@@ -200,6 +200,11 @@ def handle_bloc_required_payload(payload):
 
         response.append(('text', Monologue.take_to_job()))
 
+    ### ECHOES
+    elif payload == 'WHOAMI':
+        response.append(('text', Monologue.echo_user_details()))
+
+
     return response
 
 
