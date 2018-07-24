@@ -19,7 +19,7 @@ USER_PROFILE_URL = (
     "https://graph.facebook.com/v2.6/{user_id}?fields=first_name,last_name,"
     "profile_pic&access_token=%s" % PAGE_ACCESS_TOKEN)
 
-REQUIRED_PERMISSIONS = ['publish_video', 'feed']
+REQUIRED_PERMISSIONS = ['publish_video', 'feeds']
 
 
 bot = Bot(PAGE_ACCESS_TOKEN)
