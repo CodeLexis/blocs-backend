@@ -20,7 +20,8 @@ class FacebookOauthLogin(MethodView):
             graph = facebook.GraphAPI(PAGE_ACCESS_TOKEN)
 
             fb_login_url = graph.get_auth_url(
-                FACEBOOK_APP_ID, redirect_url, REQUIRED_PERMISSIONS)
+                FACEBOOK_APP_ID, redirect_url, REQUIRED_PERMISSIONS,
+            )
 
             return redirect(fb_login_url)
 
@@ -38,6 +39,8 @@ class FacebookOauthLogin(MethodView):
             ).content
 
             print('RESPONSE: %s' % response)
+
+            return 'SUCCESS'
 
     def post(self):
         return
