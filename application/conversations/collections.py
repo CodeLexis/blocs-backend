@@ -186,7 +186,7 @@ class Collections(object):
                         type='web_url', title='VIEW',
                         url=url_for(
                             'web_blueprint.render_event_details',
-                            id=event.id, _external=True)
+                            event_id=event.id, _external=True)
                     )
                 ]
 
