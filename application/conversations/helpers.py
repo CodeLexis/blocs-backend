@@ -200,11 +200,6 @@ def handle_bloc_required_payload(payload):
 
         response.append(('text', Monologue.take_to_job()))
 
-    ### ECHOES
-    elif payload == 'WHOAMI':
-        response.append(('text', Monologue.echo_user_details()))
-
-
     return response
 
 
@@ -268,8 +263,8 @@ def get_response(sender_id, platform, text=None, attachments=None, nlp=None,
 
     response = list()
 
-    if text:
-        text = text.lower()
+    if text == 'WHOAMI':
+        response.append(('text', Monologue.echo_user_details()))
 
     if sticker_id == 369239263222822:  # if thumbs-up
         response.append(('text', Monologue.blush()))
