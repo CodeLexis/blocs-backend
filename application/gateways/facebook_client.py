@@ -14,8 +14,6 @@ def create_client(access_token):
 def publish_post(access_token, text, photo=None, url=None):
     graph = create_client(access_token=access_token)
 
-    print('GRAPH CLIENT IS %s' % graph)
-
     if graph is None:
         return
 

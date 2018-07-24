@@ -71,8 +71,6 @@ def declare_event_interest(event_id):
     url = url_for('web_blueprint.render_event_details', event_id=event_id,
                   _external=True)
 
-    print('USER ACCESS TOKEN: %s' % g.user.access_token)
-
     publish_post(g.user.access_token, event_interest_text, url=url)
 
     return event_interest
