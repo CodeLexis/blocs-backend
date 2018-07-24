@@ -352,21 +352,21 @@
                   <file leaf-file-name="collections.py" pinned="false" current-in-tab="true">
                     <entry file="file://$PROJECT_DIR$/application/conversations/collections.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="191">
-                          <caret line="189" column="21" lean-forward="true" selection-start-line="189" selection-start-column="21" selection-end-line="189" selection-end-column="21" />
+                        <state relative-caret-position="139">
+                          <caret line="185" column="53" lean-forward="false" selection-start-line="185" selection-start-column="53" selection-end-line="185" selection-end-column="53" />
                           <folding>
                             <element signature="e#0#13#0" expanded="true" />
                             <element signature="e#302#1163#0" expanded="false" />
                             <element signature="e#3925#5136#0" expanded="false" />
-                            <element signature="e#6428#7338#0" expanded="false" />
-                            <element signature="e#7413#8715#0" expanded="false" />
-                            <element signature="e#8794#10100#0" expanded="false" />
-                            <element signature="e#10162#10911#0" expanded="false" />
-                            <element signature="e#10979#10985#0" expanded="false" />
-                            <element signature="e#11039#11667#0" expanded="false" />
-                            <element signature="e#11723#12558#0" expanded="false" />
-                            <element signature="e#12610#13423#0" expanded="false" />
-                            <element signature="e#14258#14927#0" expanded="false" />
+                            <element signature="e#6434#7344#0" expanded="false" />
+                            <element signature="e#7419#8721#0" expanded="false" />
+                            <element signature="e#8800#10106#0" expanded="false" />
+                            <element signature="e#10168#10917#0" expanded="false" />
+                            <element signature="e#10985#10991#0" expanded="false" />
+                            <element signature="e#11045#11673#0" expanded="false" />
+                            <element signature="e#11729#12564#0" expanded="false" />
+                            <element signature="e#12616#13429#0" expanded="false" />
+                            <element signature="e#14264#14933#0" expanded="false" />
                           </folding>
                         </state>
                       </provider>
@@ -742,9 +742,9 @@
       <find>get_request</find>
       <find>class Event`</find>
       <find>def all_courses</find>
-      <find>class</find>
       <find>event_interests</find>
       <find>.access_token</find>
+      <find>render_event_details</find>
     </findStrings>
     <replaceStrings>
       <replace>uselist</replace>
@@ -807,8 +807,8 @@
         <option value="$PROJECT_DIR$/application/projects/__init__.py" />
         <option value="$PROJECT_DIR$/application/core/models/__init__.py" />
         <option value="$PROJECT_DIR$/application/modules/web/jobs.py" />
-        <option value="$PROJECT_DIR$/application/conversations/collections.py" />
         <option value="$PROJECT_DIR$/application/courses/__init__.py" />
+        <option value="$PROJECT_DIR$/application/conversations/collections.py" />
       </list>
     </option>
   </component>
@@ -1105,6 +1105,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15489875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24920128" sideWeight="0.5019157" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21299255" sideWeight="0.4958949" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -1117,7 +1118,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -1590,33 +1590,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/conversations/collections.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="189" column="21" lean-forward="true" selection-start-line="189" selection-start-column="21" selection-end-line="189" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-            <element signature="e#302#1163#0" expanded="false" />
-            <element signature="e#3925#5136#0" expanded="false" />
-            <element signature="e#6428#7338#0" expanded="false" />
-            <element signature="e#7413#8715#0" expanded="false" />
-            <element signature="e#8794#10100#0" expanded="false" />
-            <element signature="e#10162#10911#0" expanded="false" />
-            <element signature="e#10979#10985#0" expanded="false" />
-            <element signature="e#11039#11667#0" expanded="false" />
-            <element signature="e#11723#12558#0" expanded="false" />
-            <element signature="e#12610#13423#0" expanded="false" />
-            <element signature="e#14258#14927#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/courses/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
           <caret line="14" column="26" lean-forward="true" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/conversations/collections.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="185" column="53" lean-forward="false" selection-start-line="185" selection-start-column="53" selection-end-line="185" selection-end-column="53" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#302#1163#0" expanded="false" />
+            <element signature="e#3925#5136#0" expanded="false" />
+            <element signature="e#6434#7344#0" expanded="false" />
+            <element signature="e#7419#8721#0" expanded="false" />
+            <element signature="e#8800#10106#0" expanded="false" />
+            <element signature="e#10168#10917#0" expanded="false" />
+            <element signature="e#10985#10991#0" expanded="false" />
+            <element signature="e#11045#11673#0" expanded="false" />
+            <element signature="e#11729#12564#0" expanded="false" />
+            <element signature="e#12616#13429#0" expanded="false" />
+            <element signature="e#14264#14933#0" expanded="false" />
           </folding>
         </state>
       </provider>

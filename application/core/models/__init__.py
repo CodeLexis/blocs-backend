@@ -301,6 +301,10 @@ class Event(BaseModel, HasUID, HasBloc, HasCreator):
             status_id=STATUSES.index('active')
         ).count()
 
+    @property
+    def humane_date(self):
+        return str(self.created_at.date)
+
 
 class EventInterest(BaseModel, HasUID, HasStatus):
     __tablename__ = 'event_interests'
