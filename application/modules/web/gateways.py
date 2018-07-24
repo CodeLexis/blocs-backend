@@ -1,4 +1,4 @@
-from flask import redirect, request, url_for
+from flask import redirect, render_template, request, url_for, session
 from flask.views import MethodView
 from json import loads
 import requests
@@ -60,11 +60,33 @@ class FacebookOauthLogin(MethodView):
             user = User.get(id=user_id)
             user.update(access_token=access_token)
 
-            return 'SUCCESS'
+            destination = session.pop('destination')
+            if destination:
+                return redirect(destination)
+
+            return redirect(
+                url_for('web_blueprint.render_success_page'))
+
+
+class LoginRequest(MethodView):
+    def get(self):
+        app = request.args.get('app')
+        motive = request.args.get('motive')
+        destination = request.args.get('destination')
+        login_url = request.args.get('login_url')
+
+        session['destination'] = destination
+
+        return render_template(
+            'oauth/login_request',
+            app=app, motive=motive,
+            login_url=login_url
+        )
 
 
 mappings = [
     ('/oauth/facebook', FacebookOauthLogin, 'oauth_facebook'),
+    ('/oauth/login-request', LoginRequest, 'oauth_login_request')
 ]
 
 

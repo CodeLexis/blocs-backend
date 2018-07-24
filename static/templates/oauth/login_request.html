@@ -1,0 +1,20 @@
+{% extends "layouts/dialog.html" %}
+
+{% block title %}Create Bloc Project{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div>
+        <img src="/static/assets/images/facebook-icon.png"/>
+    </div>
+    <div>
+        You need to login to {{ app }} because <b>{{ motive }}</b>.
+    </div>
+    <a href="{{ login_url }}"><button>PROCEED</button></a>
+{% endblock %}

@@ -1,4 +1,6 @@
 from dateutil import parser as date_parser
+
+from flask import redirect, url_for
 import requests
 
 from application.core.utils.request_response_helpers import (
@@ -16,6 +18,18 @@ def render_course_creation_page():
         user_id = request.args.get('user_id')
 
         user = User.get(id=user_id)
+
+        if user.access_token is None:
+            dest_url = url_for('web_blueprint.render_course_creation_page')
+
+            return redirect(
+                url_for('web_blueprint.oauth_login_request', app='Facebook',
+                    motive='all courses are taken over Facebook Live',
+                    destination=dest_url,
+                    login_url=url_for('web_blueprint.oauth_facebook',
+                                      user_id=user_id)
+                )
+            )
 
         context = {
             'user_id': user_id,
@@ -100,3 +114,8 @@ def render_all_course_students(course_id):
     users = [course_student.user.as_json() for course_student in page.items]
 
     return render_template('users_list.html', users=users, meta=meta)
+
+
+@web_blueprint.route('/abcd')
+def render_():
+    return render_template('oauth/login_request.html')

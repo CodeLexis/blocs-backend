@@ -68,7 +68,7 @@ def declare_event_interest(event_id):
         )
     )
 
-    url = url_for('web_blueprint.event_details', event_id=event_id,
+    url = url_for('web_blueprint.render_event_details', event_id=event_id,
                   _external=True)
 
     publish_post(g.user.external_app_uid, event_interest_text, url=url)
