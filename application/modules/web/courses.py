@@ -1,6 +1,6 @@
 from dateutil import parser as date_parser
 
-from flask import redirect, url_for
+from flask import redirect, session, url_for
 import requests
 
 from application.core.utils.request_response_helpers import (
@@ -20,7 +20,8 @@ def render_course_creation_page():
         user = User.get(id=user_id)
 
         if user.access_token is None:
-            dest_url = url_for('web_blueprint.render_course_creation_page')
+            dest_url = url_for(
+                'web_blueprint.render_course_creation_page', user_id=user_id)
 
             return redirect(
                 url_for('web_blueprint.oauth_login_request', app='Facebook',
