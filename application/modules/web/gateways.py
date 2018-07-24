@@ -4,6 +4,7 @@ from json import loads
 import requests
 
 from . import web_blueprint
+from application.core.models import User
 from application.wrappers.facebook.helpers import (
     FACEBOOK_APP_ID, FACEBOOK_APP_SECRET, PAGE_ACCESS_TOKEN,
     REQUIRED_PERMISSIONS)
@@ -18,15 +19,20 @@ class FacebookOauthLogin(MethodView):
             'web_blueprint.oauth_facebook', _external=True)
 
         if code is None:
+            user_id = request.args.get('user_id')
+
             graph = facebook.GraphAPI(PAGE_ACCESS_TOKEN)
 
             fb_login_url = graph.get_auth_url(
                 FACEBOOK_APP_ID, redirect_url, REQUIRED_PERMISSIONS,
+                state=user_id
             )
 
             return redirect(fb_login_url)
 
         else:
+            user_id = request.args.get('state')
+
             params = {
                 'client_id': FACEBOOK_APP_ID,
                 'redirect_uri': redirect_url,
@@ -47,12 +53,14 @@ class FacebookOauthLogin(MethodView):
 
             response_data = loads(response)
 
-            print(response_data)
+            # print(response_data)
 
             access_token = response_data['access_token']
 
-            graph = create_client(access_token=access_token)
-            print(graph.get_object('me', 'id'))
+            user = User.get(id=user_id)
+            user.update(access_token=access_token)
+
+            return 'SUCCESS'
 
 
 mappings = [
