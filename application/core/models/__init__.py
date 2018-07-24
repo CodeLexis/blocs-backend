@@ -523,7 +523,7 @@ class User(BaseModel, HasUID, HasStatus):
 
     @property
     def event_interests_count(self):
-        return EventInterest.prep_query_for_active(user_id=self.id).count()
+        return EventInterest.query.filter_by(user_id=self.id).count()
 
     def as_json(self):
         return {
