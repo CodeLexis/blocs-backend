@@ -19,7 +19,7 @@ def render_course_creation_page():
 
         user = User.get(id=user_id)
 
-        if user.access_token is None:
+        if user.access_token:
             dest_url = url_for(
                 'web_blueprint.render_course_creation_page', user_id=user_id)
 
