@@ -14,8 +14,6 @@ class FacebookOauthLogin(MethodView):
         redirect_url = url_for(
             'web_blueprint.oauth_facebook', _external=True)
 
-        print("REDIRECTING TO: %s" % redirect_url)
-
         fb_login_url = graph.get_auth_url(
             FACEBOOK_APP_ID, redirect_url, REQUIRED_PERMISSIONS)
 
