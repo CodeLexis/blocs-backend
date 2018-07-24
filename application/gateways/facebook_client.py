@@ -5,25 +5,14 @@ from application.users.helpers import get_user_access_token
 from . import facebook
 
 
-def create_client(external_app_uid=None, access_token=None):
-    if not (external_app_uid or access_token):
-        raise ValueError
-
-    user_access_token = None
-
-    if external_app_uid:
-        user_access_token = (
-            get_user_access_token(
-                app='Facebook', external_app_uid=external_app_uid)
-        )
-
-    graph = facebook.GraphAPI(access_token=access_token or user_access_token)
+def create_client(access_token):
+    graph = facebook.GraphAPI(access_token=access_token)
 
     return graph
 
 
-def publish_post(external_app_uid, text, photo=None, url=None):
-    graph = create_client(external_app_uid=external_app_uid)
+def publish_post(access_token, text, photo=None, url=None):
+    graph = create_client(external_app_uid=access_token)
 
     print('GRAPH CLIENT IS %s' % graph)
 

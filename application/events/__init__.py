@@ -35,7 +35,7 @@ def create_event(bloc, title, description, venue, datetime, created_by_id):
                   _external=True)
 
     user = User.get(id=created_by_id)
-    publish_post(user.external_app_uid, event_creation_text, url=url)
+    publish_post(user.access_token, event_creation_text, url=url)
 
     return event
 
