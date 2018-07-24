@@ -1,5 +1,6 @@
 from flask import current_app
 
+from application.core import errors
 from application.users.helpers import get_user_access_token
 from . import facebook
 
@@ -16,13 +17,19 @@ def create_client(external_app_uid=None, access_token=None):
                 app='Facebook', external_app_uid=external_app_uid)
         )
 
-    graph = facebook.GraphAPI(access_token=user_access_token or access_token)
+        if user_access_token is None:
+            return None
+
+    graph = facebook.GraphAPI(access_token=access_token or user_access_token)
 
     return graph
 
 
 def publish_post(external_app_uid, text, photo=None, url=None):
     graph = create_client(external_app_uid=external_app_uid)
+
+    if graph is None:
+        return
 
     post_type = photo or url
 

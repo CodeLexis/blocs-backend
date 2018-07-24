@@ -41,4 +41,4 @@ def create_new_user(first_name, last_name, uid, blocs_platform_id, avatar_url):
 def get_user_access_token(app, external_app_uid):
     user = User.get(external_app_uid=external_app_uid)
 
-    return user.access_token or PAGE_ACCESS_TOKEN
+    return user.access_token
