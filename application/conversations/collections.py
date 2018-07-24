@@ -151,7 +151,7 @@ class Collections(object):
                         type='web_url', title='VIEW',
                         url=url_for('web_blueprint.render_course_details',
                                     id=course.id, _external=True)
-                    ),
+                    )
                 ]
 
                 course_data = Dialogue.generic(
@@ -171,7 +171,7 @@ class Collections(object):
         all_event_elements = []
         all_event_elements.extend(cls.create_event())
 
-        for bloc in g.user.eblocs:
+        for bloc in g.user.blocs:
             for event in bloc.events:
 
                 title = event.title
@@ -248,6 +248,12 @@ class Collections(object):
                 subtitle = job.description
 
                 buttons = [
+                    Dialogue.button(
+                        type='web_url', title='APPLY',
+                        url=url_for(
+                            'web_blueprint.render_job_application_page',
+                            id=job.id, user_id=g.user.id, _external=True)
+                    ),
                     Dialogue.button(
                         type='web_url', title='VIEW',
                         url=url_for(

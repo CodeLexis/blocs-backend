@@ -51,7 +51,7 @@ def render_job_creation_page():
 
 @web_blueprint.route('/jobs/<int:id>')
 def render_job_details_page(id):
-    return
+    raise NotImplementedError
 
 
 @web_blueprint.route('/jobs/<int:job_id>/thumbnail')
@@ -66,3 +66,8 @@ def render_job_thumbnail(job_id):
     response.mimetype = 'image'
 
     return response
+
+
+@web_blueprint.route('/jobs/<int:job_id>/applications')
+def render_job_application_page(job_id):
+    raise NotImplementedError
