@@ -3,7 +3,8 @@ import requests
 
 from pymessenger import Bot
 
-from application.core.constants import FACEBOOK_APP_ID, FACEBOOK_PAGE_ID
+from application.core.constants import (
+    FACEBOOK_APP_ID, FACEBOOK_PAGE_ID, FACEBOOK_APP_SECRET)
 
 
 PAGE_ACCESS_TOKEN = os.environ['FACEBOOK_PAGE_ACCESS_TOKEN']
