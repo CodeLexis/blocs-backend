@@ -17,11 +17,6 @@ def create_client(external_app_uid=None, access_token=None):
                 app='Facebook', external_app_uid=external_app_uid)
         )
 
-        print('EXATAPP %s' % external_app_uid)
-
-        if user_access_token is None:
-            return None
-
     graph = facebook.GraphAPI(access_token=access_token or user_access_token)
 
     return graph
