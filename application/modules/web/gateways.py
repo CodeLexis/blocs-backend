@@ -78,7 +78,7 @@ class LoginRequest(MethodView):
         session['destination'] = destination
 
         return render_template(
-            'oauth/login_request',
+            'oauth/login_request.html',
             app=app, motive=motive,
             login_url=login_url
         )
