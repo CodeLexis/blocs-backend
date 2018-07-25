@@ -34,7 +34,7 @@ def publish_post(access_token, text, photo=None, url=None):
 def get_user_feeds(access_token):
     graph = create_client(access_token=access_token)
 
-    return graph.get_object(id='me', connection_name='feed')
+    return graph.get_object(parent_object='me', connection_name='feed')
 
 
 def get_live_videos(access_token):

@@ -11,14 +11,13 @@ from application.gateways.facebook_client import (
 sched = BlockingScheduler()
 
 
-@sched.scheduled_job('interval', seconds=10)
+@sched.scheduled_job('interval', minutes=2)
 def pull_feeds_from_users():
     with application.app_context():
         for user in User.query.order_by(User.id.desc()).all():
 
             if user.access_token is not None:
                 users_feeds = get_user_feeds(user.access_token)
-
                 print(users_feeds)
 
 
