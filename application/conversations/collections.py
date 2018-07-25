@@ -130,7 +130,9 @@ class Collections(object):
     @classmethod
     def all_courses(cls, page=1, _tailored=False):
         courses = []
-        courses.extend(cls.create_course())
+
+        if not _tailored:
+            courses.extend(cls.create_course())
 
         for bloc in g.user.blocs:
             for course in bloc.courses:
@@ -169,10 +171,15 @@ class Collections(object):
     @classmethod
     def all_events(cls, page=1, _tailored=False):
         all_event_elements = []
-        all_event_elements.extend(cls.create_event())
+
+        if not _tailored:
+            all_event_elements.extend(cls.create_event())
 
         for bloc in g.user.blocs:
             for event in bloc.events:
+
+                if event.user_is_interested:
+                    continue
 
                 title = event.title
                 subtitle = '%s | %s' % (bloc.name, event.description)

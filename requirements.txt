@@ -1,3 +1,4 @@
+apscheduler
 flask
 flask-migrate
 flask-script

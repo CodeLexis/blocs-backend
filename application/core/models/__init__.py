@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from flask import current_app
+from flask import current_app, g
 import shortuuid
 from sqlalchemy.ext.declarative import declared_attr
 
@@ -300,6 +300,15 @@ class Event(BaseModel, HasUID, HasBloc, HasCreator):
             event_id=self.id,
             # status_id=None, STATUSES.index('active'))
         ).count()
+
+    @property
+    def user_is_interested(self):
+        return bool(
+            EventInterest.query.filter_by(
+                event_id=self.id,
+                user_id=g.user.id
+            ).count()
+        )
 
     @property
     def humane_date(self):

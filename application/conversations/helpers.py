@@ -111,9 +111,10 @@ def handle_bloc_required_payload(payload):
 
     ### EVENTS
     elif payload == 'DISPLAY_ALL_EVENTS':
-        response.append(
-            ('buttons', Collections.ask_to_view_events_interested_in())
-        )
+        if g.user.event_interests_count:
+            response.append(
+                ('buttons', Collections.ask_to_view_events_interested_in())
+            )
 
         response.append(('text', Monologue.take_to_all_events()))
         # response.append(('quick_reply', Dialogue.get_location()))
@@ -233,14 +234,17 @@ def handle_payload(sender_id, payload, platform='Facebook Bot'):
         for statement in welcome[1:]:
             response.append(('text', statement))
 
-        get_location = Dialogue.quick_reply(
-            title=Monologue.request_location_for_bloc(),
-            texts_and_payloads=[
-                Dialogue.location_tuple()
-            ]
-        )
+        response.append(('text', Monologue.take_to_all_blocs()))
+        response.append(('text', Collections.all_blocs()))
 
-        response.append(('quick_reply', get_location))
+        # get_location = Dialogue.quick_reply(
+        #     title=Monologue.request_location_for_bloc(),
+        #     texts_and_payloads=[
+        #         Dialogue.location_tuple()
+        #     ]
+        # )
+        #
+        # response.append(('quick_reply', get_location))
 
     ### BLOCS
     elif payload.startswith('JOIN_BLOC'):
