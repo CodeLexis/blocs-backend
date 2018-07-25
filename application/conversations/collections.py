@@ -256,10 +256,8 @@ class Collections(object):
 
                 buttons = [
                     Dialogue.button(
-                        type='web_url', title='APPLY',
-                        url=url_for(
-                            'web_blueprint.render_job_application_page',
-                            job_id=job.id, user_id=g.user.id, _external=True)
+                        type='postback', title='APPLY',
+                        payload='APPLY_FOR_JOB__%s' % job.id
                     ),
                     Dialogue.button(
                         type='web_url', title='VIEW',

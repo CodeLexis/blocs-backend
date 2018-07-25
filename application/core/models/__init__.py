@@ -306,7 +306,7 @@ class CourseRating(BaseModel):
     course_id = db.Column(db.Integer, db.ForeignKey('courses.id'))
     reaction = db.Column(db.Boolean)
 
-    course = db.relationship('Course', backref=db.backref('course_reviews'))
+    course = db.relationship('Course', backref=db.backref('course_ratings'))
 
 
 class CourseReview(BaseModel):

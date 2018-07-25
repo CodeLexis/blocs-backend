@@ -209,6 +209,13 @@ class Monologue(object):
         ])
 
     @classmethod
+    def ask_to_send_cv(cls):
+        return random.choice([
+            "Send me a copy of your resume (Y)",
+            "Go ahead and me send your resume, %s ;)" % g.user.first_name
+        ])
+
+    @classmethod
     def take_to_all_projects(cls):
         return random.choice([
             'Have a look',

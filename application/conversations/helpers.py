@@ -158,9 +158,10 @@ def handle_bloc_required_payload(payload):
         response.append(('text', Monologue.take_to_all_jobs()))
         response.append(('generic', Collections.all_jobs(_tailored=True)))
 
-    elif payload.startswith('ADD_NEW_JOB'):
-        response.append(('text', Monologue.take_to_all_jobs()))
-        response.append(('generic', Collections.all_jobs(_tailored=True)))
+    elif payload.startswith('APPLY_FOR_JOB'):
+        job_id = payload.split('__')[1]
+
+        response.append(('text', Monologue.ask_to_send_cv()))
 
     ### PROJECTS
     elif payload == 'DISPLAY_ALL_PROJECTS':
