@@ -270,6 +270,27 @@ class Course(BaseModel, HasUID, HasBloc, HasCreator):
         }
 
 
+class CourseClass(BaseModel):
+    __tablename__ = 'course_classes'
+
+    course_id = db.Column(db.Integer, db.ForeignKey('courses.id'))
+
+    course = db.relationship(
+        'Course', backref=db.backref('course_class_attendance'))
+
+
+class CourseClassAttendance(BaseModel):
+    __tablename__ = 'course_class_attendance'
+
+    course_id = db.Column(db.Integer, db.ForeignKey('courses.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+
+    course = db.relationship(
+        'Course', backref=db.backref('course_class_attendance'))
+    user = db.relationship(
+        'User', backref=db.backref('course_class_attendance'))
+
+
 class CourseContent(BaseModel):
     __tablename__ = 'course_contents'
 
