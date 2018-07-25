@@ -63,7 +63,7 @@ def handle_attachments(attachments):
                 job = Job.get(id=job_id)
 
                 JobApplication(
-                    cv=cv_url, job_id=job_id, user_id=g.user.id).save()
+                    cv=cv_url, job_id=job_id, created_by_id=g.user.id).save()
 
                 # {'type': 'image', 'payload': {
                 # 'url': 'https://scontent.xx.fbcdn.net/v/t1.15752-9/37772680_2197540350274914_6479394538988240896_n.png?_nc_cat=0&_nc_ad=z-m&_nc_cid=0&oh=5b595d781c5d080fe2ce272be21fb153&oe=5BD46D3A'}}
@@ -80,6 +80,10 @@ def handle_attachments(attachments):
                         )
                     )
                 )
+
+                response.append(('text', Monologue.process_completion()))
+                response.append(('text', Monologue.take_to_menu()))
+                response.append(('text', Collections.menu()))
 
     return response
 
