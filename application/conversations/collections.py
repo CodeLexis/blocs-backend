@@ -217,8 +217,7 @@ class Collections(object):
             for feed in bloc.latest_feeds:
 
                 message = feed.message
-                subtitle = feed.body
-                image_url = feed.get('image_url')
+                image_url = feed.created_by.clean_avatar_url
 
                 buttons = [
                     Dialogue.button(
@@ -232,7 +231,7 @@ class Collections(object):
                 ]
 
                 section_data = Dialogue.generic(
-                    title=message, subtitle=subtitle,
+                    title=message, subtitle=None,
                     image_url=image_url,
                     buttons=buttons
                 )

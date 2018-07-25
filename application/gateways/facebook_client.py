@@ -31,7 +31,7 @@ def publish_post(access_token, text, photo=None, url=None):
                                 message=text, url=url)
 
 
-def get_user_feeds(access_token):
+def get_user_feed(access_token):
     graph = create_client(access_token=access_token)
 
     return graph.get_object(id='me', connection_name='feed', fields='feed')

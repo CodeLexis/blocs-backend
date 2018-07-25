@@ -376,7 +376,8 @@ class Feed(BaseModel, HasUID):
     created_at = db.Column(db.DateTime, default=datetime.now)
     message = db.Column(db.TEXT)
 
-    created_by = db.relationship('User', )
+    created_by = db.relationship(
+        'User', backref=db.backref('user_feeds', uselist=True))
 
 
 class Job(BaseModel, HasUID, HasCreator, HasBloc):
