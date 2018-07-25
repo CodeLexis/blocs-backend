@@ -52,6 +52,9 @@ def handle_attachments(attachments):
                 )
             )
 
+        else:
+            print("ATTACHMENT RECEIVED: %s" % attachment)
+
     return response
 
 
