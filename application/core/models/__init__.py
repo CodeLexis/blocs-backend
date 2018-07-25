@@ -401,6 +401,7 @@ class Job(BaseModel, HasUID, HasCreator, HasBloc):
 class JobApplication(BaseModel, HasUID, HasCreator, HasBloc):
     __tablename__ = 'job_applications'
 
+    cv = db.Column(db.String(1024))
     job_id = db.Column(db.Integer, db.ForeignKey('jobs.id'))
 
     job = db.relationship(
