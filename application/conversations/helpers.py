@@ -16,7 +16,7 @@ from application.wrappers.facebook.helpers import send_message, get_user_profile
 
 
 def set_conversation_course(title, index=None, response_type=None):
-    convo = g.user.conversation
+    convo = g.user.conversations[-1]
     convo.update(expecting_response_for=title)
 
 
@@ -53,10 +53,11 @@ def handle_attachments(attachments):
             )
 
         else:
-            if g.user.conversation.expecting_response_for.startswith(
+            if g.user.conversations[-1].expecting_response_for.startswith(
                     'APPLY_FOR_JOB'):
 
-                job_id = g.user.conversation.expecting_response_for.split("__")
+                job_id = g.user.conversations[-1].expecting_response_for.split(
+                    "__")
                 cv_url = attachment['payload']['url']
 
                 job = Job.get(id=job_id)
