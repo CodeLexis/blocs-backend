@@ -275,8 +275,7 @@ class CourseClass(BaseModel):
 
     course_id = db.Column(db.Integer, db.ForeignKey('courses.id'))
 
-    course = db.relationship(
-        'Course', backref=db.backref('course_class_attendance'))
+    course = db.relationship('Course', backref=db.backref('course_classes'))
 
 
 class CourseClassAttendance(BaseModel):
