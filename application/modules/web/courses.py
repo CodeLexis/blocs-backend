@@ -99,7 +99,14 @@ def render_course_details(id):
     course = Course.get(id=id)
 
     return render_template(
-        'courses/details.html', )
+        'courses/details.html',
+        title=course.title,
+        description=course.description,
+        teacher=course.created_by.as_json(),
+        attendance=course.course_class_attendance,
+        reviews=course.reviews,
+        ratings=course.ratings
+    )
 
 
 @web_blueprint.route('/courses/<int:course_id>/students')

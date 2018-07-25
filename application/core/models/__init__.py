@@ -300,6 +300,24 @@ class CourseContent(BaseModel):
     body = db.Column(db.TEXT)
 
 
+class CourseRating(BaseModel):
+    __tablename__ = 'course_ratings'
+
+    course_id = db.Column(db.Integer, db.ForeignKey('courses.id'))
+    reaction = db.Column(db.Boolean)
+
+    course = db.relationship('Course', backref=db.backref('course_reviews'))
+
+
+class CourseReview(BaseModel):
+    __tablename__ = 'course_reviews'
+
+    course_id = db.Column(db.Integer, db.ForeignKey('courses.id'))
+    body = db.Column(db.TEXT)
+
+    course = db.relationship('Course', backref=db.backref('course_reviews'))
+
+
 class Event(BaseModel, HasUID, HasBloc, HasCreator):
     __tablename__ = 'events'
 

@@ -8,5 +8,7 @@ psycopg2
 pygithub
 pymessenger
 pymysql
+redis
+rq
 shortuuid
 udacity
