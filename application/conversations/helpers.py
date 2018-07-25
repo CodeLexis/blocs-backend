@@ -57,7 +57,7 @@ def handle_attachments(attachments):
                     'APPLY_FOR_JOB'):
 
                 job_id = g.user.conversations[-1].expecting_response_for.split(
-                    "__")
+                    "__")[1]
                 cv_url = attachment['payload']['url']
 
                 job = Job.get(id=job_id)
