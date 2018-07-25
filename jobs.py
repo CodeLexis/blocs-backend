@@ -40,7 +40,7 @@ def pull_feeds_from_users():
                             bloc_feed.save()
 
 
-@sched.scheduled_job('interval', minutes=15)
+@sched.scheduled_job('interval', seconds=15)
 def pull_course_videos_from_user():
     with application.app_context():
         for user in User.query.all():
