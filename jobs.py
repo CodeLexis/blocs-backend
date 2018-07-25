@@ -37,7 +37,7 @@ def pull_feeds_from_users():
                         for bloc in user.blocs:
                             bloc_feed = BlocFeed(
                                 bloc_id=bloc.id,
-                                user_id=user.id
+                                feed_id=feed.id
                             )
 
                             bloc_feed.save()
