@@ -24,9 +24,9 @@ def pull_feeds_from_users():
                     print(feed)
                     print('\n\n\n')
 
-                    if '#Blocs' in feed.get('message', ''):
-                        if Feed.get(external_app_uid=feed['id']) is not None:
-                            continue
+                    if '#blocs' in feed.get('message', '').lower():
+                        # if Feed.get(external_app_uid=feed['id']) is not None:
+                        #     continue
 
                         feed = Feed(
                             message=feed['message'],
