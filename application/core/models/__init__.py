@@ -144,6 +144,8 @@ class Bloc(BaseModel, HasUID, LookUp, HasStatus):
             PAGINATE_DEFAULT_PER_PAGE
         ).all()
 
+        print("latest feeds: %s" % bloc_feeds)
+
         return [bloc_feed.feed for bloc_feed in bloc_feeds]
 
     @property

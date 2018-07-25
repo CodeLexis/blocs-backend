@@ -22,7 +22,11 @@ def pull_feeds_from_users():
 
                 for feed in users_feed:
                     print(feed.keys())
-                    if '#Blocs' in feed['message']:
+
+                    if '#Blocs' in feed.get('message', ''):
+                        if Feed.get(external_app_uid=feed['id']) is not None:
+                            continue
+
                         feed = Feed(
                             message=feed['message'],
                             external_app_uid=feed['id'],

@@ -8,11 +8,11 @@ from .collections import Collections
 from application.core import db
 from application.core.constants import SOFTWARE_BRANCHES
 from application.core.models import (BlocsPlatform, Conversation, Course,
-    Message, Project, SoftwareBranch, User)
+    Job, JobApplication, Message, Project, SoftwareBranch, User)
 from application import blocs, courses, events, location, projects
 from application.users.helpers import (add_course_to_offered,
     add_user_software_branch, create_new_user)
-from application.wrappers.facebook.helpers import get_user_profile
+from application.wrappers.facebook.helpers import send_message, get_user_profile
 
 
 def set_conversation_course(title, index=None, response_type=None):
@@ -53,7 +53,32 @@ def handle_attachments(attachments):
             )
 
         else:
-            print("ATTACHMENT RECEIVED: %s" % attachment)
+            if g.user.conversation.expecting_response_for.startswith(
+                    'APPLY_FOR_JOB'):
+
+                job_id = g.user.conversation.expecting_response_for.split("__")
+                cv_url = attachment['payload']['url']
+
+                job = Job.get(id=job_id)
+
+                JobApplication(
+                    cv=cv_url, job_id=job_id, user_id=g.user.id).save()
+
+                # {'type': 'image', 'payload': {
+                # 'url': 'https://scontent.xx.fbcdn.net/v/t1.15752-9/37772680_2197540350274914_6479394538988240896_n.png?_nc_cat=0&_nc_ad=z-m&_nc_cid=0&oh=5b595d781c5d080fe2ce272be21fb153&oe=5BD46D3A'}}
+
+                send_message(
+                    job.created_by.external_app_uid,
+                    ('text', 'Hey {}, {} {} just applied for {}! Have a look '
+                             'at the resume {} sent {}'.format(
+                            job.created_by.first_name,
+                            g.user.first_name, g.user.last_name,
+                            job.title,
+                            job.created_by.first_name,
+                            cv_url
+                        )
+                    )
+                )
 
     return response
 
@@ -163,8 +188,6 @@ def handle_bloc_required_payload(payload):
         response.append(('generic', Collections.all_jobs(_tailored=True)))
 
     elif payload.startswith('APPLY_FOR_JOB'):
-        job_id = payload.split('__')[1]
-
         set_conversation_course(payload)
         response.append(('text', Monologue.ask_to_send_cv()))
 
