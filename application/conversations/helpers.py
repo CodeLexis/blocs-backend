@@ -160,7 +160,7 @@ def handle_bloc_required_payload(payload):
             response.append(('generic', Collections.create_event()))
 
     elif payload == 'DISPLAY_ALL_EVENTS_INTERESTED_IN':
-        response.append(('text', Monologue.take_to_all_events()))
+        response.append(('text', Monologue.take_to_events_interested_in()))
         response.append(
             ('generic', Collections.all_events(_tailored=True)))
 

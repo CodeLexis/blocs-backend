@@ -194,6 +194,13 @@ class Monologue(object):
         ])
 
     @classmethod
+    def take_to_events_interested_in(cls):
+        return random.choice([
+            "Here are the events you saved:",
+            "The events you saved recently:"
+        ])
+
+    @classmethod
     def take_to_all_jobs(cls):
         return random.choice([
             'Looking to earn a few extra bucks? ;)',
