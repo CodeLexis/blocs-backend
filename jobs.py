@@ -36,6 +36,8 @@ def pull_feeds_from_users():
 
                         feed.save()
 
+                        print('SAVEDD %s' % feed)
+
                         for bloc in user.blocs:
                             bloc_feed = BlocFeed(
                                 bloc_id=bloc.id,
