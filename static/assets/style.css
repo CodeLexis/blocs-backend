@@ -100,7 +100,18 @@ label {
     display: inline-block;
 }
 
-input[type=submit], button{
+input[type=submit]{
+    background-color: #4CAF50;
+    color: white;
+    padding: 24px 40px;
+    margin: 30px 0 0 0;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    float: center;
+}
+
+button{
     background-color: #4CAF50;
     color: white;
     padding: 24px 40px;
