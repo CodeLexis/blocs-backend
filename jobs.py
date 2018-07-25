@@ -21,7 +21,7 @@ def pull_feeds_from_users():
                     user.access_token)['feed']['data']
 
                 for feed in users_feed:
-
+                    print(feed.keys())
                     if '#Blocs' in feed['message']:
                         feed = Feed(
                             message=feed['message'],

@@ -15,8 +15,9 @@ from application.users.helpers import (add_course_to_offered,
 from application.wrappers.facebook.helpers import get_user_profile
 
 
-def set_conversation_course(title, index, response_type):
-    return
+def set_conversation_course(title, index=None, response_type=None):
+    convo = g.user.conversation
+    convo.update(expecting_response_for=title)
 
 
 def handle_attachments(attachments):
@@ -161,6 +162,7 @@ def handle_bloc_required_payload(payload):
     elif payload.startswith('APPLY_FOR_JOB'):
         job_id = payload.split('__')[1]
 
+        set_conversation_course(payload)
         response.append(('text', Monologue.ask_to_send_cv()))
 
     ### PROJECTS

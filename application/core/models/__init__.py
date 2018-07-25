@@ -226,6 +226,8 @@ class BlocTag(BaseModel, LookUp):
 class Conversation(BaseModel):
     __tablename__ = 'conversations'
 
+    expecting_response_for = db.Column(db.String(128))
+
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
     user = db.relationship(
