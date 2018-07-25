@@ -1,2 +1,2 @@
 web: gunicorn wsgi
-clock: python jobs.py
+clock: python jobs
