@@ -7,11 +7,6 @@ from application.jobs import create_job
 from . import render_template, request, web_blueprint
 
 
-@web_blueprint.route('/jobs/<int:job_id>', methods=['GET'])
-def render_job_application_page(job_id):
-    return ''
-
-
 @web_blueprint.route('/create-job', methods=['GET', 'POST'])
 def render_job_creation_page():
     if request.method == 'GET':
