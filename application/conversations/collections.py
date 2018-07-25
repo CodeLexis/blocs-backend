@@ -259,7 +259,7 @@ class Collections(object):
                         type='web_url', title='APPLY',
                         url=url_for(
                             'web_blueprint.render_job_application_page',
-                            id=job.id, user_id=g.user.id, _external=True)
+                            job_id=job.id, user_id=g.user.id, _external=True)
                     ),
                     Dialogue.button(
                         type='web_url', title='VIEW',
