@@ -12,7 +12,8 @@ class Monologue(object):
 
             "Welcome to Blocs, %s! B)" % g.user.first_name[0],
             "Those features will be added to your Facebook page, at no extra "
-            "install or signup. But first off..."
+            "install or signup. But first off, pick a Bloc of developers to "
+            "join (Y)"
         ]
 
         return welcome_statements
