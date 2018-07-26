@@ -265,6 +265,13 @@ class Course(BaseModel, HasUID, HasBloc, HasCreator):
     bloc = db.relationship(
         'Bloc', backref=db.backref('courses'))
 
+    @property
+    def ratings_(self):
+        return {
+            'count': CourseRating.prep_query_for_active().count(),
+            'average': 4.2
+        }
+
 
     def as_json(self):
         return {
@@ -310,7 +317,7 @@ class CourseRating(BaseModel):
     course_id = db.Column(db.Integer, db.ForeignKey('courses.id'))
     reaction = db.Column(db.Boolean)
 
-    course = db.relationship('Course', backref=db.backref('course_ratings'))
+    course = db.relationship('Course', backref=db.backref('ratings'))
 
 
 class CourseReview(BaseModel):
@@ -319,7 +326,7 @@ class CourseReview(BaseModel):
     course_id = db.Column(db.Integer, db.ForeignKey('courses.id'))
     body = db.Column(db.TEXT)
 
-    course = db.relationship('Course', backref=db.backref('course_reviews'))
+    course = db.relationship('Course', backref=db.backref('reviews'))
 
 
 class Event(BaseModel, HasUID, HasBloc, HasCreator):

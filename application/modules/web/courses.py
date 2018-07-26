@@ -102,6 +102,8 @@ def render_course_details(id):
         'courses/details.html',
         title=course.title,
         description=course.description,
+        days_of_week=course.days_of_week,
+        time=course.time,
         teacher=course.created_by.as_json(),
         attendance=course.course_class_attendance,
         reviews=course.reviews,

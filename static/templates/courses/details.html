@@ -1,10 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "layouts/dialog.html" %}
 
-</body>
-</html>
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+
+    <div class="card">
+        <img src="{{ thumbnail }}" alt="Avatar" style="width:100%">
+        <div class="container">
+            <h2><b>{{ title }}</b></h2>
+            <p>
+                <b>{{ teacher.first_name }} {{ teacher.last_name }}</b><br>
+                    {{ description }}<br>
+                <small>{{ days_of_week }} {{ time }}
+                    <!--{{ ratings.average }} by {{ ratings.count }} people-->
+                </small>
+            </p>
+        </div>
+    </div>
+
+{% endblock %}
+
+
+title=course.title,
+        description=course.description,
+        teacher=course.created_by.as_json(),
+        attendance=course.course_class_attendance,
+        reviews=course.reviews,
+        ratings=course.ratings
