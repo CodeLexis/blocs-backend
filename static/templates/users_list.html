@@ -10,7 +10,9 @@
         <table>
         {% for user in users %}
             <tr>
-                <td width="25%"><img src="{{ user.avatar }}"/></td>
+                <td
+                        width="25%"><img src="{{ user.avatar_url }}"
+                                         width="25%"/></td>
                 <td width="75%">
                     <a href="{{ user.profile_link }}"><b>{{ user.first_name }}
                         {{ user.last_name }}</b></a>
