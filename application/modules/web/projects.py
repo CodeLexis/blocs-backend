@@ -65,7 +65,8 @@ def render_all_project_likes(project_id):
         'users_list.html',
         title='People that also liked it',
         users=[
-            project_like.created_by.as_json() for project_like in project_likes]
+            project_like.created_by.as_json()
+            for project_like in project_likes.items]
     )
 
 
