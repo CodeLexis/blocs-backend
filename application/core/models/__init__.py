@@ -343,7 +343,7 @@ class Event(BaseModel, HasUID, HasBloc, HasCreator):
             'description': self.description,
             'venue': self.venue,
             'datetime': self.datetime.isoformat(),
-            'thumbnail': self.thumbnail
+            # 'thumbnail': self.thumbnail
         }
 
     @property

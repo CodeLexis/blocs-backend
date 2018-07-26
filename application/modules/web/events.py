@@ -57,7 +57,8 @@ def render_event_details(event_id):
 
     context = event.as_json()
     context['thumbnail'] = url_for(
-        'web_blueprint.render_event_thumbnail', event_id=event_id)
+        'web_blueprint.render_event_thumbnail', event_id=event_id,
+        _external=True)
 
     return render_template('events/details.html', **context)
 
