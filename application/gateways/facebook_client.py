@@ -40,7 +40,8 @@ def get_user_feed(access_token):
 def get_live_videos(access_token):
     graph = create_client(access_token=access_token)
 
-    return graph.get_object(id='me', connection_name='live_videos')
+    return graph.get_object(id='me', connection_name='live_videos',
+                            fields='live_videos')
 
 
 def put_like(access_token, object_id):

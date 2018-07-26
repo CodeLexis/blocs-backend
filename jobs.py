@@ -45,7 +45,7 @@ def pull_feeds_from_users():
                             bloc_feed.save()
 
 
-@sched.scheduled_job('interval', minutes=15)
+@sched.scheduled_job('interval', minutes=1)
 def pull_course_videos_from_user():
     with application.app_context():
         for user in User.query.all():
@@ -54,6 +54,5 @@ def pull_course_videos_from_user():
                 users_live_videos = get_live_videos(user.access_token)
 
                 print(users_live_videos)
-
 
 sched.start()
