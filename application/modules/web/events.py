@@ -107,7 +107,8 @@ def render_all_event_interests(event_id):
 
     users = [event_interest.user.as_json() for event_interest in page.items]
 
-    return render_template('users_list.html', users=users, meta=meta)
+    return render_template('users_list.html', title='People also interested',
+                           users=users, meta=meta)
 
 
 @web_blueprint.route('/users/<int:user_id>/events-interests')
@@ -122,4 +123,5 @@ def render_all_user_interested_events(user_id):
 
     users = [event_interest.user.as_json() for event_interest in page.items]
 
-    return render_template('users_list.html', users=users, meta=meta)
+    return render_template('users_list.html', title='People also interested',
+                           users=users, meta=meta)

@@ -121,7 +121,8 @@ def render_all_course_students(course_id):
 
     users = [course_student.user.as_json() for course_student in page.items]
 
-    return render_template('users_list.html', users=users, meta=meta)
+    return render_template('users_list.html', title='People also take this',
+                           users=users, meta=meta)
 
 
 @web_blueprint.route('/abcd')
