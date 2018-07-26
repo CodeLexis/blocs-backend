@@ -2,7 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ad8270f-f719-45e1-81e5-506149528fc2" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/static/templates/comments_list.html" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/application/conversations/collections.py" afterPath="$PROJECT_DIR$/application/conversations/collections.py" />
+      <change beforePath="$PROJECT_DIR$/application/conversations/helpers.py" afterPath="$PROJECT_DIR$/application/conversations/helpers.py" />
+      <change beforePath="$PROJECT_DIR$/application/core/constants/__init__.py" afterPath="$PROJECT_DIR$/application/core/constants/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/application/core/models/__init__.py" afterPath="$PROJECT_DIR$/application/core/models/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/application/feeds/__init__.py" afterPath="$PROJECT_DIR$/application/feeds/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/application/modules/web/feeds.py" afterPath="$PROJECT_DIR$/application/modules/web/feeds.py" />
+      <change beforePath="$PROJECT_DIR$/application/wrappers/facebook/manage.py" afterPath="$PROJECT_DIR$/application/wrappers/facebook/manage.py" />
+      <change beforePath="$PROJECT_DIR$/static/templates/users_list.html" afterPath="$PROJECT_DIR$/static/templates/users_list.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,18 +29,6 @@
               <splitter split-orientation="vertical" split-proportion="0.5">
                 <split-first>
                   <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-                    <file leaf-file-name="create.html" pinned="false" current-in-tab="false">
-                      <entry file="file://$PROJECT_DIR$/static/templates/blocs/create.html">
-                        <provider selected="true" editor-type-id="text-editor">
-                          <state relative-caret-position="130">
-                            <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-                            <folding>
-                              <element signature="n#style#0;n#textarea#0;n#div#1;n#div#1;n#form#0;n#!!top" expanded="true" />
-                            </folding>
-                          </state>
-                        </provider>
-                      </entry>
-                    </file>
                     <file leaf-file-name="create.html" pinned="false" current-in-tab="false">
                       <entry file="file://$PROJECT_DIR$/static/templates/courses/create.html">
                         <provider selected="true" editor-type-id="text-editor">
@@ -59,18 +56,28 @@
                     <file leaf-file-name="users_list.html" pinned="false" current-in-tab="false">
                       <entry file="file://$PROJECT_DIR$/static/templates/users_list.html">
                         <provider selected="true" editor-type-id="text-editor">
-                          <state relative-caret-position="78">
-                            <caret line="6" column="69" lean-forward="true" selection-start-line="6" selection-start-column="69" selection-end-line="6" selection-end-column="69" />
+                          <state relative-caret-position="104">
+                            <caret line="8" column="10" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="23" selection-end-column="7" />
                             <folding />
                           </state>
                         </provider>
                       </entry>
                     </file>
-                    <file leaf-file-name="success.html" pinned="false" current-in-tab="true">
+                    <file leaf-file-name="comments_list.html" pinned="false" current-in-tab="true">
+                      <entry file="file://$PROJECT_DIR$/static/templates/comments_list.html">
+                        <provider selected="true" editor-type-id="text-editor">
+                          <state relative-caret-position="299">
+                            <caret line="23" column="41" lean-forward="false" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
+                            <folding />
+                          </state>
+                        </provider>
+                      </entry>
+                    </file>
+                    <file leaf-file-name="success.html" pinned="false" current-in-tab="false">
                       <entry file="file://$PROJECT_DIR$/static/templates/success.html">
                         <provider selected="true" editor-type-id="text-editor">
-                          <state relative-caret-position="130">
-                            <caret line="10" column="12" lean-forward="true" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="80" />
+                          <state relative-caret-position="143">
+                            <caret line="11" column="23" lean-forward="false" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
                             <folding>
                               <element signature="n#style#0;n#img#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                             </folding>
@@ -243,12 +250,12 @@
             <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/application/core/models/__init__.py">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="445">
-                    <caret line="271" column="26" lean-forward="false" selection-start-line="271" selection-start-column="26" selection-end-line="271" selection-end-column="26" />
+                  <state relative-caret-position="529">
+                    <caret line="427" column="35" lean-forward="true" selection-start-line="427" selection-start-column="35" selection-end-line="427" selection-end-column="35" />
                     <folding>
                       <element signature="e#0#29#0" expanded="true" />
                       <element signature="e#435#934#0" expanded="false" />
-                      <element signature="e#15420#15892#0" expanded="false" />
+                      <element signature="e#15728#16200#0" expanded="false" />
                     </folding>
                   </state>
                 </provider>
@@ -258,7 +265,7 @@
               <entry file="file://$PROJECT_DIR$/application/core/constants/__init__.py">
                 <provider selected="true" editor-type-id="text-editor">
                   <state relative-caret-position="0">
-                    <caret line="0" column="11" lean-forward="false" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="36" />
+                    <caret line="0" column="11" lean-forward="false" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="179" />
                     <folding />
                   </state>
                 </provider>
@@ -277,7 +284,7 @@
             <splitter split-orientation="vertical" split-proportion="0.46538872">
               <split-first>
                 <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-                  <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
+                  <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
                     <entry file="file://$PROJECT_DIR$/application/projects/__init__.py">
                       <provider selected="true" editor-type-id="text-editor">
                         <state relative-caret-position="195">
@@ -323,13 +330,13 @@
                       </provider>
                     </entry>
                   </file>
-                  <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+                  <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
                     <entry file="file://$PROJECT_DIR$/application/feeds/__init__.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="155">
-                          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+                        <state relative-caret-position="64">
+                          <caret line="12" column="19" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="19" />
                           <folding>
-                            <element signature="e#0#19#0" expanded="true" />
+                            <element signature="e#0#28#0" expanded="true" />
                           </folding>
                         </state>
                       </provider>
@@ -426,21 +433,23 @@
                   <file leaf-file-name="collections.py" pinned="false" current-in-tab="true">
                     <entry file="file://$PROJECT_DIR$/application/conversations/collections.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="151">
-                          <caret line="215" column="18" lean-forward="true" selection-start-line="215" selection-start-column="18" selection-end-line="215" selection-end-column="18" />
+                        <state relative-caret-position="149">
+                          <caret line="573" column="44" lean-forward="false" selection-start-line="573" selection-start-column="44" selection-end-line="573" selection-end-column="44" />
                           <folding>
                             <element signature="e#0#13#0" expanded="true" />
                             <element signature="e#335#1196#0" expanded="false" />
                             <element signature="e#1261#2450#0" expanded="false" />
                             <element signature="e#2528#3880#0" expanded="false" />
                             <element signature="e#3958#5200#0" expanded="false" />
-                            <element signature="e#5433#6565#0" expanded="false" />
-                            <element signature="e#10580#11329#0" expanded="false" />
-                            <element signature="e#11397#11403#0" expanded="false" />
-                            <element signature="e#11457#12085#0" expanded="false" />
-                            <element signature="e#12141#12976#0" expanded="false" />
-                            <element signature="e#13028#13841#0" expanded="false" />
-                            <element signature="e#14676#15345#0" expanded="false" />
+                            <element signature="e#5348#6480#0" expanded="false" />
+                            <element signature="e#6700#7793#0" expanded="false" />
+                            <element signature="e#10702#11451#0" expanded="false" />
+                            <element signature="e#11519#11525#0" expanded="false" />
+                            <element signature="e#11579#12207#0" expanded="false" />
+                            <element signature="e#12263#13098#0" expanded="false" />
+                            <element signature="e#13150#13963#0" expanded="false" />
+                            <element signature="e#14019#14752#0" expanded="false" />
+                            <element signature="e#14798#15467#0" expanded="false" />
                           </folding>
                         </state>
                       </provider>
@@ -467,8 +476,8 @@
                   <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
                     <entry file="file://$PROJECT_DIR$/application/modules/web/__init__.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="182">
-                          <caret line="14" column="20" lean-forward="false" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+                        <state relative-caret-position="429">
+                          <caret line="33" column="9" lean-forward="false" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
                           <folding>
                             <element signature="e#0#13#0" expanded="true" />
                           </folding>
@@ -476,7 +485,7 @@
                       </provider>
                     </entry>
                   </file>
-                  <file leaf-file-name="helpers.py" pinned="false" current-in-tab="false">
+                  <file leaf-file-name="helpers.py" pinned="false" current-in-tab="true">
                     <entry file="file://$PROJECT_DIR$/application/wrappers/facebook/helpers.py">
                       <provider selected="true" editor-type-id="text-editor">
                         <state relative-caret-position="260">
@@ -488,11 +497,11 @@
                       </provider>
                     </entry>
                   </file>
-                  <file leaf-file-name="facebook_client.py" pinned="false" current-in-tab="true">
+                  <file leaf-file-name="facebook_client.py" pinned="false" current-in-tab="false">
                     <entry file="file://$PROJECT_DIR$/application/gateways/facebook_client.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="179">
-                          <caret line="21" column="25" lean-forward="true" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+                        <state relative-caret-position="192">
+                          <caret line="25" column="28" lean-forward="true" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
                           <folding>
                             <element signature="e#0#29#0" expanded="true" />
                           </folding>
@@ -500,37 +509,16 @@
                       </provider>
                     </entry>
                   </file>
-                  <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
-                    <entry file="file://$PROJECT_DIR$/application/gateways/facebook/__init__.py">
-                      <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="199">
-                          <caret line="114" column="8" lean-forward="false" selection-start-line="114" selection-start-column="8" selection-end-line="114" selection-end-column="8" />
-                          <folding />
-                        </state>
-                      </provider>
-                    </entry>
-                  </file>
-                  <file leaf-file-name="bot.py" pinned="false" current-in-tab="false">
-                    <entry file="file://$USER_HOME$/.virtualenvs/blocs/lib/python3.5/site-packages/pymessenger/bot.py">
-                      <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="130">
-                          <caret line="65" column="35" lean-forward="false" selection-start-line="65" selection-start-column="35" selection-end-line="65" selection-end-column="35" />
-                          <folding />
-                        </state>
-                      </provider>
-                    </entry>
-                  </file>
                   <file leaf-file-name="helpers.py" pinned="false" current-in-tab="false">
                     <entry file="file://$PROJECT_DIR$/application/conversations/helpers.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="95">
-                          <caret line="239" column="41" lean-forward="false" selection-start-line="239" selection-start-column="41" selection-end-line="239" selection-end-column="41" />
+                        <state relative-caret-position="3003">
+                          <caret line="326" column="0" lean-forward="true" selection-start-line="326" selection-start-column="0" selection-end-line="326" selection-end-column="0" />
                           <folding>
                             <element signature="e#0#27#0" expanded="true" />
                             <element signature="e#958#1795#0" expanded="false" />
                             <element signature="e#3292#3660#0" expanded="false" />
                             <element signature="e#8793#10626#0" expanded="false" />
-                            <element signature="e#10790#11735#0" expanded="false" />
                           </folding>
                         </state>
                       </provider>
@@ -564,11 +552,11 @@
                       </provider>
                     </entry>
                   </file>
-                  <file leaf-file-name="courses.py" pinned="false" current-in-tab="true">
+                  <file leaf-file-name="courses.py" pinned="false" current-in-tab="false">
                     <entry file="file://$PROJECT_DIR$/application/modules/web/courses.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="53">
-                          <caret line="95" column="0" lean-forward="true" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
+                        <state relative-caret-position="79">
+                          <caret line="97" column="12" lean-forward="true" selection-start-line="97" selection-start-column="12" selection-end-line="97" selection-end-column="12" />
                           <folding>
                             <element signature="e#0#42#0" expanded="true" />
                             <element signature="e#563#2892#0" expanded="false" />
@@ -597,13 +585,13 @@
                       </provider>
                     </entry>
                   </file>
-                  <file leaf-file-name="feeds.py" pinned="false" current-in-tab="false">
+                  <file leaf-file-name="feeds.py" pinned="false" current-in-tab="true">
                     <entry file="file://$PROJECT_DIR$/application/modules/web/feeds.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="104">
-                          <caret line="8" column="14" lean-forward="false" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+                        <state relative-caret-position="269">
+                          <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
                           <folding>
-                            <element signature="e#0#44#0" expanded="true" />
+                            <element signature="e#0#63#0" expanded="true" />
                           </folding>
                         </state>
                       </provider>
@@ -699,11 +687,11 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
+              <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/application/core/constants/__init__.py">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="156">
-                      <caret line="15" column="36" lean-forward="false" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="36" />
+                    <state relative-caret-position="13">
+                      <caret line="19" column="179" lean-forward="false" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="179" />
                       <folding />
                     </state>
                   </provider>
@@ -731,11 +719,11 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="manage.py" pinned="false" current-in-tab="false">
+              <file leaf-file-name="manage.py" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/application/wrappers/facebook/manage.py">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="572">
-                      <caret line="48" column="26" lean-forward="false" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
+                    <state relative-caret-position="115">
+                      <caret line="112" column="0" lean-forward="true" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
                       <folding>
                         <element signature="e#0#15#0" expanded="true" />
                       </folding>
@@ -814,8 +802,8 @@
               <file leaf-file-name="jobs.py" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/jobs.py">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="190">
-                      <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+                    <state relative-caret-position="203">
+                      <caret line="47" column="43" lean-forward="false" selection-start-line="47" selection-start-column="43" selection-end-line="47" selection-end-column="43" />
                       <folding>
                         <element signature="e#0#61#0" expanded="true" />
                       </folding>
@@ -832,16 +820,13 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>user_id</find>
-      <find>get_request</find>
-      <find>class Event`</find>
       <find>def all_courses</find>
       <find>event_interests</find>
       <find>.access_token</find>
@@ -851,7 +836,6 @@
       <find>course_classes</find>
       <find>create_course</find>
       <find>Feed(</find>
-      <find>class Feed</find>
       <find>DISPLAY_ALL_FEEDS</find>
       <find>.conversation</find>
       <find>users_</find>
@@ -864,11 +848,15 @@
       <find>col-25</find>
       <find>set_conv</find>
       <find>faceboo</find>
-      <find>.render_all_Feed</find>
       <find>users_list</find>
       <find>ProjectView</find>
       <find>class Course</find>
       <find>def take_to_all_feeds</find>
+      <find>GET_ST</find>
+      <find>.render_all_Feed</find>
+      <find>send_message(</find>
+      <find>class Feed</find>
+      <find>VER</find>
     </findStrings>
     <replaceStrings>
       <replace>uselist</replace>
@@ -882,8 +870,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/static/scripts/submit_button.js" />
-        <option value="$PROJECT_DIR$/static/templates/events/create.html" />
         <option value="$PROJECT_DIR$/manage.py" />
         <option value="$PROJECT_DIR$/application/core/utils/helpers.py" />
         <option value="$PROJECT_DIR$/static/templates/courses/create.html" />
@@ -894,7 +880,6 @@
         <option value="$PROJECT_DIR$/instance/config.py" />
         <option value="$PROJECT_DIR$/application/modules/api/blocs.py" />
         <option value="$PROJECT_DIR$/static/templates/projects/details.html" />
-        <option value="$PROJECT_DIR$/application/core/constants/__init__.py" />
         <option value="$PROJECT_DIR$/application/courses/__init__.py" />
         <option value="$PROJECT_DIR$/application/users/helpers.py" />
         <option value="$PROJECT_DIR$/static/templates/oauth/request_login.html" />
@@ -918,21 +903,24 @@
         <option value="$PROJECT_DIR$/application/jobs/__init__.py" />
         <option value="$PROJECT_DIR$/static/templates/jobs/create.html" />
         <option value="$PROJECT_DIR$/static/templates/jobs/details.html" />
-        <option value="$PROJECT_DIR$/application/feeds/__init__.py" />
-        <option value="$PROJECT_DIR$/application/conversations/helpers.py" />
         <option value="$PROJECT_DIR$/application/modules/web/__init__.py" />
-        <option value="$PROJECT_DIR$/application/modules/web/feeds.py" />
         <option value="$PROJECT_DIR$/application/conversations/monologue.py" />
         <option value="$PROJECT_DIR$/application/gateways/facebook_client.py" />
-        <option value="$PROJECT_DIR$/jobs.py" />
-        <option value="$PROJECT_DIR$/static/templates/users_list.html" />
         <option value="$PROJECT_DIR$/application/projects/__init__.py" />
         <option value="$PROJECT_DIR$/application/modules/web/projects.py" />
         <option value="$PROJECT_DIR$/static/templates/success.html" />
-        <option value="$PROJECT_DIR$/application/core/models/__init__.py" />
         <option value="$PROJECT_DIR$/static/templates/courses/details.html" />
         <option value="$PROJECT_DIR$/application/modules/web/courses.py" />
+        <option value="$PROJECT_DIR$/jobs.py" />
+        <option value="$PROJECT_DIR$/static/templates/users_list.html" />
         <option value="$PROJECT_DIR$/application/conversations/collections.py" />
+        <option value="$PROJECT_DIR$/application/conversations/helpers.py" />
+        <option value="$PROJECT_DIR$/application/feeds/__init__.py" />
+        <option value="$PROJECT_DIR$/application/core/models/__init__.py" />
+        <option value="$PROJECT_DIR$/static/templates/comments_list.html" />
+        <option value="$PROJECT_DIR$/application/modules/web/feeds.py" />
+        <option value="$PROJECT_DIR$/application/core/constants/__init__.py" />
+        <option value="$PROJECT_DIR$/application/wrappers/facebook/manage.py" />
       </list>
     </option>
   </component>
@@ -1048,7 +1036,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.wsgi">
+  <component name="RunManager" selected="Python.manage">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -1255,9 +1243,9 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.wsgi" />
-        <item index="1" class="java.lang.String" itemvalue="Python.facebook_client" />
-        <item index="2" class="java.lang.String" itemvalue="Python.manage" />
+        <item index="0" class="java.lang.String" itemvalue="Python.manage" />
+        <item index="1" class="java.lang.String" itemvalue="Python.wsgi" />
+        <item index="2" class="java.lang.String" itemvalue="Python.facebook_client" />
         <item index="3" class="java.lang.String" itemvalue="Python.github_client" />
         <item index="4" class="java.lang.String" itemvalue="Python.udacity_client" />
       </list>
@@ -1287,11 +1275,11 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34398296" sideWeight="0.5106732" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21299255" sideWeight="0.4958949" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21299255" sideWeight="0.4958949" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290735" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24920128" sideWeight="0.49808428" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20021299" sideWeight="0.48932678" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20021299" sideWeight="0.48932678" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1331,24 +1319,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/users/helpers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="41" column="18" lean-forward="false" selection-start-line="41" selection-start-column="18" selection-end-line="41" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="11" column="2" lean-forward="false" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Procfile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="13">
@@ -1423,7 +1393,7 @@
         <state relative-caret-position="130">
           <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding>
-            <element signature="n#style#0;n#textarea#0;n#div#1;n#div#1;n#form#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#0;n#div#1;n#div#1;n#form#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1486,32 +1456,6 @@
           <caret line="75" column="36" lean-forward="false" selection-start-line="75" selection-start-column="36" selection-end-line="75" selection-end-column="36" />
           <folding>
             <element signature="n#style#0;n#textarea#0;n#div#1;n#div#1;n#form#0;n#div#1;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/gateways/facebook/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="114" column="8" lean-forward="false" selection-start-line="114" selection-start-column="8" selection-end-line="114" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/blocs/lib/python3.5/site-packages/pymessenger/bot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="65" column="35" lean-forward="false" selection-start-line="65" selection-start-column="35" selection-end-line="65" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/wrappers/facebook/helpers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="20" column="54" lean-forward="false" selection-start-line="20" selection-start-column="54" selection-end-line="20" selection-end-column="54" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1582,68 +1526,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/core/constants/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="15" column="36" lean-forward="false" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/feeds/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/conversations/helpers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="239" column="41" lean-forward="false" selection-start-line="239" selection-start-column="41" selection-end-line="239" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-            <element signature="e#958#1795#0" expanded="false" />
-            <element signature="e#3292#3660#0" expanded="false" />
-            <element signature="e#8793#10626#0" expanded="false" />
-            <element signature="e#10790#11735#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/web/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="14" column="20" lean-forward="false" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jobs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#61#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/web/feeds.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="8" column="14" lean-forward="false" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#44#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/web/events.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="104">
@@ -1660,26 +1542,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/gateways/facebook_client.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="21" column="25" lean-forward="true" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/projects/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="32" column="18" lean-forward="true" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/web/projects.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="111">
@@ -1687,14 +1549,6 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/templates/users_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="6" column="69" lean-forward="true" selection-start-line="6" selection-start-column="69" selection-end-line="6" selection-end-column="69" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1738,18 +1592,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/core/models/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="271" column="26" lean-forward="false" selection-start-line="271" selection-start-column="26" selection-end-line="271" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-            <element signature="e#435#934#0" expanded="false" />
-            <element signature="e#15420#15892#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/conversations/monologue.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="229">
@@ -1758,6 +1600,36 @@
             <element signature="e#1592#2125#0" expanded="false" />
             <element signature="e#3473#3720#0" expanded="false" />
             <element signature="e#4191#4383#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jobs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="47" column="43" lean-forward="false" selection-start-line="47" selection-start-column="43" selection-end-line="47" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#61#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/projects/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="32" column="18" lean-forward="true" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/templates/success.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="11" column="23" lean-forward="false" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1772,20 +1644,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/templates/success.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="10" column="12" lean-forward="true" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="80" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/web/courses.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="53">
-          <caret line="95" column="0" lean-forward="true" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
+        <state relative-caret-position="79">
+          <caret line="97" column="12" lean-forward="true" selection-start-line="97" selection-start-column="12" selection-end-line="97" selection-end-column="12" />
           <folding>
             <element signature="e#0#42#0" expanded="true" />
             <element signature="e#563#2892#0" expanded="false" />
@@ -1795,21 +1657,148 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/conversations/collections.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="215" column="18" lean-forward="true" selection-start-line="215" selection-start-column="18" selection-end-line="215" selection-end-column="18" />
+        <state relative-caret-position="149">
+          <caret line="573" column="44" lean-forward="false" selection-start-line="573" selection-start-column="44" selection-end-line="573" selection-end-column="44" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
             <element signature="e#335#1196#0" expanded="false" />
             <element signature="e#1261#2450#0" expanded="false" />
             <element signature="e#2528#3880#0" expanded="false" />
             <element signature="e#3958#5200#0" expanded="false" />
-            <element signature="e#5433#6565#0" expanded="false" />
-            <element signature="e#10580#11329#0" expanded="false" />
-            <element signature="e#11397#11403#0" expanded="false" />
-            <element signature="e#11457#12085#0" expanded="false" />
-            <element signature="e#12141#12976#0" expanded="false" />
-            <element signature="e#13028#13841#0" expanded="false" />
-            <element signature="e#14676#15345#0" expanded="false" />
+            <element signature="e#5348#6480#0" expanded="false" />
+            <element signature="e#6700#7793#0" expanded="false" />
+            <element signature="e#10702#11451#0" expanded="false" />
+            <element signature="e#11519#11525#0" expanded="false" />
+            <element signature="e#11579#12207#0" expanded="false" />
+            <element signature="e#12263#13098#0" expanded="false" />
+            <element signature="e#13150#13963#0" expanded="false" />
+            <element signature="e#14019#14752#0" expanded="false" />
+            <element signature="e#14798#15467#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/feeds/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="12" column="19" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/templates/users_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="8" column="10" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="23" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/core/models/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="427" column="35" lean-forward="true" selection-start-line="427" selection-start-column="35" selection-end-line="427" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+            <element signature="e#435#934#0" expanded="false" />
+            <element signature="e#15728#16200#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/templates/comments_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="23" column="41" lean-forward="false" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/web/feeds.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/blocs/lib/python3.5/site-packages/pymessenger/bot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="767">
+          <caret line="65" column="35" lean-forward="false" selection-start-line="65" selection-start-column="35" selection-end-line="65" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/gateways/facebook/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="82">
+          <caret line="36" column="19" lean-forward="true" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/gateways/facebook_client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="25" column="28" lean-forward="true" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/conversations/helpers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3003">
+          <caret line="326" column="0" lean-forward="true" selection-start-line="326" selection-start-column="0" selection-end-line="326" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+            <element signature="e#958#1795#0" expanded="false" />
+            <element signature="e#3292#3660#0" expanded="false" />
+            <element signature="e#8793#10626#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/web/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="33" column="9" lean-forward="false" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/wrappers/facebook/helpers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="20" column="54" lean-forward="false" selection-start-line="20" selection-start-column="54" selection-end-line="20" selection-end-column="54" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/core/constants/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13">
+          <caret line="19" column="179" lean-forward="false" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="179" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/wrappers/facebook/manage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="112" column="0" lean-forward="true" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>

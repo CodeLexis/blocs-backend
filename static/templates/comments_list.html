@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ title }}</title>
+        <link rel="stylesheet" type="text/css" href="/static/assets/style.css">
+    </head>
+    <body>
+        {{ feed }}
+        <hr>
+        <table width="100%">
+        {% for comment in comments %}
+            <tr>
+                <td width="25%">
+                    <img src="{{ comment.created_by.avatar_url }}" width="25%"/>
+                </td>
+                <td width="75%">
+                    <a href="{{ comment.created_by.profile_link }}">
+                        <b>{{ comment.created_by.first_name }}
+                        {{ comment.created_by.last_name }}
+                        </b>
+                    </a>
+                    {{ comment.message }}
+                </td>
+            </tr>
+        {% endfor %}
+        </table>
+    </body>
+</html>

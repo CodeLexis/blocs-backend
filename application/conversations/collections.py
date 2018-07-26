@@ -564,6 +564,22 @@ class Collections(object):
         return {'text': text, 'buttons': all_view_project_options}
 
     @classmethod
+    def ask_to_view_other_replies(cls, feed):
+        text = '%s others also replied.' % (feed.comments_count)
+
+        all_view_people_options = [
+            Dialogue.button(
+                type='web_url', title='VIEW',
+                url=url_for('web_blueprint.render_feed_comments',
+                            feed_id=feed.id, _external=True)
+            )
+        ]
+
+        # return dict that will be splatted because of double params
+        # requirement for `buttons` message
+        return {'text': text, 'buttons': all_view_people_options}
+
+    @classmethod
     def ask_to_view_people_offering_course(cls, course):
         text = '%s others also offer %s.' % (
             course.student_count, course.title)

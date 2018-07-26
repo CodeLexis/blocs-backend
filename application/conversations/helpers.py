@@ -313,13 +313,42 @@ def handle_payload(sender_id, payload, platform='Facebook Bot'):
     return response
 
 
+def handle_text(text):
+    response = list()
+
+    current_convo = g.user.conversations[-1]
+
+    expecting_response = (
+        current_convo.expecting_response_for.startswith('REPLY_FEED')
+    )
+
+    if expecting_response:
+        feed_id = expecting_response.split('__')[1]
+
+        feed = Feed.get(id=feed_id)
+
+        feeds.comment_on_feed(feed, text)
+
+        response.append(('text', Monologue.compliment()))
+        response.append(('buttons', Collections.ask_to_view_other_replies(
+            feed)))
+
+        current_convo.update(expecting_response=None)
+
+    return response
+
+
 def get_response(sender_id, platform, text=None, attachments=None, nlp=None,
                  sticker_id=None, payload=None, title=None, is_postback=True):
 
     response = list()
 
-    if text == 'WHOAMI':
-        response.append(('text', Monologue.echo_user_details()))
+    if text:
+        if text == 'WHOAMI':
+            response.append(('text', Monologue.echo_user_details()))
+
+        else:
+            handle_text(text)
 
     if sticker_id == 369239263222822:  # if thumbs-up
         response.append(('text', Monologue.blush()))

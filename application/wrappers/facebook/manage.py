@@ -6,7 +6,7 @@ from application.core.constants import LANDING_MESSAGE
 
 
 # ACCESS_TOKEN = os.environ['ACCESS_TOKEN']
-ACCESS_TOKEN = 'EAAGTzHZCz6UQBABxWs72JZAVySh8ZC7y55wsGx5hZBmDH0cTGCZBDa4vGGweLjRJJjezBgk8J8OiLlyEfcWpdkck74EEK7xK6SKc9zJEilYXGH5cC6wR7ZCFbAhYir4OZCpWtH5RxT4Cn2ipZCLZC9louZCSEpUUqU2hjQI5WAFCMr2wZDZD'
+ACCESS_TOKEN = 'EAACy5fCj3rgBAP98hkUBZB2GCgecTnWfPz1b47b0SeLSq2QZAD8lvJxZCrnNlxrvuEQV3vVxqQ3CNER49BZCTlAlBvPMx6XX0f8K8cPGF9cQvXgJwboPLVwJPxOuMrZAAWl2AFaCSFJ2EROyhPEVxv0hfiZClqqy6bZC5ylpXfotAZDZD'
 
 # VERIFY_TOKEN = os.environ['VERIFY_TOKEN']
 VERIFY_TOKEN = 'some_verify_token'
@@ -64,9 +64,8 @@ side_menu_payload = {
                                 {
                                     "title": "Blocs",
                                     "type": "web_url",
-                                    "url": url_for(
-                                        'web_blueprint.manage_blocs',
-                                        _external=True)
+                                    "url":
+                                        'https://blocs-backend.herokuapp.com/blocs'
                                 }
                             ]
                         }
@@ -108,6 +107,6 @@ def add_greeting():
 
 
 if __name__ == '__main__':
-    print(add_get_started())
-    # print(add_side_menu())
-    # print(add_greeting())
+    # print(add_get_started())
+    print(add_side_menu())
+    print(add_greeting())

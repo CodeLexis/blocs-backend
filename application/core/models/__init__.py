@@ -404,6 +404,10 @@ class Feed(BaseModel, HasUID):
     def likes_count(self):
         return FeedLike.prep_query_for_active(feed_id=self.id).count()
 
+    @property
+    def comments_count(self):
+        return FeedComment.prep_query_for_active(feed_id=self.id).count()
+
 
 class FeedComment(BaseModel, HasUID, HasStatus):
     __tablename__ = 'feed_comments'
@@ -416,6 +420,13 @@ class FeedComment(BaseModel, HasUID, HasStatus):
         'Feed', backref=db.backref('feed_comments', uselist=True))
     user = db.relationship(
         'User', backref=db.backref('feed_comments', uselist=True))
+
+    def as_json(self):
+        return {
+            'created_at': self.created_at.isoformat(),
+            'created_by': self.user.as_json(),
+            'message': self.message
+        }
 
 
 class FeedLike(BaseModel, HasUID, HasStatus):
