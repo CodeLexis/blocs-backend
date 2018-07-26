@@ -240,9 +240,9 @@ def handle_bloc_required_payload(payload):
             )
 
         else:
-            feeds.like_feed(feed_id)
-
             feed = Feed.get(id=feed_id)
+
+            feeds.like_feed(feed.external_app_uid)
 
             response.append(('text', Monologue.compliment()))
             response.append(
