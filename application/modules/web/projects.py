@@ -47,7 +47,7 @@ def render_project_details_page(project_id):
 
     project = Project.get(id=project_id)
 
-    project_view = ProjectView(project_id=project_id, user_id=user_id)
+    project_view = ProjectView(project_id=project_id, created_by_id=user_id)
     project_view.save()
 
     return redirect(project.weblink)
@@ -62,8 +62,10 @@ def render_all_project_likes(project_id):
         project_likes, **get_request_pagination_params())
 
     return render_template(
-        'projects/likes.html',
-        project_likes=[like.as_json() for like in project_likes]
+        'users_list.html',
+        title='People that also liked it',
+        users=[
+            project_like.created_by.as_json() for project_like in project_likes]
     )
 
 
