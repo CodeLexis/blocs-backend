@@ -7,7 +7,7 @@ from application.core.models import Bloc, Event, EventInterest, User
 from application.core.models import prep_paginate_query, get_pagination_meta
 from application.core.utils.request_response_helpers import (
     get_request_pagination_params)
-from application.events import create_event
+from application.events import create_event, declare_event_interest
 from . import render_template, request, web_blueprint
 
 
@@ -56,11 +56,26 @@ def render_event_details(event_id):
     event = Event.get(id=event_id)
 
     context = event.as_json()
+    context['thumbnail'] = url_for(
+        'web_blueprint.render_event_thumbnail', event_id=event_id)
 
     return render_template('events/details.html', **context)
 
 
-@web_blueprint.route('/events/<int:event_id>/thubmnail')
+@web_blueprint.route('/events/<int:event_id>/declare-interest')
+def render_declare_event_interest_page(event_id):
+    declare_event_interest(event_id)
+
+    return render_template('success.html')
+
+    # context = event.as_json()
+    # context['thumbnail'] = url_for(
+    #     'web_blueprint.render_event_thumbnail', event_id=event_id)
+    #
+    # return render_template('events/details.html', **context)
+
+
+@web_blueprint.route('/events/<int:event_id>/thumbnail')
 def render_event_thumbnail(event_id):
     event = Event.get(id=event_id)
 

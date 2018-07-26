@@ -336,6 +336,16 @@ class Event(BaseModel, HasUID, HasBloc, HasCreator):
         'Bloc', backref=db.backref('events', uselist=True),
         uselist=False)
 
+    def as_json(self):
+        return {
+            'id': self.id,
+            'title': self.title,
+            'description': self.description,
+            'venue': self.venue,
+            'datetime': self.datetime.isoformat(),
+            'thumbnail': self.thumbnail
+        }
+
     @property
     def interest_count(self):
         return EventInterest.query.filter_by(

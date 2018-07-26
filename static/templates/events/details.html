@@ -1,16 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
- <div class="card">
-  <img src="img_avatar.png" alt="Avatar" style="width:100%">
-  <div class="container">
-    <h4><b>John Doe</b></h4>
-    <p>Architect & Engineer</p>
-  </div>
-</div>
-</body>
-</html>
+{% extends "layouts/dialog.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+
+    <div class="card">
+        <img src="{{ thumbnail }}" alt="Avatar" style="width:100%">
+        <div class="container">
+            <h4><b>{{ title }}</b></h4>
+            <p><b>{{ datetime }} at {{ venue }}</b>
+                {{ description }}
+                <small>{{ event_interests }} are interested</small>
+                <a href="/events/{{ id }}/declare-interest"><button>INTERESTED
+                </button></a>
+            </p>
+        </div>
+    </div>
+
+{% endblock %}
