@@ -22,6 +22,8 @@ def create_bloc_project(bloc, user_id, title, description, weblink):
         )
     )
 
+    return project
+
     url = url_for('web_blueprint.render_project_details',
                   project_id=project.id,
                   _external=True)
