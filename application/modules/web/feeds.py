@@ -11,5 +11,7 @@ def render_all_feeds_likes(feed_id):
     for feed_like in feed_likes:
         users.append(feed_like.user.as_json())
 
+    print('USERS: %s' % users)
+
     return render_template('users_list.html', title='People who also liked it',
                            users=users)
