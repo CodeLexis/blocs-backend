@@ -59,12 +59,17 @@ def render_event_details(event_id):
     context['thumbnail'] = url_for(
         'web_blueprint.render_event_thumbnail', event_id=event_id,
         _external=True)
+    context['user_id'] = request.args.get('user_id')
 
     return render_template('events/details.html', **context)
 
 
 @web_blueprint.route('/events/<int:event_id>/declare-interest')
 def render_declare_event_interest_page(event_id):
+    user_id = request.args.get('user_id')
+
+    g.user = User.get(id=user_id)
+
     declare_event_interest(event_id)
 
     return render_template('success.html')

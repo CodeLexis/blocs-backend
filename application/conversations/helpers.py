@@ -8,8 +8,8 @@ from .collections import Collections
 from application.core import db
 from application.core.constants import SOFTWARE_BRANCHES
 from application.core.models import (BlocsPlatform, Conversation, Course,
-    Job, JobApplication, Message, Project, SoftwareBranch, User)
-from application import blocs, courses, events, location, projects
+    Feed, Job, JobApplication, Message, Project, SoftwareBranch, User)
+from application import blocs, courses, events, feeds, location, projects
 from application.users.helpers import (add_course_to_offered,
     add_user_software_branch, create_new_user)
 from application.wrappers.facebook.helpers import send_message, get_user_profile
@@ -230,8 +230,28 @@ def handle_bloc_required_payload(payload):
         response.append(('text', Monologue.take_to_all_feeds()))
         response.append(('generic', Collections.all_feeds()))
 
-    elif payload.startswith('DISPLAY_JOB'):
-        job_id = int(payload.split('__')[1])
+    elif payload.startswith('LIKE_FEED'):
+        feed_id = int(payload.split('__')[1])
+
+        if g.user.access_token is None:
+            response.append(
+                ('buttons',
+                 Collections.ask_for_facebook_login())
+            )
+
+        else:
+            feeds.like_feed(feed_id)
+
+            feed = Feed.get(id=feed_id)
+
+            response.append(('text', Monologue.compliment()))
+            response.append(
+                ('buttons',
+                 Collections.ask_to_view_people_that_liked_feed(feed))
+            )
+
+    elif payload.startswith('REPLY_FEED'):
+        feed_id = int(payload.split('__')[1])
 
         response.append(('text', Monologue.take_to_job()))
 

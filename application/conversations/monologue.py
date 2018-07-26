@@ -96,7 +96,7 @@ class Monologue(object):
             statement = random.choice([
                 "You need to connect your Facebook account, first.",
                 "You haven't connected your Facebook account yet.",
-                "Oops.. You would first have to connect your Facebook "
+                "Oops... You would first have to connect your Facebook "
                 "account, {}".format(g.user.first_name[0])
             ])
 

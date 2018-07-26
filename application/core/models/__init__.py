@@ -393,6 +393,35 @@ class Feed(BaseModel, HasUID):
     created_by = db.relationship(
         'User', backref=db.backref('user_feeds', uselist=True))
 
+    @property
+    def likes_count(self):
+        return FeedLike.prep_query_for_active(feed_id=self.id).count()
+
+
+class FeedComment(BaseModel, HasUID, HasStatus):
+    __tablename__ = 'feed_comments'
+
+    feed_id = db.Column(db.Integer, db.ForeignKey('feeds.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    message = db.Column(db.TEXT)
+
+    feed = db.relationship(
+        'Feed', backref=db.backref('feed_comments', uselist=True))
+    user = db.relationship(
+        'User', backref=db.backref('feed_comments', uselist=True))
+
+
+class FeedLike(BaseModel, HasUID, HasStatus):
+    __tablename__ = 'feed_likes'
+
+    feed_id = db.Column(db.Integer, db.ForeignKey('feeds.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+
+    feed = db.relationship(
+        'Feed', backref=db.backref('feed_likes', uselist=True))
+    user = db.relationship(
+        'User', backref=db.backref('feed_likes', uselist=True))
+
 
 class Job(BaseModel, HasUID, HasCreator, HasBloc):
     __tablename__ = 'jobs'
@@ -403,9 +432,22 @@ class Job(BaseModel, HasUID, HasCreator, HasBloc):
     thumbnail = db.Column(db.TEXT)
     min_salary = db.Column(AMOUNT_FIELD)
     max_salary = db.Column(AMOUNT_FIELD)
+    salary_currency = db.Column(db.String(3))
     salary_interval = db.Column(db.String(128))
     duration = db.Column(
         db.Enum('SHORT TERM', 'FULL-TIME', 'PART-TIME', name='job_durations'))
+
+    def as_json(self):
+        return {
+            'title': self.title,
+            'location': self.location,
+            'description': self.description,
+            'min_salary': self.min_salary,
+            'max_salary': self.max_salary,
+            'salary_interval': self.salary_interval,
+            'duration': self.duration,
+            'currency': self.currency
+        }
 
 
 class JobApplication(BaseModel, HasUID, HasCreator, HasBloc):
@@ -600,5 +642,7 @@ class User(BaseModel, HasUID, HasStatus):
             'username': self.username,
             'bio': self.bio,
             # 'location': self.location,
-            'avatar_url': self.clean_avatar_url
+            'avatar_url': self.clean_avatar_url,
+            'profile_link': 'https://web.facebook.com/{}'.format(
+                self.external_app_uid)
         }

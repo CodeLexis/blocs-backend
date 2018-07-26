@@ -5,6 +5,7 @@ from flask import g, url_for
 from application.core.constants import (
     DEFAULT_BLOCS, MENU_ITEMS, PAGINATE_DEFAULT_PER_PAGE)
 from application.core.models import Bloc
+from .monologue import Monologue
 from .dialogue import Dialogue
 
 
@@ -193,6 +194,7 @@ class Collections(object):
                         type='web_url', title='VIEW',
                         url=url_for(
                             'web_blueprint.render_event_details',
+                            user_id=g.user.id,
                             event_id=event.id, _external=True)
                     )
                 ]
@@ -501,6 +503,21 @@ class Collections(object):
         return {'text': text, 'buttons': all_view_project_options}
 
     @classmethod
+    def ask_to_view_people_that_liked_feed(cls, feed):
+        text = '%s others also liked it.' % feed.likes_count
+        all_view_project_options = [
+            Dialogue.button(
+                type='web_url', title='VIEW', url=url_for(
+                'web_blueprint.render_all_feed_likes',
+                feed_id=feed.id, _external=True)
+            )
+        ]
+
+        # return dict that will be splatted because of double params
+        # requirement for `buttons` message
+        return {'text': text, 'buttons': all_view_project_options}
+
+    @classmethod
     def ask_to_view_events_interested_in(cls):
         text = '%s, you have %s events coming up soon.' % (
             g.user.first_name, g.user.event_interests_count
@@ -544,6 +561,21 @@ class Collections(object):
                 type='web_url', title='VIEW', url=url_for(
                 'web_blueprint.render_all_course_students',
                 course_id=course.id, _external=True)
+            )
+        ]
+
+        # return dict that will be splatted because of double params
+        # requirement for `buttons` message
+        return {'text': text, 'buttons': all_view_people_options}
+
+    @classmethod
+    def ask_for_facebook_login(cls, motive):
+        text = Monologue.request_facebook_login(required=True)
+
+        all_view_people_options = [
+            Dialogue.button(
+                type='web_url', title='CONNECT',
+                url=url_for('web_blueprint.oauth_facebook', _external=True)
             )
         ]
 

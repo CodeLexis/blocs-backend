@@ -21,8 +21,6 @@ def pull_feeds_from_users():
                     user.access_token)['feed']['data']
 
                 for feed in users_feed:
-                    print(feed)
-                    print('\n\n\n')
 
                     if '#blocs' in feed.get('message', '').lower():
                         if Feed.get(external_app_uid=feed['id']) is not None:
@@ -36,7 +34,7 @@ def pull_feeds_from_users():
 
                         feed.save()
 
-                        print('SAVEDD %s' % feed)
+                        print('SAVED NEW FEED %s' % feed)
 
                         for bloc in user.blocs:
                             bloc_feed = BlocFeed(

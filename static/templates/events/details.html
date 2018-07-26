@@ -14,8 +14,10 @@
             <p><b>{{ datetime }} at {{ venue }}</b><br>
                 {{ description }}<br>
                 <small>{{ event_interests }} are interested</small>
-                <a href="/events/{{ id }}/declare-interest"><button>INTERESTED
-                </button></a>
+                <a
+                        href="/events/{{ id }}/declare-interest?user_id={{ user_id }}">
+                    <button>INTERESTED</button>
+                </a>
             </p>
         </div>
     </div>

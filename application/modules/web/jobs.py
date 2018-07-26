@@ -34,6 +34,7 @@ def render_job_creation_page():
         duration = request.form['duration']
         min_salary = request.form['min_salary']
         max_salary = request.form['max_salary']
+        salary_currency = request.form['salary_currency']
         user_id = request.form['user_id']
         salary_interval = request.form['salary_interval']
 
@@ -43,7 +44,7 @@ def render_job_creation_page():
             bloc=bloc, title=title, description=description,
             duration=duration, location=location, min_salary=min_salary,
             max_salary=max_salary, salary_interval=salary_interval,
-            user_id=user_id
+            user_id=user_id, salary_currency=salary_currency
         )
 
         context = {'scope': 'job'}

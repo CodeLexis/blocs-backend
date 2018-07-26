@@ -3,10 +3,17 @@
     <head>
         <meta charset="UTF-8">
         <title>{{ title }}</title>
+        <link rel="stylesheet" type="text/css" href="/static/assets/style.css">
     </head>
     <body>
+        <table>
         {% for user in users %}
-
+            <td width="25%"><img src="{{ user.avatar }}"/></td>
+            <td width="75%">
+                <a href="{{ user.profile_link }}"><b>{{ user.first_name }}
+                    {{ user.last_name }}</b></a>
+            </td>
         {% endfor %}
+        </table>
     </body>
 </html>

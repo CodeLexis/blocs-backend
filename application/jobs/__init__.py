@@ -4,13 +4,13 @@ from application.core.models import (prep_paginate_query, get_pagination_meta)
 
 
 def create_job(bloc, user_id, title, description, min_salary, max_salary,
-               salary_interval, duration, location):
+               salary_currency, salary_interval, duration, location):
 
     job = Job(
         bloc_id=bloc.id, title=title, description=description,
         min_salary=min_salary, max_salary=max_salary,
         salary_interval=salary_interval, duration=duration,
-        created_by_id=user_id,
+        created_by_id=user_id, salary_currency=salary_currency,
         location=location)
 
     job.save()

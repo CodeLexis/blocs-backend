@@ -47,3 +47,10 @@ def put_like(access_token, object_id):
     graph = create_client(access_token=access_token)
 
     return graph.put_like(object_id=object_id)
+
+
+def put_comment(access_token, object_id, message):
+    graph = create_client(access_token=access_token)
+
+    return graph.put_object(
+        parent_object=object_id, connection_name='comments', message=message)
