@@ -348,7 +348,10 @@ def get_response(sender_id, platform, text=None, attachments=None, nlp=None,
             response.append(('text', Monologue.echo_user_details()))
 
         else:
-            handle_text(text)
+            try:
+                response = handle_text(text)
+            except:
+                pass
 
     if sticker_id == 369239263222822:  # if thumbs-up
         response.append(('text', Monologue.blush()))
