@@ -508,7 +508,7 @@ class Collections(object):
         all_view_project_options = [
             Dialogue.button(
                 type='web_url', title='VIEW', url=url_for(
-                'web_blueprint.render_all_feed_likes',
+                'web_blueprint.render_all_feeds_likes',
                 feed_id=feed.id, _external=True)
             )
         ]
