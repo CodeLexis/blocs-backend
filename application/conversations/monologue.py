@@ -323,7 +323,8 @@ class Monologue(object):
 
     @classmethod
     def take_to_all_feeds(cls):
-        return "Here's what is new on your Blocs."
+        return ("Here's what is new on your Blocs. Include #Blocs in anything "
+               "you post on Facebook, to let other developers see them")
 
     @classmethod
     def take_to_menu(cls):
