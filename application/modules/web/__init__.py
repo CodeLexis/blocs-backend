@@ -12,6 +12,7 @@ web_blueprint = Blueprint('web_blueprint', __name__, url_prefix='')
 from .blocs import *
 from .courses import *
 from .events import *
+from .feeds import *
 from .jobs import *
 from .projects import *
 from .gateways import *
