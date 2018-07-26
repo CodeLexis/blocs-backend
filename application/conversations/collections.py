@@ -31,7 +31,7 @@ class Collections(object):
             buttons = [
                 Dialogue.button(
                     type='web_url', title='READ',
-                    url=bloc['url']
+                    url=bloc.url
                 )
             ]
 

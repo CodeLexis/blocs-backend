@@ -286,7 +286,7 @@ def handle_payload(sender_id, payload, platform='Facebook Bot'):
             response.append(('text', statement))
 
         response.append(('text', Monologue.take_to_all_blocs()))
-        response.append(('text', Collections.all_blocs()))
+        response.append(('text', Collections.all_default_blocs()))
 
         # get_location = Dialogue.quick_reply(
         #     title=Monologue.request_location_for_bloc(),
