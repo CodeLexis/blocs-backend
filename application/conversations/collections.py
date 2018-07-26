@@ -173,9 +173,6 @@ class Collections(object):
     def all_events(cls, page=1, _tailored=False):
         all_event_elements = []
 
-        if not _tailored:
-            all_event_elements.extend(cls.create_event())
-
         for bloc in g.user.blocs:
             for event in bloc.events:
 
@@ -209,7 +206,12 @@ class Collections(object):
 
                 all_event_elements.append(event_data)
 
-        return all_event_elements
+        all_event_elements.reverse()
+
+        if not _tailored:
+            all_event_elements.insert(0, cls.create_event()[0])
+
+        return all_event_elements[:10]
 
     @classmethod
     def all_feeds(cls):
@@ -252,7 +254,9 @@ class Collections(object):
     @classmethod
     def all_jobs(cls, page=1, _tailored=False):
         all_job_elements = []
-        all_job_elements.extend(cls.create_job())
+
+        # if _tailored:
+        # all_job_elements.extend(cls.create_job())
 
         for bloc in g.user.blocs:
             for job in bloc.jobs:
@@ -284,12 +288,16 @@ class Collections(object):
 
                 all_job_elements.append(job_element)
 
-        return all_job_elements
+        all_job_elements.reverse()
+
+        if not _tailored:
+            all_job_elements.insert(0, cls.create_job()[0])
+
+        return all_job_elements[:10]
 
     @classmethod
     def all_projects(cls, page=1, _tailored=False):
         all_project_elements = []
-        all_project_elements.extend(cls.create_project())
 
         for bloc in g.user.blocs:
             for project in bloc.projects:
@@ -323,7 +331,11 @@ class Collections(object):
 
                 all_project_elements.append(project_element)
 
-        return all_project_elements
+        all_project_elements.reverse()
+
+        all_project_elements.insert(0, cls.create_project()[0])
+
+        return all_project_elements[:10]
 
     @classmethod
     def project(cls, news_source):

@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ad8270f-f719-45e1-81e5-506149528fc2" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/application/core/models/__init__.py" afterPath="$PROJECT_DIR$/application/core/models/__init__.py" />
-      <change beforePath="$PROJECT_DIR$/static/templates/courses/details.html" afterPath="$PROJECT_DIR$/static/templates/courses/details.html" />
-      <change beforePath="$PROJECT_DIR$/static/templates/success.html" afterPath="$PROJECT_DIR$/static/templates/success.html" />
+      <change beforePath="$PROJECT_DIR$/application/conversations/collections.py" afterPath="$PROJECT_DIR$/application/conversations/collections.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -46,11 +44,11 @@
                         </provider>
                       </entry>
                     </file>
-                    <file leaf-file-name="details.html" pinned="false" current-in-tab="true">
+                    <file leaf-file-name="details.html" pinned="false" current-in-tab="false">
                       <entry file="file://$PROJECT_DIR$/static/templates/courses/details.html">
                         <provider selected="true" editor-type-id="text-editor">
-                          <state relative-caret-position="147">
-                            <caret line="14" column="71" lean-forward="false" selection-start-line="14" selection-start-column="71" selection-end-line="14" selection-end-column="71" />
+                          <state relative-caret-position="182">
+                            <caret line="14" column="52" lean-forward="false" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
                             <folding>
                               <element signature="n#style#0;n#img#0;n#div#0;n#!!top" expanded="true" />
                             </folding>
@@ -68,11 +66,11 @@
                         </provider>
                       </entry>
                     </file>
-                    <file leaf-file-name="success.html" pinned="false" current-in-tab="false">
+                    <file leaf-file-name="success.html" pinned="false" current-in-tab="true">
                       <entry file="file://$PROJECT_DIR$/static/templates/success.html">
                         <provider selected="true" editor-type-id="text-editor">
-                          <state relative-caret-position="78">
-                            <caret line="6" column="4" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
+                          <state relative-caret-position="130">
+                            <caret line="10" column="12" lean-forward="true" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="80" />
                             <folding>
                               <element signature="n#style#0;n#img#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                             </folding>
@@ -245,12 +243,12 @@
             <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/application/core/models/__init__.py">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="393">
-                    <caret line="288" column="62" lean-forward="true" selection-start-line="288" selection-start-column="62" selection-end-line="288" selection-end-column="62" />
+                  <state relative-caret-position="445">
+                    <caret line="271" column="26" lean-forward="false" selection-start-line="271" selection-start-column="26" selection-end-line="271" selection-end-column="26" />
                     <folding>
                       <element signature="e#0#29#0" expanded="true" />
                       <element signature="e#435#934#0" expanded="false" />
-                      <element signature="e#15260#15732#0" expanded="false" />
+                      <element signature="e#15420#15892#0" expanded="false" />
                     </folding>
                   </state>
                 </provider>
@@ -401,11 +399,11 @@
               </split-first>
               <split-second>
                 <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-                  <file leaf-file-name="monologue.py" pinned="false" current-in-tab="true">
+                  <file leaf-file-name="monologue.py" pinned="false" current-in-tab="false">
                     <entry file="file://$PROJECT_DIR$/application/conversations/monologue.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="333">
-                          <caret line="326" column="60" lean-forward="false" selection-start-line="326" selection-start-column="60" selection-end-line="326" selection-end-column="60" />
+                        <state relative-caret-position="229">
+                          <caret line="318" column="72" lean-forward="true" selection-start-line="318" selection-start-column="72" selection-end-line="318" selection-end-column="72" />
                           <folding>
                             <element signature="e#1592#2125#0" expanded="false" />
                             <element signature="e#3473#3720#0" expanded="false" />
@@ -425,23 +423,24 @@
                       </provider>
                     </entry>
                   </file>
-                  <file leaf-file-name="collections.py" pinned="false" current-in-tab="false">
+                  <file leaf-file-name="collections.py" pinned="false" current-in-tab="true">
                     <entry file="file://$PROJECT_DIR$/application/conversations/collections.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="102">
-                          <caret line="510" column="47" lean-forward="false" selection-start-line="510" selection-start-column="47" selection-end-line="510" selection-end-column="47" />
+                        <state relative-caret-position="151">
+                          <caret line="215" column="18" lean-forward="true" selection-start-line="215" selection-start-column="18" selection-end-line="215" selection-end-column="18" />
                           <folding>
                             <element signature="e#0#13#0" expanded="true" />
                             <element signature="e#335#1196#0" expanded="false" />
+                            <element signature="e#1261#2450#0" expanded="false" />
+                            <element signature="e#2528#3880#0" expanded="false" />
                             <element signature="e#3958#5200#0" expanded="false" />
-                            <element signature="e#9078#10384#0" expanded="false" />
-                            <element signature="e#9209#10347#0" expanded="false" />
-                            <element signature="e#10446#11195#0" expanded="false" />
-                            <element signature="e#11263#11269#0" expanded="false" />
-                            <element signature="e#11323#11951#0" expanded="false" />
-                            <element signature="e#12007#12842#0" expanded="false" />
-                            <element signature="e#12894#13707#0" expanded="false" />
-                            <element signature="e#14542#15211#0" expanded="false" />
+                            <element signature="e#5433#6565#0" expanded="false" />
+                            <element signature="e#10580#11329#0" expanded="false" />
+                            <element signature="e#11397#11403#0" expanded="false" />
+                            <element signature="e#11457#12085#0" expanded="false" />
+                            <element signature="e#12141#12976#0" expanded="false" />
+                            <element signature="e#13028#13841#0" expanded="false" />
+                            <element signature="e#14676#15345#0" expanded="false" />
                           </folding>
                         </state>
                       </provider>
@@ -568,8 +567,8 @@
                   <file leaf-file-name="courses.py" pinned="false" current-in-tab="true">
                     <entry file="file://$PROJECT_DIR$/application/modules/web/courses.py">
                       <provider selected="true" editor-type-id="text-editor">
-                        <state relative-caret-position="209">
-                          <caret line="107" column="30" lean-forward="true" selection-start-line="102" selection-start-column="8" selection-end-line="107" selection-end-column="30" />
+                        <state relative-caret-position="53">
+                          <caret line="95" column="0" lean-forward="true" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
                           <folding>
                             <element signature="e#0#42#0" expanded="true" />
                             <element signature="e#563#2892#0" expanded="false" />
@@ -840,7 +839,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>render_course_thu</find>
       <find>user_id</find>
       <find>get_request</find>
       <find>class Event`</find>
@@ -866,10 +864,11 @@
       <find>col-25</find>
       <find>set_conv</find>
       <find>faceboo</find>
-      <find>def take_to_all_feeds</find>
       <find>.render_all_Feed</find>
       <find>users_list</find>
       <find>ProjectView</find>
+      <find>class Course</find>
+      <find>def take_to_all_feeds</find>
     </findStrings>
     <replaceStrings>
       <replace>uselist</replace>
@@ -909,7 +908,6 @@
         <option value="$PROJECT_DIR$/crons.py" />
         <option value="$PROJECT_DIR$/Procfile" />
         <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/application/modules/web/courses.py" />
         <option value="$PROJECT_DIR$/static/templates/jobs/application.html" />
         <option value="$PROJECT_DIR$/static/templates/blocs/create.html" />
         <option value="$PROJECT_DIR$/static/scripts/interest_button.js" />
@@ -923,7 +921,6 @@
         <option value="$PROJECT_DIR$/application/feeds/__init__.py" />
         <option value="$PROJECT_DIR$/application/conversations/helpers.py" />
         <option value="$PROJECT_DIR$/application/modules/web/__init__.py" />
-        <option value="$PROJECT_DIR$/application/conversations/collections.py" />
         <option value="$PROJECT_DIR$/application/modules/web/feeds.py" />
         <option value="$PROJECT_DIR$/application/conversations/monologue.py" />
         <option value="$PROJECT_DIR$/application/gateways/facebook_client.py" />
@@ -931,15 +928,17 @@
         <option value="$PROJECT_DIR$/static/templates/users_list.html" />
         <option value="$PROJECT_DIR$/application/projects/__init__.py" />
         <option value="$PROJECT_DIR$/application/modules/web/projects.py" />
-        <option value="$PROJECT_DIR$/application/core/models/__init__.py" />
         <option value="$PROJECT_DIR$/static/templates/success.html" />
+        <option value="$PROJECT_DIR$/application/core/models/__init__.py" />
         <option value="$PROJECT_DIR$/static/templates/courses/details.html" />
+        <option value="$PROJECT_DIR$/application/modules/web/courses.py" />
+        <option value="$PROJECT_DIR$/application/conversations/collections.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="65" />
-    <option name="y" value="1076" />
+    <option name="y" value="-4" />
     <option name="width" value="1855" />
     <option name="height" value="1084" />
   </component>
@@ -1281,7 +1280,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="1076" width="1855" height="1084" extended-state="6" />
+    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15489875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1615,26 +1614,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/conversations/collections.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="510" column="47" lean-forward="false" selection-start-line="510" selection-start-column="47" selection-end-line="510" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-            <element signature="e#335#1196#0" expanded="false" />
-            <element signature="e#3958#5200#0" expanded="false" />
-            <element signature="e#9078#10384#0" expanded="false" />
-            <element signature="e#9209#10347#0" expanded="false" />
-            <element signature="e#10446#11195#0" expanded="false" />
-            <element signature="e#11263#11269#0" expanded="false" />
-            <element signature="e#11323#11951#0" expanded="false" />
-            <element signature="e#12007#12842#0" expanded="false" />
-            <element signature="e#12894#13707#0" expanded="false" />
-            <element signature="e#14542#15211#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/web/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
@@ -1661,18 +1640,6 @@
           <caret line="8" column="14" lean-forward="false" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
           <folding>
             <element signature="e#0#44#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/conversations/monologue.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="326" column="60" lean-forward="false" selection-start-line="326" selection-start-column="60" selection-end-line="326" selection-end-column="60" />
-          <folding>
-            <element signature="e#1592#2125#0" expanded="false" />
-            <element signature="e#3473#3720#0" expanded="false" />
-            <element signature="e#4191#4383#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1771,10 +1738,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/core/models/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="445">
+          <caret line="271" column="26" lean-forward="false" selection-start-line="271" selection-start-column="26" selection-end-line="271" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+            <element signature="e#435#934#0" expanded="false" />
+            <element signature="e#15420#15892#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/conversations/monologue.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="318" column="72" lean-forward="true" selection-start-line="318" selection-start-column="72" selection-end-line="318" selection-end-column="72" />
+          <folding>
+            <element signature="e#1592#2125#0" expanded="false" />
+            <element signature="e#3473#3720#0" expanded="false" />
+            <element signature="e#4191#4383#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/templates/courses/details.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="14" column="52" lean-forward="false" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/static/templates/success.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="6" column="4" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
+        <state relative-caret-position="130">
+          <caret line="10" column="12" lean-forward="true" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="80" />
           <folding>
             <element signature="n#style#0;n#img#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
@@ -1783,8 +1784,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/web/courses.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="107" column="30" lean-forward="true" selection-start-line="102" selection-start-column="8" selection-end-line="107" selection-end-column="30" />
+        <state relative-caret-position="53">
+          <caret line="95" column="0" lean-forward="true" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
           <folding>
             <element signature="e#0#42#0" expanded="true" />
             <element signature="e#563#2892#0" expanded="false" />
@@ -1792,24 +1793,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/core/models/__init__.py">
+    <entry file="file://$PROJECT_DIR$/application/conversations/collections.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="288" column="62" lean-forward="true" selection-start-line="288" selection-start-column="62" selection-end-line="288" selection-end-column="62" />
+        <state relative-caret-position="151">
+          <caret line="215" column="18" lean-forward="true" selection-start-line="215" selection-start-column="18" selection-end-line="215" selection-end-column="18" />
           <folding>
-            <element signature="e#0#29#0" expanded="true" />
-            <element signature="e#435#934#0" expanded="false" />
-            <element signature="e#15260#15732#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/templates/courses/details.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="14" column="71" lean-forward="false" selection-start-line="14" selection-start-column="71" selection-end-line="14" selection-end-column="71" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#335#1196#0" expanded="false" />
+            <element signature="e#1261#2450#0" expanded="false" />
+            <element signature="e#2528#3880#0" expanded="false" />
+            <element signature="e#3958#5200#0" expanded="false" />
+            <element signature="e#5433#6565#0" expanded="false" />
+            <element signature="e#10580#11329#0" expanded="false" />
+            <element signature="e#11397#11403#0" expanded="false" />
+            <element signature="e#11457#12085#0" expanded="false" />
+            <element signature="e#12141#12976#0" expanded="false" />
+            <element signature="e#13028#13841#0" expanded="false" />
+            <element signature="e#14676#15345#0" expanded="false" />
           </folding>
         </state>
       </provider>
