@@ -120,6 +120,11 @@ class Monologue(object):
         return random.choice(random_statements)
 
     @classmethod
+    def ask_for_reply(cls, feed):
+        return 'What would you like to say to {}?'.format(
+            feed.created_by.first_name)
+
+    @classmethod
     def instruct_on_posting_feeds(cls):
         return (
             "You can share anything to the devs in your Blocs, Facebook and "
@@ -318,7 +323,7 @@ class Monologue(object):
 
     @classmethod
     def take_to_all_feeds(cls):
-        return "Here's what is new on your Blocs"
+        return "Here's what is new on your Blocs."
 
     @classmethod
     def take_to_menu(cls):

@@ -233,27 +233,24 @@ def handle_bloc_required_payload(payload):
     elif payload.startswith('LIKE_FEED'):
         feed_id = int(payload.split('__')[1])
 
-        if g.user.access_token is None:
-            response.append(
-                ('buttons',
-                 Collections.ask_for_facebook_login())
-            )
+        feed = Feed.get(id=feed_id)
 
-        else:
-            feed = Feed.get(id=feed_id)
+        feeds.like_feed(feed.external_app_uid, feed_id)
 
-            feeds.like_feed(feed.external_app_uid, feed_id)
-
-            response.append(('text', Monologue.compliment()))
-            response.append(
-                ('buttons',
-                 Collections.ask_to_view_people_that_liked_feed(feed))
-            )
+        response.append(('text', Monologue.compliment()))
+        response.append(
+            ('buttons',
+             Collections.ask_to_view_people_that_liked_feed(feed))
+        )
 
     elif payload.startswith('REPLY_FEED'):
         feed_id = int(payload.split('__')[1])
 
-        response.append(('text', Monologue.take_to_job()))
+        feed = Feed.get(id=feed_id)
+
+        set_conversation_course(payload)
+
+        response.append(('text', Monologue.ask_for_reply(feed)))
 
     return response
 
