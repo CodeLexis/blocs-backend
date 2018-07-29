@@ -371,7 +371,7 @@ class Event(BaseModel, HasUID, HasBloc, HasCreator):
 
     @property
     def humane_date(self):
-        return self.created_at.date.isoformat()
+        return str(self.created_at.date)
 
 
 class EventInterest(BaseModel, HasUID, HasStatus):
