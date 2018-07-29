@@ -568,7 +568,7 @@ class Collections(object):
     def ask_to_view_events_created(cls):
         text = '%s, you recently created %s events. Want to see the ' \
                'responses they got?' % (
-            g.user.first_name, g.user.event_interests_count
+            g.user.first_name, g.user.events_count
         )
 
         all_view_project_options = [
