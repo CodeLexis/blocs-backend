@@ -132,9 +132,6 @@ class Collections(object):
     def all_courses(cls, page=1, _tailored=False):
         courses = []
 
-        if not _tailored:
-            courses.extend(cls.create_course())
-
         for bloc in g.user.blocs:
             for course in bloc.courses:
                 title = course.title
@@ -165,7 +162,11 @@ class Collections(object):
 
                 courses.append(course_data)
 
-        random.shuffle(courses)
+        courses.reverse()
+
+        if not _tailored:
+            courses.extend(cls.create_course())
+        # random.shuffle(courses)
 
         return courses[:10]
 
