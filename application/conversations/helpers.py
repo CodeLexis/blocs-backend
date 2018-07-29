@@ -145,6 +145,10 @@ def handle_bloc_required_payload(payload):
 
     ### EVENTS
     elif payload == 'DISPLAY_ALL_EVENTS':
+        if g.user.events_count:
+            response.append(
+                ('buttons', Collections.ask_to_view_events_created())
+            )
         if g.user.event_interests_count:
             response.append(
                 ('buttons', Collections.ask_to_view_events_interested_in())
@@ -158,6 +162,11 @@ def handle_bloc_required_payload(payload):
         else:
             response.append(('text', Monologue.empty_resource('event')))
             response.append(('generic', Collections.create_event()))
+
+    elif payload == 'DISPLAY_ALL_EVENTS_CREATED':
+        response.append(('text', Monologue.take_to_events_created()))
+        response.append(
+            ('generic', Collections.all_events_created()))
 
     elif payload == 'DISPLAY_ALL_EVENTS_INTERESTED_IN':
         response.append(('text', Monologue.take_to_events_interested_in()))

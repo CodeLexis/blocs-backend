@@ -371,7 +371,7 @@ class Event(BaseModel, HasUID, HasBloc, HasCreator):
 
     @property
     def humane_date(self):
-        return str(self.created_at.date)
+        return self.created_at.date.isoformat()
 
 
 class EventInterest(BaseModel, HasUID, HasStatus):
@@ -626,6 +626,10 @@ class User(BaseModel, HasUID, HasStatus):
 
     blocs_platform_id = db.Column(
         db.Integer, db.ForeignKey('blocs_platforms.id'))
+
+    @property
+    def events_count(self):
+        return Event.query.filter_by(created_by_id=self.id).count()
 
     @property
     def clean_avatar_url(self):

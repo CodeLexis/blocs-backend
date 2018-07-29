@@ -238,6 +238,13 @@ class Monologue(object):
         ])
 
     @classmethod
+    def take_to_events_created(cls):
+        return random.choice([
+            'The events you added:',
+            'Have a look'
+        ])
+
+    @classmethod
     def take_to_project(cls):
         return random.choice([
             'The latest stories from %s:' % news_source.title.upper(),

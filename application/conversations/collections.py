@@ -180,7 +180,8 @@ class Collections(object):
                     continue
 
                 title = event.title
-                subtitle = '%s | %s' % (bloc.name, event.description)
+                subtitle = '%s | %s - %s' % (bloc.name, event.humane_date,
+                                           event.description)
 
                 buttons = [
                     Dialogue.button(
@@ -501,6 +502,40 @@ class Collections(object):
         return menu
 
     @classmethod
+    def all_events_created(cls):
+        all_event_elements = []
+
+        for event in g.user.events:
+            title = event.title
+            subtitle = event.description
+
+            buttons = [
+                Dialogue.button(
+                    type='web_url', title='VIEW',
+                    url=url_for(
+                        'web_blueprint.render_event_details',
+                        user_id=g.user.id,
+                        event_id=event.id, _external=True)
+                )
+            ]
+
+            event_data = Dialogue.generic(
+                title=title, subtitle=subtitle,
+                image_url=url_for(
+                    'web_blueprint.render_event_thumbnail',
+                    event_id=event.id, _external=True),
+                buttons=buttons
+            )
+
+            all_event_elements.append(event_data)
+
+        all_event_elements.reverse()
+
+        all_event_elements.insert(0, cls.create_event()[0])
+
+        return all_event_elements[:10]
+
+    @classmethod
     def ask_to_view_project_likes(cls, project):
         text = '%s others also like %s' % (project.likes_count, project.title)
         all_view_project_options = [
@@ -522,6 +557,24 @@ class Collections(object):
                 type='web_url', title='VIEW', url=url_for(
                 'web_blueprint.render_all_feeds_likes',
                 feed_id=feed.id, _external=True)
+            )
+        ]
+
+        # return dict that will be splatted because of double params
+        # requirement for `buttons` message
+        return {'text': text, 'buttons': all_view_project_options}
+
+    @classmethod
+    def ask_to_view_events_created(cls):
+        text = '%s, you recently created %s events. Want to see the ' \
+               'responses they got?' % (
+            g.user.first_name, g.user.event_interests_count
+        )
+
+        all_view_project_options = [
+            Dialogue.button(
+                type='postback', title='VIEW',
+                payload='DISPLAY_ALL_EVENTS_CREATED'
             )
         ]
 
